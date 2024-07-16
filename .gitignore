@@ -1,5 +1,7 @@
 # LaTeX
 *.aux
 *.out
+*.lof
 *.log
+*.lot
 *.synctex.gz

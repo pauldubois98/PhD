@@ -1,0 +1,33 @@
+% doc
+% http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/titlesec/titlesec.pdfhttp://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/titlesec/titlesec.pdf
+
+% chapter title
+\titleformat{\chapter} % command
+[display] % shape
+{\normalfont\huge\bfseries\color{Prune}\centering} % format
+{} % label
+{0pt} % sep
+{\Huge} % before-code
+{} % after-code
+
+\titlespacing*{\chapter} % command
+{0pt} % left
+{50pt} % before-sep
+{40pt} % after-sep
+{} % right-sep
+
+% chapter abstract
+\newmdenv[
+	backgroundcolor=lightgrey,
+	linecolor=Prune,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=10pt,
+	innerbottommargin=10pt,
+	nobreak=true,
+	skipabove=2cm,
+	frametitle={\color{Prune}Abstract}, % Title text
+	frametitlefont={\bfseries}, % Font settings for the title
+	frametitlealignment=\centering, % Centers the title
+	]
+{chapterabstract}

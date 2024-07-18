@@ -45,3 +45,19 @@
 %  4: paragraph
 %  5: sub-paragraph
 \etocsettocdepth{1}
+
+
+
+% chapter style table of content
+\def \chapterStyleToC{
+	% add separation bar above and below local ToC
+	\etocsettocstyle{
+		\noindent\rule{\textwidth}{0.5pt}
+		\vspace{5mm}
+	}{
+		\vspace{5mm}
+		\noindent\rule{\textwidth}{0.5pt}
+	}
+	% show local content up to:
+	\etocsettocdepth{4}
+}

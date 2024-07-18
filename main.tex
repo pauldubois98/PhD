@@ -1,11 +1,10 @@
 \documentclass[a4paper]{book}
 
 \usepackage{packages}
+\input{setup.tex}
 
 
 \begin{document}
-	\input{global_setup.tex}
-	
 	\input{preamble/preamble.tex}
 	\input{preamble/_front_page.tex}
 	\input{preamble/_abstract.tex}
@@ -15,8 +14,7 @@
 	\listoffigures
 	\listoftables
 	\tableofcontents
-	
-	\input{local_setup.tex}
+	\chapterStyleToC
 	
 	\include{1_Introduction/1_chapter.tex}
 	\include{2_Dosimetry/2_chapter.tex}

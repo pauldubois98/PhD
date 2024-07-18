@@ -17,7 +17,18 @@
 	\tableofcontents
 	\chapterStyleToC
 	
-	\include{1_Introduction/1_chapter.tex}
-	\include{2_Dosimetry/2_chapter.tex}
+	\chapter{Introduction}
+	\localtableofcontents
+	\begin{chapterabstract}
+		\include{1_Introduction/1_abstract.tex}
+	\end{chapterabstract}
+	\include{1_Introduction/1_content.tex}
+	
+	\chapter{Dosimetry}
+	\localtableofcontents
+	\begin{chapterabstract}
+		\include{2_Dosimetry/2_abstract.tex}
+	\end{chapterabstract}
+	\include{2_Dosimetry/2_content.tex}
 
 \end{document}

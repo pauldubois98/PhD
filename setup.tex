@@ -1,4 +1,4 @@
-% Doc
+% Documentation:
 % http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/titlesec/titlesec.pdfhttp://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/titlesec/titlesec.pdf
 
 % chapter title
@@ -16,6 +16,9 @@
 {40pt} % after-sep
 {} % right-sep
 
+% Documentation:
+% https://texlive.mycozy.space/macros/latex/contrib/mdframed/mdframed.pdf
+\usepackage{mdframed}
 % chapter abstract environment
 \newmdenv[
 	backgroundcolor=lightgrey,
@@ -32,9 +35,9 @@
 	]
 {chapterabstract}
 
-% Doc:
+% Documentation:
 % https://mirrors.mit.edu/CTAN/macros/latex/contrib/etoc/etoc.pdf
-
+\usepackage{etoc} % for local ToC
 % show global content up to:
 % -2: book
 % -1: part
@@ -45,8 +48,6 @@
 %  4: paragraph
 %  5: sub-paragraph
 \etocsettocdepth{1}
-
-
 
 % chapter style table of content
 \def \chapterStyleToC{

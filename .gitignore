@@ -1,5 +1,7 @@
 # LaTeX
 *.aux
+*.bbl
+*.blg
 *.lof
 *.log
 *.lot

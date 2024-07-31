@@ -354,12 +354,28 @@ Although brachytherapy involves an invasive procedure, it significantly minimize
 The localized character of brachytherapy makes it a good treatment option for some types of cancer.
 
 \section{Irradiations techniques}
+% decribe here the main irradiation techniques used with MLC LINAC machines
 \subsection[3D CRT]{3-Dimensional Conformal Radiotherapy}
+% Conformal radiotherapy shapes the radiation beams to closely fit the area of the cancer. It is also called 3D conformal radiotherapy or 3DCRT.
+% from a number of angles (typically 3), the leaves are shaped to fit the projection of the contour of the tumor on the plane normal to the radiation rays.
 \subsection[IMRT]{Intensity Modulated RadioTherapy}
+% instead of irradiation with the same power from each angle, it has been shown that patient outcome is better if the intensity of the beams is dynamically changed
 \paragraph{Step and Shoot}
+% in order to deliver more intese rays on the center of the tumor, step and shoot technique sequencially move leaves closer to each other in order to deliver level-set like doses
 \paragraph{Sliding Window}
-% => what we will focus on
+% a sweep motion of leaves found after solving a linear programming poblem allows us to (theoretically) deliver any onctinuous posuitively defines fluence within the irradiation recangle window of the MLC LINAC.
+% => in this manuscrit, we will suppose that this irradiation technique is used, and we will focus on finding the best fluences
+\paragraph{Number of Beams}
+% The choice of the number of beam is tricky, and results from a compromise between:
+% - many beams makes the spread of unwanted dose more even across all organs, but adds complexity to the treatment planing task, and is slower to deliver (making the immobility of the patient more difficult / leading to more movent of the patient, and eventually a less precise dose)
+% - fewer beams spread less well unwanted dose, but is easier in terms of to planning, and is faster to deliver 
 \subsection[VMAT]{Volumetric Modulated ArcTherapy}
+% MLC LINAC can acually rotate their head while irradiating
+% hence, instead of stopping the head at specific positions around the patient to irrdiate, it is possible to continuously irradiate while rotating around the patient.
+% this allows minor improvement in the spread of the unwanted dose
+% however, constraints linked to the mechanics of the machine make the mathematical optimization of this problem much more complex and computer intensive.
+% IMRT sliding window with 16 angles usually spread out the unwanted dose equally well (cite paper here).
+% technics developped in this manuscrit atre not linked to IMRT SW, and could be applied to VMAT, if enough compyutational power is spent
 
 \section{Treatment Planning Systems}
 \subsection{Manufacturer}

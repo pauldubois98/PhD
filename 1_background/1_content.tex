@@ -387,9 +387,15 @@ This manuscript assumes the use of the Sliding Window technique, focusing on opt
 % add link to web tool
 
 \paragraph{Number of Beams}
-% The choice of the number of beam is tricky, and results from a compromise between:
-% - many beams makes the spread of unwanted dose more even across all organs, but adds complexity to the treatment planing task, and is slower to deliver (making the immobility of the patient more difficult / leading to more movent of the patient, and eventually a less precise dose)
-% - fewer beams spread less well unwanted dose, but is easier in terms of to planning, and is faster to deliver 
+The choice of the number of beams in IMRT is a balance between treatment complexity and effectiveness.
+Using many beams can evenly spread the unwanted dose across all organs, but adds complexity to treatment planning and prolongs the delivery time, which can increase patient movement and reduce dose precision.
+Conversely, fewer beams simplify planning and shorten treatment time but may result in less optimal dose distribution.
+Beams at exactly 180 degrees from each other tend to have (very) similar influence on the dose distribution on the patient.
+Therefore, dosimetrists tend to choose an odd number of equispaced beams.
+
+% add illustration of 2 vs 4
+% add illustration of 3,5,7,9,11 beams
+
 \subsection[VMAT]{Volumetric Modulated ArcTherapy}
 % MLC LINAC can acually rotate their head while irradiating
 % hence, instead of stopping the head at specific positions around the patient to irrdiate, it is possible to continuously irradiate while rotating around the patient.
@@ -413,7 +419,7 @@ This manuscript assumes the use of the Sliding Window technique, focusing on opt
 % competeing goals
 \subsection[BOO]{Beams Orientation Optimization}
 \subsection[FMO]{Fluence Map Optimization}
-\subsection[LF]{LeaF Sequencing}
+\subsection[LS]{Leaf Sequencing}
 
 \section{Simulation}
 % https://oncologymedicalphysics.com/dose-calculation-algorithms/

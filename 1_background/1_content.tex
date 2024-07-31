@@ -397,12 +397,17 @@ Therefore, dosimetrists tend to choose an odd number of equispaced beams.
 % add illustration of 3,5,7,9,11 beams
 
 \subsection[VMAT]{Volumetric Modulated ArcTherapy}
-% MLC LINAC can acually rotate their head while irradiating
-% hence, instead of stopping the head at specific positions around the patient to irrdiate, it is possible to continuously irradiate while rotating around the patient.
-% this allows minor improvement in the spread of the unwanted dose
-% however, constraints linked to the mechanics of the machine make the mathematical optimization of this problem much more complex and computer intensive.
-% IMRT sliding window with 16 angles usually spread out the unwanted dose equally well (cite paper here).
-% technics developped in this manuscrit atre not linked to IMRT SW, and could be applied to VMAT, if enough compyutational power is spent
+Volumetric Modulated Arc Therapy (VMAT) enhances IMRT by allowing the MLC LINAC head to rotate while delivering radiation.
+Unlike IMRT, which stops the head at specific positions around the patient, VMAT continuously irradiates while rotating.
+This technique better distributes the unwanted dose and reduces the irradiation time.
+
+% add illustration of IMRT-5 vs VMAT
+
+However, the mechanical constraints of the machine complicate the optimization problem for VMAT compared to IMRT, making the optimization more computationally intensive.
+Research indicates that IMRT with a Sliding Window and more than 7 angles can achieve equally effective dose distribution.
+% cite paper
+While demonstrated with IMRT Sliding Window, the techniques developed in this manuscript apply to VMAT, given sufficient computational resources.
+
 
 \section{Treatment Planning Systems}
 \subsection{Manufacturer}

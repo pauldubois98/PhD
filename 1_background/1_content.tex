@@ -366,11 +366,16 @@ Although 3D CRT targets the Principal Target Volume (PTV) more than Organs At Ri
 Consequently, advanced and less naive methods have largely supplanted 3D CRT in contemporary clinical practice.
 
 \subsection[IMRT]{Intensity Modulated RadioTherapy}
-Intensity Modulated RadioTherapy (IMRT) represents a significant advancement over 3D CRT by taking a better advantage of the  MLC capabilities.
+Intensity Modulated RadioTherapy (IMRT) represents a significant advancement over 3D CRT by taking better advantage of the  MLC capabilities.
 Instead of delivering radiation with uniform intensity from each angle, IMRT dynamically adjusts the beam intensity to improve patient outcomes.
 
 \paragraph[S\&S]{Step and Shoot}
-% in order to deliver more intese rays on the center of the tumor, step and shoot technique sequencially move leaves closer to each other in order to deliver level-set like doses
+The "Step and Shoot" technique in IMRT involves sequentially moving the MLC leaves to different positions to deliver varying radiation intensities.
+This method enables the delivery of fluence maps that resemble level sets. 
+Before delivery, the fluence maps must be discretized to level sets of nearly convex shapes.
+
+% add illustration
+
 \paragraph[SW]{Sliding Window}
 % a sweep motion of leaves found after solving a linear programming poblem allows us to (theoretically) deliver any onctinuous posuitively defines fluence within the irradiation recangle window of the MLC LINAC.
 % => in this manuscrit, we will suppose that this irradiation technique is used, and we will focus on finding the best fluences

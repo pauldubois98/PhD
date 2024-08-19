@@ -410,15 +410,39 @@ Studies have demonstrated that, IMRT with a Sliding Window and more than 7 angle
 While demonstrated with IMRT Sliding Window, the techniques developed in this manuscript apply to VMAT, given sufficient computational resources.
 
 \section{Dosimetry steps}
+The goal of dosimetry is to design a treatment plan (i.e. machine instructions) that delivers the best possible dose for the patient.
 \paragraph{Challenges}
+%defining best dose is not well defined
+%there are competeing goals
+%Going from abstract dose requirements to machine instructions si very complex.
+%Hence, the process is split in sub-steps.
+For IMRT, there are three main.
 \subsection[BOO]{Beams Orientation Optimization}
+%process of determining the optimal number of beams, and their angles
+%orientation of beams significantly affects dose distribution 
+%despite that, an extended BOO does merely do better than equispaced angles beams
 %boo is useless \cite{Rocha2019}
 \subsection[FMO]{Fluence Map Optimization}
+%critical step
+%optimization of the radiation intensity on the beam's cross-sectional area
+%outcome of FMO is a set of fluence maps for each beam
+%no worries (yet) about MLC's physical constraints
 \subsection[LS]{Leaf Sequencing}
+% converting optimized fluence maps into deliverable instructions for the multileaf collimator
+% challenge in LS lies in minimizing the complexity and delivery time of the treatment while maintaining the quality of the dose distribution
 \paragraph{Step and Shoot}
+% math is easy: make levels sets and calculate the leaf pos to match that shape
 \paragraph{Sliding Window}
+% is much more complicated
+% but solved with linear programming
+% max power & max speed of the leaves make the treatment longer / faster
+% 
+\subsection[DAO]{(Optional) Direct Aperture Optimization}
+% mostly used for VMAT
+% is sometimes used to fine tune IMRT
 
 \section{Simulation}
+lots of approximations were made in the dosimetry, so there is a need to re-simulate to check that the machine instructions send a dose that is not too far from what was expected .
 % https://oncologymedicalphysics.com/dose-calculation-algorithms/
 
 \section{Treatment Planning Systems}

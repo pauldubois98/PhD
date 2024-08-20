@@ -496,7 +496,13 @@ This approximation must be attained while considering the physical limitations o
 
 \paragraph[S\&S]{Step and Shoot}
 The "Step and Shoot" technique for leaf sequencing is relatively simple computationally.
-The fluence maps are divided into discrete levels.
+\begin{figure}
+	\centering
+	\includegraphics[height=5cm]{_fluence_map_discretization.pdf}
+	\caption{Example of a fluence map discretization.}
+	\label{fig:fluence_map_discretization}
+\end{figure}
+The fluence maps are divided into discrete levels (figure \ref{fig:fluence_map_discretization}).
 Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set.
 Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases

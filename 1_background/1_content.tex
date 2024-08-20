@@ -503,7 +503,14 @@ The "Step and Shoot" technique for leaf sequencing is relatively simple computat
 	\label{fig:fluence_map_discretization}
 \end{figure}
 The fluence maps are divided into discrete levels (figure \ref{fig:fluence_map_discretization}).
-Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set.
+\begin{figure}
+	\centering
+	\includegraphics[height=4cm]{_level_set_matching_with_leaves.pdf}
+	\caption{Example of level set matching with leaves.}
+	\label{fig:level_set_matching_with_leaves}
+\end{figure}
+Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set (figure \ref{fig:level_set_matching_with_leaves}).
+Note that convex level sets can all be matched with the MLC leaves; in case the level set is concave, changing the collimator angle may still allow the leaves to match the level set shape (figure ).
 Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases
 There is therefore a tradeoff to find between achieving greater accuracy and maintaining an efficient treatment time.

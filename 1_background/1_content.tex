@@ -483,10 +483,12 @@ This approach avoids beams positioned at exactly 180° from each other, with ver
 Therefore, this manuscript will assume the use of an odd number of equispaced beams, and not further BOO.
 
 \subsection[FMO]{Fluence Map Optimization}
-%critical step
-%optimization of the radiation intensity on the beam's cross-sectional area
-%outcome of FMO is a set of fluence maps for each beam
-%no worries (yet) about MLC's physical constraints
+Fluence Map Optimization (FMO) is the critical step in the IMRT planning process.
+The goal of FMO is to create fluence maps, i.e. a two dimensional distribution of the radiation intensity on each beam's cross-sectional area.
+The fluence maps should be optimized to shape the dose distribution according to the treatment plan's objectives.
+At this stage, the physical constraints of the MLC are not yet considered; the primary focus is on achieving the desired dose distribution within the patient.
+The output of FMO is a set of idealized fluence maps for each beam.
+
 \subsection[LS]{Leaf Sequencing}
 % converting optimized fluence maps into deliverable instructions for the multileaf collimator
 % challenge in LS lies in minimizing the complexity and delivery time of the treatment while maintaining the quality of the dose distribution

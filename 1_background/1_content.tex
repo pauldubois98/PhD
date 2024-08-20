@@ -495,7 +495,7 @@ The objective is to ensure that the delivered fluence map closely approximates t
 This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
 
 \paragraph{Step and Shoot}
-The "Step and Shoot" technique for leaf sequencing is relatively straightforward mathematically.
+The "Step and Shoot" technique for leaf sequencing is relatively simple computationally.
 The fluence maps are divided into discrete levels.
 Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set.
 Each level set is delivered as a static beam in sequence.
@@ -503,10 +503,14 @@ As the level sets are refined, the irradiation time increases
 There is therefore a tradeoff to find between achieving greater accuracy and maintaining an efficient treatment time.
 
 \paragraph{Sliding Window}
-% is much more complicated
-% but solved with linear programming
-% max power & max speed of the leaves make the treatment longer / faster
-% 
+The "Sliding Window" technique, in contrast, is more computationally intensive:
+The MLC leaves continuously move during beam delivery.
+Finding the appropriate leaves motions requires solving a linear programming problem for each pair of leaves (sometimes called "Inverse Sliding Window Algorithm").
+The fluence is segmented in one dimensional fluence curve along each leaf pair axis.
+Correctly solving the linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation, in a reasonable amount of time.
+A playground to calculate the leaves motion for an arbitrary fluence is available here:
+\url{https://mics-lab.github.io/PresentationJuin2023PRFD/demo}.
+
 \subsection[DAO]{(Optional) Direct Aperture Optimization}
 % mostly used for VMAT
 % is sometimes used to fine tune IMRT

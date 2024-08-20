@@ -490,8 +490,10 @@ At this stage, the physical constraints of the MLC are not yet considered; the p
 The output of FMO is a set of idealized fluence maps for each beam.
 
 \subsection[LS]{Leaf Sequencing}
-% converting optimized fluence maps into deliverable instructions for the multileaf collimator
-% challenge in LS lies in minimizing the complexity and delivery time of the treatment while maintaining the quality of the dose distribution
+Leaf Sequencing (LS) is the process of determining the specific positions and movements of the MLC leaves.
+The objective is to ensure that the delivered fluence map closely approximates the ideal fluence map generated during the Fluence Map Optimization (FMO) step.
+This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
+
 \paragraph{Step and Shoot}
 % math is easy: make levels sets and calculate the leaf pos to match that shape
 \paragraph{Sliding Window}

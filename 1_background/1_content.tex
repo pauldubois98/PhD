@@ -494,7 +494,7 @@ Leaf Sequencing (LS) is the process of determining the specific positions and mo
 The objective is to ensure that the delivered fluence map closely approximates the ideal fluence map generated during the Fluence Map Optimization (FMO) step.
 This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
 
-\paragraph{Step and Shoot}
+\paragraph[S\&S]{Step and Shoot}
 The "Step and Shoot" technique for leaf sequencing is relatively simple computationally.
 The fluence maps are divided into discrete levels.
 Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set.
@@ -502,7 +502,7 @@ Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases
 There is therefore a tradeoff to find between achieving greater accuracy and maintaining an efficient treatment time.
 
-\paragraph{Sliding Window}
+\paragraph[SW]{Sliding Window}
 The "Sliding Window" technique, in contrast, is more computationally intensive:
 The MLC leaves continuously move during beam delivery.
 Finding the appropriate leaves motions requires solving a linear programming problem for each pair of leaves (sometimes called "Inverse Sliding Window Algorithm").

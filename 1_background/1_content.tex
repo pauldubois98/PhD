@@ -470,10 +470,18 @@ The "best" dose is difficult to define, so doctors formulate high-level clinical
 These requirements are abstract, so transitioning to machine instructions requires a series of sub-steps.
 For Intensity-Modulated Radiation Therapy (IMRT), three main steps are typically followed: Beam Orientation Optimization (BOO), Fluence Map Optimization (FMO), and Leaf Sequencing (LS).
 \subsection[BOO]{Beams Orientation Optimization}
-%process of determining the optimal number of beams, and their angles
-%orientation of beams significantly affects dose distribution 
-%despite that, an extended BOO does merely do better than equispaced angles beams
-%boo is useless \cite{Rocha2019}
+Beam Orientation Optimization (BOO) is the initial dosimetry step.
+This step determines of the optimal number of radiation beams and their respective angles.
+The orientation of the beams has a significant impact on the dose distribution within the patient: beams close to each other tend to have similar effect on the body, while beams that are far apart tend to create dose impacting different tissues in the body.
+There is one exception to this rule of thumbs: Beams exactly 180° from each other can have similar biological effect, because rays will follow the same line, just entering the body from opposite directions.
+% add illustration of beams 180° apart
+Despite its importance, the practical benefits of BOO are questionable.
+Research \cite{Rocha2019}, suggests that an extensive BOO process offers little improvement over simpler strategies, like using equispaced beam angles.
+When using equispaced beams, it's common to use an odd number of beams, to avoid beams at exactly 180° having the same effect.
+When utilizing equispaced beam arrangements, it is common practice to employ an odd number of beams.
+This approach avoids beams positioned at exactly 180° from each other, with very similar clinical effect (as mentioned before).
+Therefore, this manuscript will assume the use of an odd number of equispaced beams, and not further BOO.
+
 \subsection[FMO]{Fluence Map Optimization}
 %critical step
 %optimization of the radiation intensity on the beam's cross-sectional area

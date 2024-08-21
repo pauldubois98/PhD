@@ -420,23 +420,6 @@ Consequently, advanced and less naive methods have largely supplanted 3D CRT in 
 Intensity Modulated RadioTherapy (IMRT) represents a significant advancement over 3D CRT by taking better advantage of the  MLC capabilities.
 Instead of delivering radiation with uniform intensity from each angle, IMRT dynamically adjusts the beam intensity to improve patient outcomes \cite{Tubiana2000}.
 
-\paragraph[S\&S]{Step and Shoot}
-The "Step and Shoot" technique in IMRT involves sequentially moving the MLC leaves to different positions to deliver varying radiation intensities.
-This method enables the delivery of fluence maps that resemble level sets. 
-Before delivery, the fluence maps must be discretized to level sets of nearly convex shapes.
-
-% add illustration
-
-\paragraph[SW]{Sliding Window}
-The "Sliding Window" technique employs a continuous sweep motion of the MLC leaves, determined by solving a linear programming problem.
-This approach theoretically enables the delivery of any continuous, positively defined fluence within the irradiation window of the MLC-LINAC.
-The irradiation time is reduced compared to step and shoot.
-This manuscript assumes the use of the Sliding Window technique, focusing on optimizing the fluence distribution.
-
-% add details?
-% add illustration
-% add link to web tool
-
 \paragraph{Number of Beams}
 The choice of the number of beams in IMRT is a balance between treatment complexity and effectiveness.
 Using many beams can evenly spread the unwanted dose across all organs, but adds complexity to treatment planning and prolongs the delivery time, which can increase patient movement and reduce dose precision.
@@ -502,43 +485,54 @@ The objective is to ensure that the delivered fluence map closely approximates t
 This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
 
 \paragraph[S\&S]{Step and Shoot}
-The "Step and Shoot" technique for leaf sequencing is relatively simple computationally.
+The "Step and Shoot" technique in IMRT involves sequentially moving the MLC leaves to different positions to deliver varying radiation intensities.
+This technique for leaf sequencing is relatively simple computationally.
+
+The fluence maps are divided into discrete levels (figure \ref{fig:fluence_map_discretization}).
+Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set (figure \ref{fig:level_set_matching_with_leaves}).
+Note that convex level sets can all be matched with the MLC leaves; if the level set is concave, changing the collimator angle may allow the leaves to match the level set shape (figure \ref{fig:leaves_angle}).
+Each level set is delivered as a static beam in sequence.
+As the level sets are refined, the irradiation time increases
+Dosimetrists must set a tradeoff between achieving greater accuracy and maintaining an efficient treatment time.
+
 \begin{figure}
 	\centering
 	\includegraphics[height=4.5cm]{_fluence_map_discretization.pdf}
 	\caption{Example of a fluence map discretization.}
 	\label{fig:fluence_map_discretization}
 \end{figure}
-The fluence maps are divided into discrete levels (figure \ref{fig:fluence_map_discretization}).
 \begin{figure}
 	\centering
 	\includegraphics[height=4cm]{_level_set_matching_with_leaves.pdf}
 	\caption{Example of level set matching with leaves.}
 	\label{fig:level_set_matching_with_leaves}
 \end{figure}
-Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set (figure \ref{fig:level_set_matching_with_leaves}).
 \begin{figure}
 	\centering
 	\includegraphics[height=4.2cm]{_leaves_angle.pdf}
 	\caption{Example of a concave level matched with leaves.}
 	\label{fig:leaves_angle}
 \end{figure}
-Note that convex level sets can all be matched with the MLC leaves; if the level set is concave, changing the collimator angle may allow the leaves to match the level set shape (figure \ref{fig:leaves_angle}).
-Each level set is delivered as a static beam in sequence.
-As the level sets are refined, the irradiation time increases
-Dosimetrists must set a tradeoff between achieving greater accuracy and maintaining an efficient treatment time.
 
 \paragraph[SW]{Sliding Window}
-The "Sliding Window" technique, in contrast, is more computationally intensive:
-The MLC leaves continuously move during beam delivery.
+The "Sliding Window" technique employs a continuous sweep motion of the MLC leaves.
+This approach enables the delivery of any continuous, positively defined fluence within the irradiation window of the MLC-LINAC.
+In contrast with step and shoot, a sliding window is more computationally intensive:
 Finding the appropriate leaf motions requires solving a linear programming problem for each pair of leaves (sometimes called "Inverse Sliding Window Algorithm").
+
 The fluence is segmented in a one-dimensional fluence curve along each leaf pair axis.
-Correctly solving the linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time.
+Suppose the motion of the leaves is from left to right:
+The difference between the time the right and left leaves pass by a point determines the amount of irradiation delivered at that point.
+The greater the time difference, the more rays will be sent from that point.
+One needs to carefully move the opening (right) and closing (left) leaves to deliver the correct amount of rays at each point of the fluence map.
+Solving a linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time.
 A playground to calculate the leaf's motion for an arbitrary fluence is available here:
 \url{https://mics-lab.github.io/PresentationJuin2023PRFD/demo}.
 % add playground demo for multi-leaf?
+% add illustration?
 
 The sliding window technique is used most of the time, as delivery time is much (about twice) faster \cite{Ning2003}.
+This manuscript assumes the use of this technique, focusing on optimizing the fluence distribution.
 
 \subsection[DAO]{(Optional) Direct Aperture Optimization}
 % mostly used for VMAT

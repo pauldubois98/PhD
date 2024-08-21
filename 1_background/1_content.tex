@@ -491,13 +491,13 @@ Therefore, this manuscript will assume the use of an odd number of equispaced be
 
 \subsection[FMO]{Fluence Map Optimization}
 Fluence Map Optimization (FMO) is the critical step in the IMRT planning process.
-The goal of FMO is to create fluence maps, i.e. a two dimensional distribution of the radiation intensity on each beam's cross-sectional area.
+FMO aims to create fluence maps, i.e., a two-dimensional radiation intensity distribution on each beam's cross-sectional area.
 The fluence maps should be optimized to shape the dose distribution according to the treatment plan's objectives.
-At this stage, the physical constraints of the MLC are not yet considered; the primary focus is on achieving the desired dose distribution within the patient.
+At this stage, the physical constraints of the MLC still need to be considered; the primary focus is on achieving the desired dose distribution within the patient.
 The output of FMO is a set of idealized fluence maps for each beam.
 
 \subsection[LS]{Leaf Sequencing}
-Leaf Sequencing (LS) is the process of determining the specific positions and movements of the MLC leaves.
+Leaf Sequencing (LS) determines the specific positions and movements of the MLC leaves.
 The objective is to ensure that the delivered fluence map closely approximates the ideal fluence map generated during the Fluence Map Optimization (FMO) step.
 This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
 
@@ -523,18 +523,18 @@ Then, the MLC leaves are positioned so that the open area of the irradiation hea
 	\caption{Example of a concave level matched with leaves.}
 	\label{fig:leaves_angle}
 \end{figure}
-Note that convex level sets can all be matched with the MLC leaves; in case the level set is concave, changing the collimator angle may still allow the leaves to match the level set shape (figure \ref{fig:leaves_angle}).
+Note that convex level sets can all be matched with the MLC leaves; if the level set is concave, changing the collimator angle may allow the leaves to match the level set shape (figure \ref{fig:leaves_angle}).
 Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases
-There is therefore a tradeoff to find between achieving greater accuracy and maintaining an efficient treatment time.
+Dosimetrists must set a tradeoff between achieving greater accuracy and maintaining an efficient treatment time.
 
 \paragraph[SW]{Sliding Window}
 The "Sliding Window" technique, in contrast, is more computationally intensive:
 The MLC leaves continuously move during beam delivery.
-Finding the appropriate leaves motions requires solving a linear programming problem for each pair of leaves (sometimes called "Inverse Sliding Window Algorithm").
-The fluence is segmented in one dimensional fluence curve along each leaf pair axis.
-Correctly solving the linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation, in a reasonable amount of time.
-A playground to calculate the leaves motion for an arbitrary fluence is available here:
+Finding the appropriate leaf motions requires solving a linear programming problem for each pair of leaves (sometimes called "Inverse Sliding Window Algorithm").
+The fluence is segmented in a one-dimensional fluence curve along each leaf pair axis.
+Correctly solving the linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time.
+A playground to calculate the leaf's motion for an arbitrary fluence is available here:
 \url{https://mics-lab.github.io/PresentationJuin2023PRFD/demo}.
 % add playground demo for multi-leaf?
 

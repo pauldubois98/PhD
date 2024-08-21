@@ -489,7 +489,7 @@ The "Step and Shoot" technique in IMRT involves sequentially moving the MLC leav
 This technique for leaf sequencing is relatively simple computationally.
 
 The fluence maps are divided into discrete levels (figure \ref{fig:fluence_map_discretization}).
-Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set (figure \ref{fig:level_set_matching_with_leaves}).
+Then, the MLC leaves are positioned so that the open area of the irradiation head matches the level set (figures \ref{fig:level_set_matching_with_leaves}, \ref{fig:leaves_angle_ter}).
 Note that convex level sets can all be matched with the MLC leaves; if the level set is concave, changing the collimator angle may allow the leaves to match the level set shape (figure \ref{fig:leaves_angle}).
 Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases
@@ -510,8 +510,14 @@ Dosimetrists must set a tradeoff between achieving greater accuracy and maintain
 \begin{figure}
 	\centering
 	\includegraphics[height=4.2cm]{_leaves_angle.pdf}
-	\caption{Example of a concave level matched with leaves.}
+	\caption{Example of a concave level set matched with leaves.}
 	\label{fig:leaves_angle}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{_leaves_angle_ter.pdf}
+	\caption{Example of a concave level set impossible to match with leaves.}
+	\label{fig:leaves_angle_ter}
 \end{figure}
 
 \paragraph[SW]{Sliding Window}

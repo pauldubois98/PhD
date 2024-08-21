@@ -495,6 +495,7 @@ Each level set is delivered as a static beam in sequence.
 As the level sets are refined, the irradiation time increases
 Dosimetrists must set a tradeoff between achieving greater accuracy and maintaining an efficient treatment time.
 
+
 \begin{figure}
 	\centering
 	\includegraphics[height=4.5cm]{_fluence_map_discretization.pdf}
@@ -509,21 +510,28 @@ Dosimetrists must set a tradeoff between achieving greater accuracy and maintain
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[height=4.2cm]{_leaves_angle.pdf}
-	\caption{Example of a concave level set matched with leaves.}
-	\label{fig:leaves_angle}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[height=4.2cm]{_leaves_angle_bis.pdf}
-	\caption{Example of a more complex concave level set matched with leaves.}
-	\label{fig:leaves_angle_bis}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{_leaves_angle_ter.pdf}
-	\caption{Example of a concave level set impossible to match with leaves.}
-	\label{fig:leaves_angle_ter}
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{_leaves_angle.pdf}
+		\caption{Example of a concave level set matched with leaves.}
+		\label{fig:leaves_angle}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[height=4cm]{_leaves_angle_bis.pdf}
+		\caption{Example of a more complex concave level set matched with leaves.}
+		\label{fig:leaves_angle_bis}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{_leaves_angle_ter.pdf}
+		\caption{Example of a concave level set impossible to match with leaves.}
+		\label{fig:leaves_angle_ter}
+	\end{subfigure}
+	\caption{MLC leaves can not always be set to shape level sets of fluence functions.}
+	\label{fig:leaves_angles}
 \end{figure}
 
 \paragraph[SW]{Sliding Window}

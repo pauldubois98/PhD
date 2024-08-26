@@ -599,9 +599,14 @@ However, as this manuscript is not focused on leaf sequencing, it assumes that n
 
 
 \section{Simulation}
-lots of approximations were made in the dosimetry, so there is a need to re-simulate to check that the machine instructions send a dose that is not too far from what was expected .
+Throughout the dosimetry process, several approximations are employed.
+First, the assumption is that each bixel (beam pixel) operates independently.
+This approximation fails to account for interactions between adjacent bixels.
+Additionally, during FMO, ideal fluence maps are generated without considering the physical limitations of the treatment machine, such as the width of the multi-leaf collimator (MLC) leaves (often 5mm).
+Furthermore, the effects of beam penumbra and the scattering of radiation within the patient's body are often simplified or neglected in the FMO.
+Given these approximations, re-simulation of the treatment plan is critical to verify that the machine instructions deliver a dose distribution closely aligned with the expected outcomes.
 % https://oncologymedicalphysics.com/dose-calculation-algorithms/
-
+% add more?
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %

@@ -549,7 +549,7 @@ The fluence is segmented in a one-dimensional fluence curve along each leaf pair
 \end{figure}
 Suppose the motion of the leaves is from left to right:
 The difference between the time the right and left leaves pass by a point determines the amount of irradiation delivered at that point.
-The greater the time difference, the more rays will be sent from that point.
+The greater the time difference, the more rays will be sent from that point (in figure \ref{fig:fluence_leaf_sequencing_10} and \ref{fig:fluence_leaf_sequencing_100}, the time laps between left and right leaves passing a point is proportional to the fluence delivered at that point).
 One needs to carefully move the opening (right) and closing (left) leaves to deliver the correct amount of rays at each point of the fluence map.
 \begin{figure}
 	\centering
@@ -570,11 +570,10 @@ One needs to carefully move the opening (right) and closing (left) leaves to del
 	\caption{Fluence curve can be approximated with arbitrary error.}
 	\label{fig:fluence_leaf_sequencing}
 \end{figure}
-Solving a linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time.
+Solving a linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time (figure \ref{fig:fluence_leaf_sequencing}).
 A playground to calculate the leaf's motion for an arbitrary fluence is available here:
 \url{https://mics-lab.github.io/PresentationJuin2023PRFD/demo}.
 % add playground demo for multi-leaf?
-% add illustration?
 
 The sliding window technique is used most of the time, as delivery time is much (about twice) faster \cite{Ning2003}.
 This manuscript assumes the use of this technique, focusing on optimizing the fluence distribution.

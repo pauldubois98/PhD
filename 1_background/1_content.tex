@@ -579,8 +579,14 @@ The sliding window technique is used most of the time, as delivery time is much 
 This manuscript assumes the use of this technique, focusing on optimizing the fluence distribution.
 
 \subsection[DAO]{(Optional) Direct Aperture Optimization}
-% mostly used for VMAT
-% is sometimes used to fine tune IMRT
+Direct Aperture Optimization is mainly used in VMAT and occasionally employed to enhance IMRT plans.
+Unlike traditional approaches, which separate fluence map optimization from leaf sequencing, DAO directly optimizes the motion of the MLC leaves.
+
+In VMAT, applying conventional leaf sequencing to any arbitrary fluence map is not feasible.
+Therefore, DAO is essential, as it is the only optimization method capable of generating a VMAT treatment plan.
+
+When applied to IMRT, DAO can refine the treatment plan by directly adjusting the aperture shapes to better align with the desired dose distribution while accounting for the physical constraints of the treatment machine.
+However, as this manuscript is not focused on leaf sequencing, it assumes that no additional DAO is applied following conventional leaf sequencing.
 
 
 

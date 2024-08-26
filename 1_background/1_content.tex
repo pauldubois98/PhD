@@ -551,6 +551,25 @@ Suppose the motion of the leaves is from left to right:
 The difference between the time the right and left leaves pass by a point determines the amount of irradiation delivered at that point.
 The greater the time difference, the more rays will be sent from that point.
 One needs to carefully move the opening (right) and closing (left) leaves to deliver the correct amount of rays at each point of the fluence map.
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\linewidth]{_fluence_leaf_sequencing_10.pdf}
+		\caption{Example of a fluence curve leaf sequencing, with the fluence approximated by a 10-pieces linear function.}
+		\label{fig:fluence_leaf_sequencing_10}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.17\textwidth}
+		\includegraphics[width=\linewidth]{_fluence_leaf_sequencing_legend.pdf}
+		\vspace{0cm}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\linewidth]{_fluence_leaf_sequencing_100.pdf}
+		\caption{Example of a fluence curve leaf sequencing, with the fluence approximated by a 100-pieces linear function.}
+		\label{fig:fluence_leaf_sequencing_100}
+	\end{subfigure}
+	\caption{Fluence curve can be approximated with arbitrary error.}
+	\label{fig:fluence_leaf_sequencing}
+\end{figure}
 Solving a linear programming problem allows a leaf pair to deliver any fluence within arbitrary approximation in a reasonable amount of time.
 A playground to calculate the leaf's motion for an arbitrary fluence is available here:
 \url{https://mics-lab.github.io/PresentationJuin2023PRFD/demo}.

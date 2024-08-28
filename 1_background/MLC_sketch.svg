@@ -265,6 +265,25 @@
          style="fill:context-stroke;fill-rule:evenodd;stroke:none"
          id="path8" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow-4"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="0.69999999"
+       markerHeight="0.69999999"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8-4" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -406,6 +425,35 @@
          style="fill:none;fill-opacity:1;stroke:#00aa00;stroke-width:0.759;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.759, 2.277;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
          d="m 65.531276,145.9631 -6.668394,4.30401 -0.152601,-11.86049"
          sodipodi:nodetypes="ccc" />
+    </g>
+    <g
+       id="g4485"
+       transform="translate(-5.2433727,-46.648823)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffcc00;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#RoundedArrow-4);paint-order:markers fill stroke"
+         id="path4465-0"
+         transform="matrix(0.92436052,0.38152016,-0.38152717,0.92435762,0,0)"
+         sodipodi:type="arc"
+         sodipodi:cx="148.52371"
+         sodipodi:cy="68.976837"
+         sodipodi:rx="13.112617"
+         sodipodi:ry="1.7585881"
+         sodipodi:start="2.0943951"
+         sodipodi:end="5.0614548"
+         sodipodi:arc-type="arc"
+         d="m 141.9674,70.499819 a 13.112617,1.7585881 0 0 1 -5.32775,-2.266193 13.112617,1.7585881 0 0 1 16.36884,-0.909321"
+         sodipodi:open="true" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffcc00;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         x="110.13675"
+         y="109.85159"
+         id="text4465-9"><tspan
+           sodipodi:role="line"
+           id="tspan4465-8"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111px;font-family:Arial;-inkscape-font-specification:'Arial Bold';letter-spacing:0px;fill:#ffcc00;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-dasharray:none;paint-order:stroke markers fill"
+           x="110.13675"
+           y="109.85159">Collimator angle</tspan></text>
     </g>
   </g>
 </svg>

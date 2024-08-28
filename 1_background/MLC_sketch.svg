@@ -246,6 +246,25 @@
        fx="112.97619"
        fy="201.31984"
        r="36.273811" />
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="0.69999999"
+       markerHeight="0.69999999"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -345,6 +364,48 @@
          style="fill:url(#linearGradient4477);fill-opacity:1;stroke:#000000;stroke-width:0.529863;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
          d="m 186.65023,183.389 v 3.17919 m 23.31404,-13.77648 v 3.17919 L 186.65023,186.56819 73.819098,156.37359 V 153.1944 M 209.96427,172.79171 186.65023,183.389 73.819098,153.1944 96.758337,143.93368 Z"
          sodipodi:nodetypes="cccccccccccc" />
+    </g>
+    <ellipse
+       style="fill:#b7e9f2;fill-opacity:1;stroke:#000000;stroke-width:0.507364;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path4459"
+       cx="81.928535"
+       cy="77.495911"
+       rx="8.8878021"
+       ry="12.15364"
+       transform="matrix(0.93931945,0.3430437,-0.3163502,0.94864248,0,0)" />
+    <g
+       id="g4486"
+       transform="translate(-6.0397679,-48.646133)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#00aa00;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#RoundedArrow);paint-order:markers fill stroke"
+         id="path4465"
+         transform="rotate(14.412614)"
+         sodipodi:type="arc"
+         sodipodi:cx="94.412331"
+         sodipodi:cy="130.88681"
+         sodipodi:rx="9.0635347"
+         sodipodi:ry="12.184025"
+         sodipodi:start="4.3633231"
+         sodipodi:end="5.4369942"
+         sodipodi:arc-type="arc"
+         d="M 91.312419,119.43757 A 9.0635347,12.184025 0 0 1 100.42,121.76389"
+         sodipodi:open="true" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00aa00;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         x="55.2159"
+         y="131.85324"
+         id="text4465"><tspan
+           sodipodi:role="line"
+           id="tspan4465"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.76111px;font-family:Arial;-inkscape-font-specification:'Arial Bold';letter-spacing:0px;fill:#00aa00;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-dasharray:none;paint-order:stroke markers fill"
+           x="55.2159"
+           y="131.85324">Gauntry angle</tspan></text>
+      <path
+         id="path4468"
+         style="fill:none;fill-opacity:1;stroke:#00aa00;stroke-width:0.759;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.759, 2.277;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         d="m 65.531276,145.9631 -6.668394,4.30401 -0.152601,-11.86049"
+         sodipodi:nodetypes="ccc" />
     </g>
   </g>
 </svg>

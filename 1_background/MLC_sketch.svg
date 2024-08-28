@@ -37,5 +37,11 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1">
+    <path
+       id="path4426"
+       style="fill:#effafc;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.667308;paint-order:markers fill stroke"
+       d="m 14.133626,27.06514 0.29766,125.44557 M 3.2526399,32.456026 14.133626,27.065141 83.1568,27.296651 82.89222,146.75602 14.431286,152.51071 3.9140999,147.15289 Z"
+       sodipodi:nodetypes="ccccccccc" />
+  </g>
 </svg>

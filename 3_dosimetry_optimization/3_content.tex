@@ -1,0 +1,62 @@
+\subsection{Naive Method}
+% least squares on PTV = prescription, OARs = 0
+% => does not work at all
+\subsection{Constraints and Importance Factors}
+\subsubsection[DVHs]{Dose Volume Histograms}
+% 3D dose vs DVH
+\subsubsection{Constraints Formulation}
+\subsubsection{Optimization Problem}
+\paragraph{Ideal}
+% minimize dose while reaching constraints
+\paragraph{Practical}
+% get as close as possible to meeting constraints
+% building of cost function
+
+\subsection{Dose Mimicking}
+% principle
+% => is a simpler problem
+% => only works if dose to mimick is nearly acheaivable
+% => can arise if machine is changing during treatment
+% optim problem
+
+\subsection{Optimization Algorithm Review for Dosimetry}
+\subsubsection{Introduction}
+% ArXiV paper
+
+\subsubsection{Methods}
+%Efficiently solving this optimization problem often involves designing the objective function to be convex, thereby providing a well-defined target for the optimization process.
+%Gradient-based methods, Newtonian algorithms, or quasi-Newtonian algorithms are commonly employed for this purpose.
+%We aim at benchmarking state-of-the-art open-source optimization algorithms for the specific task of radiotherapy dosimetry.
+
+\subsubsection{Data}
+% TG-119 \cite{AAPM-TG119}
+\subsubsection{Objective function}
+% details on the one used for this study
+% => tested variations (p=1,2), changed importance factors, but v similar results
+\subsubsection{Open-source Optimizers}
+\paragraph{(Stochastic) Gradient Descent}
+\paragraph{Conjugate Gradient}
+\paragraph{Newton}
+\paragraph{SLSQP}
+\paragraph{RMSprop}
+\paragraph{BFGS-based}
+\subparagraph{Pure BFGS}
+\subparagraph{L-BFGS}
+\paragraph{Adam-based}
+\subparagraph{Pure Adam}
+\subparagraph{RAdam}
+\subparagraph{NAdam}
+\subparagraph{AdamDelta}
+\subparagraph{Adamax}
+\paragraph{Rprop}
+\paragraph{Other optimizers variations}
+%In addition, we also tested AdamW, Adagrad and ASGD.
+%However, AdamW \& Adagrad behaved similarly to Adam, and ASGD behaved similarly to SGD.
+
+\subsubsection{Results}
+% 4 TGG-119 cases figures
+\paragraph{Newton's method}
+\paragraph{Best Algorithms}
+\paragraph{LBFGS vs BFGS}
+
+\subsubsection{Discussion}

@@ -2,6 +2,397 @@
 % https://github.com/pauldubois98/ESTRO2024/blob/main/full_paper.pdf
 \section{Distance Between Doses}
 % Clinically Meaningful Dose Distances for Radiotherapy
+\subsection{Introduction}
+%Radiotherapy is a widely used treatment for cancer, which involves the use of ionizing radiation to kill cancer cells.
+%Intensity-modulated radiation therapy (IMRT) is a type of radiotherapy that delivers high doses of radiation to the tumor while minimizing the radiation dose to the surrounding healthy tissues \cite{ReportIMRT2003}.
+%Classical IMRT techniques involve the use of several beams (usually 5,7 or 9) of radiation that are directed at the tumor from different angles (usually equispaced angles around the patient) \cite{Bortfeld_2006}.
+%The intensity of each beam is modulated, or adjusted, to deliver a higher dose of radiation to the tumor and a lower dose to the surrounding healthy tissues; it has been shown that this technique is much more efficient than 3D-CRT \cite{KOLE2012} \cite{PALMA2008} \cite{VERHEY1999}
+%This is achieved by using a computer-controlled device called a multi-leaf collimator (MLC), which shapes the radiation beam to conform to the shape of the tumor.
+%
+%The success of a radiotherapy treatment plan depends on the optimization process, which involves several steps to ensure the optimal delivery of radiation (that is, delivery that best matches doctor's prescriptions).
+%The optimization process is typically performed using computer software that takes into account the patient's anatomy, the location and size of the tumor/organs, and the radiation objectives defined by doctors.
+%Radiotherapy dose optimization is an inverse problem\cite{Webb2003}, where the goal is to determine the radiation dose distribution that best matches the desired treatment outcome.
+
+\paragraph{Pre-dose-optimization}
+%The first step in the optimization process is to create a virtual model of the patient's anatomy using medical imaging techniques such as CT or MRI scans.
+%This model is then used to identify the location and size of the tumor and to delineate the surrounding healthy tissues that need to be spared from radiation exposure.
+%The next step is to define the radiation dose required for effective treatment.
+%Most of the time, doctors give dose-volume objectives (e.g.: 95\% of the PTV should receive at least 75Gy).
+%This is based on the size, location, and type of tumor, as well as the patient's medical history and overall health.
+%The radiation dose is typically expressed in units of Gray (Gy), which is a measure of the amount of radiation energy absorbed by the tissue.
+%These last two steps (structures contouring and dose objectives definition) are performed by doctors.
+
+\paragraph{Radiotherapy doses}
+%Once the radiation dose is defined, the optimization process begins.
+%By simulating one MLC parametrization on the patient's body (using the density of the tissues from the scan), we can compute the dose on the patient's volume.
+%This dose is a map from the volume of the patient's body (a region of $\R^3$) to a number of Grays (a number in $\R^+$, since it is impossible to have a negative number of Grays).
+%In practice, we use a discrete version of the dose, that is, for each voxel of the patient's body, we calculate the dose (in Grays).
+
+\paragraph{Dose Optimization}
+%To solve the inverse problem of radiotherapy dose optimization, mathematical optimization algorithms are used.
+%These algorithms search for the optimal solution that minimizes a predefined objective function, which represents the treatment goals and constraints.
+%
+%In order to efficiently solve this optimization problem, the objective function is often designed to be convex, thereby ensuring a well-defined target for the optimization process.
+%Gradient-based, Newtonian, or quasi-Newtonian algorithms are typically employed for this purpose.
+%Despite recent advances in optimization algorithms, determining how closely the best solution found by the optimizer approximates the exact minimum of the objective function remains a challenging task.
+
+\paragraph{Dose-Volume Histograms}
+%Doctors have contoured the different structures of interest (that is, associate to which voxels correspond each structure).
+%Thus, it is possible, given a dose, to calculate the dose-volume histogram (DVH) for each structure of interest.
+%The dose-volume objectives then turn to points on the dose volume histogram that the DVH must stay above (in the case of a minimal dose constraint), or under (in the case of a maximal dose constraint).
+%
+%Formally, for a given dose $d$, $V(d)$ is defined as the volume of the structure that receives a dose equal to or higher than $d$.
+%It is mathematically expressed as:
+%$$V(d) = \frac{Vol(\{p \in \mathcal{V} | D(p) \leq d\})}{Vol(\mathcal{V})}$$
+%where $\mathcal{V}$ is the set of points of the structure of interest, and $D(p)$ is the dose at particular point $p$.
+%Then, the DVH curve is the plot of $V(d)$ on the range of $d$ (0 to maximal dose).
+
+
+\paragraph{Dose Evaluation}	
+%To evaluate the quality of a dose, doctors look at the 3D distribution of the dose on the patient body (the inter-structure distribution, the existence/number/localization of hot points).
+%They also look at the DVH, and check if the DVH curves matches the DVH objectives.
+
+\paragraph{Stop Criterion}
+%Defining a meaningful stopping criterion for the optimization process is a critical challenge in the context of radiotherapy dose optimization.
+%While optimization in clinical practice is often guided by dosimetrists, who may stop optimizing when they are satisfied with the result, the need for full automation of the optimization process necessitates the establishment of a systematic and objective stopping criterion.
+%One possible approach to defining a stopping criterion is to compare the clinical effect of two doses.
+%This would provide a useful tool for comparing different solutions and determining the point at which the optimization process can be terminated.
+
+
+
+\subsection{Method}
+%It is not obvious to measure how far apart two doses are, especially in terms of clinical effect: some areas of the patient's volume are more important than others, and dose deposition in some area may, or not, be compensated by dose deposition elsewhere.
+
+\subsubsection{Naive Doses Comparison}
+%The most naive way to compare (and by defining a distance) between two doses is to compare voxel-wise values of the two doses.
+%However, this naive way of comparing doses does not take into account the fact that some extra dose in a region of the patient's body may be compensated by an extra dose in another region.
+%Thus, the voxel-wise distance between two doses may be far while the clinical effect of the two doses is very similar.
+%
+%We have built a basic example, illustrated in figure \ref{fig:pathological_example}.
+%This pathological example is derived from a phantom fake patient made of pure water, with one fake cubic PTV and one fake cubic Organ.
+%While acknowledging the lack of realism, the showcased scenario effectively underscores the necessity for employing advanced techniques in dose comparison that surpass mere voxel-wise comparisons.
+%\begin{figure}
+%	\centering
+%	
+%	\includegraphics[width=7.9cm]{pathological_example/example\_3d\_doses.pdf}
+%	\subfloat[\label{fig:pathological_example-3d_doses} 3D visualization of the two doses on the phantom body.]{\hspace{1\linewidth}}
+%	
+%	\includegraphics[width=7.9cm]{pathological_example/example\_bixels.pdf}
+%	\subfloat[\label{fig:pathological_example-bixels} 2D view of the bixels activation of the two doses.]{\hspace{1\linewidth}}
+%	
+%	\includegraphics[width=12cm]{pathological_example/example\_dvh.pdf}
+%	\subfloat[\label{fig:pathological_example-dvh} Dose-Volume Histograms of the two doses on the phantom body.]{\hspace{1\linewidth}}
+%	
+%	\caption{Example of two doses that have the same clinical effect (measured from the DVHs), but very different voxel-wise dose values.}
+%	\label{fig:pathological_example}
+%\end{figure}
+
+\subsubsection{Doses Samples}
+%In the rest of this study, we evaluated our proposed method for comparing radiation doses using the TG-119 \cite{AAPM-TG119} Prostate case, a widely used benchmark for evaluating radiation therapy plans.
+%TG-119 are provided with dose goals; we used these dose goals to construct our cost function.
+%The cost is a weighted sum of multi-objectives function with one objective for each dose goal, it is constructed as follows:
+%$$f(\textbf{d}) = \sum_{o \in \mathcal{O}} w_o f_o(\textbf{d})$$
+%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(d - o_d)_+^2 \text{ if $o$ is maximum dose volume constraint}$$
+%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(o_d - d)_+^2 \text{ if $o$ is minimum dose volume constraint}$$
+%with:
+%\begin{itemize}
+%	\item $\textbf{d}$ the dose (voxel-wise); $\textbf{d} \left[s\right]$ the dose on voxels of the structure $s$.
+%	\item $\mathcal{O}$ the set of objectives (dose volume goals)
+%	\item $w_o$ is the weight of the objective $o \in \mathcal{O}$ (typically ranges between 0 and 100)
+%	\item $o_s$, $o_d$ \& $o_v$ the structure, dose and volume goals of $o \in \mathcal{O}$ (e.g.: $o_s$: PTV; $o_d$: 80Gy; $o_v$: 95\%)
+%\end{itemize}
+%i.e. a square over/under-dose penalty function.
+%Additionally, we added a regularization term on the bixels\footnote{A \textbf{bi}x\textbf{el} (\textbf{be}am-\textbf{el}ement) represents a discrete element of the radiation beam that can be individually controlled to achieve spatially varying intensity levels; ours are 5mm width, which correspond to the width length of the multi-leaf collimator commonly used.}: we penalized the variation of bixel values with their neighbors, also with a square penalty.
+%We optimize the bixel values $\textbf{b}$ with $\textbf{d}=\textbf{L}\textbf{b}$ where $\textbf{L}$ is a precomputed dose-influence matrix from bixels to voxels.
+%Note that since it is impossible to end negative energy rays, the value of each bixel should be positive ($b \geq 0 \quad \forall b \in \textbf{b}$)\footnote{In practice, to ensure positive bixel values, we just compute $\textbf{d}=\textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ is absolute value of $\textbf{b}$ element-wise.}.
+%
+%This function is, by construction, convex.
+%Therefore, for a given set of weights, minimizing it should always converge to the same radiotherapy plan.
+%To generate different treatment doses for the same patient case \& constraints, we optimized with different weights assignment to each constraint.
+%
+%The optimization of this main objective function was done with the open source optimizer L-BFGS.
+%This optimizer was shown to have the best performances among the open-source optimizers \cite{dubois2023}.
+
+
+\subsubsection{Distances Between Doses}
+\paragraph{Comparing Doses Voxel-wise}
+%If two doses are very close together, than voxel-wise comparison is a good measure: we can suppose that the global repartition is similar, and voxel-wise comparison is a good tool to compare local distribution of the dose.
+%Mathematically, we take $\textbf{d}$, the dose voxel-wise, and define the distance between $\textbf{d}_1$ and $\textbf{d}_2$ as the norm of the difference: $\sum_{v \in \mathcal{V}} \abs{d_1(v)-d_2(v)}$, $v$ being voxels in the set of voxels of interest $\mathcal{V}$, and $d_i(v)$ the value of the dose $d_i$ on voxel $v$ (we usually write $\abs{ \textbf{d}_1 - \textbf{d}_2}$, implicitly summing over voxels).
+%
+%However, if two regions of equal volume, located in the same structure have their dose values swapped, the voxel-wise difference would be high, although clinically, the two doses are equivalent.
+%Thus, voxel-wise distance is not a good measure between doses for comparing global distribution.
+
+\paragraph{Comparing Dose Volume Histogram Curves}
+%We propose to compare the curves on the Dose Volume Histogram (DVH).
+%We have one curve for each structure; we define the distances between doses for each structure, and in the end, we sum up for all structures to end up with a single scalar distance between two doses.
+
+\subparagraph{Discrete DVH Approximation}
+%The DVH is obtained after sorting the voxel-wise dose of the structure:
+%Let $\textbf{d} \left[s\right]$ bet the voxel-wise dose of the structure $s$ (therefore, a list, of length $n(s)$, the number of voxels that belong to the structure).
+%Let $\dot{\textbf{d}\left[s\right]}$ be the list above in descending order (i.e. $\dot{\textbf{d}\left[s\right]}_i > \dot{\textbf{d}\left[s\right]}_j$ if $0 < i < j \leq n(s)$).
+%Then, the DVH of $s$ can be approximated by the continuous line composed of the segments linking the following points:
+%$\left( \dot{\textbf{d}\left[s\right]}_i, i/n(s) \right) \quad 0 < i \leq n(s)$.
+%Since we compute the dose voxel-wise, we may only have an approximation of the DVH.
+%However, in practice, most structures of interest have more than a hundred voxels, which makes the DVH approximation very precise.
+%
+%Since we draw one curve per structure of interest, this capture some of the importance of voxel over others.
+%In fact, when analyzing a dose, doctors look at the dose volume (voxel-wise), but they also take a close look at the DVHs; this is an incentive that DVHs should contain meaningful information.
+%
+%To measure how different two DVH curves, we can imagine several techniques:
+%\begin{itemize}
+%	\item Fréchet distance (treating DVHs as curves in a 2D space)
+%	\item Hausdorff distance (treating DVHs as 1D manifolds in a 2D space)
+%	\item Wasserstein distance (treating DVHs as probability distributions)
+%	\item Kolmogorov-Smirnov test (treating DVHs as probability distributions)
+%	\item Total variation between curves (treating DVHs as functions)
+%\end{itemize}
+%We tried all the distances above, but propose to retain only the one giving the best results.
+
+\subparagraph{Fréchet Distance}
+%We can look at DVH curves as lines in $\R^2$ \ \footnote{(Or, in the case of our voxel-wise dose approximation, poly-lines in $\R^2$.)}.
+%In this case, the Fréchet distance is a well known measure of similarity between two curves, and is particularly used for poly-lines \cite{Efrat2002}.
+%It measures the minimum distance that must be covered by a particle moving along two curves simultaneously.
+%In our case, these curves are the DVH curves of two radiation doses.
+%The Fréchet distance is therefore, a metric of similarity between two curves.
+%
+%Formally, if $P$ and $Q$ are the curves being compared, $\gamma$ being a parametrization defined on the interval $\left[ 0,1 \right]$, $P(\gamma(t))$ and $Q(\gamma(t))$ the positions of a particle along curves $P$ and $Q$, respectively, at time $t$, the Fréchet distance is then defined as:
+%$$d_{\text{Fréchet}}(P,Q) = \inf_{\gamma}{ \max_{t \in \left[ 0,1 \right]} d(P(\gamma(t)), Q(\gamma(t)))}$$
+%
+%Now, adapting this to DVH curves:
+%Let $\mathcal{C}_A$ and $\mathcal{C}_B$ represent the (discrete) DVH curves of two doses.
+%Let them respectively be consisting of line segments joining the series of points $\left\lbrace \mathcal{C}_A(i) = (d_i, v_i), \ 1 \leq i \leq n_A \right\rbrace $ and $\left\lbrace \mathcal{C}_B(j) = (\tilde{d}_j, \tilde{v}_j), \ 1 \leq j \leq n_B \right\rbrace $; where $d_i$ and $\tilde{d}_j$ denote the dose levels, $v_i$ and $\tilde{v}_j$ represent the corresponding volumes, and $n_A$ and $n_B$ are the number of points forming $\mathcal{C}_A$ and $\mathcal{C}_B$\footnote{Since we are always comparing two DVH curves of the same structure, we always have $n_A = n_B$.}.
+%
+%The Fréchet distance is the infimum of all possible traversal times.
+%The curves being discrete line segments, we can express the Fréchet distance as:
+%
+%$$d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$$
+%$$\text{where } dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right) = \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
+%%$$\text{i.e.: } d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
+%
+%Here, $j$ represents a (discrete) a parametrization, and $dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$ is the distance between points $\mathcal{C}_A(i)$ and $\mathcal{C}_B(j(i))$.
+%
+%The main drawback of this distance measure is that it is computationally expensive, especially for structures with many voxels.
+%Thus, we had to couple it with an algorithm for curve simplification: the Ramer–Douglas–Peucker algorithm \cite{PRASAD2012843}.
+%We used the Ramer–Douglas–Peucker algorithm with $\varepsilon = 0.05$.
+%After testing on a few curves, using this algorithm made calculations 3-5 times faster, while affecting the value of the Fréchet distance by less than $0.5\%$.
+%It is therefore used in the results presented thereafter.
+
+\subparagraph{Hausdorff Distance}
+%The Hausdorff distance is another metric of similarity between two curves \cite{Henrikson1999CompletenessAT}.
+%It is defined as the maximum distance between any point on one curve to its closest point on the other curve.
+%Formally, let $X$ and $Y$ be two non-empty sets;
+%the Hausdorff distance between $X$ and $Y$, denoted as $d_\text{Hausdorff}(X, Y)$, is defined as:
+%$$d_\text{Hausdorff}(X, Y) = \sup_{x \in X}\inf_{y \in Y} {dist(x, y)}$$
+%where $dist(x, y)$ is the distance between points $x$ and $y$.
+%
+%In our analysis, we treat the DVH curves as sets of points in a 2D space ($\R^2$) and use the Hausdorff distance to measure the difference between them.
+%Using the same notation for DVH curves $\mathcal{C}_A$ and $\mathcal{C}_B$ as before, the discrete Hausdorff distance can be computes as follows:
+%$$d_\text{Hausdorff}(\mathcal{C}_A, \mathcal{C}_B) = \max_{i \in \llbracket 1,n_A \rrbracket} \min_{y \in \mathcal{C}_B} {dist(\mathcal{C}_A(i), y)}$$
+%with $\mathcal{C}_B = \left\lbrace \left( (1-\lambda) \tilde{d}_j + \lambda \tilde{d}_{j+1}, (1-\lambda) \tilde{v}_j + \lambda \tilde{v}_{j+1} \right) \mid \lambda \in \left[ 0,1 \right], j \in \llbracket 1, n_B-1 \rrbracket \right\rbrace $, and $dist$ the 2D distance (as before).
+
+\subparagraph{Wasserstein Distance}
+%The Wasserstein distance, also known as the Earth Mover's Distance, is a metric that quantifies the difference between two probability distributions \cite{OLKIN1982257}.
+%
+%Formally, letting $\mu$ and $\nu$ be two probability distributions defined on a metric space $X$;
+%the Wasserstein distance, denoted as $d_{\text{Wasserstein}}(\mu, \nu)$, is defined as the infimum cost of transporting the mass from the distribution $\mu$ to the distribution $\nu$, where the cost is determined by the distance metric $dist$ on $X$.
+%That is:
+%$$d_{\text{Wasserstein}}(P, Q) = \inf_{\gamma \in \Gamma(\mu, \nu)} E_{(x,y) \sim \gamma} \left[ dist(x, y) \right]$$
+%where $\Gamma(\mu, \nu)$ is all possible joint distributions $\gamma(x, y)$ with marginals $\mu$ and $\nu$.
+%
+%In our analysis, we treat the DVH curves as probability distributions and use the Wasserstein distance to measure the difference between them.
+%The main advantage of this distance measure is its ability to capture both local and global differences between the curves.
+%However, it can be computationally expensive, especially when dealing with DVH of large structures.
+
+\subparagraph{Kolmogorov-Smirnov Distance}
+%Another distance metric that can be used to compare two dose volume histogram (DVH) curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.
+%The KS distance measures the maximum vertical distance between the two curves and is particularly useful when comparing two non-parametric distributions, such as the DVH curves.
+%
+%Mathematically, let the two DVH curves be described by $f$ and $g$ (from the dose domain to the volume ratio domain), we then have the KS distance $d_{KS}$ given by:
+%$$d_{KS} = \sup_{x \in \R^+} \abs{f(x)-g(x)}.$$
+%In our case of discrete DVH, $f$ and $g$ will be linear by segment continuous functions from $\R^+$ to $\left[ 0,1 \right]$ (with value zero above the maximal dose).
+
+\subparagraph{Total Variation Distance}
+%Finally, we propose a distance metric that computes the integral of the absolute difference between the two DVH curves.
+%This distance measure is simple to compute and provides a good balance between capturing local and global differences between the curves \cite{Chatterjee2007}.
+%Moreover, it is computationally efficient and can handle large structures with many voxels.
+%It is the one that gave the best results, hence, we chose this distance for our analysis.
+%
+%Initially, the total variation distance measures the integral of the absolute difference between two dose volume histogram (DVH) curves.
+%The dose is (theoretically) unbounded, while the relative volume is bounded (0-100\%).
+%We preferred to integrate over a bounded volume instead of an unbounded dose.
+%Hence, we flipped the $x$ and $y$ axes before integrating the absolute dose difference on the range $\left[ 0,1 \right]$; that is, we have the dose on the $y$ axis, and the volume on the $x$ axis.
+%
+%Mathematically, standard DVHs are given by $V: \R^+ \to \left[ 0,1 \right]$.
+%With two DVHs $V(d)$ and $\tilde{V}(d)$, the total variation will be
+%$$d_{\text{TotalVariation}} = \int_{0}^{+\infty} \abs{V(x)-\tilde{V}(d)}.$$
+%However, we choose to express DVHs with dose as a function of volume, that is $D: \left[ 0,1 \right] \to \R^+$.
+%With two DVHs $D(v)$ and $\tilde{D}(v)$, the total variation will be
+%$$d_{\text{TotalVariation}} = \int_{0}^{1} \abs{V(x)-\tilde{V}(d)}.$$
+%The value of the integral should not change (in theory); we prefer to integrate over a finite domain ($\left[ 0,1 \right]$) than over an unbounded one ($\R^+ = \left[ 0,+\infty \right[$).
+%
+%An illustration of the differences between classical DVH and after swapping $x$ and $y$-axes is available on figure \ref{fig:dose_volume_difference}.
+%The two doses compared were optimized on the TG-119 fake prostate case with different weights (1 and 3) on the PTV objective.
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.95\textwidth]{dose_distances_figures/dose\_volume\_difference}
+%	\subfloat[\label{fig:dose_volume_difference-normal} Classical DVH (dose on the $x$-axis)]{\hspace{1\linewidth}}
+%	
+%	\centering
+%	\includegraphics[width=0.95\textwidth]{dose_distances_figures/dose\_volume\_difference-flipped}
+%	\subfloat[\label{fig:dose_volume_difference-flipped} Flipped axes DVH (volume on the $x$-axis)]{\hspace{1\linewidth}}
+%	
+%	\caption{DVHs: Comparison of classical and flipped axes styles.}
+%	\label{fig:dose_volume_difference}
+%\end{figure}
+%
+%We observe (on fig. \ref{fig:dose_volume_difference}) that the difference between DVHs is less noisy (it fluctuates less) when we have the dose on the $x$-axis.
+%This suggest lower numerical error, and is therefore another incentive to have the volume as the $x$-axis.
+%
+%The calculation of the total variation distance is computationally efficient, requiring only $\mathcal{O}(n_s)$ operations for each structure, where $n_s$ is the number of voxels in the structure of interest $s$.
+%Overall, it provides a good balance between capturing local and global differences of DVH curves.
+
+
+
+\subsection{Results}
+\subsubsection{Dose Distances Comparison}
+%For each constraint, we perform an optimization with all weights set to $1$, but one, that we sequentially set to $3$, $10$, $100$.
+%This gives us 18 doses that we can compare.
+%We can calculate the pairwise distance between each pair of doses, for each of the distance techniques described above.
+%Considering each optimized dose as a node, we can create a graph for each of the defined distance; and calculating the pairwise distance is equivalent to calculating the adjacency matrix if the associated dense graph.
+%See figure \ref{fig:pairwise_distances} for a comparison of the adjacency matrices.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{dose_distances_figures/pairwise\_distances.pdf}
+%	\caption{Pairwise distances between doses\\(with different distances calculation method)}
+%	\label{fig:pairwise_distances}
+%\end{figure}
+%
+%Ideally, we want a new distance that:
+%\begin{itemize}
+%	\item matches the voxel distance when voxel distance is low
+%	\item remains small in some cases of a high voxel distance: when the clinical meaning og the two doses is the same, despite being voxel-wise (very) different
+%\end{itemize}
+%
+%Observing pairwise distances on fig. \ref{fig:pairwise_distances}, we have that:
+%\begin{itemize}
+%	\item Frechet and Haussdorff are very similar to voxel-wise; we interpret them as being too sensitive.\\
+%	They are therefore not suitable for our purpose.
+%	\item Kolmogorov-Smirnov degenerates; it probably captured some noise due to approximation in the DVH calculation (small numerical error).\\
+%	It is therefore not suitable for our purpose.
+%	\item Wasserstein and Total variation seem to produce acceptable results.\\
+%	We therefore chose to continue studying these two distances.
+%\end{itemize}
+
+\subsubsection{Link between Total Variation and Wasserstein}
+%One may remark that the adjacency matrices for Wasserstein and Total Variation are very similar.
+%And in fact, since we used Earth moving distance (Wasserstein with $p=1$), there is an equivalence between the two measures.
+%More precisely, the total variation distance can be seen as a special case of the Wasserstein distance.
+%
+%The Wasserstein distance, also known as the earth mover's distance, is a metric that quantifies the distance between two probability distributions.
+%Given two probability distributions $X$ and $Y$ with CDFs $F$ and $G$, the Wasserstein distance between them is defined as:
+%$$W_p(F,G) = \inf_{\pi \in \Pi(F,G)} \left( \iint_{x,y \in \mathbb{R}^2} \abs{x-y}^p d\pi(x,y) \right)^{1/p}$$
+%
+%On the other hand, the total variation distance between two curves $F$ and $G$ is defined as:
+%$$\text{TotalVariation}(F, G) = \int_{x \in \R} \abs{F(x) - G(x)} dx$$
+%
+%The Wasserstein distance is equivalent to the total variation distance for $p=1$:
+%$$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
+%
+%In the end, the only difference should be numerical error.
+
+\subsubsection{Bounding of Total Variation and Voxel Distance}
+%It is possible to bound the total variation distance with the Voxel Distance.
+%The other way around, however, is impossible, as shown with the example int the introduction (where two doses have close to identical DVHs, but very different Voxel distances).
+%
+%We will bound the total variation of one DVH, hence being generalizable to the sum of all DVHs total variation distances.
+
+\paragraph{Definitions}
+%Let $\mathcal{S}$ be the structure of interest, and $v_\mathcal{S}$ the set of voxels associated to the structure, with $n_\mathcal{S} = \abs{v_\mathcal{S}}$ the number of voxels.
+%Let $d$ and $\tilde{d}$ be the two doses to be compared.
+
+\paragraph{Sorting lists}
+%\begin{lemma}
+%	\label{lemma:sorting_lists}
+%	Let $\dot{l}, l^* \in \R^n$. Let $\dot{l}$ be sorted and $\dot{l^*} \in \R^n$ be sorted version of $l^*$.
+%	Then, we have:
+%	$$\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
+%\end{lemma}
+%\begin{proof}
+%	Suppose $a<b$ and $c<d$, and WLOG, $a\leq c$.\\
+%	We have $\abs{a-d} = \abs{a-c}+\abs{c-d}$
+%	so $\abs{a-d}+\abs{b-c} = \abs{a-c}+\abs{c-d}+\abs{b-c}$
+%	using triangle inequality ($\abs{c-d}+\abs{b-c} \geq \abs{b-c}$):
+%	$\abs{a-d}+\abs{b-c} \leq \abs{a-c}+\abs{b-d}$.\\
+%	Thus, with $\dot{l}$ sorted, swapping elements $l_i$ and $l_j$ ($i<j$) of $l^*$ decreases $\abs{\dot{l} - l^*}$ if $l_i \geq l_j$.
+%	Now, bubble sort on $l^*$, we obtain $\dot{l^*}$ doing only permutations satisfying the condition just stated.
+%	
+%	Hence, we obtain $\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$ at the end of the bubble sort.
+%	\qed
+%\end{proof}
+%\begin{corollary}
+%	\label{corollary:sorting_lists}
+%	Let $l, l^* \in \R^n$. Let $\dot{l},\dot{l^*} \in \R^n$ be sorted version of $l, l^*$.
+%	Then: $$\abs{l - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
+%\end{corollary}
+%\begin{proof}
+%	The order in which we perform $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_k-l^*_k}$ can be chosen, so $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_{\sigma(k)}-l^*_{\sigma(k)}}$ (with $\sigma$ a permutation of $\llbracket 1,n \rrbracket$).
+%	Taking $\sigma$ such that $l_{\sigma(i)} \leq l_{\sigma(j)}$ for $i<j$ and using lemma finishes the proof.
+%	\qed
+%\end{proof}
+
+\paragraph{Proof Outline}
+%Suppose the voxel-wise difference is $\varepsilon$-small (i.e. $\abs{d_i-\tilde{d}_i} < \varepsilon$).
+%Then, the total variation of the unsorted vector doses is $\abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
+%Let $\dot{d}$ be sorted $d$ and $\dot{\tilde{d}}$ be sorted $\tilde{d}$.
+%Then, by Corollary \ref{corollary:sorting_lists}, we have:
+%$\abs{\dot{d}-\dot{\tilde{d}}} \leq \abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
+%
+%Therefore, if $d$ and $\tilde{d}$ are sufficiently close, $\varepsilon \to 0$ and $\abs{\dot{d}-\dot{\tilde{d}}} \to 0$.
+
+\paragraph{Conclusion}
+%Thus, voxel-wise very close doses distributions will also have close DVHs distances, which ensure DVHs distances are non-degenerative.
+
+\subsubsection{Distances Distribution Comparison}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.49\textwidth]{dose_distances_figures/TotalVariation-Voxelwise.pdf}		\includegraphics[width=0.49\textwidth]{dose_distances_figures/TotalVariation-Wasserstein.pdf}
+%	\subfloat[\label{fig:TotalVariation-Voxelwise} DVHs Total Variation vs Voxel-wise]{\hspace{.5\linewidth}}
+%	\subfloat[\label{fig:TotalVariation-Wasserstein} Total Variation vs Wasserstein]{\hspace{.5\linewidth}}
+%	\caption{Comparing Distances}
+%\end{figure}
+
+\paragraph{Comparing Total Variation and Voxel-wise}
+%The bounding of the total variation DVH distance in terms of voxel-wise distance is clear on figure \ref{fig:TotalVariation-Voxelwise} (there is a linear upper bound to the scatter plot).
+%However, we can remark that some pair of distances are closer in terms of DVH than we imagined using just the voxel-wise distance; hence proving the necessity to analyze further than just the voxel-wise comparison.
+
+\paragraph{Comparing Total Variation and Wasserstein}
+%We observe (on figure \ref{fig:TotalVariation-Wasserstein}) that the two DVH distances are almost perfectly proportional.
+%This was expected as they are equivalent mathematically, we only swapped axis of integration in the total variation (hence, the small fluctuations).
+
+
+
+\subsection{Discussion}
+%In this article, a novel metric for comparing radiation doses is introduced.
+%This metric has the advantage of being insensitive to dose changes in some regions if being compensated in another region, which was the intended goal.
+%This metric can be useful in several applications, such as dose mimicking and early stopping time for fluence map optimization optimization.
+%
+%However, there are some limitations to this distance metric.
+%One drawback is that it does not capture spatial distribution, which can be a problem in some cases.
+%There may be some pathological examples where the DVHs are similar, but the clinical interpretation is different.
+%Other factors, such as the distribution of the dose within the target area or the surrounding tissues, can also play a crucial role in determining the effectiveness of the treatment.
+%For example, if two doses have the same amount of high dose, one spread in several small high dose regions, and the other having one large high dose region, then the DVH could look alike, while doctors will interpret the two doses differently.
+%These types of edge cases are, however, extremely rare in practice.
+%We still advise, for critical cases, to use the voxel invariant metric in conjunction with other techniques to obtain a comprehensive evaluation of radiation doses.
+%
+%When comparing two different doses, a large distance between them could indicate a significant difference in the intensity or frequency of the treatment, but this does not necessarily mean that one dose is better than the other.
+%The effectiveness of a dose also depends on several other factors such as the individual patient's characteristics, medical history, and response to the treatment.
+%Thus, simply looking at the distance between doses may not provide an accurate picture of which dose is superior or more effective in a particular case.
+%It is essential to consider all relevant factors when evaluating the efficacy of a treatment dose.
+%
+%Overall, our dose comparison technique is a promising tool.
+%While it has some limitations, it can be a valuable addition to the arsenal of techniques used by radiation oncologists and medical physicists to optimize treatment plans and improve patient outcomes.
+
 
 \section{Network of Doses}
 % Clinically Meaningful Dose Clustering for Radiotherapy

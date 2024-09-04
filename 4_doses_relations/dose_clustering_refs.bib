@@ -1,0 +1,290 @@
+% dose prediction
+@article{Nguyen_2019,
+	doi = {10.1088/1361-6560/ab039b},
+	url = {https://dx.doi.org/10.1088/1361-6560/ab039b},
+	year = {2019},
+	month = {mar},
+	publisher = {IOP Publishing},
+	volume = {64},
+	number = {6},
+	pages = {065020},
+	author = {Dan Nguyen and Xun Jia and David Sher and Mu-Han Lin and Zohaib Iqbal and Hui Liu and Steve Jiang},
+	title = {3D radiotherapy dose prediction on head and neck cancer patients with a hierarchically densely connected U-net deep learning architecture},
+	journal = {Physics in Medicine \& Biology},
+	abstract = {The treatment planning process for patients with head and neck (H&amp;N) cancer is regarded as one of the most complicated due to large target volume, multiple prescription dose levels, and many radiation-sensitive critical structures near the target. Treatment planning for this site requires a high level of human expertise and a tremendous amount of effort to produce personalized high quality plans, taking as long as a week, which deteriorates the chances of tumor control and patient survival. To solve this problem, we propose to investigate a deep learning-based dose prediction model, Hierarchically Densely Connected U-net, based on two highly popular network architectures: U-net and DenseNet. We find that this new architecture is able to accurately and efficiently predict the dose distribution, outperforming the other two models, the Standard U-net and DenseNet, in homogeneity, dose conformity, and dose coverage on the test data. Averaging across all organs at risk, our proposed model is capable of predicting the organ-at-risk max dose within 6.3% and mean dose within 5.1% of the prescription dose on the test data. The other models, the Standard U-net and DenseNet, performed worse, having an averaged organ-at-risk max dose prediction error of 8.2% and 9.3%, respectively, and averaged mean dose prediction error of 6.4% and 6.8%, respectively. In addition, our proposed model used 12 times less trainable parameters than the Standard U-net, and predicted the patient dose 4 times faster than DenseNet.}
+}
+@article{McIntosh_2017,
+	doi = {10.1088/1361-6560/aa71f8},
+	url = {https://dx.doi.org/10.1088/1361-6560/aa71f8},
+	year = {2017},
+	month = {jul},
+	publisher = {IOP Publishing},
+	volume = {62},
+	number = {15},
+	pages = {5926},
+	author = {Chris McIntosh and Mattea Welch and Andrea McNiven and David A Jaffray and Thomas G Purdie},
+	title = {Fully automated treatment planning for head and neck radiotherapy using a voxel-based dose prediction and dose mimicking method},
+	journal = {Physics in Medicine \& Biology},
+	abstract = {Recent works in automated radiotherapy treatment planning have used machine learning based on historical treatment plans to infer the spatial dose distribution for a novel patient directly from the planning image. We present a probabilistic, atlas-based approach which predicts the dose for novel patients using a set of automatically selected most similar patients (atlases). The output is a spatial dose objective, which specifies the desired dose-per-voxel, and therefore replaces the need to specify and tune dose-volume objectives. Voxel-based dose mimicking optimization then converts the predicted dose distribution to a complete treatment plan with dose calculation using a collapsed cone convolution dose engine. In this study, we investigated automated planning for right-sided oropharaynx head and neck patients treated with IMRT and VMAT. We compare four versions of our dose prediction pipeline using a database of 54 training and 12 independent testing patients by evaluating 14 clinical dose evaluation criteria. Our preliminary results are promising and demonstrate that automated methods can generate comparable dose distributions to clinical. Overall, automated plans achieved an average of 0.6% higher dose for target coverage evaluation criteria, and 2.4% lower dose at the organs at risk criteria levels evaluated compared with clinical. There was no statistically significant difference detected in high-dose conformity between automated and clinical plans as measured by the conformation number. Automated plans achieved nine more unique criteria than clinical across the 12 patients tested and automated plans scored a significantly higher dose at the evaluation limit for two high-risk target coverage criteria and a significantly lower dose in one critical organ maximum dose. The novel dose prediction method with dose mimicking can generate complete treatment plans in 12–13 min without user interaction. It is a promising approach for fully automated treatment planning and can be readily applied to different treatment sites and modalities.}
+}
+
+% Pareto frontier exploration
+@article{Ottosson_2010,
+	doi = {10.1088/0031-9155/55/16/S07},
+	url = {https://dx.doi.org/10.1088/0031-9155/55/16/S07},
+	year = {2010},
+	month = {jul},
+	publisher = {},
+	volume = {55},
+	number = {16},
+	pages = {4521},
+	author = {R O Ottosson and A Karlsson and C F Behrens},
+	title = {Pareto front analysis of 6 and 15 MV dynamic IMRT for lung cancer using pencil beam, AAA and Monte Carlo},
+	journal = {Physics in Medicine \& Biology},
+	abstract = {The pencil beam dose calculation method is frequently used in modern radiation therapy treatment planning regardless of the fact that it is documented inaccurately for cases involving large density variations. The inaccuracies are larger for higher beam energies. As a result, low energy beams are conventionally used for lung treatments. The aim of this study was to analyze the advantages and disadvantages of dynamic IMRT treatment planning for high and low photon energy in order to assess if deviating from the conventional low energy approach could be favorable in some cases. Furthermore, the influence of motion on the dose distribution was investigated. Four non-small cell lung cancer cases were selected for this study. Inverse planning was conducted using Varian Eclipse. A total number of 31 dynamic IMRT plans, distributed amongst the four cases, were created ranging from PTV conformity weighted to normal tissue sparing weighted. All optimized treatment plans were calculated using three different calculation algorithms (PBC, AAA and MC). In order to study the influence of motion, two virtual lung phantoms were created. The idea was to mimic two different situations: one where the GTV is located centrally in the PTV and another where the GTV was close to the edge of the PTV. PBC is in poor agreement with MC and AAA for all cases and treatment plans. AAA overestimates the dose, compared to MC. This effect is more pronounced for 15 than 6 MV. AAA and MC both predict similar perturbations in dose distributions when moving the GTV to the edge of the PTV. PBC, however, predicts results contradicting those of AAA and MC. This study shows that PB-based dose calculation algorithms are clinically insufficient for patient geometries involving large density inhomogeneities. AAA is in much better agreement with MC, but even a small overestimation of the dose level by the algorithm might lead to a large part of the PTV being underdosed. It is advisable to use low energy as a default for tumor sites involving lungs. However, there might be situations where it is favorable to use high energy. In order to deviate from the recommended low energy convention, an accurate dose calculation algorithm (e.g. MC) should be consulted. The study underlines the inaccuracies introduced when calculating dose using a PB-based algorithm in geometries involving large density variations. PBC, in contrast to other algorithms (AAA and MC), predicts a decrease in dose when the density is increased.}
+}
+@article{Kuipers2023,
+	AUTHOR={Kuipers, Sander and Godart, Jérémy and Corbeau, Anouk and Sharfo, Abdul Wahab and Breedveld, Sebastiaan and Mens, Jan Willem and de Boer, Stephanie and Nout, Remi and Hoogeman, Mischa},
+	TITLE={The impact of bone marrow sparing on organs at risk dose for cervical cancer: a Pareto front analysis},
+	JOURNAL={Frontiers in Oncology},
+	VOLUME={13},
+	YEAR={2023},
+	URL={https://www.frontiersin.org/articles/10.3389/fonc.2023.1138433},
+	DOI={10.3389/fonc.2023.1138433},
+	ISSN={2234-943X},
+	ABSTRACT={<sec>Background and purposeTo quantify the increase in bladder and rectum dose of a bone marrow sparing (BMS) VMAT strategy for primary treatment of locally advanced cervical cancer (LACC).</sec><sec>Materials and methodsTwenty patients with stage IB-IVA cervical cancer were selected for this study. The whole Pelvic Bones (PB) was taken as substitute for bone marrow. For every patient, Pareto-optimal plans were generated to explore the trade-off between rectum, bladder, and PB mean dose. The PB mean dose was decreased in steps of 1 Gy. For each step, the increase in rectum and bladder mean dose was quantified. The increase in mean dose of other OAR compared to no BMS was constrained to 1 Gy.</sec><sec>ResultsIn total, 931 plans of 19 evaluable patients were analyzed. The average [range] mean dose of PB without BMS was 22.8 [20.7-26.2] Gy. When maximum BMS was applied, the average reduction in mean PB dose was 5.4 [3.0-6.8] Gy resulting in an average mean PB dose of 17.5 [15.8-19.8] Gy. For <1 Gy increase in both the bladder and the rectum mean dose, the PB mean dose could be decreased by >2 Gy, >3 Gy, >4 Gy, and >5 Gy for 19/19, 13/19, 5/19, and 1/19 patients, respectively.</sec><sec>ConclusionBased on the comprehensive three-dimensional Pareto front analysis, we conclude that 2-5 Gy BMS can be implemented without a clinically relevant increase in mean dose to other OAR. If BMS is too dominant, it results in a large increase in mean dose to other OAR. Therefore, we recommend implementing moderate BMS for the treatment of LACC patients with VMAT.</sec>}
+}
+% leaf moves with genetic algo
+@article{CristianCotrutz_2003,
+	doi = {10.1088/0031-9155/48/18/303},
+	url = {https://dx.doi.org/10.1088/0031-9155/48/18/303},
+	year = {2003},
+	month = {sep},
+	publisher = {},
+	volume = {48},
+	number = {18},
+	pages = {2987},
+	author = {Cristian Cotrutz and  Lei Xing},
+	title = {Segment-based dose optimization using a genetic algorithm},
+	journal = {Physics in Medicine \& Biology},
+	abstract = {Intensity modulated radiation therapy (IMRT) inverse planning is conventionally done in two steps. Firstly, the intensity maps of the treatment beams are optimized using a dose optimization algorithm. Each of them is then decomposed into a number of segments using a leaf-sequencing algorithm for delivery. An alternative approach is to pre-assign a fixed number of field apertures and optimize directly the shapes and weights of the apertures. While the latter approach has the advantage of eliminating the leaf-sequencing step, the optimization of aperture shapes is less straightforward than that of beamlet-based optimization because of the complex dependence of the dose on the field shapes, and their weights. In this work we report a genetic algorithm for segment-based optimization. Different from a gradient iterative approach or simulated annealing, the algorithm finds the optimum solution from a population of candidate plans. In this technique, each solution is encoded using three chromosomes: one for the position of the left-bank leaves of each segment, the second for the position of the right-bank and the third for the weights of the segments defined by the first two chromosomes. The convergence towards the optimum is realized by crossover and mutation operators that ensure proper exchange of information between the three chromosomes of all the solutions in the population. The algorithm is applied to a phantom and a prostate case and the results are compared with those obtained using beamlet-based optimization. The main conclusion drawn from this study is that the genetic optimization of segment shapes and weights can produce highly conformal dose distribution. In addition, our study also confirms previous findings that fewer segments are generally needed to generate plans that are comparable with the plans obtained using beamlet-based optimization. Thus the technique may have useful applications in facilitating IMRT treatment planning.}
+}
+
+
+% tg-119 data
+@article{AAPM-TG119,
+	author = {Mynampati, Dinesh Kumar and Yaparpalvi, Ravindra and Hong, Linda and Kuo, Hsiang-Chi and Mah, Dennis},
+	title = {Application of AAPM TG 119 to volumetric arc therapy (VMAT)},
+	journal = {Journal of Applied Clinical Medical Physics},
+	volume = {13},
+	number = {5},
+	pages = {108-116},
+	keywords = {VMAT, IMRT, TG 119, quality assurance},
+	doi = {https://doi.org/10.1120/jacmp.v13i5.3382},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1120/jacmp.v13i5.3382},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1120/jacmp.v13i5.3382},
+	abstract = {The purpose of this study was to create AAPM TG 119 benchmark plans for volumetric arc therapy (VMAT) and to compare VMAT plans with IMRT plan data. AAPM TG 119 proposes a set of test clinical cases for testing the accuracy of IMRT planning and delivery system. For these test cases, we generated two treatment plans, the first plan using 7–9 static dMLC IMRT fields and a second plan utilizing one- or two-arc VMAT technique. Dose optimization and calculations performed using 6 MV photons and Eclipse treatment planning system. Dose prescription and planning objectives were set according to the TG 119 goals. Plans were scored based on TG 119 planning objectives. Treatment plans were compared using conformity index (CI) for reference dose and homogeneity index (HI) (for ). F or test cases prostate, head-and-neck, C-shape and multitarget prescription dose are 75.6 Gy, 50.4 Gy, 50 Gy and 50 Gy, respectively. VMAT dose distributions were comparable to dMLC IMRT plans. Our planning results matched TG 119 planning results. For treatment plans studied, conformity indices ranged from 1.05–1.23 (IMRT) and 1.04–1.23 (VMAT). Homogeneity indices ranged from 4.6\%–11.0\% (IMRT) and 4.6\%–10.5\% (VMAT). The ratio of total monitor units necessary for dMLC IMRT to that of VMAT was in the range of 1.1–2.0. AAPM TG 119 test cases are useful to generate VMAT benchmark plans. At preclinical implementation stage, plan comparison of VMAT and IMRT plans of AAPM TG 119 test case allowed us to understand basic capabilities of VMAT technique. PACS number: 87.55.Qr},
+	year = {2012}
+}
+
+% optim review
+@misc{dubois2023,
+	title={Radiotherapy Dosimetry: A Review on Open-Source Optimizer}, 
+	author={Paul Dubois},
+	year={2023},
+	eprint={2305.18014},
+	archivePrefix={arXiv},
+	primaryClass={eess.SY}
+}
+
+% global imrt goal
+@article{ReportIMRT2003,
+	author = {Ezzell, Gary A. and Galvin, James M. and Low, Daniel and Palta, Jatinder R. and Rosen, Isaac and Sharpe, Michael B. and Xia, Ping and Xiao, Ying and Xing, Lei and Yu, Cedric X.},
+	title = {Guidance document on delivery, treatment planning, and clinical implementation of IMRT: Report of the IMRT subcommittee of the AAPM radiation therapy committee},
+	journal = {Medical Physics},
+	volume = {30},
+	number = {8},
+	pages = {2089-2115},
+	keywords = {3-D conformal radiotherapy, intensity-modulated radiation therapy, inverse planning, plan optimization, quality assurance, Treatment strategy, Collimation, Wedges and compensators, Dosimetry/exposure assessment, Quality assurance equipment, intensity modulation, radiation therapy, quality control, optimisation, tumours, dosimetry, phantoms, cancer, collimators, radiation protection, shielding, Intensity modulated radiation therapy, Medical treatment planning, Radiation therapy, Dosimetry, Physicists, Drug delivery, Cancer, Radiation treatment, Medical accelerators, Linear accelerators},
+	doi = {https://doi.org/10.1118/1.1591194},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1118/1.1591194},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1118/1.1591194},
+	abstract = {Intensity-modulated radiation therapy (IMRT) represents one of the most significant technical advances in radiation therapy since the advent of the medical linear accelerator. It allows the clinical implementation of highly conformal nonconvex dose distributions. This complex but promising treatment modality is rapidly proliferating in both academic and community practice settings. However, these advances do not come without a risk. IMRT is not just an add-on to the current radiation therapy process; it represents a new paradigm that requires the knowledge of multimodality imaging, setup uncertainties and internal organ motion, tumor control probabilities, normal tissue complication probabilities, three-dimensional (3-D) dose calculation and optimization, and dynamic beam delivery of nonuniform beam intensities. Therefore, the purpose of this report is to guide and assist the clinical medical physicist in developing and implementing a viable and safe IMRT program. The scope of the IMRT program is quite broad, encompassing multileaf-collimator-based IMRT delivery systems, goal-based inverse treatment planning, and clinical implementation of IMRT with patient-specific quality assurance. This report, while not prescribing specific procedures, provides the framework and guidance to allow clinical radiation oncology physicists to make judicious decisions in implementing a safe and efficient IMRT program in their clinics.},
+	year = {2003}
+}
+
+% imrt > 3d-crt
+@article{KOLE2012,
+	title = {Comparison of Heart and Coronary Artery Doses Associated With Intensity-Modulated Radiotherapy Versus Three-Dimensional Conformal Radiotherapy for Distal Esophageal Cancer},
+	journal = {International Journal of Radiation Oncology*Biology*Physics},
+	volume = {83},
+	number = {5},
+	pages = {1580-1586},
+	year = {2012},
+	issn = {0360-3016},
+	doi = {https://doi.org/10.1016/j.ijrobp.2011.10.053},
+	url = {https://www.sciencedirect.com/science/article/pii/S0360301611034614},
+	author = {Thomas P. Kole and Osarhieme Aghayere and Jason Kwah and Ellen D. Yorke and Karyn A. Goodman},
+	keywords = {Esophageal cancer, Intensity-modulated radiotherapy, Cardiac dose, Dose–volume effects, Late effects},
+	abstract = {Purpose
+	To compare heart and coronary artery radiation exposure using intensity-modulated radiotherapy (IMRT) vs. four-field three-dimensional conformal radiotherapy (3D-CRT) treatment plans for patients with distal esophageal cancer undergoing chemoradiation.
+	Methods and Materials
+	Nineteen patients with distal esophageal cancers treated with IMRT from March 2007 to May 2008 were identified. All patients were treated to 50.4 Gy with five-field IMRT plans. Theoretical 3D-CRT plans with four-field beam arrangements were generated. Dose–volume histograms of the planning target volume, heart, right coronary artery, left coronary artery, and other critical normal tissues were compared between the IMRT and 3D-CRT plans, and selected parameters were statistically evaluated using the Wilcoxon rank-sum test.
+	Results
+	Intensity-modulated radiotherapy treatment planning showed significant reduction (p < 0.05) in heart dose over 3D-CRT as assessed by average mean dose (22.9 vs. 28.2 Gy) and V30 (24.8% vs. 61.0%). There was also significant sparing of the right coronary artery (average mean dose, 23.8 Gy vs. 35.5 Gy), whereas the left coronary artery showed no significant improvement (mean dose, 11.2 Gy vs. 9.2 Gy), p = 0.11. There was no significant difference in percentage of total lung volume receiving at least 10, 15, or 20 Gy or in the mean lung dose between the planning methods. There were also no significant differences observed for the kidneys, liver, stomach, or spinal cord. Intensity-modulated radiotherapy achieved a significant improvement in target conformity as measured by the conformality index (ratio of total volume receiving 95% of prescription dose to planning target volume receiving 95% of prescription dose), with the mean conformality index reduced from 1.56 to 1.30 using IMRT.
+	Conclusions
+	Treatment of patients with distal esophageal cancer using IMRT significantly decreases the exposure of the heart and right coronary artery when compared with 3D-CRT. Long-term studies are necessary to determine how this will impact on development of coronary artery disease and other cardiac complications.}
+}
+@article{PALMA2008,
+	title = {Volumetric Modulated Arc Therapy for Delivery of Prostate Radiotherapy: Comparison With Intensity-Modulated Radiotherapy and Three-Dimensional Conformal Radiotherapy},
+	journal = {International Journal of Radiation Oncology*Biology*Physics},
+	volume = {72},
+	number = {4},
+	pages = {996-1001},
+	year = {2008},
+	issn = {0360-3016},
+	doi = {https://doi.org/10.1016/j.ijrobp.2008.02.047},
+	url = {https://www.sciencedirect.com/science/article/pii/S0360301608003428},
+	author = {David Palma and Emily Vollans and Kerry James and Sandy Nakano and Vitali Moiseenko and Richard Shaffer and Michael McKenzie and James Morris and Karl Otto},
+	keywords = {Volumetric modulated arc therapy, Prostate cancer, Radiotherapy, Intensity-modulated radiotherapy},
+	abstract = {Purpose
+	Volumetric modulated arc therapy (VMAT) is a novel form of intensity-modulated radiotherapy (IMRT) optimization that allows the radiation dose to be delivered in a single gantry rotation of up to 360°, using either a constant dose rate (cdr-VMAT) or variable dose rate (vdr-VMAT) during rotation. The goal of this study was to compare VMAT prostate RT plans with three-dimensional conformal RT (3D-CRT) and IMRT plans.
+	Patients and Methods
+	The 3D-CRT, five-field IMRT, cdr-VMAT, and vdr-VMAT RT plans were created for 10 computed tomography data sets from patients undergoing RT for prostate cancer. The parameters evaluated included the doses to organs at risk, equivalent uniform doses, dose homogeneity and conformality, and monitor units required for delivery of a 2-Gy fraction.
+	Results
+	The IMRT and both VMAT techniques resulted in lower doses to normal critical structures than 3D-CRT plans for nearly all dosimetric endpoints analyzed. The lowest doses to organs at risk and most favorable equivalent uniform doses were achieved with vdr-VMAT, which was significantly better than IMRT for the rectal and femoral head dosimetric endpoints (p < 0.05) and significantly better than cdr-VMAT for most bladder and rectal endpoints (p < 0.05). The vdr-VMAT and cdr-VMAT plans required fewer monitor units than did the IMRT plans (relative reduction of 42% and 38%, respectively; p = 0.005) but more than for the 3D-CRT plans (p = 0.005).
+	Conclusion
+	The IMRT and VMAT techniques achieved highly conformal treatment plans. The vdr-VMAT technique resulted in more favorable dose distributions than the IMRT or cdr-VMAT techniques, and reduced the monitor units required compared with IMRT.}
+}
+@article{VERHEY1999,
+	title = {Comparison of three-dimensional conformal radiation therapy and intensity-modulated radiation therapy systems},
+	journal = {Seminars in Radiation Oncology},
+	volume = {9},
+	number = {1},
+	pages = {78-98},
+	year = {1999},
+	note = {Radiation Therapy Treatment Optimization},
+	issn = {1053-4296},
+	doi = {https://doi.org/10.1016/S1053-4296(99)80056-3},
+	url = {https://www.sciencedirect.com/science/article/pii/S1053429699800563},
+	author = {Lynn J. Verhey},
+	abstract = {The use of three-dimensional conformal radiation therapy (3DCRT) has now become common practice in radiation oncology departments around the world. Using beam's eye viewing of volumes defined on a treatment planning computed tomography scan, beam directions and beam shapes can be selected to conform to the shape of the projected target and minimize dose to critical normal structures. Intensity-modulated radiation therapy (IMRT) can yield dose distributions that conform closely to the three-dimensional shape of the target volume while still minimizing dose to normal structures by allowing the beam intensity to vary across those shaped fields. Predicted dose distributions for patients with tumors of the prostate, nasopharynx, and paraspinal region are compared between plans made with 3DCRT programs and those with inverse-planned IMRT programs. The IMRT plans are calculated for either static or dynamic beam delivery methods using multileaf collimators. Results of these comparisons indicate that IMRT can yield significantly better dose distributions in some situations at the expense of additional time and resources. New technologies are being developed that should significantly reduce the time needed to plan, implement, and verify these treatments. Current research should help define the future role of IMRT in clinical practice.}
+}
+
+% imrt nb of beams
+@article{Bortfeld2009TheNO,
+	title={The number of beams in IMRT—theoretical investigations and implications for single-arc IMRT},
+	author={Thomas Bortfeld},
+	journal={Physics in Medicine \& Biology},
+	year={2009},
+	volume={55},
+	pages={83 - 97}
+}
+
+% imrt beams
+@article{Bortfeld_2006,
+	doi = {10.1088/0031-9155/51/13/R21},
+	url = {https://dx.doi.org/10.1088/0031-9155/51/13/R21},
+	year = {2006},
+	month = {jun},
+	publisher = {},
+	volume = {51},
+	number = {13},
+	pages = {R363},
+	author = {Thomas Bortfeld},
+	title = {IMRT: a review and preview},
+	journal = {Physics in Medicine and Biology},
+	abstract = {The very first cornerstone paper on intensity-modulated radiation therapy (IMRT) was published in Physics in Medicine and Biology, and many seminal IMRT works have since appeared in this journal. Today IMRT is a widely used clinical treatment modality in many countries. This contribution to the 50th anniversary issue reviews the physical, mathematical, and technological milestones that have facilitated the clinical implementation and success of IMRT. In particular, the basic concepts and developments of both IMRT treatment planning (‘inverse planning’) and the delivery of cone-beam IMRT with a multileaf collimator from a fixed number of static beam directions are discussed. An outlook into the future of IMRT concludes the paper.}
+}
+
+% imrt as inverse pb
+@article{Webb2003,
+	author = {Webb, S},
+	title = {The physical basis of IMRT and inverse planning},
+	journal = {The British Journal of Radiology},
+	volume = {76},
+	number = {910},
+	pages = {678-689},
+	year = {2003},
+	doi = {10.1259/bjr/65676879},
+	note ={PMID: 14512327},
+	URL = {https://doi.org/10.1259/bjr/65676879},
+	eprint = {https://doi.org/10.1259/bjr/65676879},
+	abstract = {Intensity-modulated radiation therapy (IMRT) can sculpt the high-dose volume around the site of disease with hitherto unachievable precision. Conformal avoidance of normal tissues goes hand in hand with this. Inhomogeneous dose painting is possible. The technique has become a clinical reality and is likely to be the dominant approach this decade for improving the clinical practice of photon therapy. This Series will explore all aspects of the “IMRT chain”. Only 15 years ago just a handful of physicists were working on this subject. IMRT has developed so rapidly that its recent past is also its ancient history. This article will review the history of IMRT with just a glance at precursors. The physical basis of IMRT is then described including an attempt to introduce the concepts of convex and concave dose distributions, ill-conditioning, inverse-problem degeneracy, cost functions and complex solutions all with a minimum of technical jargon or mathematics. The many techniques for inverse planning are described and the review concludes with a look forward to the future of image-guided IMRT (IG-IMRT).}
+}
+
+% weight inverse dist
+@Article{Maleika2020,
+	author={Maleika, Wojciech},
+	title={Inverse distance weighting method optimization in the process of digital terrain model creation based on data collected from a multibeam echosounder},
+	journal={Applied Geomatics},
+	year={2020},
+	month={Dec},
+	day={01},
+	volume={12},
+	number={4},
+	pages={397-407},
+	abstract={This paper presents the optimization of the inverse distance weighting method (IDW) in the process of creating a digital terrain model (DTM) of the seabed based on bathymetric data collected using a multibeam echosounder (MBES). There are many different methods for processing irregular measurement data into a grid-based DTM, and the most popular of these methods are inverse distance weighting (IDW), nearest neighbour (NN), moving average (MA) and kriging (K). Kriging is often considered one of the best methods in interpolation of heterogeneous spatial data, but its use is burdened by a significantly long calculation time. In contrast, the MA method is the fastest, but the calculated models are less accurate. Between them is the IDW method, which gives satisfactory accuracy with a reasonable calculation time. In this study, the author optimized the IDW method used in the process of creating a DTM seabed based on measurement points from MBES. The goal of this optimization was to significantly accelerate the calculations, with a possible additional increase in the accuracy of the created model. Several variants of IDW methods were analysed (dependent on the search radius, number of points in the interpolation, power of the interpolation and applied smoothing method). Finally, the author proposed an optimization of the IDW method, which uses a new technique of choosing the nearest points during the interpolation process (named the growing radius). The experiments presented in the paper and the results obtained show the true potential of the IDW optimized method in the case of DTM estimation.},
+	issn={1866-928X},
+	doi={10.1007/s12518-020-00307-6},
+	url={https://doi.org/10.1007/s12518-020-00307-6}
+}
+@inproceedings{Li2018,
+	title={An Adjusted Inverse Distance Weighted Spatial Interpolation Method},
+	author={Zhengquan Li and Kuo Wang and Hao Ma and Yaoxiang Wu},
+	year={2018/11},
+	booktitle={Proceedings of the 2018 3rd International Conference on Communications, Information Management and Network Security (CIMNS 2018)},
+	pages={128-132},
+	issn={2352-538X},
+	isbn={978-94-6252-620-4},
+	url={https://doi.org/10.2991/cimns-18.2018.29},
+	doi={10.2991/cimns-18.2018.29},
+	publisher={Atlantis Press}
+}
+
+
+% sliding-window > step-and-shot
+@article{Iqbal2013,
+	title = {Treatment planning evaluation of sliding window and multiple static segments technique in intensity modulated radiotherapy},
+	journal = {Reports of Practical Oncology \& Radiotherapy},
+	volume = {18},
+	number = {2},
+	pages = {101-106},
+	year = {2013},
+	issn = {1507-1367},
+	doi = {https://doi.org/10.1016/j.rpor.2012.10.003},
+	url = {https://www.sciencedirect.com/science/article/pii/S1507136712001563},
+	author = {Khalid Iqbal and Muhammad Isa and Saeed Ahmad Buzdar and Kent Aallen Gifford and Muhammad. Afzal},
+	keywords = {Conformity index, Homogeneity index, Uniformity index, Organs-at-risk, Intensity modulated radiation therapy},
+	abstract = {Background
+		The demand of improved dose conformity of the tumor has been increased in radiation therapy with the advent of recent imaging facilities and efficient computer technologies.
+		Aim
+		We compared the intensity modulated radiotherapy (IMRT) plans delivered with the sliding window (SW IMRT) and step and shoot (SS IMRT) techniques.
+		Materials and methods
+		Thirteen patients were planned on 15 MV X-ray for five, seven, nine and thirteen beams direction making the dose constraints analogous. Eclipse treatment planning system with Helios inverse planning software, and Linear Accelerator Varian 2100C/D with 120 multileaf collimators (MLCs) were used. Gamma analysis was applied to the data acquired with the MapCheck 2™ for different beam directions plan in the sliding window and step and shoot technique to meet the 95% pass criteria at 3%/3mm. The plans were scrutinized using Dmean, Dmax, D1%, D95%, dose uniformity index (UI), dose conformity index (CI), dose homogeneity index (HI) and monitor units (MUs).
+		Results
+		Our data show comparable coverage of the planning target volume (PTV) for both the sliding window and step and shoot techniques. The volume of PTV receiving the prescription dose was 99.8±0.05% and the volume of PTV receiving the maximum dose was 107.6±2.5% in both techniques. Bladder and rectum maximum mean doses for the sliding window and step and shoot plans were 38.1±2.6% and 42.9±10.7%. Homogeneity index (HI) for both techniques was 0.12±0.02 and 0.13±0.02, uniformity index (UI) was 1.07±0.02 and 108±0.01 and conformity index at 98% isodose (CI 98%) was 0.96±0.005 and 0.96±0.005 for the sliding window and step and shoot techniques, respectively, and MUs were 10±12% lower in the step and shoot compared to the sliding window technique.
+		Conclusion
+		All these factors indicate that coverage for PTV was nearly identical but dose to organs-at-risk (OARs) was lower in the step and shoot technique.}
+}
+@article{Nicolini2005,
+	title = {IMRT with the sliding window: Comparison of the static and dynamic methods. Dosimetric and spectral analysis},
+	journal = {Radiotherapy and Oncology},
+	volume = {75},
+	number = {1},
+	pages = {112-119},
+	year = {2005},
+	issn = {0167-8140},
+	doi = {https://doi.org/10.1016/j.radonc.2005.03.009},
+	url = {https://www.sciencedirect.com/science/article/pii/S0167814005001106},
+	author = {Giorgia Nicolini and Antonella Fogliata and Luca Cozzi},
+	keywords = {Intensity modulated photon therapy, Step and shoot, Sliding window, Fluence modulation, Modulation index},
+	abstract = {Background and purpose
+	Aim of the study is the critical appraisal of the two delivery techniques for intensity-modulated treatments commonly known as dynamic and static step and shoot, in the framework of a sliding window multileaf sequencing method.
+	Methods
+	The study was performed using the solution commercialised by Varian with the Eclipse treatment planning system (TPS) and the Clinac accelerator. For a set of intensity modulated fluences, the calculated dose maps and the dose delivered to films were compared for the static and dynamic modes to verify the capability of the TPS to accurately model both the delivery modes. For these investigations, the γ concept of Low et al. [Low D, Harms W, Mutic S, Purdy J. A technique for the quantitative evaluation of dose distributions. Med Phys 1998;25: 656–60] was applied demonstrating, in general, optimal modeling for both static and dynamic tests. Optimal and actual fluences, were analysed to ascertain the degree of the TPS accuracy in converting ‘ideal’ maps into realistic leaf motions.
+	Results
+	Among the methods used, the Webb's Modulation Index [Webb S. Use of a quantitative index of beam modulation to characterize dose conformality: illustration by a comparison of full beamlet IMRT, few-segment IMRT and conformal unmodulated radiotherapy. Phys Med Biol. 2003;48: 2051–2062] proved to be useful. Also, dose volume histogram analysis was applied on deliverable plans using more clinical tools.
+	Conclusion
+	The dynamic delivery method seems to offer a more reliable agreement with the optimal calculations and, clinically, a slightly superior performance in terms of target coverage.}
+}

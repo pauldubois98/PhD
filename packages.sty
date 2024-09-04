@@ -4,9 +4,15 @@
 \usepackage[english]{babel}
 
 % math
-\usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 
 \newcommand{\abs}[1]{|{#1}|}
 \newcommand{\C}{\mathbb{C}}
@@ -16,6 +22,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\expectation}[1]{\mathop{\mathbb{E}} \left[ {#1} \right]}
 
 % colors
 \usepackage[RGB]{xcolor}

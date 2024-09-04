@@ -394,8 +394,280 @@
 %While it has some limitations, it can be a valuable addition to the arsenal of techniques used by radiation oncologists and medical physicists to optimize treatment plans and improve patient outcomes.
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \section{Network of Doses}
 % Clinically Meaningful Dose Clustering for Radiotherapy
+\subsection{Introduction}
+%Radiotherapy is a prevalent intervention for treating cancer, utilizing ionizing radiation to eliminate malignant cells.
+%Among the various radiotherapy approaches, intensity-modulated radiation therapy (IMRT) stands out as a technique that administers high radiation doses to the tumor while minimizing exposure to surrounding healthy tissues \cite{ReportIMRT2003}.
+%Traditional IMRT strategies employ several beams, usually 5, 7, or 9, originating from different angles around the patient \cite{Bortfeld2009TheNO}.
+%Each beam's intensity is modulated to optimize radiation dose delivery to the tumor while reducing healthy tissue exposure.
+%This technique surpasses the efficacy of the 3D-conformal radiotherapy (3D-CRT) approach \cite{KOLE2012} \cite{PALMA2008} \cite{VERHEY1999}.
+%The multi-leaf collimator (MLC), a computer-controlled device, shapes the radiation beam to match the tumor's contours, facilitating precise and efficient delivery of the therapy.
+%
+%The efficacy of a radiotherapy treatment plan is contingent upon the optimization procedure.
+%Optimization encompasses multiple steps:
+%The first step is the beam angles choice.
+%Most of the time, equispaced angles is chosen, as they offer the greatest flexibility \cite{Bortfeld_2006}.
+%The second step (on which we will focus our study) is the Fluence Map Optimization (FMO).
+%It consist of actually calculating a two dimensional map of fluence power for each angle.
+%The fluence maps need to be a compromise between contradicting constraints on the Principal Target Volume (PTV) and the Organs At Risks (OARs).
+%The third ans final step is the leaf sequencing.
+%This is where we convert the ideal fluence maps computed before into machine instructions.
+%Modern leaf sequencing algorithm (in particular, "sliding window" algorithm) perform very well \cite{Iqbal2013} \cite{Nicolini2005}.
+%In this paper, we assume this part of optimization can be done perfectly.
+%
+%FMO is a key step to guarantee the most favorable administration of radiation.
+%Computer softwares performing the optimization process, are called Treatment Planning Systems (TPSs).
+%The use of a TPS is necessary given the complexity of the mathematical inverse problem to solve for the FMO.
+%TPSs typically incorporate the patient's anatomy, tumor/organs' location and size, and the radiation objectives defined by medical professionals.
+%
+%There have been multiple attempts to automate the process of treatment optimization in radiation therapy.
+%Several studies have focused on dose prediction (\cite{McIntosh_2017} \cite{Nguyen_2019}).
+%These approaches aim to predict the optimal radiation dose for patients. Another avenue explored is the application of Pareto frontier exploration, as discussed in \cite{Kuipers2023} and \cite{Ottosson_2010}.
+%This approach aims to identify a set of treatment plans that represent a trade-off between conflicting objectives.
+%Additionally, \cite{CristianCotrutz_2003} proposed a method for directly extracting leaf movements from patient data.
+%Despite these efforts, these automated approaches have not yet been adopted in clinical practice due to various limitations.
+%In this paper, we present a hybrid approach that combines manual and automatic treatment optimization.
+%Our algorithm generates a shortlist of potential doses, and the final selection is made by a medical professional.
+%This approach aims to leverage the advantages of automation while incorporating the expertise and judgment of a doctor to ensure clinically usable treatment plans.
+
+
+\subsection{Radiotherapy}
+%This section provides a comprehensive description of the overarching framework encompassing the general setup of radiotherapy, elucidating the seamless integration of its various components within the clinical workflow.
+
+\paragraph{Dose Optimization Inputs}
+%The initial phase of the optimization process involves the generation of a virtual representation of the patient's anatomy using medical imaging technologies such as CT or MRI scans.
+%This model is subsequently exploited to identify the tumor's size and location and delineate the adjacent healthy tissues that require protection from radiation exposure.
+%The subsequent step is to establish the requisite radiation dose for effective treatment, with physicians typically prescribing dose-volume objectives (e.g., 95\% of Principal Target Volume or PTV should receive a minimum of 76Gy).
+%The dose is determined based on factors such as tumor size, location, and type, as well as the patient's medical history and general well-being.
+%These steps are undertaken by medical professionals.
+
+\paragraph{Dose Simulation}
+%In the radiation therapy optimization process, the next step involves computing the dose on the patient's volume by simulating one multi-leaf collimator (MLC) parametrization on the patient's body using medical imaging data.
+%The computed dose is a map from the three-dimensional volume of the patient's body to a positive number of Grays, which is the unit used to measure the absorbed radiation energy.
+%In practice, a discrete version of the dose is used, where the dose is calculated for each voxel of the patient's body.
+%The influence of rays is mathematically modeled as a linear function of the transmitted energy within the radiation therapy optimization process.
+
+\paragraph{Dose-Volume Histograms}
+%Doctors have delineated the various relevant structures in the patient's anatomy to allow calculation of the dose-volume histogram (DVH) for each structure based on a given dose.
+%The dose-volume objectives are then represented as points on the DVH that should be maintained either above (in case of minimum dose constraints) or below (in case of maximum dose constraints).
+
+\paragraph{Evaluation of Doses}
+%Doctors evaluate the quality of a dose using several criteria.
+%First, they examine the 3D distribution of the dose on the patient's body, looking at the inter-structure distribution as well as the presence, number, and location of hot spots.
+%Second, they analyze the DVH to determine if the curves match the predefined DVH objectives.
+%This evaluation step is critical for ensuring that the surrounding healthy tissues are spared from unnecessary radiation exposure.
+%By optimizing the treatment plan and verifying the quality of the dose, doctors can ensure the best possible outcome for the patient.
+
+
+\subsection{Methods}
+%The assurance of accuracy and efficacy in radiation therapy necessitates the implementation of robust dose optimization process.
+%This is achieved after the optimization of an inverse problem \cite{Webb2003}; our specific implementation is described below.
+
+\subsubsection{Radiotherapy Dose Optimization}
+
+\paragraph{Simulation \& Approximation}
+%The optimization process involved finding the optimal values for the bixels, denoted as $\textbf{b}$, while considering the dose distribution voxel-wise $\textbf{d}$ calculated based on the precomputed dose-influence matrix $\textbf{L}$, which relates bixels to the corresponding voxels.
+%Here, we make the assumption that bixels activation and dose deposition are linearly linked.
+%This assumption is very commonly used. %add citation?
+
+\paragraph{Physical Limitations}
+%It is important to note that due to the physical constraints of radiation therapy, it is not possible to have negative energy rays.
+%Consequently, each bixel value should be non-negative ($b \geq 0 \quad \forall b \in \textbf{b}$).
+%To ensure positive bixel values in practice, we applied an absolute value operation, computing $\textbf{d}=\textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ represents the element-wise absolute value of $\textbf{b}$.
+
+\paragraph{Mathematical Objective Function}
+%In order to capture the diverse dose goals specified within the TG-119 data-set \cite{AAPM-TG119}, we designed a cost function that incorporates multiple objectives.
+%The cost function employed in our study is a weighted sum of multiple objective functions, with each objective corresponding to a specific dose goal.
+%The construction of the cost function is defined as follows, using a square over/under-dose penalty function for each objective:
+%$$f(\textbf{d}) = \sum_{o \in \mathcal{O}} w_o f_o(\textbf{d})$$
+%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(d - o_d)_+^2 \text{ if $o$ is a maximal dose-volume constraint}$$
+%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(o_d - d)_+^2 \text{ if $o$ is a minimal dose-volume constraint}$$
+%with:
+%\begin{itemize}
+%	\item $\textbf{d}$ the voxel-wise dose; $\textbf{d} \left[s\right]$ the dose on voxels of the structure $s$.
+%	\item $\mathcal{O}$ the set of objectives (dose-volume goals)
+%	\item $w_o$ is the weight of the objective $o \in \mathcal{O}$ (ranges typically between 0 and 100)
+%	\item $o_s$, $o_d$ \& $o_v$ respectively the structure, dose and volume goals of $o \in \mathcal{O}$ (e.g.: $o_s$: PTV; $o_d$: 80Gy; $o_v$: 95\%)
+%\end{itemize}
+%The final function to optimize is $g(\textbf{b}) = f(\textbf{L}\abs{\textbf{b}})$.
+
+\paragraph{MLC Fluence Discretization}
+%We approximated the fluence of each beam using bixels.
+%Bixels (\textbf{be}am-\textbf{el}ement) is a discrete element of the radiation beam that can be individually controlled to achieve spatially varying intensity levels.
+%In our study, the width of these bixels was set to 5mm, corresponding to the width of leafs of the commonly used multi-leaf collimator.
+
+\paragraph{Bixels Smoothness}
+%To promote smoothness and consistency in the distribution of bixel values, we introduced a regularization term in our optimization.
+%This penalty term that penalizes variations between neighboring bixels.
+%Specifically, a square penalty was applied to the differences between bixel values and their neighboring counterparts.
+
+\paragraph{Convexity}
+%The cost function employed in our study is constructed to be convex by design, ensuring desirable mathematical properties for optimization.
+%As a result, regardless of the specific set of weights assigned to the objectives, minimizing this cost function is expected to consistently converge to the same optimal radiotherapy plan.
+
+\paragraph{Multiple Plans Generation}
+%To generate diverse treatment doses for a given patient case and set of constraints, we employed a strategy of optimizing the cost function with different weight assignments for each constraint.
+%Varying the weights associated with individual dose goals is how dosimetrists are now guiding optimization engines toward the best (clinically acceptable) solution.
+%Playing with these weights allows to explore different trade-offs and prioritize certain aspects of the treatment plan over others.
+
+\paragraph{Optimizer}
+%The optimization of the main objective function was performed using the open-source optimizer L-BFGS (Limited-memory Broyden-Fletcher-Goldfarb-Shanno).
+%This optimizer has been demonstrated to exhibit superior performance compared to other open-source optimizer available \cite{dubois2023}.
+
+\subsubsection{Data}
+\paragraph{(Phantom) Patient}
+%The evaluation of our proposed method for clustering radiation doses was conducted using the TG-119 Prostate case \cite{AAPM-TG119}, which is a well-established benchmark data-set commonly employed for assessing the quality of radiation therapy plans.
+%The TG-119 data-set encompasses predefined dose goals, which were utilized in the formulation of our cost function.
+
+\paragraph{Dose normalization}
+%We normalized the doses according to the "D50" normalization method, which is a common practice in the field of radiation therapy.
+%It consists in normalizing the dose such that the median dose of the PTV is equal to the prescription dose.
+
+\subsubsection{Dose Clustering Techniques}
+\paragraph{Dose Distance}
+%To cluster the doses, we first need to define a distance between them.
+%We used the Euclidean distance between the voxel-wise doses.
+%We defined the weight of the edge between two doses as the inverse of the distance between them
+%(since we want to maximize the weight of the edges between similar doses).
+%Defining the weight of the edge as the inverse of the distance between the doses is quite standard in the field of graph theory \cite{Maleika2020} \cite{Li2018}.
+
+\paragraph{Community Detection}
+\label{clustering_evaluation}
+%We used the Louvain's method for community detection to cluster the doses.
+%This method is a greedy optimization method that maximizes the modularity of the graph.
+%The modularity of a graph is a measure of the quality of the partition of the graph into communities.
+%We used the implementation of the Louvain's method in the python library networkx.
+
+\paragraph{Evaluating Communities Split}
+%Evaluation of clustering quality was performed using dose-volume histograms (DVH) obtained from different doses.
+%The mean and standard deviation of the DVH were computed for each cluster versus the entire data-set:
+%
+%We conducted an analysis on the relative volume doses for the four distinct structures.
+%A total of 101 dose values were sampled for each structure, with volume ranging from 0\% to 100\% equally spaced).
+%These values were aggregated into a single vector, resulting in a vector length of 404 for each dose.
+%
+%To assess the variability within these dose vectors, we calculated the standard deviation for the 404 elements of each vector.
+%This statistical measure provides insight into the dispersion of the dose values within a given structure.
+%By averaging the obtained standard deviations, we derived a scalar metric that quantifies the degree of separation among a group of doses.
+
+
+\subsection{Results}
+\subsubsection{Doses Network}
+\paragraph{Graph Plots}
+%In figure \ref{fig:graph}, each node represents a dose.
+%The communities are attributed using Louvain method and are identified by colors.
+%Since the graph is clearly not planar, we choose to plot it in a circular layout (fig. \ref{fig:graph-circular}) and in a spring layout (fig. \ref{fig:graph-spring}).
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.40\textwidth]{dose_clustering_figures/graph.pdf}
+%	\includegraphics[width=0.59\textwidth]{dose_clustering_figures/graph_bis.pdf}
+%	\subfloat[\label{fig:graph-circular} (Circular Layout)]{\hspace{.5\linewidth}}
+%	\subfloat[\label{fig:graph-spring} (Spring Layout)]{\hspace{.5\linewidth}}
+%	\caption{
+%		Plot of the Network\\
+%		edges width $\propto$ edge weight $\propto$ $\nicefrac{\text{1}}{\text{distance}}$\\
+%		node's color reflects community attribution
+%	}
+%	\label{fig:graph}
+%\end{figure}
+
+%In order to obtain a more precise understanding of the edge weights in the network, one can refer to the adjacency matrix of the edge weights, as depicted in Figure \ref{fig:adjacency}.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.65\textwidth]{dose_clustering_figures/weight_adjacency_matrix.pdf}
+%	\caption{Weight Adjacency Matrix of the Network}
+%	\label{fig:adjacency}
+%\end{figure}
+
+\paragraph{DVH Plot}
+%Figure \ref{fig:dvh} illustrates the Dose-Volume Histograms (DVHs), with the colors of the plots corresponding to the communities identified in the network analysis.
+%To ensure clarity and prevent confusion, each structure is presented on a separate plot.
+%Notably, our observations align with expectations, as doses assigned to nodes within the same community (indicated by the same color) exhibit nearly overlapping DVHs.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{dose_clustering_figures/dvh.pdf}
+%	\caption{Dose-Volume Histogram}
+%	\label{fig:dvh}
+%\end{figure}
+
+%The visualization of DVHs provides valuable insights into the distribution of doses received by different structures.
+%The close correspondence between dose patterns and community assignment underscores the potential of network analysis in uncovering meaningful patterns within radiation therapy data.
+%By associating the colors of the DVH plots with the communities identified in the network, we gain a deeper understanding of the relationship between dose assignments and structural characteristics.
+%This analysis further supports the notion that nodes (doses) within the same community share similar profiles, suggesting they could be merged, as they will likely have the same clinical effect.
+
+\subsubsection{Dose Clustering Evaluation}
+%As explained in \ref{clustering_evaluation}, we use the mean standard deviation of doses at 101 equispaced values of volume to obtain a scalar value of how far apart are a set of doses; see table \ref{table:cluster_std} for results.
+%
+%\begin{table}
+%	\centering
+%	\begin{tabular}{|l|c|c|}
+%		\hline
+%		Set & Set Size & Mean Standard Deviation \\
+%		\hline
+%		Cluster 1 \textcolor{plt-blue}  {\textbf{(blue)}}   & 4 & 2.0542 \\
+%		Cluster 2 \textcolor{plt-orange}{\textbf{(orange)}} & 5 & 0.4049 \\
+%		Cluster 3 \textcolor{plt-green} {\textbf{(green)}}  & 2 & 0.3618 \\
+%		Cluster 4 \textcolor{plt-red}   {\textbf{(red)}}    & 2 & 0.4218 \\
+%		Cluster 5 \textcolor{plt-purple}{\textbf{(purple)}} & 3 & 0.9702 \\
+%		Cluster 6 \textcolor{plt-brown} {\textbf{(brown)}}  & 3 & 1.2418 \\
+%		\textit{All} & \textit{19} & \textit{3.5122} \\
+%		\hline
+%	\end{tabular}
+%	\caption{Clustering Quality}
+%	\label{table:cluster_std}
+%\end{table}
+%
+%The mean standard deviation of the clusters, with values of 2.0542, 0.4049, 0.3618, 0.4218, 0.9702, and 1.2418, averaging at 0.9091, is significantly lower (nearly 4 times lower) compared to the mean standard deviation of the full network, which is 3.5122 (see table \ref{table:cluster_std}).
+%This notable reduction in standard deviation yells quantitatively that our clustering approach has favorable results.
+%This quantitative assessment is further supported by qualitative results, as illustrated in Figure \ref{fig:dvh}, which demonstrates the meaningfulness and relevance of the dose clusters in characterizing radiation dose distributions.
+%Our proposed clustering approach demonstrates strong performance in both qualitative and quantitative evaluations.
+
+\subsection{Discussion}
+%The ability to regroup doses into communities provides a valuable insights to understand clinical practices.
+%An additional potential application of this technique is the utilization of dose clusters as a similarity measure for early stopping optimization purposes.
+%Specifically, if the dose distribution exhibits similarities to the previous $n$ doses, it may serve as an indicator to halt the ongoing optimization process.
+%
+%However, the clustering of doses is a challenging task, as the dose space is high dimensional and the dose distribution is not smooth.
+%The results presented here can not yet be used in clinical practice, they are promising and should be further investigated.
+
+\subsection{Conclusion}
+%In conclusion, this study has introduced a novel approach for clustering doses into communities based on their dose distributions, demonstrating the meaningfulness of such clustering both quantitatively and qualitatively.
+%This suggests that doses belonging to the same cluster are likely to have indistinguishable clinical effects.
+%
+%The proposed clustering technique holds several potential applications.
+%Firstly, it can be integrated into Fluence Map Optimization (FMO) to facilitate early stopping of the optimization process when the last few updates remain within the same cluster, providing efficiency gains.
+%Secondly, if extended to clustering doses from different patients, it could enable the analysis of clinical center practices, offering insights into variations in treatment outcomes among centers for specific anatomies.
+%
+%Furthermore, this clustering approach has the potential to streamline the validation process between dosimetrists and physicists.
+%Currently, multiple treatment plans are submitted for validation, leading to a cumbersome selection process for the physicist.
+%However, by clustering the optimized doses with different weight parameters for constraints, the number of options can be reduced, resulting in a more efficient decision-making process and potentially reducing the personnel required in the dosimetry department.
+%
+%As further research and validation efforts are undertaken, this innovative approach holds considerable promise for enhancing treatment planning processes and, ultimately, improving patient outcomes.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section[Novel Dosimetry Automation Approach with Graph Theory]{A Novel Framework for Multi-Objective Optimization and Robust Plan Selection Using Graph Theory (ESTRO 2024)}
 % many-clicks to few-clicks solution, but goal is one-click

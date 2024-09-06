@@ -1,5 +1,44 @@
 % https://github.com/pauldubois98/SFPM-JS2024
 \section{Dose-Volume Histograms Guided Deep Dose (SFPM 2024)}
+\subsection{Introduction}
+%Radiotherapy treatment planning involves creating a plan to deliver the radiation dose while minimizing damage to healthy organs.
+%Traditionally, this planning is done semi-manually by dosimetrists who define constraints for the dose delivered to different structures.
+%Recently, deep learning techniques have shown promise in automating parts of this process by predicting the 3D dose distribution based on patient scans.
+%Dose mimicking1 is then used to find the treatment plan.
+%However, these techniques lack interaction between the dosimetrist and the treatment planning system (TPS).
+%We propose including target Dose-Volume Histograms (DVHs) in the dose prediction model.
+%Modifications of the target DVH make the process interactive.
+%Material and Methods: We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
+%We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
+%We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.
+%To incorporate DVH information, the model uses a technique called Direct Affine Feature Transforms (DAFT)2.
+%Three models were compared: one without DVH data (model C, classical U-net), one with DVH data incorporated at the bottleneck layer (model B), and one with DVH data incorporated throughout all encoder-decoder connections (model A).
+
+\subsection{Results}
+%Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).
+%The dataset comprises patients prescribed 62 Gy on the PTV and others 78 Gy on the PTV.
+%We observe that model C could not adapt to the different prescriptions and consistently predicted a dose that looks like a 65 Gy prescription.
+%Conversely, models A and B adjusted their deep dose predictions to the prescription.
+%These modifications in the predicted 3D dose indicate that the models adapted their predictions to fit the DVHs.
+
+\subsection{Conclusions}
+%Our study demonstrates the possibility of incorporating DVH data into deep dose generation models.
+%Dose prediction is more accurate with DVHs, and our model adapts better to varying prescriptions.
+%This technique allows a new dose optimization workflow where dosimetrists only need to design the DVHs that suit them.
+%The TPS will compute the deliverable plan that best matches the DVHs asked.
+%Moreover, while one cannot transfer a 3D dose from one patient to another, DVHs are comparable across patients.
+%Hence, after finding one DVH set that suits a center’s practices, calculating the optimal plan for new patients will only need minor modifications.
+
+%References
+%1.	Chris McIntosh, Mattea Welch, Andrea McNiven, David A Jaffray, and Thomas G Purdie.
+%Fully automated treatment planning for head and neck radiotherapy using a voxel-based dose prediction and dose mimicking method.
+%Physics in Medicine Biology.
+%doi: 10.1088/1361-6560/aa71f8
+%2.	Sebastian Pölsterl, Tom Nuno Wolf, and Christian Wachinger.
+%Combining 3D Image and Tabular Data via the Dynamic Affine Feature Map Transform, page 688–698.
+%Springer International Publishing, 2021.
+%ISBN 9783030872403.
+%doi: 10.1007/978-3-030-87240-3 66
 
 % https://github.com/pauldubois98/SFRO2024
 \section{Attention Mechanism on Dose-Volume Histograms for Deep Dose Predictions (SFRO 2024)}

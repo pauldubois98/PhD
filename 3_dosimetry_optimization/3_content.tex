@@ -48,8 +48,9 @@ Simple models like pencil beam approximations, which assume a linear trajectory 
 In contrast, more advanced simulations, such as Monte Carlo methods, provide a detailed and accurate dose calculation, although at a higher computational cost.
 In this manuscript, we employ a collapsed cone convolution techniques, which balances between efficiency and accuracy.
 
-\section{Naive Method}
-% least squares on PTV = prescription, OARs = 0
+\section{Naive Optimization Method}
+% obvious ideal target: prescription*1_{PTV}
+% can solve for $b$ on least squares with $d_target = prescription*1_{PTV}$
 % => does not work at all
 \section{Constraints and Importance Factors}
 \subsection[DVHs]{Dose Volume Histograms}

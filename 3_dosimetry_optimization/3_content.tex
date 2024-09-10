@@ -18,6 +18,15 @@ Bixels whose beams do not affect the planning target volume are typically exclud
 Activating these bixels could only degrade dose quality by increasing the dose to organs at risk without benefiting the dose distribution within the planning target volume.
 
 \subsection[Voxels]{Human Body Discretization: Voxels}
+The human body of the patient is also divided into discrete elements, as it is a three dimensional object, the lements are "voxels" (\textbf{vo}lume \textbf{el}ements).
+Each voxel represents a small portion of tissue within the patient's body, and will determine the granularity of the dose computed.
+
+The maximum resolution of the voxel grid is defined by the planning image, which is typically a CT scan.
+To reduce computational demands, it is common practice to resample the planning image.
+In this manuscript, where new techniques are explored, we have opted to resample the voxel grid to a resolution of 5 mm, ensuring a balance between computational efficiency and accuracy.
+
+Additionally, to further optimize the computational process, only voxels corresponding to the planning target volume (PTV) and organs at risk (OARs) are retained for calculations.
+This selective approach reduces unnecessary computation.
 
 \subsection[DI-Matrix]{Dose-Influence Matrix}
 

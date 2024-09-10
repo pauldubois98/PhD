@@ -49,9 +49,25 @@ In contrast, more advanced simulations, such as Monte Carlo methods, provide a d
 In this manuscript, we employ collapsed cone convolution techniques, which balance efficiency and accuracy.
 
 \section{Naive Optimization Method}
-% obvious ideal target: prescription*1_{PTV}
-% can solve for $b$ on least squares with $d_target = prescription*1_{PTV}$
-% => does not work at all
+A natural starting point in dose optimization is to attempt to directly achieve the delivery of a uniform dose, equal to the prescription, on all voxels within the PTV, and no dose elsewhere.
+We can attempt to find the bixels values delivering this dose by solving a least squares problem.
+We attempt to find the fluence map $b$ that minimizes the difference between the actual dose $d$ and the target dose $d_{\text{target}}$, which is set to the prescribed dose within the PTV.
+
+Formally, the optimization problem can be stated as:
+$$ \min_b \| d_{\text{target}} - Lb \|^2 $$
+
+where $d_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
+$$ d_{\text{target}} = p \times  \mathds{1}_{\text{PTV}} $$
+
+Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to $1$ for voxels within the PTV and $0$ elsewhere.
+
+To solve this problem, we perform a least squares minimization to find the optimal fluence map $b$, where the matrix-vector multiplication $Lb$ yields the dose distribution $d$ across the entire patient volume.
+
+However, this method is often inadequate in practice, as it attempts to solve the system based solely on the prescribed dose within the PTV, while neglecting any constraints on doses to the organs at risk (OARs).
+Since no constraints are imposed on the OAR doses, this naive optimization can result in high doses to critical structures, leading to unacceptable treatment plans.
+As a result, more sophisticated optimization methods that incorporate dose constraints on OARs and account for dose-volume constraints are necessary to achieve clinically viable treatment plans.
+% add 3D dose & DVHs of dose obtained using this technique
+
 \section{Constraints and Importance Factors}
 \subsection[DVHs]{Dose Volume Histograms}
 % 3D dose vs DVH

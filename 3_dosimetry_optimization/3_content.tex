@@ -29,6 +29,24 @@ Additionally, to further optimize the computational process, only voxels corresp
 This selective approach reduces unnecessary computation.
 
 \subsection[DI-Matrix]{Dose-Influence Matrix}
+The Dose-Influence Matrix (or DI-Matrix) links the discretized fluence map (the bixels values) and the discretized dose distribution within the patient (the dose on each voxel).
+This matrix defines how the radiation from each individual bixel influences the dose delivered to every voxel in the patient’s body.
+
+We start by converting the 2D fluence map, composed of individual bixel values, into a column vector $b$.
+Similarly we represent dose distribution in the 3D space of the patient as a vector $d$, where each entry corresponds to the dose in a specific voxel.
+The DI-Matrix $L$ governs the relationship between these vectors $b$ and $d$ via the matrix-vector multiplication $d = Lb$.
+This mathematical operation computes the total dose at each voxel by summing the contributions from all active bixels (here, we assume that the effect of bixels is linear).
+
+The DI-Matrix is constructed by simulating the radiation delivered by each individual bixel.
+For each bixel, the jaws of the multi-leaf collimator are virtually opened to allow only that specific beamlet through.
+A radiation transport model is employed to calculate the dose deposited in each voxel, taking into account the beam's spread and attenuation as it travels through the body.
+The resulting 3D dose deposition is used to fill one column of the matrix $L$, corresponding to that bixel's influence on all voxels.
+Repeating this process for each bixel generates the entire DI-Matrix.
+
+The accuracy of the dose calculation dependents on the precision of the DI-Matrix.
+Simple models like pencil beam approximations, which assume a linear trajectory with minimal scattering, are considered as too coarse.
+In contrast, more advanced simulations, such as Monte Carlo methods, provide a detailed and accurate dose calculation, although at a higher computational cost.
+In this manuscript, we employ a collapsed cone convolution techniques, which balances between efficiency and accuracy.
 
 \section{Naive Method}
 % least squares on PTV = prescription, OARs = 0

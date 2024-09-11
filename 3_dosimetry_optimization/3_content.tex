@@ -57,7 +57,7 @@ Formally, the optimization problem can be stated as:
 $$ \min_b \| d_{\text{target}} - Lb \|^2 $$
 
 where $d_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
-$$ d_{\text{target}} = p \times  \mathds{1}_{\text{PTV}} $$
+$$ d_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
 
 Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to $1$ for voxels within the PTV and $0$ elsewhere.
 
@@ -69,12 +69,30 @@ As a result, more sophisticated optimization methods that incorporate dose const
 % add 3D dose & DVHs of dose obtained using this technique
 
 \section{Constraints and Importance Factors}
-\subsection[DVHs]{Dose Volume Histograms}
-% 3D dose vs DVH
+In order to obtain clinically acceptable doses, we want to incorporate the clinical aims in the optimization.
+
 \subsection{Constraints Formulation}
+Different organs have different doses tolerances \cite{Withers1988} \cite{ICRU1983}.
+Normal-tissue cells are described as parallel, serial, or mixed.
+
+This distinction is helpful in determining absorbed dose limits in normal tissues.
+Serial-like tissues, such as the esophagus or spinal cord, can lose their function if a small region of the tissue is damaged.
+Parallel-like tissues, such as the lung or liver, have sufficient reserve capacity so that a sizable amount of damage can be tolerated without a complication occurring.
+
+
+For parallel-like structures, dose–volume reporting specifying $V_D$, which is the volume that receives at least the absorbed dose $D$, is commonly used, with $D$ adapted to the specific organ.
+For example \cite{Graham1995} found that the incidence and severity of lung pneumonitis was correlated with $V_{20}$Gy (the volume of normal lung receiving more than $20$Gy).
+Moreover, the median absorbed dose ($D_{50\%}$, the maximal dose that at least 50\% of the volume receives) in parallel-like structures can be a measure of total absorbed dose in the organ at risk.
+
+For serial-like organs, recommendation suggest reporting $D_{2\%}$ as the maximum absorbed dose (since $D_{0\%}$ is considered as too noisy).
+
+Finally, for organs that are parallel-serial (or "mixed"), all $D_{50\%}$, $D_{2\%}$, and $V_D$ with $D$ chosen such that if exceeded, there is a high probability of serious complication should be reported.*
+
 \subsection{Optimization Problem}
+
 \paragraph{Ideal}
 % minimize dose while reaching constraints
+
 \paragraph{Practical}
 % get as close as possible to meeting constraints
 % building of cost function

@@ -106,6 +106,76 @@ For serial-like organs, it is recommended to report $D_{2\%}$ as the maximum abs
 
 Finally, for organs with a mixed parallel-serial structure, it is advised to report $D_{50\%}$, $D_{2\%}$, and $V_D$, with $D$ selected based on the threshold beyond which there is a significant risk of serious complications.
 
+\begin{figure}
+	\noindent
+	\begin{subfigure}{0.49\textwidth}
+		\caption{Irradiation of organs at risk with one heat point.}
+		\label{fig:organ_radiation_point}
+		\centering
+		\vspace{3mm}
+		Treatment Dose
+		\\
+		\includegraphics[width=0.6\textwidth]{serial_heat_point.pdf}
+		\hfill
+		\includegraphics[width=0.38\textwidth]{parallel_heat_point.pdf}
+		\\
+		Post Treatment
+		\\
+		\noindent
+		\begin{subfigure}[b]{0.6\textwidth}
+			\addtocounter{subfigure}{-1}
+			\renewcommand\thesubfigure{\alph{subfigure}1}
+			\centering
+			\includegraphics[width=\textwidth]{serial_heat_point_post.pdf}
+			\vspace{0.5mm}
+			\caption{Serial organ dies.}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.38\textwidth}
+			\addtocounter{subfigure}{-1}
+			\renewcommand\thesubfigure{\alph{subfigure}2}
+			\centering
+			\includegraphics[width=\textwidth]{parallel_heat_point_post.pdf}
+			\caption{Parallel organ survives.}
+		\end{subfigure}	
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\caption{Irradiation of organs at risk with spread heat.}
+		\label{fig:organ_radiation_square}
+		\centering
+		\vspace{3mm}
+		Treatment Dose
+		\\
+		\includegraphics[width=0.55\textwidth]{serial_heat_square.pdf}
+		\hfill
+		\includegraphics[width=0.35\textwidth]{parallel_heat_square.pdf}
+		\\
+		Post Treatment
+		\\
+		\noindent
+		\begin{subfigure}[b]{0.55\textwidth}
+			\addtocounter{subfigure}{-1}
+			\renewcommand\thesubfigure{\alph{subfigure}1}
+			\centering
+			\includegraphics[width=\textwidth]{serial_heat_square_post.pdf}
+			\vspace{0.5mm}
+			\caption{Serial organ survives.}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.35\textwidth}
+			\addtocounter{subfigure}{-1}
+			\renewcommand\thesubfigure{\alph{subfigure}2}
+			\centering
+			\includegraphics[width=\textwidth]{parallel_heat_square_post.pdf}
+			\caption{Parallel organ dies.}
+		\end{subfigure}	
+	\end{subfigure}
+	\addtocounter{subfigure}{-1}
+	\caption{Irradiation type survival of organs serial-like and parallel-like.}
+	\label{fig:serial_parallel_organ_radiation}	
+\end{figure}
+
 \subsection{Optimization Problem}
 
 \paragraph{Ideal}

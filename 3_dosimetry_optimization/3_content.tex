@@ -101,9 +101,19 @@ In contrast, parallel organs (figure \ref{fig:parallel_organ}), such as the lung
 	\label{fig:serial_parallel_organ}	
 \end{figure}
 
-For parallel-like structures, dose–volume reporting specifying $V_D$, the volume receiving at least the absorbed dose $D$, is commonly used, with $D$ adapted to the specific organ.
+We define two DVH value measures $V_X$ and $D_{X\%}$ for a structure $S$.
+For a given dose $d: \R^3 \to \R^+$, $V_X$ is defined as the volume of the three dimensional structure $S \subseteq \R^3$ that receives a dose equal to or higher than $X$, that is:
+$$ V_X = \frac{\vol{\left\lbrace p \in S \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
+Similarly, we define $D_{X\%}$ as the minimal dose (in Gy) delivered to that the $X\%$ most irradiated region of the structure, that is:
+$$ D_{X\%} = \min \left\lbrace d(p) \mid p \in S_{X\%} \right\rbrace$$
+where $S_{X\%} \subseteq S$ is the $X\%$ most irradiated region of $S$.
+This $D_{X\%}$ can also be defined as the maximal dose $D$ such that $V_D$ the volume of $S$ that receives a dose equal to or higher than $D$ is greater than or equal to $X$:
+$$ D_{X\%} = \max \left\lbrace D \in \R^+ \mid V_D \geq X\% \right\rbrace.$$
+The DVH curve is the plot of $x \mapsto V_x$ on the range of $d$.
+
+For parallel-like structures, dose–volume reporting specifying $V_D$ is commonly used, with $D$ adapted to the specific organ.
 For instance, \cite{Graham1995} demonstrated a correlation between the incidence and severity of lung pneumonitis and $V_{20 \text{ Gy}}$, the volume of the lung receiving more than 20 Gy.
-Additionally, in parallel-like structures, the median absorbed dose ($D_{50\%}$), representing the dose received by at least 50\% of the volume, provides a valuable measure of the total dose delivered to the organ at risk.
+Additionally, in parallel-like structures, the median absorbed dose ($D_{50\%}$), provides a valuable measure of the total dose delivered to the organ at risk.
 
 For serial-like organs, it is recommended to report $D_{2\%}$ as the maximum absorbed dose, as $D_{0\%}$ is subject to noise.
 

@@ -103,12 +103,19 @@ In contrast, parallel organs (figure \ref{fig:parallel_organ}), such as the lung
 
 We define two DVH value measures $V_X$ and $D_{X\%}$ for a structure $S$.
 For a given dose $d: \R^3 \to \R^+$, $V_X$ is defined as the volume of the three dimensional structure $S \subseteq \R^3$ that receives a dose equal to or higher than $X$, that is:
-$$ V_X = \frac{\vol{\left\lbrace p \in S \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
+$$ V_X = \frac{\vol{\left\lbrace p \in S \subset \R^3 \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
+This can be approximated using the discretized dose $\mathbf{d}$:
+$$ V_X \approx \frac{ \#{\left\lbrace v \in S \mid \mathbf{d}_v \geq X \right\rbrace}}{\#\left\{ v \in S \right\}}$$
+with $v \in S$ voxels of the structure $S$, $\mathbf{d}_v$ the dose of $\mathbf{d}$ associated with voxel $v$, and $\#$ refers to voxel count.
+
 Similarly, we define $D_{X\%}$ as the minimal dose (in Gy) delivered to that the $X\%$ most irradiated region of the structure, that is:
-$$ D_{X\%} = \min \left\lbrace d(p) \mid p \in S_{X\%} \right\rbrace$$
+$$D_{X\%} = \min \left\lbrace d(p) \mid p \in S_{X\%} \right\rbrace$$
 where $S_{X\%} \subseteq S$ is the $X\%$ most irradiated region of $S$.
+$$D_{X\%} \approx \min \left\lbrace \mathbf{d}_v \mid v \in S_{X\%} \right\rbrace$$
+where $v \in S_{X\%}$ are the $X\%$ most irradiated voxels of $S$.
+
 This $D_{X\%}$ can also be defined as the maximal dose $D$ such that $V_D$ the volume of $S$ that receives a dose equal to or higher than $D$ is greater than or equal to $X$:
-$$ D_{X\%} = \max \left\lbrace D \in \R^+ \mid V_D \geq X\% \right\rbrace.$$
+$$D_{X\%} = \max \left\lbrace D \in \R^+ \mid V_D \geq X\% \right\rbrace.$$
 The DVH curve is the plot of $x \mapsto V_x$ on the range of $d$.
 
 For parallel-like structures, dose–volume reporting specifying $V_D$ is commonly used, with $D$ adapted to the specific organ.

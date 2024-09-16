@@ -88,6 +88,9 @@ In contrast, parallel organs (figure \ref{fig:parallel_organ}), such as the lung
 		\caption{Organ functioning in a serial-like way.}
 		\label{fig:serial_organ}
 	\end{subfigure}
+	\hfill
+	\unskip\ \vrule\
+	\hfill
 	\begin{subfigure}{0.38\textwidth}
 		\centering
 		\includegraphics[width=0.9\textwidth]{parallel_organ.pdf}
@@ -107,8 +110,7 @@ For serial-like organs, it is recommended to report $D_{2\%}$ as the maximum abs
 Finally, for organs with a mixed parallel-serial structure, it is advised to report $D_{50\%}$, $D_{2\%}$, and $V_D$, with $D$ selected based on the threshold beyond which there is a significant risk of serious complications.
 
 \begin{figure}
-	\noindent
-	\begin{subfigure}{0.48\textwidth}
+	\begin{subfigure}[b]{0.48\textwidth}
 		\caption{Irradiation of organs at risk with one heat point.}
 		\label{fig:organ_radiation_point}
 		\centering
@@ -117,9 +119,7 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 		Treatment Dose
 		\\
 		\includegraphics[width=0.55\textwidth]{serial_heat_point.pdf}
-		\hfill
-		\unskip\ \vrule\
-		\hfill
+		\vbar
 		\includegraphics[width=0.35\textwidth]{parallel_heat_point.pdf}
 		\\
 		\hspace{1.1cm}
@@ -134,9 +134,7 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 			\vspace{0.5mm}
 			\caption{Serial organ dies.}
 		\end{subfigure}
-		\hfill
-		\unskip\ \vrule\
-		\hfill
+		\vbar
 		\begin{subfigure}[b]{0.35\textwidth}
 			\addtocounter{subfigure}{-1}
 			\renewcommand\thesubfigure{\alph{subfigure}2}
@@ -145,11 +143,9 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 			\caption{Parallel organ survives.}
 		\end{subfigure}	
 	\end{subfigure}
-	\hfill
-	\unskip\ \vrule\
-	\hfill
-	\begin{subfigure}{0.48\textwidth}
-		\caption{Irradiation of organs at risk with spread heat.}
+	\vbar
+	\begin{subfigure}[b]{0.48\textwidth}
+		\caption{Irradiation of organs at risk with spread heat dose.}
 		\label{fig:organ_radiation_square}
 		\centering
 		\vspace{3mm}
@@ -157,9 +153,7 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 		Treatment Dose
 		\\
 		\includegraphics[width=0.55\textwidth]{serial_heat_square.pdf}
-		\hfill
-		\unskip\ \vrule\
-		\hfill
+		\vbar
 		\includegraphics[width=0.35\textwidth]{parallel_heat_square.pdf}
 		\\
 		\hspace{1.1cm}
@@ -174,9 +168,7 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 			\vspace{0.5mm}
 			\caption{Serial organ survives.}
 		\end{subfigure}
-		\hfill
-		\unskip\ \vrule\
-		\hfill
+		\vbar
 		\begin{subfigure}[b]{0.35\textwidth}
 			\addtocounter{subfigure}{-1}
 			\renewcommand\thesubfigure{\alph{subfigure}2}

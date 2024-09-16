@@ -33,8 +33,8 @@ The Dose-Influence Matrix (or DI-Matrix) links the discretized fluence map (the 
 This matrix defines how the radiation from each individual bixel influences the dose delivered to every voxel in the patient's body.
 
 We start by converting the 2D fluence map, composed of individual bixel values, into a column vector $b$.
-Similarly, we represent dose distribution in the patient's 3D space as a vector $d$, where each entry corresponds to the dose in a specific voxel.
-The DI-Matrix $L$ governs the relationship between these vectors $b$ and $d$ via the matrix-vector multiplication $d = Lb$.
+Similarly, we represent dose distribution in the patient's 3D space as a vector $\mathbf{d}$, where each entry corresponds to the dose in a specific voxel.
+The DI-Matrix $L$ governs the relationship between these vectors $\mathbf{b}$ and $\mathbf{d}$ via the matrix-vector multiplication $\mathbf{d} = L\mathbf{b}$.
 This mathematical operation computes the total dose at each voxel by summing the contributions from all active bixels (here, we assume that the effect of bixels is linear).
 
 The DI-Matrix is constructed by simulating the radiation delivered by each individual bixel.
@@ -51,17 +51,17 @@ In this manuscript, we employ collapsed cone convolution techniques, which balan
 \section{Naive Optimization Method}
 A natural starting point in dose optimization is to attempt to directly achieve the delivery of a uniform dose, equal to the prescription, on all voxels within the PTV, and no dose elsewhere.
 We can attempt to find the bixels values delivering this dose by solving a least squares problem.
-We attempt to find the fluence map $b$ that minimizes the difference between the actual dose $d$ and the target dose $d_{\text{target}}$, which is set to the prescribed dose within the PTV.
+We attempt to find the fluence map $\mathbf{b}$ that minimizes the difference between the actual dose $\mathbf{d}$ and the target dose $\mathbf{d}_{\text{target}}$, which is set to the prescribed dose within the PTV.
 
 Formally, the optimization problem can be stated as:
-$$ \min_b \| d_{\text{target}} - Lb \|^2 $$
+$$ \min_\mathbf{b} \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
 
-where $d_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
-$$ d_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
+where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
+$$ \mathbf{d}_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
 
 Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to $1$ for voxels within the PTV and $0$ elsewhere.
 
-To solve this problem, we perform a least squares minimization to find the optimal fluence map $b$, where the matrix-vector multiplication $Lb$ yields the dose distribution $d$ across the entire patient volume.
+To solve this problem, we perform a least squares minimization to find the optimal fluence map $\mathbf{b}$, where the matrix-vector multiplication $L\mathbf{b}$ yields the dose distribution $\mathbf{d}$ across the entire patient volume.
 
 However, this method is often inadequate in practice, as it attempts to solve the system based solely on the prescribed dose within the PTV, while neglecting any constraints on doses to the organs at risk (OARs).
 Since no constraints are imposed on the OAR doses, this naive optimization can result in high doses to critical structures, leading to unacceptable treatment plans.

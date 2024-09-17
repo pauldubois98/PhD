@@ -322,6 +322,29 @@ Here, we explore three commonly used methods:
 	\label{fig:constraint_penalisation}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_1.pdf}
+		\caption{Penalizing the lower $20\,\%$ dose voxels.}
+		\label{fig:constraint_penalisation_plot_1}
+	\end{subfigure}
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_2.pdf}
+		\caption{Penalizing voxels with dose greater than $25\,\text{Gy}$.}
+		\label{fig:constraint_penalisation_plot_2}
+	\end{subfigure}
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_3.pdf}
+		\caption{Penalizing the lower $20\,\%$ dose voxels with dose greater than $25\,\text{Gy}$.}
+		\label{fig:constraint_penalisation_plot_3}
+	\end{subfigure}
+	\caption{Typical penalisation of a dose on an OAR according to the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$.}
+	\label{fig:constraint_penalisation_plots}
+\end{figure}
 
 Once the set of penalised voxels is selected, the penalisation power $p$ must be determined, with common choices being $p=1$ or $p=2$.
 We opt for penalising voxels with dose greater than $D$ Gy and set $p=2$.

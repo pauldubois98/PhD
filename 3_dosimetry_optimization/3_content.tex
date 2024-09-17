@@ -258,20 +258,31 @@ This constraint example is illustrated in figure \ref{fig:constraint_plot}.
 
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.49\textwidth}
+	\begin{subfigure}{0.32\textwidth}
 		\centering
 		\includegraphics[width=0.9\textwidth]{constraint_plot.pdf}
+		\caption{Maximal dose constraint not met.}
 		\label{fig:constraint_plot_unmet}
-		\caption{Constraint not met.}
 	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
+	\begin{subfigure}{0.32\textwidth}
 		\centering
 		\includegraphics[width=0.9\textwidth]{constraint_plot_met.pdf}
+		\caption{Maximal dose constraint met.}
 		\label{fig:constraint_plot_met}
-		\caption{Constraint Met.}
 	\end{subfigure}
+	\begin{subfigure}{0.32\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_plot_min.pdf}
+		\caption{Minimal dose constraint unmet.}
+		\label{fig:constraint_plot_min}
+	\end{subfigure}
+	\caption*{
+		Figures \ref{fig:constraint_plot_unmet}, \ref{fig:constraint_plot_met}:
+		Typical DVH of an OAR, with visualization of the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).\\
+		Figure \ref{fig:constraint_plot_min}:
+		Typical DVH of a PTV, with visualization of the minimal dose constraint $D_{95\%} \geq 76\,\text{Gy}$ (or $V_{76\text{Gy}} \geq 95\,\%$).
+	}
 	\label{fig:constraint_plot}
-	\caption{Typical DVH of an OAR, with the visualization of the constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).}
 \end{figure}
 
 We only calculate a voxel-discretized version $\mathbf{d}$ of the dose $d: \R^3 \to \R^+$, using a bixel-discretized version $\mathbf{b}$ of the fluence maps $f^\theta: \R^2 \to \R^+$ for each selected angle $\theta$.

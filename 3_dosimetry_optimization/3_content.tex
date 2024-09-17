@@ -261,8 +261,13 @@ Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = L\
 $$\min_{\mathbf{b}} \sum_{v \in OARs} \mathbf{d}_v^2 \quad \text{ with } \mathbf{d} = L\mathbf{b} \text{ and such that } \forall c \in \mathcal{C}, c \text{ is satisfied.}$$
 
 \paragraph{Practical}
-% get as close as possible to meeting constraints
-% building of cost function
+In practice, constraints formulated by the doctors are too hard to satisfy.
+Hence, we create one objective function $f_c$ for each constraint $c \in \mathcal{C}$, that will decrease as we get closer to satisfying the constraint.
+The optimization problem becomes:
+$$\min_{\mathbf{b}} \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})$$
+with $w_c$ importance factor of constraint $c$.
+
+
 
 \section{Dose Mimicking}
 % principle

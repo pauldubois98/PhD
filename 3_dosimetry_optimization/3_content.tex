@@ -258,7 +258,18 @@ This constraint example is illustrated in figure \ref{fig:constraint_plot}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\linewidth]{constraint_plot.pdf}
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_plot.pdf}
+		\label{fig:constraint_plot_unmet}
+		\caption{Constraint not met.}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_plot_met.pdf}
+		\label{fig:constraint_plot_met}
+		\caption{Constraint Met.}
+	\end{subfigure}
 	\label{fig:constraint_plot}
 	\caption{Typical DVH of an OAR, with the visualization of the constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).}
 \end{figure}

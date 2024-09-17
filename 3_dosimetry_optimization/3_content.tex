@@ -254,6 +254,14 @@ Constraints $c \in \mathcal{C}$ are formulated as $c = \left( S, D, V, \pm \righ
 \textit{\textbf{E.g.:}} $c_{PTV+} = \left( \text{PTV}, \ 76\,Gy, \ 95\,\%, \ + \right)$ means that for the PTV structure, we need $D_{95\%} \geq 76\,\textit{Gy}$ (or, equivalently, $V_{76\textit{Gy}} \geq 95 \%$).
 \\
 \textit{\textbf{E.g. (bis):}} $c_{\text{organ}} = \left( \text{organ}, \ 25\, Gy, \ 20\,\%, \ - \right)$ means that for the 'organ' structure, we need $D_{20\%} \leq 25\,\textit{Gy}$ (or, equivalently, $V_{25\textit{Gy}} \leq 25 \%$).
+This constraint example is illustrated in figure \ref{fig:constraint_plot}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{constraint_plot.pdf}
+	\label{fig:constraint_plot}
+	\caption{Typical DVH of an OAR, with the visualization of the constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).}
+\end{figure}
 
 We only calculate a voxel-discretized version $\mathbf{d}$ of the dose $d: \R^3 \to \R^+$, using a bixel-discretized version $\mathbf{b}$ of the fluence maps $f^\theta: \R^2 \to \R^+$ for each selected angle $\theta$.
 Hence, we formulate the optimization problem on the discretized information.

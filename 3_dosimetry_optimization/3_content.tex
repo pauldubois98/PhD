@@ -249,8 +249,11 @@ Finally, for organs with a mixed parallel-serial structure, it is advised to rep
 \subsection{Optimization Problem}
 After the doctors have formulated maximal dose constraints for each OARs, and PTV coverage constraints $\mathcal{C}$, we can formulate the mathematical optimization problem.
 
-Constraints $c \in \mathcal{C}$ are formulated as $c = \left( S, D, V, \pm \right)$ where $D$ is in Grey, $V$ is a \%, and $\pm$ means the constraint is maximal/minimal;
-e.g.: $c_{PTV+} = \left( PTV, \ 78Gy, \ 95\%, \ + \right)$ means that for the PTV, we need $D_{95\%} \geq 78\textit{Gy}$ (or, equivalently, $V_{78\textit{Gy}} \geq 95 \%$).
+Constraints $c \in \mathcal{C}$ are formulated as $c = \left( S, D, V, \pm \right)$ where $D$ is in Grey, $V$ is a \%, and $\pm$ means the constraint is maximal/minimal.
+\\
+\textit{\textbf{E.g.:}} $c_{PTV+} = \left( \text{PTV}, \ 76\,Gy, \ 95\,\%, \ + \right)$ means that for the PTV structure, we need $D_{95\%} \geq 76\,\textit{Gy}$ (or, equivalently, $V_{76\textit{Gy}} \geq 95 \%$).
+\\
+\textit{\textbf{E.g. (bis):}} $c_{\text{organ}} = \left( \text{organ}, \ 25\, Gy, \ 20\,\%, \ - \right)$ means that for the 'organ' structure, we need $D_{20\%} \leq 25\,\textit{Gy}$ (or, equivalently, $V_{25\textit{Gy}} \leq 25 \%$).
 
 We only calculate a voxel-discretized version $\mathbf{d}$ of the dose $d: \R^3 \to \R^+$, using a bixel-discretized version $\mathbf{b}$ of the fluence maps $f^\theta: \R^2 \to \R^+$ for each selected angle $\theta$.
 Hence, we formulate the optimization problem on the discretized information.

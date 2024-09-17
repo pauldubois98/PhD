@@ -256,7 +256,9 @@ We only calculate a voxel-discretized version $\mathbf{d}$ of the dose $d: \R^3 
 Hence, we formulate the optimization problem on the discretized information.
 
 \paragraph{Ideal}
-% minimize dose while reaching constraints
+In the ideal case, it is possible to meet all constraints, and we try to minimize further the dose $\mathbf{d}$ on the OARs.
+Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = L\mathbf{d}$ such that all DVH constraints $\mathcal{C}$ are satisfied, and $\sum_{v \in \text{OARs}} \mathbf{d}_v^2 \ $ is minimum (where $\mathbf{d}_v$ is the dose on voxel $v$, and $v \in \text{OARs}$ are the voxels $v$ belonging to an OAR):
+$$\min_{\mathbf{b}} \sum_{v \in OARs} \mathbf{d}_v^2 \quad \text{ with } \mathbf{d} = L\mathbf{b} \text{ and such that } \forall c \in \mathcal{C}, c \text{ is satisfied.}$$
 
 \paragraph{Practical}
 % get as close as possible to meeting constraints

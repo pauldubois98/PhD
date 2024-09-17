@@ -9,7 +9,7 @@
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
-   sodipodi:docname="constraint_penalization.svg"
+   sodipodi:docname="constraint_penalisation.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -117,12 +117,12 @@
        id="text11-8"
        x="205.61182"
        y="142.12584"
-       style="font-size:9.87778px;text-align:center;text-anchor:middle;stroke-width:0.264583;fill:#b22424;fill-opacity:1"><tspan
+       style="font-size:9.87778px;text-align:center;text-anchor:middle;fill:#b22424;fill-opacity:1;stroke-width:0.264583"><tspan
          sodipodi:role="line"
          x="205.61182"
          y="142.12584"
          id="tspan12-6"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#b22424;fill-opacity:1">Penalize voxels both</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#b22424;fill-opacity:1">Penalise voxels both</tspan><tspan
          sodipodi:role="line"
          x="205.61182"
          y="154.5874"
@@ -145,11 +145,11 @@
          id="tspan6-8"
          x="125.8561"
          y="118.4083"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ff8c00;fill-opacity:1">Penalize 80% lower dose voxels</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ff8c00;fill-opacity:1">Penalise 80% lower dose voxels</tspan><tspan
          sodipodi:role="line"
          id="tspan7-8"
          x="125.8561"
-         y="130.86986"
+         y="130.86987"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ff8c00;fill-opacity:1">(until constraint is satisfied)</tspan></text><text
        fill="#c00000"
        font-family="Aptos, Aptos_MSFontService, sans-serif"
@@ -163,7 +163,7 @@
          id="tspan6-8-8"
          x="212.78804"
          y="38.479912"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#028102;fill-opacity:1">Penalize voxels with dose &gt;25 Gy</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.87778px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#028102;fill-opacity:1">Penalise voxels with dose &gt;25 Gy</tspan><tspan
          sodipodi:role="line"
          id="tspan7-8-0"
          x="212.78804"

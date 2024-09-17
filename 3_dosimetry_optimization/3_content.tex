@@ -280,6 +280,12 @@ Here, we explore three commonly used methods:
 	This is the most advanced method but remains prone to noise for the same reason as the first approach.
 \end{enumerate}
 
+Once the set of penalized voxels is selected, the penalization power $p$ must be determined, with common choices being $p=1$ or $p=2$.
+We opt for penalizing voxels with dose $>D$ Gy and set $p=2$.
+This choice makes the objective function convex, as a weighted sum of convex functions.
+Desirable properties such as the existence of a unique global minimum once the values of $w_c$ are fixed follows from convexity of the objective function.
+
+
 \section{Dose Mimicking}
 % principle
 % => is a simpler problem

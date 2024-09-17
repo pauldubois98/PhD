@@ -302,7 +302,7 @@ with $w_c$ importance factor of constraint $c$.
 
 \paragraph{Penalization functions}
 Given a constraint $c = \left( S, D\,\text{Gy}, V\,\%, \pm \right)$, multiple approaches can be considered for defining an objective function \( f_c \).
-Here, we explore three commonly used methods:
+Here, we explore three commonly used methods (also visually explained in figure \ref{fig:constraint_penalisation}):
 
 \begin{enumerate}
 	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels}:
@@ -320,7 +320,7 @@ Here, we explore three commonly used methods:
 		\hfill
 		\includegraphics[width=0.35\textwidth]{constraint_penalisation_plot.pdf}
 		\caption{Penalizations of constraint $D_{20\%}< 25\,\text{Gy}$ on a structure of 10 voxels.}
-		\label{fig:constraint_penalisation}
+		\label{fig:constraint_penalisation_diagram}
 	\end{subfigure}
 	\\\vspace{3mm}
 	\begin{subfigure}{0.32\textwidth}
@@ -342,7 +342,7 @@ Here, we explore three commonly used methods:
 		\label{fig:constraint_penalisation_plot_3}
 	\end{subfigure}
 	\caption{Typical penalisation of a dose on an OAR according to the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$.}
-	\label{fig:constraint_penalisation_plots}
+	\label{fig:constraint_penalisation}
 \end{figure}
 
 Once the set of penalised voxels is selected, the penalisation power $p$ must be determined, with common choices being $p=1$ or $p=2$.

@@ -267,7 +267,18 @@ The optimization problem becomes:
 $$\min_{\mathbf{b}} \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})$$
 with $w_c$ importance factor of constraint $c$.
 
+\paragraph{Penalization functions}
+Given a constraint $c = \left( S, D\,\text{Gy}, V\,\%, \pm \right)$, multiple approaches can be considered for defining an objective function \( f_c \).
+Here, we explore three commonly used methods:
 
+\begin{enumerate}
+	\item \textbf{Penalizing the lower $V\%$ dose voxels}:
+	This method penalizes a fixed number of voxels, but it tends to be noisy since the lower $V\%$ voxels can fluctuate with each optimization iteration.
+	\item \textbf{Penalizing voxels with dose $>D$ Gy}:
+	This approach yields a convex objective function.
+	\item \textbf{Penalizing the lower $V\%$ dose voxels with dose $>D$ Gy}:
+	This is the most advanced method but remains prone to noise for the same reason as the first approach.
+\end{enumerate}
 
 \section{Dose Mimicking}
 % principle

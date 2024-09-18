@@ -394,11 +394,15 @@ The contouring task used to be a manual operation but is now done automatically,
 After the emergence of AI for contouring, this manuscript tackles the problem of automatic treatment planning.
 
 \section{Dose Mimicking}
-% principle
-% => is a simpler problem
-% => only works if dose to mimick is nearly acheaivable
-% => can arise if machine is changing during treatment
-% optim problem
+Dose mimicking is a technique used to reproduce a dose distribution as closely as possible.
+It involves the optimization of a new treatment plan to match the dose profile of an existing plan, which is typically derived from either a prior treatment or a reference plan considered clinically acceptable.
+This differ from the naive approach in \ref{naive_optimization}: the dose distribution that we try to replicate is not manually set.
+The target dose was achieved before either on the same machine, or on a similar MLC.
+Hence, the task of mimicking it should be "easier".
+
+Formally, the optimization problem can be stated the same way as in \ref{naive_optimization}:
+$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
+with $\mathbf{d}_{\text{target}}$ the previously target dose, instead of the manually defined one.
 
 \section{Optimization Algorithm Review for Dosimetry}
 \subsection{Introduction}

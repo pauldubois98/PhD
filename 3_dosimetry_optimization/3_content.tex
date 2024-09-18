@@ -104,7 +104,7 @@ We can attempt to find the bixels values delivering this dose by solving a least
 We attempt to find the fluence map $\mathbf{b}$ that minimizes the difference between the actual dose $\mathbf{d}$ and the target dose $\mathbf{d}_{\text{target}}$, which is set to the prescribed dose within the PTV.
 
 Formally, the optimization problem can be stated as:
-$$ \min_\mathbf{b} \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
+$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
 
 where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
 $$ \mathbf{d}_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
@@ -291,13 +291,23 @@ Hence, we formulate the optimization problem on the discretized information.
 \paragraph{Ideal}
 In the ideal case, it is possible to meet all constraints, and we try to minimize further the dose $\mathbf{d}$ on the OARs.
 Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = L\mathbf{d}$ such that all DVH constraints $\mathcal{C}$ are satisfied, and $\sum_{v \in \text{OARs}} \mathbf{d}_v^2 \ $ is minimum (where $\mathbf{d}_v$ is the dose on voxel $v$, and $v \in \text{OARs}$ are the voxels $v$ belonging to an OAR):
-$$\min_{\mathbf{b}} \sum_{v \in OARs} \mathbf{d}_v^2 \quad \text{ with } \mathbf{d} = L\mathbf{b} \text{ and such that } \forall c \in \mathcal{C}, c \text{ is satisfied.}$$
+$$
+\min_{\mathbf{b}} \sum_{v \in \text{OARs}} \ \mathbf{d}_v^2
+\quad \text{ with }
+\mathbf{d} = L\mathbf{b}
+\text{ and such that }
+\forall c \in \mathcal{C}, c \text{ is satisfied.}
+$$
 
 \paragraph{Practical}
 In practice, constraints formulated by the doctors are too hard to satisfy.
 Hence, we create one objective function $f_c$ for each constraint $c \in \mathcal{C}$, that will decrease as we get closer to satisfying the constraint.
 The optimization problem becomes:
-$$\min_{\mathbf{b}} \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})$$
+$$
+\min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})
+\quad \text{ with }
+\mathbf{d} = L\mathbf{b}
+$$
 with $w_c$ importance factor of constraint $c$.
 
 \paragraph{Penalization functions}
@@ -355,6 +365,15 @@ We opt for penalizing voxels with a dose greater than $D$ Gy and set $p=2$.
 This choice makes the objective function convex a weighted sum of convex functions.
 Desirable properties, such as the existence of a unique global minimum once the values of $w_c$ are fixed, follow from the convexity of the objective function.
 
+Finally, the mathematical formulation of the objective function associated with the constraint $c = \left( S, D, V, \pm \right)$ is:
+$$f_c(\mathbf{d}) = \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2$$
+and the global minimization problem becomes
+$$
+\min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2
+\quad \text{ with }
+\mathbf{d} = L\mathbf{b}
+$$
+with $w_c$ the weights of each constraint to be determined.
 
 \section{Dose Mimicking}
 % principle

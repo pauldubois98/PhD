@@ -373,7 +373,25 @@ $$
 \quad \text{ with }
 \mathbf{d} = L\mathbf{b}
 $$
-where $w_c$, the weights of each constraint, are to be determined.
+where $w_c$, the weights or importance factors of each constraint, are to be determined.
+
+\subsection{Balancing the Importance Factors}
+The importance factors $w_c$ play a crucial role in the optimization process.
+These weights allow dosimetrists to prioritize certain clinical constraints over others.
+Properly balancing these factors ensures that the most critical aspects of the treatment plan are emphasized while still striving to meet all constraints.
+
+The constraints associated with the PTV, ensuring the destruction of the tumor, conflict with the protection of the OARs.
+Hence, the optimization process becomes a trade-off between satisfying different constraints.
+For example, increasing the dose of the PTV will inadvertently increase the dose of nearby OARs.
+Carefully tuning of the importance factors ensures that the optimization algorithm directs the fluence maps towards a solution that balances the therapeutic benefits with the risk of complications.
+
+Due to the unique geometry of each patient, an optimal dose plan cannot be applied universally.
+The optimization must be recalculated for every patient.
+Dosimetrists customize the dose to meet the specific needs of each individual patient by taking into account clinical priorities, spatial relationships, and physician expertise.
+This process is time consuming, and remains manual; this manuscript tackles the problem of treatment planning.
+
+The contouring task used to be a manual operation but is now done automatically, thanks to the progress of artificial intelligence on segmentation tasks.
+After the emergence of AI for contouring, this manuscript tackles the problem of automatic treatment planning.
 
 \section{Dose Mimicking}
 % principle

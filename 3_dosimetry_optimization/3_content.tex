@@ -312,7 +312,7 @@ with $w_c$ importance factor of constraint $c$.
 
 \paragraph{Penalization functions}
 Given a constraint $c = \left( S, D\,\text{Gy}, V\,\%, \pm \right)$, multiple approaches can be considered for defining an objective function \( f_c \).
-Here, we explore three commonly used methods (also visually explained in figure \ref{fig:constraint_penalisation}):
+Here, we explore three commonly used methods (also visually explained in figure \ref{fig:constraint_penalization}):
 
 \begin{enumerate}
 	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels}:
@@ -328,33 +328,33 @@ Here, we explore three commonly used methods (also visually explained in figure 
 \begin{figure}
 	\centering
 	\begin{subfigure}{\textwidth}
-		\includegraphics[width=0.6\textwidth]{constraint_penalisation.pdf}
+		\includegraphics[width=0.6\textwidth]{constraint_penalization.pdf}
 		\hfill
-		\includegraphics[width=0.35\textwidth]{constraint_penalisation_plot.pdf}
+		\includegraphics[width=0.35\textwidth]{constraint_penalization_plot.pdf}
 		\caption{Penalizations of constraint $D_{20\%}< 25\,\text{Gy}$ on a structure of 10 voxels.}
-		\label{fig:constraint_penalisation_diagram}
+		\label{fig:constraint_penalization_diagram}
 	\end{subfigure}
 	\\\vspace{3mm}
 	\begin{subfigure}{0.32\textwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_1.pdf}
+		\includegraphics[width=0.9\textwidth]{constraint_penalization_plot_1.pdf}
 		\caption{Penalizing the lower $20\,\%$ dose voxels.}
-		\label{fig:constraint_penalisation_plot_1}
+		\label{fig:constraint_penalization_plot_1}
 	\end{subfigure}
 	\begin{subfigure}{0.32\textwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_2.pdf}
+		\includegraphics[width=0.9\textwidth]{constraint_penalization_plot_2.pdf}
 		\caption{Penalizing voxels with dose greater than $25\,\text{Gy}$.}
-		\label{fig:constraint_penalisation_plot_2}
+		\label{fig:constraint_penalization_plot_2}
 	\end{subfigure}
 	\begin{subfigure}{0.32\textwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{constraint_penalisation_plot_3.pdf}
+		\includegraphics[width=0.9\textwidth]{constraint_penalization_plot_3.pdf}
 		\caption{Penalizing the lower $20\,\%$ dose voxels with dose greater than $25\,\text{Gy}$.}
-		\label{fig:constraint_penalisation_plot_3}
+		\label{fig:constraint_penalization_plot_3}
 	\end{subfigure}
-	\caption{Typical penalisation of a dose on an OAR according to the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$.}
-	\label{fig:constraint_penalisation}
+	\caption{Typical penalization of a dose on an OAR according to the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$.}
+	\label{fig:constraint_penalization}
 \end{figure}
 
 Turning off penalization is possible once a constraint is met (this is useful for the first two methods presented above).

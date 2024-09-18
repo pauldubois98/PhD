@@ -106,7 +106,7 @@ We attempt to find the fluence map $\mathbf{b}$ that minimizes the difference be
 Formally, the optimization problem can be stated as:
 $$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
 
-where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follow for a prescription of $p$Gy:
+where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follows for a prescription of $p$Gy:
 $$ \mathbf{d}_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
 
 Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to $1$ for voxels within the PTV and $0$ elsewhere.
@@ -151,14 +151,14 @@ In contrast, parallel organs (figure \ref{fig:parallel_organ}), such as the lung
 	\label{fig:serial_parallel_organ}	
 \end{figure}
 
-We define two DVH value measures $V_X$ and $D_{X\%}$ for a structure $S$.
+We define two DVH value measures, $V_X$ and $D_{X\%}$, for a structure $S$.
 For a given dose $d: \R^3 \to \R^+$, $V_X$ is defined as the volume of the three dimensional structure $S \subseteq \R^3$ that receives a dose equal to or higher than $X$, that is:
 $$ V_X = \frac{\vol{\left\lbrace p \in S \subset \R^3 \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
-This can be approximated using the discretized dose on voxels $\mathbf{d}$:
+This formula can be approximated using the discretized dose on voxels $\mathbf{d}$:
 $$ V_X \approx \frac{ \#{\left\lbrace v \in S \mid \mathbf{d}_v \geq X \right\rbrace}}{\#\left\{ v \in S \right\}}$$
 with $v \in S$ voxels of the structure $S$, $\mathbf{d}_v$ the dose of $\mathbf{d}$ associated with voxel $v$, and $\#$ refers to voxel count.
 
-Similarly, we define $D_{X\%}$ as the minimal dose (in Gy) delivered to that the $X\%$ most irradiated region of the structure, that is:
+Similarly, we define $D_{X\%}$ as the minimal dose (in Gy) delivered to the $X\%$ most irradiated region of the structure, that is:
 $$D_{X\%} = \min \left\lbrace d(p) \mid p \in S_{X\%} \right\rbrace$$
 where $S_{X\%} \subseteq S$ is the $X\%$ most irradiated region of $S$.
 Again, it can be approximated using the discretized dose on voxels $\mathbf{d}$:
@@ -167,7 +167,7 @@ where $v \in S_{X\%}$ are the $X\%$ most irradiated voxels of $S$.
 
 For parallel-like structures, dose–volume reporting specifying $V_D$ is commonly used, with $D$ adapted to the specific organ.
 For instance, \cite{Graham1995} demonstrated a correlation between the incidence and severity of lung pneumonitis and $V_{20 \text{ Gy}}$, the volume of the lung receiving more than 20 Gy.
-Additionally, in parallel-like structures, the median absorbed dose ($D_{50\%}$), provides a valuable measure of the total dose delivered to the organ at risk.
+In parallel-like structures, the median absorbed dose ($D_{50\%}$) provides a valuable measure of the total dose delivered to the organ at risk.
 
 For serial-like organs, it is recommended to report $D_{2\%}$ as the maximum absorbed dose, as $D_{0\%}$ is subject to noise.
 
@@ -301,7 +301,7 @@ $$
 
 \paragraph{Practical}
 In practice, constraints formulated by the doctors are too hard to satisfy.
-Hence, we create one objective function $f_c$ for each constraint $c \in \mathcal{C}$, that will decrease as we get closer to satisfying the constraint.
+Hence, we create one objective function $f_c$ for each constraint $c \in \mathcal{C}$, which decrease as we get closer to satisfying the constraint.
 The optimization problem becomes:
 $$
 \min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})
@@ -316,13 +316,13 @@ Here, we explore three commonly used methods (also visually explained in figure 
 
 \begin{enumerate}
 	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels}:
-	This method penalises a fixed number of voxels, but it tends to be noisy since the lower $V\%$ voxels can fluctuate with each optimization iteration.
+	This method penalizes a fixed number of voxels but tends to be noisy since the lower $V\%$ voxels can fluctuate with each optimization iteration.
 	\item \textbf{Penalizing voxels with dose $>D$ Gy}:
 	This approach yields a convex objective function.
 	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels with dose $>D\,\text{Gy}$}:
-	This is the most advanced method; 
-	Note that once the constraint is satisfied, no voxel is penalised.
-	However, for the same reason as the first approach, this penalisation remains prone to noise.
+	This method is the most advanced method; 
+	Note that once the constraint is satisfied, no voxel is penalized.
+	However, for the same reason as the first approach, this penalization remains prone to noise.
 \end{enumerate}
 
 \begin{figure}
@@ -373,7 +373,7 @@ $$
 \quad \text{ with }
 \mathbf{d} = L\mathbf{b}
 $$
-with $w_c$ the weights of each constraint to be determined.
+where $w_c$, the weights of each constraint, are to be determined.
 
 \section{Dose Mimicking}
 % principle

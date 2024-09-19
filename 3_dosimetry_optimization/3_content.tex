@@ -523,6 +523,16 @@ It is widely recognized that Newton's method excels in optimizing convex functio
 Our objective function is convex by construction; hence, this optimization algorithm is particularly effective.
 
 \paragraph{Best Algorithms}
+Besides Newton's method, three algorithms have similar performances: Adam, RMSprop, and LBFGS.
+Adam (and RMSprop, to a lesser extent) appear to have more "wavy" cost curves, while LBFGS cost decreases more stably.
+These observations are valid both in terms of iteration and time.
+
+TGG 119 Multiple PTVs (figure \ref{fig:TGG119_Multi}) is the smallest problem, and the real ICM prostate case (figure \ref{fig:ICM_Prostate}) is the largest problem (in terms of patient/organs/structure volume size);
+TGG 119 fake head and neck (figure \ref{fig:TGG119_HN}) and TGG 119 fake prostate (figure \ref{fig:TGG119_Prostate}) have similar sizes.
+Notably, an observable trend indicates that as the problem size increases, LBFGS outperforms both RMSprop and Adam optimization algorithms.
+
+Therefore, we will use the LBFGS algorithm in the rest of this manuscript.
+
 \paragraph{LBFGS vs BFGS}
 
 \subsection{Discussion}

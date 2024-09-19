@@ -534,6 +534,9 @@ Notably, an observable trend indicates that as the problem size increases, LBFGS
 Therefore, we will use the LBFGS algorithm in the rest of this manuscript.
 
 \paragraph{LBFGS vs BFGS}
+It would be expected that BFGS performs better than LBFGS in terms of iterations but not in terms of time (since LBFGS is a fast approximation of the BFGS technique).
+However, we observe that LBFGS outperforms BFGS even on the iterations-wise graph.
+This performance suggests that the limited memory approximation is biased towards suitable directions in these problems.
 
 \subsection{Discussion}
 

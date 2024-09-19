@@ -539,6 +539,11 @@ However, we observe that LBFGS outperforms BFGS even on the iterations-wise grap
 This performance suggests that the limited memory approximation is biased towards suitable directions in these problems.
 
 \subsection{Discussion}
+In the future, if new techniques are developed one day, making computing the Hessian much faster, we recommend using Newton's optimization algorithm.
+However, to our knowledge, computing the Hessian remains long, not only in our implementation.
+
+Hence, we recommend using the LBFGS algorithm for the problem of dose optimization in radiotherapy;
+it is the fastest to converge and converges steadily on the four cases tested.
 
 % meta optim approach
 % review

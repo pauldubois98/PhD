@@ -412,14 +412,18 @@ Different algorithms may converge to various local minima when dealing with non-
 To mitigate this issue, we have designed the objective function to be convex, ensuring all optimization methods converge to the same global minimum.
 In this study, we benchmark the computational complexity and convergence rates of various algorithms.
 These findings are intended to provide valuable insights for the development of TPS.
-
-\subsection{Introduction}
-% ArXiV paper
-
-\subsection{Methods}
+% This was published as an ArXiV paper
 
 \subsection{Data}
-% TG-119 \cite{AAPM-TG119}
+We focused on evaluating the various open-source optimizers.
+We used the widely recognized TG-119 \cite{AAPM-TG119} cases as a benchmark for evaluating radiation therapy plan optimization.
+The TG-119 dataset provides specific dose goals, which we incorporated into our proposed cost function.
+The TGG 119 multiple PTVs is a theoretical case unlikely to happen in real life.
+However, the other cases represent a comprehensive set of what dosimetrists could encounter daily.
+
+We also used one typical case of prostate cancer from ICM.
+For this case, doctors had provided specific dose goals that we again incorporated into our proposed cost function.
+
 \subsection{Open-source Optimizers}
 \paragraph{(Stochastic) Gradient Descent}
 \paragraph{Conjugate Gradient}

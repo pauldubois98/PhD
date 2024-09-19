@@ -107,7 +107,7 @@ We can attempt to find the bixels values delivering this dose by solving a least
 We attempt to find the fluence map $\mathbf{b}$ that minimizes the difference between the actual dose $\mathbf{d}$ and the target dose $\mathbf{d}_{\text{target}}$, which is set to the prescribed dose within the PTV.
 
 Formally, the optimization problem can be stated as:
-$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
+$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2, \quad \mathbf{b} \geq 0$$
 
 where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follows for a prescription of $p$Gy:
 $$ \mathbf{d}_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
@@ -297,7 +297,7 @@ Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = L\
 $$
 \min_{\mathbf{b}} \sum_{v \in \text{OARs}} \ \mathbf{d}_v^2
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}
+\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
 \text{ and such that }
 \forall c \in \mathcal{C}, c \text{ is satisfied.}
 $$
@@ -309,7 +309,7 @@ The optimization problem becomes:
 $$
 \min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}
+\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
 $$
 with $w_c$ importance factor of constraint $c$.
 
@@ -374,7 +374,7 @@ and the global minimization problem becomes
 $$
 \min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}
+\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
 $$
 where $w_c$, the weights or importance factors of each constraint, are to be determined.
 

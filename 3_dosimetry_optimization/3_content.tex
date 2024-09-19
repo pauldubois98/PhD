@@ -425,24 +425,53 @@ We also used one typical case of prostate cancer from ICM.
 For this case, doctors had provided specific dose goals that we again incorporated into our proposed cost function.
 
 \subsection{Open-source Optimizers}
+We tried to have a comprehensive set of available open-source optimizers.
 \paragraph{(Stochastic) Gradient Descent}
+Is an optimization algorithm that iteratively updates the model parameters in the direction of the negative gradient of the objective function.
+In our case, it is not stochastic since it calculates the gradient using the current solution\footnote{Our objective function has all its inputs as parameters, so there is no notion of stochasticity.} \cite{Lemarechal2012}.
 \paragraph{Conjugate Gradient}
+Is an iterative optimization algorithm commonly used to solve systems of linear equations or quadratic optimization problems.
+It iteratively computes conjugate directions and updates the solution along them, aiming to minimize the objective function \cite{Hestenes1952}.
+Conjugate Gradient is often applied in scenarios where the Hessian matrix is unavailable or computationally expensive.
 \paragraph{Newton}
+Newton's method is an iterative optimization algorithm that uses the second-order derivative (Hessian matrix) to find the minimum of a function.
+It updates the current estimate by considering both the first-order derivative (gradient) and the second-order derivative \cite{Nocedal06}.
 \paragraph{SLSQP}
+(Sequential Least Squares Programming) is a sequential quadratic programming algorithm for constrained optimization.
+It iteratively solves a sequence of quadratic programming subproblems to find the optimal solution subject to constraints \cite{Bonnans2006}.
 \paragraph{RMSprop}
+(Root Mean Square Propagation) is an optimization algorithm that addresses the problem of diminishing learning rates in traditional gradient descent methods.
+It divides the learning rate by the root mean square of the past gradients, which helps to stabilize and speed up convergence \cite{Hinton2012}.
 \paragraph{BFGS-based}
 \subparagraph{Pure BFGS}
+(Broyden-Fletcher-Goldfarb-Shanno) is a quasi-Newton method that approximates the Hessian matrix using updates based on gradient information.
+It performs a line search to determine the step size that minimizes the objective function along the search direction \cite{Fletcher1987}.
 \subparagraph{L-BFGS}
+(Limited-memory BFGS) is a variation of BFGS that uses a limited-memory approach to approximate the Hessian matrix.
+It stores a limited number of past gradient and parameter values to compute an approximate inverse Hessian matrix efficiently \cite{Liu1989}.
 \paragraph{Adam-based}
 \subparagraph{Pure Adam}
+(Adaptive Moment Estimation) is an optimization algorithm combining ideas from adaptive learning rates and momentum methods.
+It computes adaptive learning rates for each parameter based on estimates of the first and second moments of the gradients \cite{Kingma2017}.
 \subparagraph{RAdam}
+(Rectified Adam) is a variant of the Adam optimizer that introduces a rectification term to stabilize the adaptive learning rate.
+It aims to address some convergence issues that may occur in Adam by dynamically adjusting the variance of the adaptive learning rate \cite{Liu2021}.
 \subparagraph{NAdam}
+(Nesterov Adam) combines the Nesterov accelerated gradient method with the Adam optimizer.
+It incorporates Nesterov momentum into the Adam update rule to improve convergence and provide better generalization \cite{TTato2018}.
 \subparagraph{AdamDelta}
+Is another variant of the Adam optimizer that replaces the second moment estimates (variance) with a delta parameter.
+It eliminates the need for storing and updating the moving average of the squared gradients, which can be beneficial in memory-constrained settings \cite{Zeiler2012}.
 \subparagraph{Adamax}
+Is an extension of the Adam optimizer that uses the gradients' infinity norm (max norm) instead of the L2 norm. It is designed to handle sparse gradients more effectively and can be particularly useful in deep learning models \cite{Bera2020}.
 \paragraph{Rprop}
+(Resilient Backpropagation) is an optimization algorithm specifically designed for neural networks.
+It adaptively updates the weights based on the gradient sign, adjusting the step size.
+Rprop performs weight updates independently for each weight parameter \cite{Riedmiller1992}.
 \paragraph{Other optimizers variations}
-%In addition, we also tested AdamW, Adagrad and ASGD.
-%However, AdamW \& Adagrad behaved similarly to Adam, and ASGD behaved similarly to SGD.
+In addition, we tested AdamW, Adagrad, and ASGD.
+However, AdamW and Adagrad behaved similarly to Adam, and ASGD behaved similarly to SGD.
+For readability purposes, we did not include them in the results plots.
 
 \subsection{Results}
 % 4 TGG-119 cases figures
@@ -451,3 +480,8 @@ For this case, doctors had provided specific dose goals that we again incorporat
 \paragraph{LBFGS vs BFGS}
 
 \subsection{Discussion}
+
+% meta optim approach
+% review
+% try
+% why it's not working

@@ -459,7 +459,7 @@ It computes adaptive learning rates for each parameter based on estimates of the
 It aims to address some convergence issues that may occur in Adam by dynamically adjusting the variance of the adaptive learning rate \cite{Liu2021}.
 \subparagraph{NAdam}
 (Nesterov Adam) combines the Nesterov accelerated gradient method with the Adam optimizer.
-It incorporates Nesterov momentum into the Adam update rule to improve convergence and provide better generalization \cite{TTato2018}.
+It incorporates Nesterov momentum into the Adam update rule to improve convergence and provide better generalization \cite{Tato2018}.
 \subparagraph{AdamDelta}
 Is another variant of the Adam optimizer that replaces the second moment estimates (variance) with a delta parameter.
 It eliminates the need for storing and updating the moving average of the squared gradients, which can be beneficial in memory-constrained settings \cite{Zeiler2012}.
@@ -475,6 +475,45 @@ However, AdamW and Adagrad behaved similarly to Adam, and ASGD behaved similarly
 For readability purposes, we did not include them in the results plots.
 
 \subsection{Results}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119Multi-iter.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119Multi-time.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/legend.pdf}
+		\caption{TGG 119: Multiple PTVs}
+		\label{fig:TGG119_Multi}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119HN-iter.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119HN-time.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/legend.pdf}
+		\caption{TGG 119: Head and Neck}
+		\label{fig:TGG119_HN}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119Prostate-iter.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/TGG119Prostate-time.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/legend.pdf}
+		\caption{TGG 119: Prostate}
+		\label{fig:TGG119_Prostate}
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[height=5cm]{optimizers_comparison/ICMProstate-iter.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/ICMProstate-time.pdf}
+		\includegraphics[height=5cm]{optimizers_comparison/legend.pdf}
+		\caption{Prostate from ICM (Institut régonal du Cancer de Montpellier)}
+		\label{fig:ICM_Prostate}
+	\end{subfigure}
+	\caption{Evolution of the objective function value ('cost') through optimization iterations and computation time for four typical dosimetry cases.}
+	\label{fig:OptimizersComparison}
+\end{figure}
+
 % 4 TGG-119 cases figures
 \paragraph{Newton's method}
 \paragraph{Best Algorithms}

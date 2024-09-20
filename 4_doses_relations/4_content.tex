@@ -1,52 +1,6 @@
 % Full paper:
 % https://github.com/pauldubois98/ESTRO2024/blob/main/full_paper.pdf
 \section{Distance Between Doses}
-% Clinically Meaningful Dose Distances for Radiotherapy
-\subsection{Introduction}
-%Radiotherapy is a widely used treatment for cancer, which involves the use of ionizing radiation to kill cancer cells.
-%Intensity-modulated radiation therapy (IMRT) is a type of radiotherapy that delivers high doses of radiation to the tumor while minimizing the radiation dose to the surrounding healthy tissues \cite{ReportIMRT2003}.
-%Classical IMRT techniques involve the use of several beams (usually 5,7 or 9) of radiation that are directed at the tumor from different angles (usually equispaced angles around the patient) \cite{Bortfeld_2006}.
-%The intensity of each beam is modulated, or adjusted, to deliver a higher dose of radiation to the tumor and a lower dose to the surrounding healthy tissues; it has been shown that this technique is much more efficient than 3D-CRT \cite{KOLE2012} \cite{PALMA2008} \cite{VERHEY1999}
-%This is achieved by using a computer-controlled device called a multi-leaf collimator (MLC), which shapes the radiation beam to conform to the shape of the tumor.
-%
-%The success of a radiotherapy treatment plan depends on the optimization process, which involves several steps to ensure the optimal delivery of radiation (that is, delivery that best matches doctor's prescriptions).
-%The optimization process is typically performed using computer software that takes into account the patient's anatomy, the location and size of the tumor/organs, and the radiation objectives defined by doctors.
-%Radiotherapy dose optimization is an inverse problem\cite{Webb2003}, where the goal is to determine the radiation dose distribution that best matches the desired treatment outcome.
-
-\paragraph{Pre-dose-optimization}
-%The first step in the optimization process is to create a virtual model of the patient's anatomy using medical imaging techniques such as CT or MRI scans.
-%This model is then used to identify the location and size of the tumor and to delineate the surrounding healthy tissues that need to be spared from radiation exposure.
-%The next step is to define the radiation dose required for effective treatment.
-%Most of the time, doctors give dose-volume objectives (e.g.: 95\% of the PTV should receive at least 75Gy).
-%This is based on the size, location, and type of tumor, as well as the patient's medical history and overall health.
-%The radiation dose is typically expressed in units of Gray (Gy), which is a measure of the amount of radiation energy absorbed by the tissue.
-%These last two steps (structures contouring and dose objectives definition) are performed by doctors.
-
-\paragraph{Radiotherapy doses}
-%Once the radiation dose is defined, the optimization process begins.
-%By simulating one MLC parametrization on the patient's body (using the density of the tissues from the scan), we can compute the dose on the patient's volume.
-%This dose is a map from the volume of the patient's body (a region of $\R^3$) to a number of Grays (a number in $\R^+$, since it is impossible to have a negative number of Grays).
-%In practice, we use a discrete version of the dose, that is, for each voxel of the patient's body, we calculate the dose (in Grays).
-
-\paragraph{Dose Optimization}
-%To solve the inverse problem of radiotherapy dose optimization, mathematical optimization algorithms are used.
-%These algorithms search for the optimal solution that minimizes a predefined objective function, which represents the treatment goals and constraints.
-%
-%In order to efficiently solve this optimization problem, the objective function is often designed to be convex, thereby ensuring a well-defined target for the optimization process.
-%Gradient-based, Newtonian, or quasi-Newtonian algorithms are typically employed for this purpose.
-%Despite recent advances in optimization algorithms, determining how closely the best solution found by the optimizer approximates the exact minimum of the objective function remains a challenging task.
-
-\paragraph{Dose-Volume Histograms}
-%Doctors have contoured the different structures of interest (that is, associate to which voxels correspond each structure).
-%Thus, it is possible, given a dose, to calculate the dose-volume histogram (DVH) for each structure of interest.
-%The dose-volume objectives then turn to points on the dose volume histogram that the DVH must stay above (in the case of a minimal dose constraint), or under (in the case of a maximal dose constraint).
-%
-%Formally, for a given dose $d$, $V(d)$ is defined as the volume of the structure that receives a dose equal to or higher than $d$.
-%It is mathematically expressed as:
-%$$V(d) = \frac{Vol(\{p \in \mathcal{V} | D(p) \leq d\})}{Vol(\mathcal{V})}$$
-%where $\mathcal{V}$ is the set of points of the structure of interest, and $D(p)$ is the dose at particular point $p$.
-%Then, the DVH curve is the plot of $V(d)$ on the range of $d$ (0 to maximal dose).
-
 
 \paragraph{Dose Evaluation}	
 %To evaluate the quality of a dose, doctors look at the 3D distribution of the dose on the patient body (the inter-structure distribution, the existence/number/localization of hot points).

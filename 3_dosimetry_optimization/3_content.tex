@@ -283,7 +283,9 @@ This constraint example is illustrated in figure \ref{fig:constraint_plot_unmet}
 		Figures \ref{fig:constraint_plot_unmet}, \ref{fig:constraint_plot_met}:
 		Typical DVH of an OAR, with visualization of the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).\\
 		Figure \ref{fig:constraint_plot_min}:
-		Typical DVH of a PTV, with visualization of the minimal dose constraint $D_{95\%} \geq 76\,\text{Gy}$ (or $V_{76\text{Gy}} \geq 95\,\%$).
+		Typical DVH of a PTV, with visualization of the minimal dose constraint $D_{95\%} \geq 76\,\text{Gy}$ (or $V_{76\text{Gy}} \geq 95\,\%$).\\
+		Note that dose-volume objectives then turn to points on dose-volume histograms.
+		The relevant DVH curve must stay above (in the case of a minimal dose constraint), or under (in the case of a maximal dose constraint) this point to pass the constraint.
 	}
 	\label{fig:constraint_plot}
 \end{figure}

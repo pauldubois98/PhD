@@ -5,12 +5,17 @@ In this section, we aim to establish a robust metric for quantifying the distanc
 Such a distance should provide a numerical comparison that reflects the clinical discrepancies between two dose distributions.
 By developing a distance measure that captures these nuances, we can better evaluate and compare treatment plans.
 
+\paragraph{A non-trivial task}
+Quantifying the difference between two dose distributions, particularly regarding clinical impact, is inherently challenging.
+This complexity arises because not all patient anatomy regions contribute equally to treatment outcomes.
+Dose variations in critical structures may significantly influence clinical effects, while similar variations in less critical areas may have negligible impact.
+Furthermore, the fact that no dose compensation (underdosing in one region counterbalancing overdosing in another) is possible adds to the difficulty in establishing a straightforward metric for comparing dose distributions.
+
 \paragraph{Dose Evaluation}
 To assess the quality of a dose distribution, dosimetrists primarily focus on DVHs as the key metric.
 While they also consider aspects of the three-dimensional (3D) dose distribution, such as inter-structure dose gradients and the presence, number, and location of hot spots, their primary attention is directed towards the analysis of DVHs, which provide a comprehensive overview of dose coverage and sparing of organs at risk.
 
 \subsection{Method}
-%It is not obvious to measure how far apart two doses are, especially in terms of clinical effect: some areas of the patient's volume are more important than others, and dose deposition in some area may, or not, be compensated by dose deposition elsewhere.
 
 \subsubsection{Naive Doses Comparison}
 %The most naive way to compare (and by defining a distance) between two doses is to compare voxel-wise values of the two doses.

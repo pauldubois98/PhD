@@ -28,21 +28,26 @@ We constructed a simplified example, as illustrated in Figure \ref{fig:pathologi
 This hypothetical scenario involves a phantom model consisting of a homogeneous water-equivalent material containing a cubic planning target volume (PTV) and a cubic organ-at-risk (OAR).
 Although this model lacks anatomical realism, it effectively highlights the limitations of using basic voxel-wise comparisons for dose evaluation.
 It emphasizes the need for more sophisticated techniques to capture clinically relevant differences in dose distributions accurately.
-%\begin{figure}
-%	\centering
-%	
-%	\includegraphics[width=7.9cm]{pathological_example/example\_3d\_doses.pdf}
-%	\subfloat[\label{fig:pathological_example-3d_doses} 3D visualization of the two doses on the phantom body.]{\hspace{1\linewidth}}
-%	
-%	\includegraphics[width=7.9cm]{dose_distances_figures/example\_bixels.pdf}
-%	\subfloat[\label{fig:pathological_example-bixels} 2D view of the bixels activation of the two doses.]{\hspace{1\linewidth}}
-%	
-%	\includegraphics[width=12cm]{dose_distances_figures/example\_dvh.pdf}
-%	\subfloat[\label{fig:pathological_example-dvh} Dose-Volume Histograms of the two doses on the phantom body.]{\hspace{1\linewidth}}
-%	
-%	\caption{Example of two doses that have the same clinical effect (measured from the DVHs), but very different voxel-wise dose values.}
-%	\label{fig:pathological_example}
-%\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.44\linewidth}
+		\includegraphics[width=\linewidth]{dose_distances_figures/example\_3d\_doses.pdf}
+		\caption{3D visualization of the two doses on the phantom body.}
+		\label{fig:pathological_example-3d_doses}
+	\end{subfigure}
+	\begin{subfigure}{0.55\linewidth}
+		\includegraphics[width=\linewidth]{dose_distances_figures/example\_bixels.pdf}
+		\caption{2D view of the bixels activation of the two doses.}
+		\label{fig:pathological_example-bixels}
+	\end{subfigure}
+	\begin{subfigure}{0.75\linewidth}
+		\includegraphics[width=\linewidth]{dose_distances_figures/example\_dvh.pdf}
+		\caption{Dose-Volume Histograms of the two doses on the phantom body.}
+		\label{fig:pathological_example-dvh}
+	\end{subfigure}
+	\caption{Example of two doses that have the same clinical effect (measured from the DVHs), but very different voxel-wise dose values.}
+	\label{fig:pathological_example}
+\end{figure}
 
 \subsubsection{Doses Samples}
 %In the rest of this study, we evaluated our proposed method for comparing radiation doses using the TG-119 \cite{AAPM-TG119} Prostate case, a widely used benchmark for evaluating radiation therapy plans.

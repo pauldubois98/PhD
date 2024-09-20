@@ -514,7 +514,6 @@ For readability purposes, we did not include them in the results plots.
 	\label{fig:OptimizersComparison}
 \end{figure}
 
-% 4 TGG-119 cases figures
 \paragraph{Newton's method}
 Based on the iterations-wise graph analysis, Newton's method performs best, consistently achieving a stable converged state within ten steps across all four examined cases.
 However, Newton's method steps are computationally expensive since it uses a second-order derivative (the Hessian) that is difficult to compute.
@@ -522,21 +521,21 @@ However, Newton's method steps are computationally expensive since it uses a sec
 It is widely recognized that Newton's method excels in optimizing convex functions \cite{PoczosTibshirani2013}.
 Our objective function is convex by construction; hence, this optimization algorithm is particularly effective.
 
-\paragraph{Best Algorithms}
-Besides Newton's method, three algorithms have similar performances: Adam, RMSprop, and LBFGS.
-Adam (and RMSprop, to a lesser extent) appear to have more "wavy" cost curves, while LBFGS cost decreases more stably.
-These observations are valid both in terms of iteration and time.
-
-TGG 119 Multiple PTVs (figure \ref{fig:TGG119_Multi}) is the smallest problem, and the real ICM prostate case (figure \ref{fig:ICM_Prostate}) is the largest problem (in terms of patient/organs/structure volume size);
-TGG 119 fake head and neck (figure \ref{fig:TGG119_HN}) and TGG 119 fake prostate (figure \ref{fig:TGG119_Prostate}) have similar sizes.
-Notably, an observable trend indicates that as the problem size increases, LBFGS outperforms both RMSprop and Adam optimization algorithms.
-
-Therefore, we will use the LBFGS algorithm in the rest of this manuscript.
-
 \paragraph{LBFGS vs BFGS}
 It would be expected that BFGS performs better than LBFGS in terms of iterations but not in terms of time (since LBFGS is a fast approximation of the BFGS technique).
 However, we observe that LBFGS outperforms BFGS even on the iterations-wise graph.
 This performance suggests that the limited memory approximation is biased towards suitable directions in these problems.
+
+\paragraph{Best Algorithms}
+Besides Newton's method, three algorithms have similar performances: Adam, Adamax, and LBFGS.
+Adam and Adamax appear to have more "wavy" cost curves, while LBFGS cost decreases more stably.
+These observations are valid both in terms of iteration and time.
+
+TGG 119 Multiple PTVs (figure \ref{fig:TGG119_Multi}) is the smallest problem, and the real ICM prostate case (figure \ref{fig:ICM_Prostate}) is the largest problem (in terms of patient/organs/structure volume size);
+TGG 119 fake head and neck (figure \ref{fig:TGG119_HN}) and TGG 119 fake prostate (figure \ref{fig:TGG119_Prostate}) have similar sizes.
+Notably, an observable trend indicates that as the problem size increases, LBFGS outperforms both Adamax and Adam optimization algorithms.
+
+Therefore, we will use the LBFGS algorithm in the rest of this manuscript.
 
 \subsection{Discussion}
 In the future, if new techniques are developed one day, making computing the Hessian much faster, we recommend using Newton's optimization algorithm.

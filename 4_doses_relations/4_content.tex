@@ -18,11 +18,11 @@ While they also consider aspects of the three-dimensional (3D) dose distribution
 
 \subsection{Method}
 
-\subsubsection{Naive Doses Comparison}
-%The most naive way to compare (and by defining a distance) between two doses is to compare voxel-wise values of the two doses.
-%However, this naive way of comparing doses does not take into account the fact that some extra dose in a region of the patient's body may be compensated by an extra dose in another region.
-%Thus, the voxel-wise distance between two doses may be far while the clinical effect of the two doses is very similar.
-%
+\paragraph{Naive Doses Comparison}
+The most straightforward method for comparing two dose distributions, thus defining a distance metric, is to perform a voxel-by-voxel comparison of the dose values.
+However, this approach overlooks the inherent anatomical structure of the human body and the fact that not all voxels have the same clinical significance.
+Consequently, even if the voxel-wise distance between two dose distributions is considerable, their overall clinical effects may still be similar.
+
 %We have built a basic example, illustrated in figure \ref{fig:pathological_example}.
 %This pathological example is derived from a phantom fake patient made of pure water, with one fake cubic PTV and one fake cubic Organ.
 %While acknowledging the lack of realism, the showcased scenario effectively underscores the necessity for employing advanced techniques in dose comparison that surpass mere voxel-wise comparisons.

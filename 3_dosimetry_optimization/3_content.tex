@@ -65,7 +65,7 @@ Modern multi-leaf collimator systems typically have a leaf width of 0.5 cm.
 The height of a bixel can be selected arbitrarily, as the leaf can move continuously.
 Nevertheless, square bixels (akin to image pixels) are commonly used and will be employed throughout this manuscript.
 
-It is essential to know that since negative energy rays are physically infeasible, we need to ensure that each bixel value is non-negative.
+It is essential to know that since negative energy rays are physically infeasible, we need to ensure that each bixel value is non-negative\footnote{In practice, to ensure positive bixel values, we use the absolute value element-wise.}.
 Bixels whose beams do not affect the planning target volume are typically excluded from calculations to improve computational efficiency.
 Activating these bixels could only degrade dose quality by increasing the dose to organs at risk without benefiting the dose distribution within the planning target volume.
 
@@ -86,13 +86,13 @@ This matrix defines how the radiation from each individual bixel influences the 
 
 We start by converting the 2D fluence map, composed of individual bixel values, into a column vector $b$.
 Similarly, we represent dose distribution in the patient's 3D space as a vector $\mathbf{d}$, where each entry corresponds to the dose in a specific voxel.
-The DI-Matrix $L$ governs the relationship between these vectors $\mathbf{b}$ and $\mathbf{d}$ via the matrix-vector multiplication $\mathbf{d} = L\mathbf{b}$.
+The DI-Matrix $\textbf{L}$ governs the relationship between these vectors $\mathbf{b}$ and $\mathbf{d}$ via the matrix-vector multiplication $\mathbf{d} = \textbf{L}\mathbf{b}$ \footnote{In practice, we compute $\textbf{d} = \textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ is absolute value of $\textbf{b}$ element-wise to ensure positive bixel values.}.
 This mathematical operation computes the total dose at each voxel by summing the contributions from all active bixels (here, we assume that the effect of bixels is linear).
 
 The DI-Matrix is constructed by simulating the radiation delivered by each individual bixel.
 For each bixel, the jaws of the multi-leaf collimator are virtually opened to allow only that specific beamlet to go through.
 A radiation transport model calculates the dose deposited in each voxel, considering the beam's spread and attenuation as it travels through the body.
-The resulting 3D dose deposition fills one column of the matrix $L$, corresponding to that bixel's influence on all voxels.
+The resulting 3D dose deposition fills one column of the matrix $\textbf{L}$, corresponding to that bixel's influence on all voxels.
 Repeating this process for each bixel generates the entire DI-Matrix.
 
 The accuracy of the dose calculation depends on the precision of the DI-Matrix.
@@ -107,14 +107,14 @@ We can attempt to find the bixels values delivering this dose by solving a least
 We attempt to find the fluence map $\mathbf{b}$ that minimizes the difference between the actual dose $\mathbf{d}$ and the target dose $\mathbf{d}_{\text{target}}$, which is set to the prescribed dose within the PTV.
 
 Formally, the optimization problem can be stated as:
-$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2, \quad \mathbf{b} \geq 0$$
+$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - \textbf{L}\mathbf{b} \|^2, \quad \mathbf{b} \geq 0$$
 
 where $\mathbf{d}_{\text{target}}$ is the target dose vector, defined as follows for a prescription of $p$Gy:
 $$ \mathbf{d}_{\text{target}} = p \cdot  \mathds{1}_{\text{PTV}} $$
 
 Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to $1$ for voxels within the PTV and $0$ elsewhere.
 
-To solve this problem, we perform a least squares minimization to find the optimal fluence map $\mathbf{b}$, where the matrix-vector multiplication $L\mathbf{b}$ yields the dose distribution $\mathbf{d}$ across the entire patient volume.
+To solve this problem, we perform a least squares minimization to find the optimal fluence map $\mathbf{b}$, where the matrix-vector multiplication $\textbf{L}\mathbf{b}$ yields the dose distribution $\mathbf{d}$ across the entire patient volume.
 
 However, this method is often inadequate in practice, as it attempts to solve the system based solely on the prescribed dose within the PTV, while neglecting any constraints on doses to the organs at risk (OARs).
 Since no constraints are imposed on the OAR doses, this naive optimization can result in high doses to critical structures, leading to unacceptable treatment plans.
@@ -295,11 +295,11 @@ Hence, we formulate the optimization problem on the discretized information.
 
 \paragraph{Ideal Case}
 In the ideal case, it is possible to meet all constraints, and we try to minimize further the dose $\mathbf{d}$ on the OARs.
-Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = L\mathbf{d}$ such that all DVH constraints $\mathcal{C}$ are satisfied, and $\sum_{v \in \text{OARs}} \mathbf{d}_v^2 \ $ is minimum (where $\mathbf{d}_v$ is the dose on voxel $v$, and $v \in \text{OARs}$ are the voxels $v$ belonging to an OAR):
+Mathematically, we find the values for $\mathbf{b}$ giving dose $\mathbf{d} = \textbf{L}\mathbf{d}$ such that all DVH constraints $\mathcal{C}$ are satisfied, and $\sum_{v \in \text{OARs}} \mathbf{d}_v^2 \ $ is minimum (where $\mathbf{d}_v$ is the dose on voxel $v$, and $v \in \text{OARs}$ are the voxels $v$ belonging to an OAR):
 $$
 \min_{\mathbf{b}} \sum_{v \in \text{OARs}} \ \mathbf{d}_v^2
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
+\mathbf{d} = \textbf{L}\mathbf{b}, \ \mathbf{b} \geq 0
 \text{ and such that }
 \forall c \in \mathcal{C}, c \text{ is satisfied.}
 $$
@@ -311,7 +311,7 @@ The optimization problem becomes:
 $$
 \min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c f_c(\mathbf{d})
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
+\mathbf{d} = \textbf{L}\mathbf{b}, \ \mathbf{b} \geq 0
 $$
 with $w_c$ importance factor of constraint $c$.
 
@@ -376,7 +376,7 @@ and the global minimization problem becomes
 $$
 \min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2
 \quad \text{ with }
-\mathbf{d} = L\mathbf{b}, \ \mathbf{b} \geq 0
+\mathbf{d} = \textbf{L}\mathbf{b}, \ \mathbf{b} \geq 0
 $$
 where $w_c$, the weights or importance factors of each constraint, are to be determined.
 
@@ -410,7 +410,7 @@ The target dose was achieved before either on the same machine, or on a similar 
 Hence, the task of mimicking it should be "easier".
 
 Formally, the optimization problem can be stated the same way as in \ref{naive_optimization}:
-$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - L\mathbf{b} \|^2 $$
+$$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - \textbf{L}\mathbf{b} \|^2 $$
 with $\mathbf{d}_{\text{target}}$ the previously target dose, instead of the manually defined one.
 
 \section{Optimization Algorithm Review for Dosimetry}

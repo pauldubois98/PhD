@@ -50,31 +50,9 @@ It emphasizes the need for more sophisticated techniques to capture clinically r
 \end{figure}
 
 \subsubsection{Doses Samples}
-%In the rest of this study, we evaluated our proposed method for comparing radiation doses using the TG-119 \cite{AAPM-TG119} Prostate case, a widely used benchmark for evaluating radiation therapy plans.
-%TG-119 are provided with dose goals; we used these dose goals to construct our cost function.
-%The cost is a weighted sum of multi-objectives function with one objective for each dose goal, it is constructed as follows:
-%$$f(\textbf{d}) = \sum_{o \in \mathcal{O}} w_o f_o(\textbf{d})$$
-%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(d - o_d)_+^2 \text{ if $o$ is maximum dose volume constraint}$$
-%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(o_d - d)_+^2 \text{ if $o$ is minimum dose volume constraint}$$
-%with:
-%\begin{itemize}
-%	\item $\textbf{d}$ the dose (voxel-wise); $\textbf{d} \left[s\right]$ the dose on voxels of the structure $s$.
-%	\item $\mathcal{O}$ the set of objectives (dose volume goals)
-%	\item $w_o$ is the weight of the objective $o \in \mathcal{O}$ (typically ranges between 0 and 100)
-%	\item $o_s$, $o_d$ \& $o_v$ the structure, dose and volume goals of $o \in \mathcal{O}$ (e.g.: $o_s$: PTV; $o_d$: 80Gy; $o_v$: 95\%)
-%\end{itemize}
-%i.e. a square over/under-dose penalty function.
-%Additionally, we added a regularization term on the bixels\footnote{A \textbf{bi}x\textbf{el} (\textbf{be}am-\textbf{el}ement) represents a discrete element of the radiation beam that can be individually controlled to achieve spatially varying intensity levels; ours are 5mm width, which correspond to the width length of the multi-leaf collimator commonly used.}: we penalized the variation of bixel values with their neighbors, also with a square penalty.
-%We optimize the bixel values $\textbf{b}$ with $\textbf{d}=\textbf{L}\textbf{b}$ where $\textbf{L}$ is a precomputed dose-influence matrix from bixels to voxels.
-%Note that since it is impossible to end negative energy rays, the value of each bixel should be positive ($b \geq 0 \quad \forall b \in \textbf{b}$)\footnote{In practice, to ensure positive bixel values, we just compute $\textbf{d}=\textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ is absolute value of $\textbf{b}$ element-wise.}.
-%
-%This function is, by construction, convex.
-%Therefore, for a given set of weights, minimizing it should always converge to the same radiotherapy plan.
-%To generate different treatment doses for the same patient case \& constraints, we optimized with different weights assignment to each constraint.
-%
-%The optimization of this main objective function was done with the open source optimizer L-BFGS.
-%This optimizer was shown to have the best performances among the open-source optimizers \cite{dubois2023}.
-
+We assessed the efficacy of our proposed method for comparing radiation doses using the TG-119 Prostate case, a well-established benchmark for evaluating radiation therapy plans \cite{AAPM-TG119}.
+The TG-119 dataset includes predefined dose objectives, which we utilized to formulate our cost function.
+We performed optimizations with different weight assignments applied to each constraint to generate varying treatment dose distributions for the same patient case under identical constraints.
 
 \subsubsection{Distances Between Doses}
 \paragraph{Comparing Doses Voxel-wise}

@@ -70,26 +70,17 @@ We propose comparing the Dose Volume Histogram (DVH) curves.
 We have one curve for each structure; we define the distances between doses for each structure, and in the end, we sum up all structures to end up with a single scalar distance between two doses.
 
 \subparagraph{Discrete DVH Approximation}
-%The DVH is obtained after sorting the voxel-wise dose of the structure:
-%Let $\textbf{d} \left[s\right]$ bet the voxel-wise dose of the structure $s$ (therefore, a list, of length $n(s)$, the number of voxels that belong to the structure).
-%Let $\dot{\textbf{d}\left[s\right]}$ be the list above in descending order (i.e. $\dot{\textbf{d}\left[s\right]}_i > \dot{\textbf{d}\left[s\right]}_j$ if $0 < i < j \leq n(s)$).
-%Then, the DVH of $s$ can be approximated by the continuous line composed of the segments linking the following points:
-%$\left( \dot{\textbf{d}\left[s\right]}_i, i/n(s) \right) \quad 0 < i \leq n(s)$.
-%Since we compute the dose voxel-wise, we may only have an approximation of the DVH.
-%However, in practice, most structures of interest have more than a hundred voxels, which makes the DVH approximation very precise.
-%
-%Since we draw one curve per structure of interest, this capture some of the importance of voxel over others.
-%In fact, when analyzing a dose, doctors look at the dose volume (voxel-wise), but they also take a close look at the DVHs; this is an incentive that DVHs should contain meaningful information.
-%
-%To measure how different two DVH curves, we can imagine several techniques:
-%\begin{itemize}
-%	\item Fréchet distance (treating DVHs as curves in a 2D space)
-%	\item Hausdorff distance (treating DVHs as 1D manifolds in a 2D space)
-%	\item Wasserstein distance (treating DVHs as probability distributions)
-%	\item Kolmogorov-Smirnov test (treating DVHs as probability distributions)
-%	\item Total variation between curves (treating DVHs as functions)
-%\end{itemize}
-%We tried all the distances above, but propose to retain only the one giving the best results.
+The DVH is obtained after sorting the voxel-wise dose of the structure:
+Let $\textbf{d} \left[s\right]$ bet the voxel-wise dose of the structure $s$ (therefore, a list, of length $n\left[s\right]$, the number of voxels that belong to the structure).
+Let $\dot{\textbf{d}\left[s\right]}$ be the list above in descending order (i.e. $\dot{\textbf{d}\left[s\right]}_i > \dot{\textbf{d}\left[s\right]}_j$ if $0 < i < j \leq n\left[s\right ]$).
+Then, the DVH of $s$ can be approximated by the continuous line composed of the segments linking the following points:
+$\left( \dot{\textbf{d}\left[s\right]}_i, i/n\left[s\right] \right) \quad 0 < i \leq n\left[s\right]$.
+Since we compute the dose voxel-wise, we may only have an approximation of the DVH.
+However, in practice, most structures of interest have more than a hundred voxels, which makes the DVH approximation very precise.
+
+Since we draw one curve per structure of interest, this capture some of the importance of voxel over others.
+In fact, when analyzing a dose, doctors look at the dose volume (voxel-wise), but they also take a close look at the DVHs; this is an incentive that DVHs should contain meaningful information.
+
 
 \subparagraph{Fréchet Distance}
 %We can look at DVH curves as lines in $\R^2$ \ \footnote{(Or, in the case of our voxel-wise dose approximation, poly-lines in $\R^2$.)}.

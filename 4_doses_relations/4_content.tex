@@ -81,6 +81,16 @@ However, in practice, most structures of interest have more than a hundred voxel
 Since we draw one curve per structure of interest, this capture some of the importance of voxel over others.
 In fact, when analyzing a dose, doctors look at the dose volume (voxel-wise), but they also take a close look at the DVHs; this is an incentive that DVHs should contain meaningful information.
 
+\subparagraph{Distance Measure}
+To measure how different two DVH curves, we can imagine several techniques:
+\begin{itemize}
+	\item Fréchet distance (treating DVHs as curves in a 2D space)
+	\item Hausdorff distance (treating DVHs as 1D manifolds in a 2D space)
+	\item Wasserstein distance (treating DVHs as probability distributions)
+	\item Kolmogorov-Smirnov test (treating DVHs as probability distributions)
+	\item Total variation between curves (treating DVHs as functions)
+\end{itemize}
+We evaluated all the aforementioned distance metrics and propose to retain only the one that yields the most clinically meaningful results.
 
 \subparagraph{Fréchet Distance}
 %We can look at DVH curves as lines in $\R^2$ \ \footnote{(Or, in the case of our voxel-wise dose approximation, poly-lines in $\R^2$.)}.

@@ -59,8 +59,8 @@ We performed optimizations with different weight assignments applied to each con
 When two radiation dose distributions are closely aligned, the voxel-wise comparison is an effective measure, as it can be assumed that the global distribution is similar.
 This approach allows for a detailed comparison of local dose variations.
 Mathematically, given the voxel-wise dose $\textbf{d}$, the distance between two dose distributions, $\textbf{d}^1$ and $\textbf{d}^2$, is defined as the norm of their difference:
-$\sum_{v \in \mathcal{V}} \lvert {d^1}_v - {d^2}_v \rvert$, where $v$ represents the voxels in the set of interest $\mathcal{V}$, and ${d^i}_v$ is the dose value at voxel $v$ for dose distribution $d_i$
-%\footnote{This is often written as $\lvert \textbf{d}_1 - \textbf{d}_2 \rvert$, with the summation over voxels implied.}.
+$\sum_{v \in \mathcal{V}} \lvert \textbf{d}^1_v - \textbf{d}^2_v \rvert$, where $v$ represents the voxels in the set of interest $\mathcal{V}$, and $\textbf{d}^i_v$ is the dose value at voxel $v$ for dose distribution $\textbf{d}^i$
+\footnote{This is often written as $\lvert \textbf{d}_1 - \textbf{d}_2 \rvert$, with the summation over voxels implied.}.
 However, voxel-wise distance can become misleading if two regions of equal volume within the same anatomical structure have their dose values swapped.
 In such cases, the voxel-wise difference would appear large despite the clinical equivalence of the two doses.
 Furthermore, this method is limited to comparing doses within the same patient, as it requires a direct correspondence between the dose voxels in both distributions.

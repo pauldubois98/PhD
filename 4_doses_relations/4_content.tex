@@ -120,17 +120,17 @@ This method was therefore used in the results presented below.
 
 
 \subparagraph{Hausdorff Distance}
-%The Hausdorff distance is another metric of similarity between two curves \cite{Henrikson1999CompletenessAT}.
-%It is defined as the maximum distance between any point on one curve to its closest point on the other curve.
-%Formally, let $X$ and $Y$ be two non-empty sets;
-%the Hausdorff distance between $X$ and $Y$, denoted as $d_\text{Hausdorff}(X, Y)$, is defined as:
-%$$d_\text{Hausdorff}(X, Y) = \sup_{x \in X}\inf_{y \in Y} {dist(x, y)}$$
-%where $dist(x, y)$ is the distance between points $x$ and $y$.
-%
-%In our analysis, we treat the DVH curves as sets of points in a 2D space ($\R^2$) and use the Hausdorff distance to measure the difference between them.
-%Using the same notation for DVH curves $\mathcal{C}_A$ and $\mathcal{C}_B$ as before, the discrete Hausdorff distance can be computes as follows:
-%$$d_\text{Hausdorff}(\mathcal{C}_A, \mathcal{C}_B) = \max_{i \in \llbracket 1,n_A \rrbracket} \min_{y \in \mathcal{C}_B} {dist(\mathcal{C}_A(i), y)}$$
-%with $\mathcal{C}_B = \left\lbrace \left( (1-\lambda) \tilde{d}_j + \lambda \tilde{d}_{j+1}, (1-\lambda) \tilde{v}_j + \lambda \tilde{v}_{j+1} \right) \mid \lambda \in \left[ 0,1 \right], j \in \llbracket 1, n_B-1 \rrbracket \right\rbrace $, and $dist$ the 2D distance (as before).
+The Hausdorff distance is another similarity metric between two curves \cite{Henrikson1999CompletenessAT}.
+It is the maximum distance between any point on one curve and its closest point on the other.
+Formally, let $X$ and $Y$ be two non-empty sets;
+the Hausdorff distance between $X$ and $Y$, denoted as $d_\text{Hausdorff}(X, Y)$, is defined as:
+$$d_\text{Hausdorff}(X, Y) = \sup_{x \in X}\inf_{y \in Y} {dist(x, y)}$$
+where $dist(x, y)$ is the distance between points $x$ and $y$.
+
+Our analysis treats the DVH curves as sets of points in a 2D space ($\R^2$) and uses the Hausdorff distance to measure their difference.
+Using the same notation for DVH curves $\mathcal{C}_A$ and $\mathcal{C}_B$ as before, the discrete Hausdorff distance can be computed as follows:
+$$d_\text{Hausdorff}(\mathcal{C}_A, \mathcal{C}_B) = \max_{i \in \llbracket 1,n_A \rrbracket} \min_{y \in \mathcal{C}_B} {dist(\mathcal{C}_A(i), y)}$$
+with $\mathcal{C}_B = \left\lbrace \left( (1-\lambda) \tilde{d}_j + \lambda \tilde{d}_{j+1}, (1-\lambda) \tilde{v}_j + \lambda \tilde{v}_{j+1} \right) \mid \lambda \in \left[ 0,1 \right], j \in \llbracket 1, n_B-1 \rrbracket \right\rbrace $, and $dist$ the 2D distance (as before).
 
 \subparagraph{Wasserstein Distance}
 %The Wasserstein distance, also known as the Earth Mover's Distance, is a metric that quantifies the difference between two probability distributions \cite{OLKIN1982257}.

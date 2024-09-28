@@ -93,33 +93,33 @@ To measure how different two DVH curves, we can imagine several techniques:
 We evaluated all the aforementioned distance metrics and propose to retain only the one that yields the most clinically meaningful results.
 
 \subparagraph{Fréchet Distance}
-%We can look at DVH curves as lines in $\R^2$ \ \footnote{(Or, in the case of our voxel-wise dose approximation, poly-lines in $\R^2$.)}.
-%In this case, the Fréchet distance is a well known measure of similarity between two curves, and is particularly used for poly-lines \cite{Efrat2002}.
-%It measures the minimum distance that must be covered by a particle moving along two curves simultaneously.
-%In our case, these curves are the DVH curves of two radiation doses.
-%The Fréchet distance is therefore, a metric of similarity between two curves.
-%
-%Formally, if $P$ and $Q$ are the curves being compared, $\gamma$ being a parametrization defined on the interval $\left[ 0,1 \right]$, $P(\gamma(t))$ and $Q(\gamma(t))$ the positions of a particle along curves $P$ and $Q$, respectively, at time $t$, the Fréchet distance is then defined as:
-%$$d_{\text{Fréchet}}(P,Q) = \inf_{\gamma}{ \max_{t \in \left[ 0,1 \right]} d(P(\gamma(t)), Q(\gamma(t)))}$$
-%
-%Now, adapting this to DVH curves:
-%Let $\mathcal{C}_A$ and $\mathcal{C}_B$ represent the (discrete) DVH curves of two doses.
-%Let them respectively be consisting of line segments joining the series of points $\left\lbrace \mathcal{C}_A(i) = (d_i, v_i), \ 1 \leq i \leq n_A \right\rbrace $ and $\left\lbrace \mathcal{C}_B(j) = (\tilde{d}_j, \tilde{v}_j), \ 1 \leq j \leq n_B \right\rbrace $; where $d_i$ and $\tilde{d}_j$ denote the dose levels, $v_i$ and $\tilde{v}_j$ represent the corresponding volumes, and $n_A$ and $n_B$ are the number of points forming $\mathcal{C}_A$ and $\mathcal{C}_B$\footnote{Since we are always comparing two DVH curves of the same structure, we always have $n_A = n_B$.}.
-%
-%The Fréchet distance is the infimum of all possible traversal times.
-%The curves being discrete line segments, we can express the Fréchet distance as:
-%
-%$$d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$$
-%$$\text{where } dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right) = \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
-%%$$\text{i.e.: } d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
-%
-%Here, $j$ represents a (discrete) a parametrization, and $dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$ is the distance between points $\mathcal{C}_A(i)$ and $\mathcal{C}_B(j(i))$.
-%
-%The main drawback of this distance measure is that it is computationally expensive, especially for structures with many voxels.
-%Thus, we had to couple it with an algorithm for curve simplification: the Ramer–Douglas–Peucker algorithm \cite{PRASAD2012843}.
-%We used the Ramer–Douglas–Peucker algorithm with $\varepsilon = 0.05$.
-%After testing on a few curves, using this algorithm made calculations 3-5 times faster, while affecting the value of the Fréchet distance by less than $0.5\%$.
-%It is therefore used in the results presented thereafter.
+We can look at DVH curves as lines in $\R^2$ \ \footnote{(Or, in the case of our voxel-wise dose approximation, poly-lines in $\R^2$.)}.
+In this case, the Fréchet distance is a well-known measure of similarity between two curves and is particularly used for poly-lines \cite{Efrat2002}.
+It measures the minimum distance a particle must cover by moving along two curves simultaneously.
+In our case, these are the DVH curves of two radiation doses.
+The Fréchet distance is, therefore, a metric of similarity between two curves.
+
+Formally, if $P$ and $Q$ are the curves being compared, $\gamma$ being a parametrization defined on the interval $\left[ 0,1 \right]$, $P(\gamma(t))$ and $Q(\gamma(t))$ the positions of a particle along curves $P$ and $Q$, respectively, at time $t$, the Fréchet distance is then defined as:
+$$d_{\text{Fréchet}}(P,Q) = \inf_{\gamma}{ \max_{t \in \left[ 0,1 \right]} d(P(\gamma(t)), Q(\gamma(t)))}$$
+
+Now, adapting this to DVH curves:
+Let $\mathcal{C}_A$ and $\mathcal{C}_B$ represent the (discrete) DVH curves of two doses.
+Let them respectively be consisting of line segments joining the series of points $\left\lbrace \mathcal{C}_A(i) = (d_i, v_i), \ 1 \leq i \leq n_A \right\rbrace $ and $\left\lbrace \mathcal{C}_B(j) = (\tilde{d}_j, \tilde{v}_j), \ 1 \leq j \leq n_B \right\rbrace $; where $d_i$ and $\tilde{d}_j$ denote the dose levels, $v_i$ and $\tilde{v}_j$ represent the corresponding volumes, and $n_A$ and $n_B$ are the number of points forming $\mathcal{C}_A$ and $\mathcal{C}_B$\footnote{Since we are constantly comparing two DVH curves of the same structure, we always have $n_A = n_B$.}.
+
+The Fréchet distance is the infimum of all possible traversal times.
+The curves being discrete line segments, we can express the Fréchet distance as:
+
+$$d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$$
+$$\text{where } dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right) = \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
+%$$\text{i.e.: } d_{\text{Fréchet}}(\mathcal{C}_A, \mathcal{C}_B) = \min_{\substack{j: \llbracket 1, n_A \rrbracket \to \llbracket 1, n_B \rrbracket \\ j \nearrow \ (j \text{ increasing})}} \sum_{i=1}^{n_A} \sqrt{(d_i-\tilde{d}_{j(i)})^2 + (v_i-\tilde{v}_{j(i)})^2}$$
+
+Here, $j$ represents a (discrete) a parametrization, and $dist\left( \mathcal{C}_A(i), \mathcal{C}_B(j(i)) \right)$ is the distance between points $\mathcal{C}_A(i)$ and $\mathcal{C}_B(j(i))$.
+
+The main drawback of this distance measure is that it is computationally expensive, especially for structures with many voxels.
+Thus, we had to couple it with an algorithm for curve simplification: the Ramer–Douglas–Peucker algorithm \cite{PRASAD2012843}.
+We used the Ramer–Douglas–Peucker algorithm with $\varepsilon = 0.05$.
+After testing on a few curves, this algorithm made calculations 3-5 times faster while affecting the value of the Fréchet distance by less than $0.5\%$.
+It is, therefore, used in the results presented after that.
 
 \subparagraph{Hausdorff Distance}
 %The Hausdorff distance is another metric of similarity between two curves \cite{Henrikson1999CompletenessAT}.

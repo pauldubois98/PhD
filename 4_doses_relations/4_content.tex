@@ -135,17 +135,15 @@ $$\left\lbrace \left( (1-\lambda) \tilde{d}_j + \lambda \tilde{d}_{j+1}, (1-\lam
 %and $dist$ is the distance between two points as before.
 
 \subparagraph{Wasserstein Distance}
-The Wasserstein distance, also known as the Earth Mover's Distance, is a metric that quantifies the difference between two probability distributions \cite{OLKIN1982257}.
-
-Formally, letting $\mu$ and $\nu$ be two probability distributions defined on a metric space $X$;
-the Wasserstein distance, denoted as $d_{\text{Wasserstein}}(\mu, \nu)$, is defined as the infimum cost of transporting the mass from the distribution $\mu$ to the distribution $\nu$, where the cost is determined by the distance metric $dist$ on $X$.
-That is:
+The Wasserstein distance, also known as the Earth Mover’s Distance, is a metric used to quantify the difference between two probability distributions \cite{OLKIN1982257}.
+Formally, given two probability distributions $\mu$ and $\nu$ defined on a metric space $X$, the Wasserstein distance, denoted $d_{\text{Wasserstein}}(\mu, \nu)$, represents the infimum cost of transporting the mass of distribution $\mu$ to match distribution $\nu$, where the transportation cost is determined by the distance metric $dist$ on $X$.
+It is defined as:
 $$d_{\text{Wasserstein}}(P, Q) = \inf_{\gamma \in \Gamma(\mu, \nu)} E_{(x,y) \sim \gamma} \left[ dist(x, y) \right]$$
-where $\Gamma(\mu, \nu)$ is all possible joint distributions $\gamma(x, y)$ with marginals $\mu$ and $\nu$.
+where $\Gamma(\mu, \nu)$ represents the set of all possible joint distributions $\gamma(x, y)$ with marginals $\mu$ and $\nu$.
 
-Our analysis treats the DVH curves as probability distributions and uses the Wasserstein distance to measure their difference.
-The main advantage of this distance measure is its ability to capture both local and global differences between the curves.
-However, it can be computationally expensive, especially when dealing with DVH of large structures.
+In our analysis, we treat DVH (Dose-Volume Histogram) curves as probability distributions and employ the Wasserstein distance to assess their differences.
+This metric has the distinct advantage of capturing both local and global variations between the curves, offering a more comprehensive comparison.
+However, it can be computationally demanding, particularly when dealing with DVHs of large anatomical structures.
 
 \subparagraph{Kolmogorov-Smirnov Distance}
 %Another distance metric that can be used to compare two dose volume histogram (DVH) curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.

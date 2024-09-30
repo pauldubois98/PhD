@@ -146,12 +146,12 @@ This metric has the distinct advantage of capturing both local and global variat
 However, it can be computationally demanding, particularly when dealing with DVHs of large anatomical structures.
 
 \subparagraph{Kolmogorov-Smirnov Distance}
-%Another distance metric that can be used to compare two dose volume histogram (DVH) curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.
-%The KS distance measures the maximum vertical distance between the two curves and is particularly useful when comparing two non-parametric distributions, such as the DVH curves.
-%
-%Mathematically, let the two DVH curves be described by $f$ and $g$ (from the dose domain to the volume ratio domain), we then have the KS distance $d_{KS}$ given by:
-%$$d_{KS} = \sup_{x \in \R^+} \abs{f(x)-g(x)}.$$
-%In our case of discrete DVH, $f$ and $g$ will be linear by segment continuous functions from $\R^+$ to $\left[ 0,1 \right]$ (with value zero above the maximal dose).
+Another distance metric that can be used to compare two dose volume histogram (DVH) curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.
+The KS distance measures the maximum vertical distance between the two curves and is particularly useful when comparing two non-parametric distributions, such as the DVH curves.
+
+Mathematically, let the two DVH curves be described by $f$ and $g$ (from the dose domain to the volume ratio domain); we then have the KS distance $d_{KS}$ given by:
+$$d_{KS} = \sup_{x \in \R^+} \abs{f(x)-g(x)}.$$
+In our case of discrete DVH, $f$, and $g$ will be linear by segment continuous functions from $\R^+$ to $\left[ 0,1 \right]$ (with value zero above the maximal dose).
 
 \subparagraph{Total Variation Distance}
 %Finally, we propose a distance metric that computes the integral of the absolute difference between the two DVH curves.

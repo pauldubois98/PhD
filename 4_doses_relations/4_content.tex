@@ -155,27 +155,28 @@ $$d_{KS} = \sup_{x \in \R^+} \abs{f(x)-g(x)}.$$
 In the case of discrete DVH data, $f$ and $g$ are piecewise linear, continuous functions from $\mathbb{R}^+$ to $[0,1]$, with their values set to zero beyond the maximum dose level.
 
 \subparagraph{Total Variation Distance}
-%Finally, we propose a distance metric that computes the integral of the absolute difference between the two DVH curves.
-%This distance measure is simple to compute and provides a good balance between capturing local and global differences between the curves \cite{Chatterjee2007}.
-%Moreover, it is computationally efficient and can handle large structures with many voxels.
-%It is the one that gave the best results, hence, we chose this distance for our analysis.
-%
-%Initially, the total variation distance measures the integral of the absolute difference between two dose volume histogram (DVH) curves.
-%The dose is (theoretically) unbounded, while the relative volume is bounded (0-100\%).
-%We preferred to integrate over a bounded volume instead of an unbounded dose.
-%Hence, we flipped the $x$ and $y$ axes before integrating the absolute dose difference on the range $\left[ 0,1 \right]$; that is, we have the dose on the $y$ axis, and the volume on the $x$ axis.
-%
-%Mathematically, standard DVHs are given by $V: \R^+ \to \left[ 0,1 \right]$.
-%With two DVHs $V(d)$ and $\tilde{V}(d)$, the total variation will be
-%$$d_{\text{TotalVariation}} = \int_{0}^{+\infty} \abs{V(x)-\tilde{V}(d)}.$$
-%However, we choose to express DVHs with dose as a function of volume, that is $D: \left[ 0,1 \right] \to \R^+$.
-%With two DVHs $D(v)$ and $\tilde{D}(v)$, the total variation will be
-%$$d_{\text{TotalVariation}} = \int_{0}^{1} \abs{V(x)-\tilde{V}(d)}.$$
-%The value of the integral should not change (in theory); we prefer to integrate over a finite domain ($\left[ 0,1 \right]$) than over an unbounded one ($\R^+ = \left[ 0,+\infty \right[$).
-%
+Finally, we propose a distance metric that computes the integral of the absolute difference between the two DVH curves.
+This distance measure is simple to compute and balance, capturing local and global differences between the curves \cite{Chatterjee2007}.
+Moreover, it is computationally efficient and can handle large structures with many voxels.
+It is the one that gave the best results.
+Hence, we chose this distance for our analysis.
+
+Initially, the total variation distance measures the integral of the absolute difference between two dose volume histogram (DVH) curves.
+The dose is (theoretically) unbounded, while the relative volume is bounded (0-100\%).
+We preferred to integrate over a bounded volume instead of an unbounded dose.
+Hence, we flipped the $x$ and $y$ axes before integrating the absolute dose difference on the range $\left[ 0,1 \right]$; that is, we have the dose on the $y$ axis, and the volume on the $x$ axis.
+
+Mathematically, standard DVHs are given by $V: \R^+ \to \left[ 0,1 \right]$.
+With two DVHs $V(d)$ and $\tilde{V}(d)$, the total variation will be
+$$d_{\text{TotalVariation}} = \int_{0}^{+\infty} \abs{V(x)-\tilde{V}(d)}.$$
+However, we choose to express DVHs with dose as a volume function, that is, $D: \left[ 0,1 \right] \to \R^+$.
+With two DVHs $D(v)$ and $\tilde{D}(v)$, the total variation will be
+$$d_{\text{TotalVariation}} = \int_{0}^{1} \abs{V(x)-\tilde{V}(d)}.$$
+The value of the integral should not change (in theory); we prefer to integrate over a finite domain ($\left[ 0,1 \right]$) than over an unbounded one ($\R^+ = \left[ 0,+\infty \right[$).
+
 %An illustration of the differences between classical DVH and after swapping $x$ and $y$-axes is available on figure \ref{fig:dose_volume_difference}.
 %The two doses compared were optimized on the TG-119 fake prostate case with different weights (1 and 3) on the PTV objective.
-%
+
 %\begin{figure}
 %	\centering
 %	\includegraphics[width=0.95\textwidth]{dose_distances_figures/dose\_volume\_difference}

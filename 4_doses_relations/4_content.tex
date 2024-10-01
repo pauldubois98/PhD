@@ -178,10 +178,9 @@ $$
 d_{\text{TotalVariation}} = \int_{0}^{1} \lvert D(v) - \tilde{D}(v) \rvert \, dv
 $$
 
-While the theoretical value of the integral remains the same, we prefer integrating over the finite volume domain $[0,1]$ rather than over the unbounded dose domain $\mathbb{R}^+ = [0,+\infty[$.
-
-An illustration of the differences between classical DVH and after swapping $x$ and $y$-axes is available in figure \ref{fig:dose_volume_difference}.
-The two doses compared were optimized on the TG-119 fake prostate case with different weights (1 and 3) on the PTV objective.
+While the theoretical value of the integral remains unchanged, we prefer integrating over the finite volume domain $0,1]$ instead of the unbounded dose domain $\mathbb{R}^+ = [0,+\infty[$.
+An illustration highlighting the differences between the classical DVH and the version with swapped $x$- and $y$-axes is presented in Figure \ref{fig:dose_volume_difference}.
+The two compared doses were optimized on the TG-119 phantom prostate case, using different weights (1 and 3) for the PTV objective.
 
 \begin{figure}
 	\centering
@@ -196,11 +195,11 @@ The two doses compared were optimized on the TG-119 fake prostate case with diff
 	\label{fig:dose_volume_difference}
 \end{figure}
 
-We observe (on fig. \ref{fig:dose_volume_difference}) that the difference between DVHs is less noisy (it fluctuates less) when we have the dose on the $x$-axis.
-This observation suggests lower numerical error and is another incentive to have the volume as the $x$-axis.
+As observed in Figure \ref{fig:dose_volume_difference}, the difference between DVHs exhibits less noise (fewer fluctuations) when the dose is on the $x$-axis.
+This observation suggests a reduction in numerical error, providing additional motivation to place the volume on the $x$-axis.
 
-Calculating the total variation distance is computationally efficient, requiring only $\mathcal{O}(n_s)$ operations for each structure, where $n_s$ is the number of voxels in the structure of interest $s$.
-Overall, it provides a good balance between capturing local and global differences of DVH curves.
+Computing the total variation distance is computationally efficient, requiring only $\mathcal{O}(n_s)$ operations per structure, where $n_s$ represents the number of voxels in the structure of interest, $s$.
+Overall, this method achieves a good balance between capturing local and global differences in DVH curves.
 
 \subsection{Results}
 \subsubsection{Dose Distances Comparison}

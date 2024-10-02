@@ -233,21 +233,21 @@ From the pairwise distances shown in Figure \ref{fig:pairwise_distances}, we mak
 
 
 \subsubsection{Link between Total Variation and Wasserstein}
-%One may remark that the adjacency matrices for Wasserstein and Total Variation are very similar.
-%And in fact, since we used Earth moving distance (Wasserstein with $p=1$), there is an equivalence between the two measures.
-%More precisely, the total variation distance can be seen as a special case of the Wasserstein distance.
-%
-%The Wasserstein distance, also known as the earth mover's distance, is a metric that quantifies the distance between two probability distributions.
-%Given two probability distributions $X$ and $Y$ with CDFs $F$ and $G$, the Wasserstein distance between them is defined as:
-%$$W_p(F,G) = \inf_{\pi \in \Pi(F,G)} \left( \iint_{x,y \in \mathbb{R}^2} \abs{x-y}^p d\pi(x,y) \right)^{1/p}$$
-%
-%On the other hand, the total variation distance between two curves $F$ and $G$ is defined as:
-%$$\text{TotalVariation}(F, G) = \int_{x \in \R} \abs{F(x) - G(x)} dx$$
-%
-%The Wasserstein distance is equivalent to the total variation distance for $p=1$:
-%$$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
-%
-%In the end, the only difference should be numerical error.
+The adjacency matrices for Wasserstein and Total Variation are very similar.
+Moreover, the two measures are equivalent since we used Earth's moving distance (Wasserstein with $p=1$).
+More precisely, the total variation distance can be seen as a particular case of the Wasserstein distance.
+
+The Wasserstein distance, also known as the earth mover's distance, is a metric that quantifies the distance between two probability distributions.
+Given two probability distributions $X$ and $Y$ with CDFs $F$ and $G$, the Wasserstein distance between them is defined as:
+$$W_p(F,G) = \inf_{\pi \in \Pi(F,G)} \left( \iint_{x,y \in \mathbb{R}^2} \abs{x-y}^p d\pi(x,y) \right)^{1/p}$$
+
+On the other hand, the total variation distance between two curves $F$ and $G$ is defined as:
+$$\text{TotalVariation}(F, G) = \int_{x \in \R} \abs{F(x) - G(x)} dx$$
+
+The Wasserstein distance is equivalent to the total variation distance for $p=1$:
+$$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
+
+In the end, the only difference should be numerical error.
 
 \subsubsection{Bounding of Total Variation and Voxel Distance}
 %It is possible to bound the total variation distance with the Voxel Distance.

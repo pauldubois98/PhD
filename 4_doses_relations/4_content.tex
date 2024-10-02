@@ -260,8 +260,10 @@ In the following, we provide a bound for the Total Variation distance of a singl
 This proof demonstrates that while the Voxel Distance constrains the Total Variation distance, the converse does not hold, especially when voxel-wise variations do not translate to clinically meaningful differences in the global dose distribution.
 
 \paragraph{Definitions}
-%Let $\mathcal{S}$ be the structure of interest, and $v_\mathcal{S}$ the set of voxels associated to the structure, with $n_\mathcal{S} = \abs{v_\mathcal{S}}$ the number of voxels.
-%Let $d$ and $\tilde{d}$ be the two doses to be compared.
+Let $\mathcal{S}$ denote the structure of interest, and $v_\mathcal{S}$ represent the set of voxels associated with the structure, with $n_\mathcal{S} = \abs{v_\mathcal{S}}$ being the number of voxels.
+We aim to compare two dose distributions within this structure, $d$ and $\tilde{d}$.
+
+By analyzing the differences in dose delivered to the voxels in $v_\mathcal{S}$, we can quantify the variation between the two dose distributions in both voxel-wise and aggregated forms.
 
 \paragraph{Sorting lists}
 %\begin{lemma}

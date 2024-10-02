@@ -252,12 +252,12 @@ $$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
 Thus, the only expected differences between these two distance metrics in our analysis should arise from numerical errors.
 
 \subsubsection{Bounding of Total Variation and Voxel Distance}
-The Total Variation distance can be bounded by the Voxel Distance.
-However, the reverse is not possible, as illustrated by the example in the introduction, where two doses exhibit nearly identical dose-volume histograms (DVHs) but significantly different voxel-wise distances.
+The Voxel Distance can bound the Total Variation distance.
+However, the reverse is impossible, as illustrated by the example in the introduction, where two doses exhibit nearly identical dose-volume histograms (DVHs) but significantly different voxel-wise distances.
 
 In the following, we provide a bound for the Total Variation distance of a single DVH, which can be generalized to the sum of the Total Variation distances across all DVHs.
 
-This demonstrates that while the Total Variation distance is constrained by the Voxel Distance, the converse does not hold, especially when voxel-wise variations do not translate to clinically meaningful differences in the global dose distribution.
+This proof demonstrates that while the Voxel Distance constrains the Total Variation distance, the converse does not hold, especially when voxel-wise variations do not translate to clinically meaningful differences in the global dose distribution.
 
 \paragraph{Definitions}
 %Let $\mathcal{S}$ be the structure of interest, and $v_\mathcal{S}$ the set of voxels associated to the structure, with $n_\mathcal{S} = \abs{v_\mathcal{S}}$ the number of voxels.

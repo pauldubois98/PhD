@@ -203,10 +203,10 @@ Overall, this method achieves a good balance between capturing local and global 
 
 \subsection{Results}
 \subsubsection{Dose Distances Comparison}
-We optimized each constraint with all weights initially set to 1, but sequentially increased one to 3, 10, and 100.
+We optimized each constraint with all weights initially set to 1 but sequentially increased one to 3, 10, and 100.
 This process resulted in 18 distinct dose distributions, which were compared using the distance metrics described earlier.
-For each pair of doses, we calculated the pairwise distances, effectively constructing the adjacency matrix of a fully connected graph, where each optimized dose corresponds to a node.
-See Figure \ref{fig:pairwise_distances} for a comparison of the adjacency matrices.
+We calculated the pairwise distances for each pair of doses, effectively constructing the adjacency matrix of a fully connected graph, where each optimized dose corresponds to a node.
+See Figure \ref{fig:pairwise_distances} for comparing the adjacency matrices.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{dose_distances_figures/pairwise\_distances.pdf}
@@ -217,7 +217,8 @@ See Figure \ref{fig:pairwise_distances} for a comparison of the adjacency matric
 Ideally, the distance metric should satisfy the following criteria:
 \begin{itemize}
 	\item It should match the voxel-wise distance when the voxel-wise difference is small.
-	\item It should remain small in cases where the voxel-wise distance is large, but the clinical significance of the two doses is similar, even if the doses are voxel-wise different.
+	\item It should remain small in cases where the voxel-wise distance is significant.
+	However, the clinical significance of the two doses is similar, even if the doses are voxel-wise different.
 \end{itemize}
 
 From the pairwise distances shown in Figure \ref{fig:pairwise_distances}, we make the following observations:

@@ -203,11 +203,10 @@ Overall, this method achieves a good balance between capturing local and global 
 
 \subsection{Results}
 \subsubsection{Dose Distances Comparison}
-We optimize each constraint with all weights set to $1$, but we sequentially set one to $3$, $10$, and $100$.
-This process gives us 18 doses that we can compare.
-We can calculate the pairwise distance between each pair of doses using the distance techniques described above.
-Considering each optimized dose as a node, we can create a graph for each defined distance; calculating the pairwise distance is equivalent to calculating the adjacency matrix of the dense graph.
-See figure \ref{fig:pairwise_distances} for comparing the adjacency matrices.
+We optimized each constraint with all weights initially set to 1, but sequentially increased one to 3, 10, and 100.
+This process resulted in 18 distinct dose distributions, which were compared using the distance metrics described earlier.
+For each pair of doses, we calculated the pairwise distances, effectively constructing the adjacency matrix of a fully connected graph, where each optimized dose corresponds to a node.
+See Figure \ref{fig:pairwise_distances} for a comparison of the adjacency matrices.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{dose_distances_figures/pairwise\_distances.pdf}
@@ -215,21 +214,22 @@ See figure \ref{fig:pairwise_distances} for comparing the adjacency matrices.
 	\label{fig:pairwise_distances}
 \end{figure}
 
-Ideally, we want a new distance that:
+Ideally, the distance metric should satisfy the following criteria:
 \begin{itemize}
-	\item matches the voxel distance when the voxel distance is low
-	\item remains small in some cases of a high voxel distance when the clinical meaning of the two doses is the same, despite being voxel-wise (very) different
+	\item It should match the voxel-wise distance when the voxel-wise difference is small.
+	\item It should remain small in cases where the voxel-wise distance is large, but the clinical significance of the two doses is similar, even if the doses are voxel-wise different.
 \end{itemize}
 
-Observing pairwise distances in Fig. \ref{fig:pairwise_distances}, we have that:
+From the pairwise distances shown in Figure \ref{fig:pairwise_distances}, we make the following observations:
 \begin{itemize}
-	\item Frechet and Haussdorff are very similar to voxel-wise; we interpret them as too sensitive.\\
-	They are therefore not suitable for our purpose.
-	\item Kolmogorov-Smirnov degenerates; it probably captured some noise due to approximation in the DVH calculation (small numerical error).\\
-	It is therefore not suitable for our purpose.
-	\item Wasserstein and Total variation seem to produce acceptable results.\\
-	We, therefore, chose to continue studying these two distances.
+	\item The Fréchet and Hausdorff distances behave similarly to the voxel-wise distance, indicating that they are too sensitive.
+	Thus, they are not suitable for our purpose.
+	\item The Kolmogorov-Smirnov distance appears to degenerate, likely capturing noise due to numerical approximations in the DVH calculations.
+	Therefore, it is also not suitable for our purpose.
+	\item The Wasserstein and Total Variation distances produce more clinically relevant results.
+	As a result, we chose to focus further analysis on these two metrics.
 \end{itemize}
+
 
 \subsubsection{Link between Total Variation and Wasserstein}
 %One may remark that the adjacency matrices for Wasserstein and Total Variation are very similar.

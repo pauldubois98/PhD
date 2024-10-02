@@ -233,9 +233,9 @@ From the pairwise distances shown in Figure \ref{fig:pairwise_distances}, we mak
 
 
 \subsubsection{Link between Total Variation and Wasserstein}
-The adjacency matrices for the Wasserstein and Total Variation distances exhibit strong similarity.
-This is expected, as the two metrics are effectively equivalent in this context, given that we employed the Earth Mover’s Distance (Wasserstein distance with $p=1$).
-In fact, the Total Variation distance can be regarded as a special case of the Wasserstein distance.
+The adjacency matrices for the Wasserstein and Total Variation distances exhibit substantial similarity.
+This similarity is expected, as the two metrics are equivalent in this context, given that we employed the Earth Mover's Distance (Wasserstein distance with $p=1$).
+The Total Variation distance can be regarded as a particular case of the Wasserstein distance.
 
 The Wasserstein distance, also known as the Earth Mover's Distance, provides a metric for quantifying the distance between two probability distributions.
 Let $X$ and $Y$ be two distributions with cumulative distribution functions (CDFs) $F$ and $G$, respectively.
@@ -249,7 +249,7 @@ $$\text{TotalVariation}(F, G) = \int_{x \in \R} \abs{F(x) - G(x)} dx$$
 When the Wasserstein distance is computed with $p=1$, it becomes equivalent to the Total Variation distance:
 $$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
 
-Thus, in our analysis, the only expected differences between these two distance metrics should arise from numerical errors.
+Thus, the only expected differences between these two distance metrics in our analysis should arise from numerical errors.
 
 \subsubsection{Bounding of Total Variation and Voxel Distance}
 %It is possible to bound the total variation distance with the Voxel Distance.

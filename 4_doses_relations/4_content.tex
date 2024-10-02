@@ -233,21 +233,23 @@ From the pairwise distances shown in Figure \ref{fig:pairwise_distances}, we mak
 
 
 \subsubsection{Link between Total Variation and Wasserstein}
-The adjacency matrices for Wasserstein and Total Variation are very similar.
-Moreover, the two measures are equivalent since we used Earth's moving distance (Wasserstein with $p=1$).
-More precisely, the total variation distance can be seen as a particular case of the Wasserstein distance.
+The adjacency matrices for the Wasserstein and Total Variation distances exhibit strong similarity.
+This is expected, as the two metrics are effectively equivalent in this context, given that we employed the Earth Mover’s Distance (Wasserstein distance with $p=1$).
+In fact, the Total Variation distance can be regarded as a special case of the Wasserstein distance.
 
-The Wasserstein distance, also known as the earth mover's distance, is a metric that quantifies the distance between two probability distributions.
-Given two probability distributions $X$ and $Y$ with CDFs $F$ and $G$, the Wasserstein distance between them is defined as:
+The Wasserstein distance, also known as the Earth Mover's Distance, provides a metric for quantifying the distance between two probability distributions.
+Let $X$ and $Y$ be two distributions with cumulative distribution functions (CDFs) $F$ and $G$, respectively.
+The Wasserstein distance between them is formally defined as:
 $$W_p(F,G) = \inf_{\pi \in \Pi(F,G)} \left( \iint_{x,y \in \mathbb{R}^2} \abs{x-y}^p d\pi(x,y) \right)^{1/p}$$
+where $\Pi(F,G)$ represents the set of all possible joint distributions with $F$ and $G$ as marginals.
 
-On the other hand, the total variation distance between two curves $F$ and $G$ is defined as:
+In contrast, the Total Variation distance between the two curves $F$ and $G$ is defined as:
 $$\text{TotalVariation}(F, G) = \int_{x \in \R} \abs{F(x) - G(x)} dx$$
 
-The Wasserstein distance is equivalent to the total variation distance for $p=1$:
+When the Wasserstein distance is computed with $p=1$, it becomes equivalent to the Total Variation distance:
 $$W_1(F, G) \equiv \text{TotalVariation}(F, G).$$
 
-In the end, the only difference should be numerical error.
+Thus, in our analysis, the only expected differences between these two distance metrics should arise from numerical errors.
 
 \subsubsection{Bounding of Total Variation and Voxel Distance}
 %It is possible to bound the total variation distance with the Voxel Distance.

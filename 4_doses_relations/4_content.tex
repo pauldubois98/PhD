@@ -266,34 +266,32 @@ We aim to compare two dose distributions within this structure, $d$ and $\tilde{
 By analyzing the differences in dose delivered to the voxels in $v_\mathcal{S}$, we can quantify the variation between the two dose distributions in both voxel-wise and aggregated forms.
 
 \paragraph{Sorting lists}
-%\begin{lemma}
-%	\label{lemma:sorting_lists}
-%	Let $\dot{l}, l^* \in \R^n$. Let $\dot{l}$ be sorted and $\dot{l^*} \in \R^n$ be sorted version of $l^*$.
-%	Then, we have:
-%	$$\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
-%\end{lemma}
-%\begin{proof}
-%	Suppose $a<b$ and $c<d$, and WLOG, $a\leq c$.\\
-%	We have $\abs{a-d} = \abs{a-c}+\abs{c-d}$
-%	so $\abs{a-d}+\abs{b-c} = \abs{a-c}+\abs{c-d}+\abs{b-c}$
-%	using triangle inequality ($\abs{c-d}+\abs{b-c} \geq \abs{b-c}$):
-%	$\abs{a-d}+\abs{b-c} \leq \abs{a-c}+\abs{b-d}$.\\
-%	Thus, with $\dot{l}$ sorted, swapping elements $l_i$ and $l_j$ ($i<j$) of $l^*$ decreases $\abs{\dot{l} - l^*}$ if $l_i \geq l_j$.
-%	Now, bubble sort on $l^*$, we obtain $\dot{l^*}$ doing only permutations satisfying the condition just stated.
-%	
-%	Hence, we obtain $\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$ at the end of the bubble sort.
-%	\qed
-%\end{proof}
-%\begin{corollary}
-%	\label{corollary:sorting_lists}
-%	Let $l, l^* \in \R^n$. Let $\dot{l},\dot{l^*} \in \R^n$ be sorted version of $l, l^*$.
-%	Then: $$\abs{l - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
-%\end{corollary}
-%\begin{proof}
-%	The order in which we perform $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_k-l^*_k}$ can be chosen, so $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_{\sigma(k)}-l^*_{\sigma(k)}}$ (with $\sigma$ a permutation of $\llbracket 1,n \rrbracket$).
-%	Taking $\sigma$ such that $l_{\sigma(i)} \leq l_{\sigma(j)}$ for $i<j$ and using lemma finishes the proof.
-%	\qed
-%\end{proof}
+\begin{lemma}
+	\label{lemma:sorting_lists}
+	Let $\dot{l}, l^* \in \R^n$. Let $\dot{l}$ be sorted and $\dot{l^*} \in \R^n$ be sorted version of $l^*$.
+	Then, we have:
+	$$\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
+\end{lemma}
+\begin{proof}
+	Suppose $a<b$ and $c<d$, and WLOG, $a\leq c$.\\
+	We have $\abs{a-d} = \abs{a-c}+\abs{c-d}$
+	so $\abs{a-d}+\abs{b-c} = \abs{a-c}+\abs{c-d}+\abs{b-c}$
+	using triangle inequality ($\abs{c-d}+\abs{b-c} \geq \abs{b-c}$):
+	$\abs{a-d}+\abs{b-c} \leq \abs{a-c}+\abs{b-d}$.\\
+	Thus, with $\dot{l}$ sorted, swapping elements $l_i$ and $l_j$ ($i<j$) of $l^*$ decreases $\abs{\dot{l} - l^*}$ if $l_i \geq l_j$.
+	Now, bubble sort on $l^*$, we obtain $\dot{l^*}$ doing only permutations satisfying the condition just stated.
+	
+	Hence, we obtain $\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$ at the end of the bubble sort.
+\end{proof}
+\begin{corollary}
+	\label{corollary:sorting_lists}
+	Let $l, l^* \in \R^n$. Let $\dot{l},\dot{l^*} \in \R^n$ be sorted version of $l, l^*$.
+	Then: $$\abs{l - l^*} \geq \abs{\dot{l} - \dot{l^*}}$$
+\end{corollary}
+\begin{proof}
+	The order in which we perform $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_k-l^*_k}$ can be chosen, so $\abs{l - l^*} = \sum_{k=1}^{n} \abs{l_{\sigma(k)}-l^*_{\sigma(k)}}$ (with $\sigma$ a permutation of $\llbracket 1,n \rrbracket$).
+	Taking $\sigma$ such that $l_{\sigma(i)} \leq l_{\sigma(j)}$ for $i<j$ and using lemma finishes the proof.
+\end{proof}
 
 \paragraph{Proof Outline}
 %Suppose the voxel-wise difference is $\varepsilon$-small (i.e. $\abs{d_i-\tilde{d}_i} < \varepsilon$).

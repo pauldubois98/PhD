@@ -294,13 +294,13 @@ By analyzing the differences in dose delivered to the voxels in $v_\mathcal{S}$,
 \end{proof}
 
 \paragraph{Proof Outline}
-%Suppose the voxel-wise difference is $\varepsilon$-small (i.e. $\abs{d_i-\tilde{d}_i} < \varepsilon$).
-%Then, the total variation of the unsorted vector doses is $\abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
-%Let $\dot{d}$ be sorted $d$ and $\dot{\tilde{d}}$ be sorted $\tilde{d}$.
-%Then, by Corollary \ref{corollary:sorting_lists}, we have:
-%$\abs{\dot{d}-\dot{\tilde{d}}} \leq \abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
-%
-%Therefore, if $d$ and $\tilde{d}$ are sufficiently close, $\varepsilon \to 0$ and $\abs{\dot{d}-\dot{\tilde{d}}} \to 0$.
+Suppose the voxel-wise difference is $\varepsilon$-small (i.e. $\abs{d_i-\tilde{d}_i} < \varepsilon$).
+Then, the total variation of the unsorted vector doses is $\abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
+Let $\dot{d}$ be sorted $d$ and $\dot{\tilde{d}}$ be sorted $\tilde{d}$.
+Then, by Corollary \ref{corollary:sorting_lists}, we have:
+$\abs{\dot{d}-\dot{\tilde{d}}} \leq \abs{d-\tilde{d}} < n_\mathcal{S} \varepsilon$.
+
+Therefore, if $d$ and $\tilde{d}$ are sufficiently close, $\varepsilon \to 0$ and $\abs{\dot{d}-\dot{\tilde{d}}} \to 0$.
 
 \paragraph{Conclusion}
 %Thus, voxel-wise very close doses distributions will also have close DVHs distances, which ensure DVHs distances are non-degenerative.

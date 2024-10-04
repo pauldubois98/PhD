@@ -276,7 +276,7 @@ We aim to compare two dose distributions on a structure, $d$ and $\tilde{d}$ (we
 	using triangle inequality ($\abs{c-d}+\abs{b-c} \geq \abs{b-c}$):
 	$\abs{a-d}+\abs{b-c} \leq \abs{a-c}+\abs{b-d}$.\\
 	Thus, with $\dot{l}$ sorted, swapping elements $l_i$ and $l_j$ ($i<j$) of $l^*$ decreases $\abs{\dot{l} - l^*}$ if $l_i \geq l_j$.
-	Now, bubble sort on $l^*$, we obtain $\dot{l^*}$ doing only permutations satisfying the condition just stated.
+	Applying, bubble sort on $l^*$, we obtain $\dot{l^*}$ doing only permutations satisfying the condition just stated.
 	
 	Hence, we obtain $\abs{\dot{l} - l^*} \geq \abs{\dot{l} - \dot{l^*}}$ at the end of the bubble sort.
 \end{proof}

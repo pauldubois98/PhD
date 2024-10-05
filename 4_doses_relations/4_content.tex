@@ -331,26 +331,10 @@ A notable drawback is its inability to capture spatial dose distribution, which 
 Pathological examples exist where two DVHs appear similar, but the clinical interpretation differs significantly.
 Other factors, such as the spatial distribution of the dose within the target volume or surrounding tissues, can play a pivotal role in the treatment’s effectiveness. 
 
-\subsection{Discussion}
-%In this article, a novel metric for comparing radiation doses is introduced.
-%This metric has the advantage of being insensitive to dose changes in some regions if being compensated in another region, which was the intended goal.
-%This metric can be useful in several applications, such as dose mimicking and early stopping time for fluence map optimization optimization.
-%
-%However, there are some limitations to this distance metric.
-%One drawback is that it does not capture spatial distribution, which can be a problem in some cases.
-%There may be some pathological examples where the DVHs are similar, but the clinical interpretation is different.
-%Other factors, such as the distribution of the dose within the target area or the surrounding tissues, can also play a crucial role in determining the effectiveness of the treatment.
-%For example, if two doses have the same amount of high dose, one spread in several small high dose regions, and the other having one large high dose region, then the DVH could look alike, while doctors will interpret the two doses differently.
-%These types of edge cases are, however, extremely rare in practice.
-%We still advise, for critical cases, to use the voxel invariant metric in conjunction with other techniques to obtain a comprehensive evaluation of radiation doses.
-%
-%When comparing two different doses, a large distance between them could indicate a significant difference in the intensity or frequency of the treatment, but this does not necessarily mean that one dose is better than the other.
-%The effectiveness of a dose also depends on several other factors such as the individual patient's characteristics, medical history, and response to the treatment.
-%Thus, simply looking at the distance between doses may not provide an accurate picture of which dose is superior or more effective in a particular case.
-%It is essential to consider all relevant factors when evaluating the efficacy of a treatment dose.
-%
-%Overall, our dose comparison technique is a promising tool.
-%While it has some limitations, it can be a valuable addition to the arsenal of techniques used by radiation oncologists and medical physicists to optimize treatment plans and improve patient outcomes.
+For instance, two dose distributions might deliver the same high dose, with one distributed across several small regions and the other concentrated in a single large region.
+While the DVHs may appear identical, clinicians would interpret these two dose distributions differently.
+Such edge cases, however, are sporadic in clinical practice.
+Nonetheless, for critical cases, we recommend complementing this metric with voxel-invariant approaches and other techniques to comprehensively evaluate the radiation doses.
 
 \paragraph{Stop Criterion}
 Defining a meaningful stopping criterion for the FMO optimization process is a critical challenge in the context of radiotherapy dose optimization.

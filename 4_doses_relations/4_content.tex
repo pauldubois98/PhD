@@ -326,6 +326,10 @@ In this section, we introduce a novel metric for comparing radiation doses.
 This metric offers the advantage of being insensitive to dose changes in certain regions, provided they are compensated in other regions, thus achieving the intended objective.
 This property makes the metric particularly useful in various applications, including dose mimicking and determining early stopping criteria for fluence map optimization.
 
+Despite the advantages, this distance metric has certain limitations.
+A notable drawback is its inability to capture spatial dose distribution, which may pose challenges in specific cases.
+Pathological examples exist where two DVHs appear similar, but the clinical interpretation differs significantly.
+Other factors, such as the spatial distribution of the dose within the target volume or surrounding tissues, can play a pivotal role in the treatment’s effectiveness. 
 
 \subsection{Discussion}
 %In this article, a novel metric for comparing radiation doses is introduced.

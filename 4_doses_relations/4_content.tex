@@ -381,50 +381,6 @@ Using doses network analysis, we will propose a hybrid approach that integrates 
 This method will combine the computational efficiency of automation with the expert judgment of clinicians, ensuring that the final treatment plans are both optimal and clinically relevant.
 
 \subsection{Methods}
-%The assurance of accuracy and efficacy in radiation therapy necessitates the implementation of robust dose optimization process.
-%This is achieved after the optimization of an inverse problem \cite{Webb2003}; our specific implementation is described below.
-
-\subsubsection{Radiotherapy Dose Optimization}
-
-\paragraph{Simulation \& Approximation}
-%The optimization process involved finding the optimal values for the bixels, denoted as $\textbf{b}$, while considering the dose distribution voxel-wise $\textbf{d}$ calculated based on the precomputed dose-influence matrix $\textbf{L}$, which relates bixels to the corresponding voxels.
-%Here, we make the assumption that bixels activation and dose deposition are linearly linked.
-%This assumption is very commonly used. %add citation?
-
-\paragraph{Physical Limitations}
-%It is important to note that due to the physical constraints of radiation therapy, it is not possible to have negative energy rays.
-%Consequently, each bixel value should be non-negative ($b \geq 0 \quad \forall b \in \textbf{b}$).
-%To ensure positive bixel values in practice, we applied an absolute value operation, computing $\textbf{d}=\textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ represents the element-wise absolute value of $\textbf{b}$.
-
-\paragraph{Mathematical Objective Function}
-%In order to capture the diverse dose goals specified within the TG-119 data-set \cite{AAPM-TG119}, we designed a cost function that incorporates multiple objectives.
-%The cost function employed in our study is a weighted sum of multiple objective functions, with each objective corresponding to a specific dose goal.
-%The construction of the cost function is defined as follows, using a square over/under-dose penalty function for each objective:
-%$$f(\textbf{d}) = \sum_{o \in \mathcal{O}} w_o f_o(\textbf{d})$$
-%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(d - o_d)_+^2 \text{ if $o$ is a maximal dose-volume constraint}$$
-%$$f_o(\textbf{d}) = \sum_{d \in \textbf{d}\left[ o_s \right]}(o_d - d)_+^2 \text{ if $o$ is a minimal dose-volume constraint}$$
-%with:
-%\begin{itemize}
-%	\item $\textbf{d}$ the voxel-wise dose; $\textbf{d} \left[s\right]$ the dose on voxels of the structure $s$.
-%	\item $\mathcal{O}$ the set of objectives (dose-volume goals)
-%	\item $w_o$ is the weight of the objective $o \in \mathcal{O}$ (ranges typically between 0 and 100)
-%	\item $o_s$, $o_d$ \& $o_v$ respectively the structure, dose and volume goals of $o \in \mathcal{O}$ (e.g.: $o_s$: PTV; $o_d$: 80Gy; $o_v$: 95\%)
-%\end{itemize}
-%The final function to optimize is $g(\textbf{b}) = f(\textbf{L}\abs{\textbf{b}})$.
-
-\paragraph{MLC Fluence Discretization}
-%We approximated the fluence of each beam using bixels.
-%Bixels (\textbf{be}am-\textbf{el}ement) is a discrete element of the radiation beam that can be individually controlled to achieve spatially varying intensity levels.
-%In our study, the width of these bixels was set to 5mm, corresponding to the width of leafs of the commonly used multi-leaf collimator.
-
-\paragraph{Bixels Smoothness}
-%To promote smoothness and consistency in the distribution of bixel values, we introduced a regularization term in our optimization.
-%This penalty term that penalizes variations between neighboring bixels.
-%Specifically, a square penalty was applied to the differences between bixel values and their neighboring counterparts.
-
-\paragraph{Convexity}
-%The cost function employed in our study is constructed to be convex by design, ensuring desirable mathematical properties for optimization.
-%As a result, regardless of the specific set of weights assigned to the objectives, minimizing this cost function is expected to consistently converge to the same optimal radiotherapy plan.
 
 \paragraph{Multiple Plans Generation}
 %To generate diverse treatment doses for a given patient case and set of constraints, we employed a strategy of optimizing the cost function with different weight assignments for each constraint.

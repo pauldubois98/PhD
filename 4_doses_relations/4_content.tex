@@ -390,10 +390,9 @@ To generate a diverse set of treatment doses for a given patient case and set of
 This approach mirrors the current practice in which dosimetrists adjust the weights associated with different dose objectives to guide the optimization engine toward a clinically acceptable solution.
 By altering these weights, it becomes possible to explore different trade-offs and prioritize certain aspects of the treatment plan, such as sparing healthy tissue or enhancing tumor coverage, according to the patient's specific clinical needs.
 
-\subsubsection{Data}
-\paragraph{(Phantom) Patient}
-%The evaluation of our proposed method for clustering radiation doses was conducted using the TG-119 Prostate case \cite{AAPM-TG119}, which is a well-established benchmark data-set commonly employed for assessing the quality of radiation therapy plans.
-%The TG-119 data-set encompasses predefined dose goals, which were utilized in the formulation of our cost function.
+\subparagraph{Dose Normalization}
+For consistency across cases, we normalized the doses using the "$D_{50}$" normalization method, a common practice in radiation therapy.
+This method normalizes the dose such that the median dose delivered to the PTV equals the prescribed dose, ensuring comparability across treatment plans.
 
 \paragraph{Dose normalization}
 %We normalized the doses according to the "D50" normalization method, which is a common practice in the field of radiation therapy.

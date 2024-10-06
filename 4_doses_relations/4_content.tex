@@ -414,17 +414,16 @@ Modularity is a metric used to assess the quality of a graph partition by quanti
 For our analysis, we utilized the implementation of Louvain's method available in the Python library NetworkX \cite{NetworkX}, which facilitated partitioning the dose similarity graph into meaningful clusters.
 
 \paragraph{Evaluating Communities Split}
-%Evaluation of clustering quality was performed using dose-volume histograms (DVH) obtained from different doses.
-%The mean and standard deviation of the DVH were computed for each cluster versus the entire data-set:
-%
-%We conducted an analysis on the relative volume doses for the four distinct structures.
-%A total of 101 dose values were sampled for each structure, with volume ranging from 0\% to 100\% equally spaced).
-%These values were aggregated into a single vector, resulting in a vector length of 404 for each dose.
-%
-%To assess the variability within these dose vectors, we calculated the standard deviation for the 404 elements of each vector.
-%This statistical measure provides insight into the dispersion of the dose values within a given structure.
-%By averaging the obtained standard deviations, we derived a scalar metric that quantifies the degree of separation among a group of doses.
+The clustering quality was evaluated using dose-volume histograms (DVHs) derived from the different doses.
+We computed the mean and standard deviation of the DVH curves for each cluster and the entire dataset.
 
+We analyzed the relative volume doses across four distinct anatomical structures.
+One hundred one dose values were sampled for each structure, corresponding to volume percentages ranging from $0\%$ to $100\%$ in equal $1\%$ intervals.
+These values were aggregated into a single vector, resulting in a vector of length 404 for each dose.
+
+To assess the variability within these dose vectors, we calculated the standard deviation for each of the 404 elements in the vector.
+This measure provides insight into the dispersion of dose values within the structures.
+By averaging the calculated standard deviations, we derived a scalar metric that quantifies the degree of separation among the clustered doses, reflecting the consistency or variability of the doses within each group.
 
 \subsection{Results}
 \subsubsection{Doses Network}

@@ -406,12 +406,12 @@ We employed the Euclidean distance between voxel-wise dose distributions as our 
 The weight of each edge between two doses was then defined as the inverse of this distance as we sought to maximize the edge weights between similar doses.
 Defining edge weights as the inverse of the distance between nodes is a common practice in graph theory, as noted in previous works \cite{Maleika2020} \cite{Li2018}.
 
-\paragraph{Community Detection}
+\subparagraph{Community Detection}
 \label{clustering_evaluation}
-%We used the Louvain's method for community detection to cluster the doses.
-%This method is a greedy optimization method that maximizes the modularity of the graph.
-%The modularity of a graph is a measure of the quality of the partition of the graph into communities.
-%We used the implementation of the Louvain's method in the python library networkx.
+We employed Louvain's method for community detection to cluster the radiation doses.
+Louvain's method is a greedy optimization algorithm that aims to maximize the modularity of the graph.
+Modularity is a metric used to assess the quality of a graph partition by quantifying how well the graph is divided into distinct communities.
+For our analysis, we utilized the implementation of Louvain's method available in the Python library NetworkX \cite{NetworkX}, which facilitated partitioning the dose similarity graph into meaningful clusters.
 
 \paragraph{Evaluating Communities Split}
 %Evaluation of clustering quality was performed using dose-volume histograms (DVH) obtained from different doses.

@@ -372,69 +372,9 @@ In this section, we aim to construct a clinically meaningful network of dose dis
 By creating such a network, we can identify clusters of similar dose distributions and uncover patterns that reflect clinical relevance.
 This network-based approach will enable us to visualize better, analyze, and interpret the relationships between various treatment plans, ultimately improving the comparison and optimization of radiotherapy strategies.
 
-\subsection{Introduction}
-%Radiotherapy is a prevalent intervention for treating cancer, utilizing ionizing radiation to eliminate malignant cells.
-%Among the various radiotherapy approaches, intensity-modulated radiation therapy (IMRT) stands out as a technique that administers high radiation doses to the tumor while minimizing exposure to surrounding healthy tissues \cite{ReportIMRT2003}.
-%Traditional IMRT strategies employ several beams, usually 5, 7, or 9, originating from different angles around the patient \cite{Bortfeld2009TheNO}.
-%Each beam's intensity is modulated to optimize radiation dose delivery to the tumor while reducing healthy tissue exposure.
-%This technique surpasses the efficacy of the 3D-conformal radiotherapy (3D-CRT) approach \cite{KOLE2012} \cite{PALMA2008} \cite{VERHEY1999}.
-%The multi-leaf collimator (MLC), a computer-controlled device, shapes the radiation beam to match the tumor's contours, facilitating precise and efficient delivery of the therapy.
-%
-%The efficacy of a radiotherapy treatment plan is contingent upon the optimization procedure.
-%Optimization encompasses multiple steps:
-%The first step is the beam angles choice.
-%Most of the time, equispaced angles is chosen, as they offer the greatest flexibility \cite{Bortfeld_2006}.
-%The second step (on which we will focus our study) is the Fluence Map Optimization (FMO).
-%It consist of actually calculating a two dimensional map of fluence power for each angle.
-%The fluence maps need to be a compromise between contradicting constraints on the Principal Target Volume (PTV) and the Organs At Risks (OARs).
-%The third ans final step is the leaf sequencing.
-%This is where we convert the ideal fluence maps computed before into machine instructions.
-%Modern leaf sequencing algorithm (in particular, "sliding window" algorithm) perform very well \cite{Iqbal2013} \cite{Nicolini2005}.
-%In this paper, we assume this part of optimization can be done perfectly.
-%
-%FMO is a key step to guarantee the most favorable administration of radiation.
-%Computer softwares performing the optimization process, are called Treatment Planning Systems (TPSs).
-%The use of a TPS is necessary given the complexity of the mathematical inverse problem to solve for the FMO.
-%TPSs typically incorporate the patient's anatomy, tumor/organs' location and size, and the radiation objectives defined by medical professionals.
-%
-%There have been multiple attempts to automate the process of treatment optimization in radiation therapy.
-%Several studies have focused on dose prediction (\cite{McIntosh_2017} \cite{Nguyen_2019}).
-%These approaches aim to predict the optimal radiation dose for patients. Another avenue explored is the application of Pareto frontier exploration, as discussed in \cite{Kuipers2023} and \cite{Ottosson_2010}.
-%This approach aims to identify a set of treatment plans that represent a trade-off between conflicting objectives.
-%Additionally, \cite{CristianCotrutz_2003} proposed a method for directly extracting leaf movements from patient data.
-%Despite these efforts, these automated approaches have not yet been adopted in clinical practice due to various limitations.
-%In this paper, we present a hybrid approach that combines manual and automatic treatment optimization.
-%Our algorithm generates a shortlist of potential doses, and the final selection is made by a medical professional.
-%This approach aims to leverage the advantages of automation while incorporating the expertise and judgment of a doctor to ensure clinically usable treatment plans.
-
-
-\subsection{Radiotherapy}
-%This section provides a comprehensive description of the overarching framework encompassing the general setup of radiotherapy, elucidating the seamless integration of its various components within the clinical workflow.
-
-\paragraph{Dose Optimization Inputs}
-%The initial phase of the optimization process involves the generation of a virtual representation of the patient's anatomy using medical imaging technologies such as CT or MRI scans.
-%This model is subsequently exploited to identify the tumor's size and location and delineate the adjacent healthy tissues that require protection from radiation exposure.
-%The subsequent step is to establish the requisite radiation dose for effective treatment, with physicians typically prescribing dose-volume objectives (e.g., 95\% of Principal Target Volume or PTV should receive a minimum of 76Gy).
-%The dose is determined based on factors such as tumor size, location, and type, as well as the patient's medical history and general well-being.
-%These steps are undertaken by medical professionals.
-
-\paragraph{Dose Simulation}
-%In the radiation therapy optimization process, the next step involves computing the dose on the patient's volume by simulating one multi-leaf collimator (MLC) parametrization on the patient's body using medical imaging data.
-%The computed dose is a map from the three-dimensional volume of the patient's body to a positive number of Grays, which is the unit used to measure the absorbed radiation energy.
-%In practice, a discrete version of the dose is used, where the dose is calculated for each voxel of the patient's body.
-%The influence of rays is mathematically modeled as a linear function of the transmitted energy within the radiation therapy optimization process.
-
-\paragraph{Dose-Volume Histograms}
-%Doctors have delineated the various relevant structures in the patient's anatomy to allow calculation of the dose-volume histogram (DVH) for each structure based on a given dose.
-%The dose-volume objectives are then represented as points on the DVH that should be maintained either above (in case of minimum dose constraints) or below (in case of maximum dose constraints).
-
-\paragraph{Evaluation of Doses}
-%Doctors evaluate the quality of a dose using several criteria.
-%First, they examine the 3D distribution of the dose on the patient's body, looking at the inter-structure distribution as well as the presence, number, and location of hot spots.
-%Second, they analyze the DVH to determine if the curves match the predefined DVH objectives.
-%This evaluation step is critical for ensuring that the surrounding healthy tissues are spared from unnecessary radiation exposure.
-%By optimizing the treatment plan and verifying the quality of the dose, doctors can ensure the best possible outcome for the patient.
-
+Numerous efforts have been made to automate the treatment optimization process in radiation therapy.
+One promising avenue is the exploration of the Pareto frontier, as discussed in \cite{Kuipers2023} and \cite{Ottosson_2010}, which seeks to identify a set of treatment plans that balance conflicting objectives, such as maximizing tumor control while minimizing damage to surrounding healthy tissue.
+Another approach proposed \cite{CristianCotrutz_2003} consists of directly extracting leaf movements from patient data to enhance the automation of dose delivery.
 
 \subsection{Methods}
 %The assurance of accuracy and efficacy in radiation therapy necessitates the implementation of robust dose optimization process.

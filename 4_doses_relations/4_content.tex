@@ -399,13 +399,12 @@ Our proposed method for clustering radiation doses was evaluated using the TG-11
 The TG-119 dataset provides predefined dose objectives, which were incorporated into the formulation of our cost function.
 This benchmark allows for a robust evaluation of our clustering approach in the context of clinically relevant treatment goals, ensuring that the method aligns with widely accepted standards in radiation therapy planning.
 
-\subsubsection{Dose Clustering Techniques}
-\paragraph{Dose Distance}
-%To cluster the doses, we first need to define a distance between them.
-%We used the Euclidean distance between the voxel-wise doses.
-%We defined the weight of the edge between two doses as the inverse of the distance between them
-%(since we want to maximize the weight of the edges between similar doses).
-%Defining the weight of the edge as the inverse of the distance between the doses is quite standard in the field of graph theory \cite{Maleika2020} \cite{Li2018}.
+\paragraph{Dose Clustering Techniques}
+\subparagraph{Dose Distance}
+We first needed to establish a method for defining the distance between individual doses to perform the dose clustering.
+We employed the Euclidean distance between voxel-wise dose distributions as our distance metric.
+The weight of each edge between two doses was then defined as the inverse of this distance as we sought to maximize the edge weights between similar doses.
+Defining edge weights as the inverse of the distance between nodes is a common practice in graph theory, as noted in previous works \cite{Maleika2020} \cite{Li2018}.
 
 \paragraph{Community Detection}
 \label{clustering_evaluation}

@@ -394,9 +394,10 @@ By altering these weights, it becomes possible to explore different trade-offs a
 For consistency across cases, we normalized the doses using the "$D_{50}$" normalization method, a common practice in radiation therapy.
 This method normalizes the dose such that the median dose delivered to the PTV equals the prescribed dose, ensuring comparability across treatment plans.
 
-\paragraph{Dose normalization}
-%We normalized the doses according to the "D50" normalization method, which is a common practice in the field of radiation therapy.
-%It consists in normalizing the dose such that the median dose of the PTV is equal to the prescription dose.
+\subparagraph{Phantom Patient}
+Our proposed method for clustering radiation doses was evaluated using the TG-119 Prostate case \cite{AAPM-TG119}, a well-established benchmark dataset commonly employed to assess the quality of radiation therapy plans.
+The TG-119 dataset provides predefined dose objectives, which were incorporated into the formulation of our cost function.
+This benchmark allows for a robust evaluation of our clustering approach in the context of clinically relevant treatment goals, ensuring that the method aligns with widely accepted standards in radiation therapy planning.
 
 \subsubsection{Dose Clustering Techniques}
 \paragraph{Dose Distance}

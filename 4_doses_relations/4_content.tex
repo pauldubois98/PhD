@@ -383,9 +383,9 @@ This method will combine the computational efficiency of automation with the exp
 \subsection{Methods}
 
 \paragraph{Multiple Plans Generation}
-%To generate diverse treatment doses for a given patient case and set of constraints, we employed a strategy of optimizing the cost function with different weight assignments for each constraint.
-%Varying the weights associated with individual dose goals is how dosimetrists are now guiding optimization engines toward the best (clinically acceptable) solution.
-%Playing with these weights allows to explore different trade-offs and prioritize certain aspects of the treatment plan over others.
+We employed the same dose optimization process as previously described.
+The cost function utilized in this study is designed to be convex, ensuring that, irrespective of the specific weight assignments given to the objectives, minimizing this cost function will consistently converge to an optimal radiotherapy plan.
+To generate a diverse set of treatment doses for a given patient case and set of constraints, we optimized the cost function with varying weight assignments for each constraint.
 
 \paragraph{Optimizer}
 %The optimization of the main objective function was performed using the open-source optimizer L-BFGS (Limited-memory Broyden-Fletcher-Goldfarb-Shanno).

@@ -29,12 +29,11 @@ Hence, we will be looking at gradient-free optimization methods.
 Expert systems are computer systems emulating the decision-making of a human expert.
 
 \paragraph{Simple Weight Increase}
-One approach is to increase the weight of all constraints that are not met after each FMO optimization.
-\begin{itemize}
-	\item \textbf{Advantages:} Very simple to implement, and understand.
-	\item \textbf{Disadvantages:} If none of the constraints is met, then the outer loop is stuck.
-	This method might struggle to converge in complex cases where multiple constraints compete.
-\end{itemize}
+One approach involves increasing the weight of all unsatisfied constraints after each FMO optimization step.
+This method is advantageous due to its simplicity in terms of implementation and understanding.
+However, a significant limitation arises when none of the constraints are met, causing the outer optimization loop to stagnate.
+In such cases, the optimization process remains stationary, usually when too many constraints are enforced.
+This stationary state arises particularly in complex scenarios with multiple competing constraints and can result in a situation where progress is hindered, preventing the solution from improving over iterations.
 
 \paragraph{Inverse Proportional Weight Increase}
 Another approach is to increase the weight of each constraint inversely proportional to how close it is to being met, quantifying the degree to which a constraint is satisfied.

@@ -86,42 +86,22 @@ It becomes challenging to define general rules not only for ranking treatment pl
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}
 
-
 \subsection{Introduction}
-%In contemporary radiation therapy, photon intensity modulated radiation therapy (IMRT) is a pivotal technique to attain precise and conformal dose distributions within target volumes \cite{xu_comparison_2017}.
-%This achievement owes its realization to the advent of the multileaf collimator (MLC) \cite{galvin_characterization_1993}.
-%Radiation therapy is now a reliable treatment for oncology \cite{valentini_survival_2009}.
-%Despite this consensus, the way to deliver radiotherapy for its best result remains very dependent upon doctors.
-%Moreover, there appears to be a large variability across physicians and centres, but in terms of 3D structures contouring and irradiation, constrains priorities \cite{variability_2021}.
-%
-%To achieve the best treatment, doctors must solve a complex inverse mathematical optimization problem with multiple trade-offs \cite{oelfke_inverse_2001} \cite{webb_physical_2003}.
-%However, a lack of standardized prioritization of constraints makes the optimization a real challenge.
-%The standard procedure nowadays is to guide computer optimization manually: dosimetrists manually update the settings of an optimizing software so-called Treatment Planning System (TPS) \cite{planification_website}.
-%
-%There have been many tries to create a metric that quantifies the quality of a treatment plan, such as Normal Tissue Complication Probabilities (NTCP), target coverage, conformity index, and heterogeneity index, among others/to name a few \cite{lyman_normal_1992} \cite{li_input_2022}\label{metrics}.
-%However, they have yet to satisfy all radio-oncologists, and the only reliable way to assess a doctor's plan is to evaluate the dose-volume histograms (DVHs) themselves.
-%
-%As a result, Pareto surface exploration is unsuitable due to the lack of impartial quantitative measurement for a particular plan \cite{huang_pareto_2021}.
-%Other meta-optimization techniques are similarly bounded for the same reason \cite{wu_optimization_2001} \cite{xing_optimization_1999}.
-%An extra challenge to attend for those is the fact that not all cases have the same difficulty.
-%Hence, for an "easy" case, doctors will require an excellent dose (in terms of the metrics mentioned above), while they can be more permissive for "harder" cases.
-%The context-aware acceptability criteria make the acceptability of a plan hard to define in general.
-%
-%Reinforcement learning (RL) is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
-%Agents learn to optimize their actions to achieve long-term objectives through trial and error guided by rewards or penalties.
-%The decisions taken by dosimetrists when optimizing treatment can be formalized as an RL problem.
-%Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually struggle to explain their decision while interacting with the TPS.
-%The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
-%This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
-%
-%The study’s primary hypothesis is that all the information needed to decide what weights should be changed in the objective function used by the optimizer relies on the Dose Volume Histograms (DVHs).
-%Our hypothesis is supported by the fact that dosimetrists almost solely use DVHs plots.
-%In order to learn the actions of dosimetrists who use a TPS to optimize doses, we leverage deep learning.
-%This is done by training an agent that takes the DVHs as the input of the current optimized dose, and predicts the evaluation of possible weights changes.
-%
-%Typically, access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
-%Therefore, we only use the dose distributions of previously treated patients to train our model.
-%This partial availability of data suggests the use of RL.
+Reinforcement learning (RL) is a machine learning paradigm that trains agents to make sequential decisions in dynamic environments \cite{brooks_what_2021}.
+Agents learn to optimize their actions to achieve long-term objectives through trial and error guided by rewards or penalties.
+The decisions taken by dosimetrists when optimizing treatment can be formalized as an RL problem.
+Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually struggle to explain their decision while interacting with the TPS.
+The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
+This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
+
+The study’s primary hypothesis is that all the information needed to decide what weights should be changed in the objective function used by the optimizer relies on the Dose Volume Histograms (DVHs).
+Our hypothesis is supported by the fact that dosimetrists almost solely use DVHs plots.
+In order to learn the actions of dosimetrists who use a TPS to optimize doses, we leverage deep learning.
+This is done by training an agent that takes the DVHs as the input of the current optimized dose, and predicts the evaluation of possible weights changes.
+
+Typically, access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
+Therefore, we only use the dose distributions of previously treated patients to train our model.
+This partial availability of data suggests the use of RL.
 
 \subsection{Materials and Methods}
 %We introduce a new paradigm for reward-based dosimetrist RL agents.
@@ -252,6 +232,8 @@ It becomes challenging to define general rules not only for ranking treatment pl
 %Several avenues exist for further research.
 %Firstly, we plan to investigate strategies for incorporating additional information, such as patient characteristics and anatomical complexities, into the training process.
 %Secondly, we aim to explore techniques for improving the interpretability of the agent's decision-making process, allowing for better understanding and potential clinical validation.
+
+%%% add 3D dose as input, so that the algo can "see" hotspots
 
 \subsection{Conclusion}
 %Our approach differs from previous RL-based methods for radiotherapy planning in two key aspects.

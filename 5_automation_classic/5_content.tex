@@ -51,13 +51,13 @@ Hill climbing \cite{skienna2008} is a simple optimization technique in which the
 In the context of radiotherapy treatment planning, several metrics have been proposed to quantify the quality of a plan, including Normal Tissue Complication Probabilities (NTCP), target coverage, conformity index, and heterogeneity index, among others \cite{lyman_normal_1992,li_input_2022} \label{metrics}.
 This approach offers a systematic way to improve treatment plans by optimizing the chosen metric.
 
-However, defining the correct metric of interest is a challenging task, as no single metric, nor a combination of metrics, has consistently proven to satisfy radio-oncologists' requirements.
+However, defining the correct metric of interest is challenging, as no single metric, nor a combination of metrics, has consistently proven to satisfy radio-oncologists' requirements.
 In practice, the most reliable method for assessing the quality of a treatment plan remains the manual evaluation of dose-volume histograms (DVHs), which provide a detailed representation of the dose distribution across both the target and the surrounding organs at risk.
 
 \paragraph{Pareto Exploration}
-Researchers have developed algorithms to explore the Pareto surface of doses, but no concesus has been reach about how to choose a particular dose on that pareto surface.
-As a result, Pareto surface exploration becomes unsuitable due to the lack of an impartial quantitative measurement for evaluating a particular plan \cite{huang_pareto_2021}.
-Other meta-optimization techniques are similarly limited for the same reason \cite{wu_optimization_2001, xing_optimization_1999}.
+Researchers have developed algorithms to explore the Pareto surface of dose distributions, yet no consensus has been reached on selecting an optimal dose from this surface.
+Consequently, Pareto surface exploration is unsuitable due to the absence of an objective quantitative measure for evaluating the quality of a specific plan \cite{huang_pareto_2021}.
+This limitation similarly constrains other meta-optimization techniques, as they also rely on the availability of a clear, impartial criterion for plan evaluation \cite{wu_optimization_2001, xing_optimization_1999}.
 
 \paragraph{Contextual Knowledge}
 An additional challenge is the varying difficulty across patient cases.

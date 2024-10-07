@@ -116,7 +116,7 @@ Here, $j$ represents a (discrete) a parametrization, and $dist\left( \mathcal{C}
 
 One drawback of the Fréchet distance is its computational expense, particularly for structures with a large number of voxels.
 To mitigate this, we applied the Ramer–Douglas–Peucker algorithm for curve simplification \cite{PRASAD2012843}.
-We employed this algorithm with $\epsilon=0.05$, and after testing on a subset of DVH curves, it was found to accelerate computations by a factor of 3-5, while the calculated Fréchet distance deviated by less than 0.5\%.
+We employed this algorithm with $\epsilon=0.05$, and after testing on a subset of DVH curves, it was found to accelerate computations by a factor of 3-5, while the calculated Fréchet distance deviated by less than $0.5\,\%$.
 This method was therefore used in the results presented below.
 
 
@@ -163,7 +163,7 @@ This approach yielded the most consistent and clinically relevant results among 
 As such, we selected this distance measure for our analysis.
 
 Traditionally, the total variation distance is defined as the integral of the absolute difference between two DVH curves.
-While the dose domain is theoretically unbounded, the volume domain is bounded between 0 and 100\%.
+While the dose domain is theoretically unbounded, the volume domain is bounded between $0\,\%$ and $100\,\%$.
 To avoid integrating over an unbounded dose domain, we opted to reverse the axes, placing dose on the $y$-axis and volume on the $x$-axis and subsequently integrating the absolute difference in dose over the volume range $[0,1]$.
 
 Mathematically, standard DVHs are described by $V: \mathbb{R}^+ \to [0,1]$.
@@ -437,7 +437,7 @@ The clustering quality was evaluated using dose-volume histograms (DVHs) derived
 We computed the mean and standard deviation of the DVH curves for each cluster and the entire dataset.
 
 We analyzed the relative volume doses across four distinct anatomical structures.
-One hundred one dose values were sampled for each structure, corresponding to volume percentages ranging from $0\%$ to $100\%$ in equal $1\%$ intervals.
+One hundred one dose values were sampled for each structure, corresponding to volume percentages ranging from $0\,\%$ to $100\,\%$ in equal $1\,\%$ intervals.
 These values were aggregated into a single vector, resulting in a vector of length 404 for each dose.
 
 To assess the variability within these dose vectors, we calculated the standard deviation for each of the 404 elements in the vector.

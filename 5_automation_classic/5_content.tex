@@ -51,6 +51,18 @@ However, expert systems like these often require constant refinement, hence, thi
 
 \subsection{Metric-Based}
 Here, we suppose that one can construct a measure of the quality of a plan.
+
+\paragraph{Hill Climbing}
+Hill climbing is a simple optimization technique where the solution iteratively moves towards a better solution based on a defined metric.
+
+In our context, several metrics have been proposed to quantify the quality of a radiotherapy treatment plan, such as Normal Tissue Complication Probabilities (NTCP), target coverage, conformity index, and heterogeneity index, among others \cite{lyman_normal_1992,li_input_2022}\label{metrics}.
+\begin{itemize}
+	\item \textbf{Advantages:} Provides a systematic way to improve plans.
+	\item \textbf{Disadvantages:} Defining the correct metric of interest is hard.
+\end{itemize}
+However, none of these metrics alone nor in combination with others has proven to satisfy radio-oncologists.
+In practice, the most reliable way to assess a treatment plan is by manually evaluating the dose-volume histograms (DVHs), which provide a detailed look at the dose distribution across both the target and the organs at risk.
+
 % Full paper:
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}

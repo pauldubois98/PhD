@@ -36,16 +36,12 @@ In such cases, the optimization process remains stationary, usually when too man
 This stationary state arises particularly in complex scenarios with multiple competing constraints and can result in a situation where progress is hindered, preventing the solution from improving over iterations.
 
 \paragraph{Inverse Proportional Weight Increase}
-Another approach is to increase the weight of each constraint inversely proportional to how close it is to being met, quantifying the degree to which a constraint is satisfied.
-
-Quantification Example: use the area bounded by the DVH constraint, and the DVH curve.
-When this is zero, then the constraint is met.
-\begin{itemize}
-	\item \textbf{Advantages:} Still relatively easy to implement, and allows for a more nuanced adjustment of weights based on constraint satisfaction.
-	\item \textbf{Disadvantages:} This method can lead to an oscillation phenomenon, where constraints fluctuate between satisfaction and violation.
-\end{itemize}
-Of course, 	one could add momentum to smooth the process, to fix the oscillation problem.
-However, expert systems like these often require constant refinement, hence, this path is not viable for a credible clinical application.
+Another approach involves increasing the weight of each constraint inversely proportional to how close it is to being met, thereby quantifying the degree of constraint satisfaction.
+For instance, the degree of satisfaction can be quantified by calculating the area between the dose-volume histogram (DVH) constraint and the actual DVH curve; when this area is zero, the constraint is considered fully satisfied.
+While this method remains relatively straightforward to implement and provides a more refined adjustment of weights based on how close each constraint is to being met, it can lead to oscillation issues.
+Constraints may fluctuate between being satisfied and violated across iterations, hindering stable convergence.
+Although adding momentum to the optimization process could mitigate these oscillations, expert systems of this nature typically require continuous tuning and refinement.
+As a result, this approach may not be viable for reliable clinical applications where consistent performance is essential.
 
 \subsection{Metric-Based}
 Here, we suppose that one can construct a measure of the quality of a plan.

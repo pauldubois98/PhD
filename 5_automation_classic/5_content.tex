@@ -37,6 +37,18 @@ One approach is to increase the weight of all constraints that are not met after
 	This method might struggle to converge in complex cases where multiple constraints compete.
 \end{itemize}
 
+\paragraph{Inverse Proportional Weight Increase}
+Another approach is to increase the weight of each constraint inversely proportional to how close it is to being met, quantifying the degree to which a constraint is satisfied.
+
+Quantification Example: use the area bounded by the DVH constraint, and the DVH curve.
+When this is zero, then the constraint is met.
+\begin{itemize}
+	\item \textbf{Advantages:} Still relatively easy to implement, and allows for a more nuanced adjustment of weights based on constraint satisfaction.
+	\item \textbf{Disadvantages:} This method can lead to an oscillation phenomenon, where constraints fluctuate between satisfaction and violation.
+\end{itemize}
+Of course, 	one could add momentum to smooth the process, to fix the oscillation problem.
+However, expert systems like these often require constant refinement, hence, this path is not viable for a credible clinical application.
+
 % Full paper:
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}

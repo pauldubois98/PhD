@@ -29,6 +29,14 @@ Hence, we will be looking at gradient-free optimization methods.
 \subsection{Expert Weight Adjustment}
 Expert systems are computer systems emulating the decision-making of a human expert.
 
+\paragraph{Simple Weight Increase}
+One approach is to increase the weight of all constraints that are not met after each FMO optimization.
+\begin{itemize}
+	\item \textbf{Advantages:} Very simple to implement, and understand.
+	\item \textbf{Disadvantages:} If none of the constraints is met, then the outer loop is stuck.
+	This method might struggle to converge in complex cases where multiple constraints compete.
+\end{itemize}
+
 % Full paper:
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}

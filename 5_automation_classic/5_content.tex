@@ -2,7 +2,27 @@
 
 After the FMO step is developed and encapsulated, one may simply modify the weights used for the FMO iteratively, until a condition is met, or for a given number of steps.
 We will therefore have one inner optimization (the FMO), and one outer optimization.
-
+\begin{center}
+	\begin{minipage}{.55\linewidth}
+		\begin{algorithm}[H]
+			\caption{Meta Optimization Algorithm Outline}
+			\label{alg:meta_optim}
+			\begin{algorithmic}
+				\State initialize $w$
+				\Repeat
+					\State initialize $b$ \Comment{FMO starts}
+					\Repeat
+							\State \textcolor{Prune}{ $d = Lb$ \Comment{differentiable} }
+							\State \textcolor{Prune}{ $c = \mathcal{C}(w, d)$ \Comment{differentiable} }
+							\State \textcolor{Prune}{ back-propagate $c$ }
+							\State \textcolor{Prune}{ update $b$ }
+						\Until{\textit{FMO \textbf{stop condition}}} \Comment{FMO ends}
+					\State update $w$
+				\Until{\textit{Meta-optimization \textbf{stop condition}}}
+			\end{algorithmic}
+		\end{algorithm}
+	\end{minipage}
+\end{center}
 The outer optimization step is not differentiable (or at least, not in a reasonable computation time).
 Hence, we will be looking at gradient-free optimization methods.
 

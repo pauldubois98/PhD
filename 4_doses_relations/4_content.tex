@@ -547,6 +547,20 @@ This approach is labor-intensive and prone to inconsistencies due to human facto
 We present a novel framework for multi-objective optimization and robust treatment plan selection based on graph theory to address these challenges.
 This framework introduces significant automation into the planning process, allowing for more efficient and reliable plan generation.
 
+\subsection{Proposed Framework}
+The first step in the framework is the construction of the graph, which is based on the systematic random perturbation of importance factors assigned to clinical constraints.
+By treating this set of plans as a graph, we can explore the landscape of possible solutions more systematically.
+It would not be practical to ask doctors and dosimetrists to evaluate dozens of treatment plans.
+
+We use clustering algorithm described in the previous section to regroup doses with similar effects.
+Clusters of plans, or "communities," emerge based on their proximity in the graph, allowing us to narrow down the set of candidates for more detailed evaluation.
+By focusing on these robust communities, we reduce the need for manual intervention in plan selection.
+Instead of planners having to sift through dozens of plans, the framework automatically highlights the most promising options, significantly reducing both time and effort.
+
+This framework represents a shift from the traditional "many-clicks" approach—where planners must manually adjust and evaluate numerous treatment plans—to a "few-clicks" workflow, where the system presents only the most relevant, robust plans for final review.
+This automation not only saves time but also reduces the risk of human error, leading to more consistent, higher-quality outcomes for patients.
+
+
 % Poster:
 % https://github.com/pauldubois98/ESTRO2024/blob/main/poster-dose_clustering.pdf
 % Abstract:

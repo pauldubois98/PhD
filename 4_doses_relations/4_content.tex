@@ -390,6 +390,15 @@ To generate a diverse set of treatment doses for a given patient case and set of
 This approach mirrors the current practice in which dosimetrists adjust the weights associated with different dose objectives to guide the optimization engine toward a clinically acceptable solution.
 By altering these weights, it becomes possible to explore different trade-offs and prioritize certain aspects of the treatment plan, such as sparing healthy tissue or enhancing tumor coverage, according to the patient's specific clinical needs.
 
+\subparagraph{Objectives’ Weights Generation}
+The weights assigned to each optimization objective ($w$) dictate the relative importance of each objective in the trade-offs made by the optimization engine.
+Initially, we begin with a typical weight assignment used in clinical practice.
+To generate a diverse set of weights, we perturb these initial values by adding random normal noise, resulting in a unique new set of weights.
+
+By repeating this process, we can explore a wide range of potential treatment plans.
+This thorough exploration provides a nuanced understanding of the trade-offs between competing clinical objectives.
+The random computational exploration of irradiation strategies extends beyond the capabilities of manual exploration, enabling clinicians to make more informed and tailored decisions based on a broader array of treatment possibilities.
+
 \subparagraph{Dose Normalization}
 For consistency across cases, we normalized the doses using the "$D_{50}$" normalization method, a common practice in radiation therapy.
 This method normalizes the dose such that the median dose delivered to the PTV equals the prescribed dose, ensuring comparability across treatment plans.

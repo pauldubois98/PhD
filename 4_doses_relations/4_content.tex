@@ -533,7 +533,7 @@ This approach could significantly reduce the number of manual interactions, or "
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section[Novel Dosimetry Automation Approach with Graph Theory]{A Novel Framework for Multi-Objective Optimization and Robust Plan Selection Using Graph Theory (ESTRO 2024)}
+\section[Novel Dosimetry Automation Approach with Graph Theory]{A Novel Framework for Multi-Objective Optimization and Robust Plan Selection Using Graph Theory\footnote{Presented at ESTRO 2024.}}
 % many-clicks to few-clicks solution, but goal is one-click
 % N-clicks to 2/3-clicks solution, but goal is 1-click
 
@@ -560,6 +560,16 @@ Instead of planners having to sift through dozens of plans, the framework automa
 This framework represents a shift from the traditional "many-clicks" approach—where planners must manually adjust and evaluate numerous treatment plans—to a "few-clicks" workflow, where the system presents only the most relevant, robust plans for final review.
 This automation not only saves time but also reduces the risk of human error, leading to more consistent, higher-quality outcomes for patients.
 
+\subsection{Discussion}
+The proposed framework transitions from a traditional $N$-click approach\footnote{with $N >> 10$} to a more efficient $n$-click solution\footnote{with $10 > n > 1$}.
+While this shift significantly reduces the time required for plan selection, it still requires dosimetrists and doctors to adapt to a new workflow.
+This change in habit—moving from manually reviewing and adjusting plans to relying on semi-automated plan suggestions—may pose a barrier to clinical implementation.
+
+For a solution to be adopted in everyday practice, it must minimize the disruption to current workflows.
+Ideally, this means evolving the framework into a proper $1$-click solution, where the system autonomously generates and selects the optimal, robust treatment plan without requiring manual intervention.
+Such a system would eliminate the need for dosimetrists and doctors to alter their habits and ensure consistent, high-quality outcomes with minimal effort.
+Achieving this level of automation is essential for widespread clinical adoption.
+Therefore, future work in this manuscript will focus on refining the framework to meet these demands, bringing it closer to a fully automated, practical tool for radiotherapy planning.
 
 % Poster:
 % https://github.com/pauldubois98/ESTRO2024/blob/main/poster-dose_clustering.pdf

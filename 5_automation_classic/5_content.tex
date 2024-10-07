@@ -68,6 +68,15 @@ Researchers have developed algorithms to explore the Pareto surface of doses, bu
 As a result, Pareto surface exploration becomes unsuitable due to the lack of an impartial quantitative measurement for evaluating a particular plan \cite{huang_pareto_2021}.
 Other meta-optimization techniques are similarly limited for the same reason \cite{wu_optimization_2001, xing_optimization_1999}.
 
+\paragraph{Contextual Knowledge}
+An additional challenge is the varying difficulty across patient cases.
+In "easy" cases, clinicians may require a highly optimized dose distribution in terms of the previously mentioned metrics.
+On the other hand, for "harder" cases, they can afford to be more lenient in terms of constraint satisfaction.
+
+This context-aware acceptability criterion adds complexity to the optimization process.
+It becomes challenging to define general rules not only for ranking treatments plans, but also for deciding a plan's acceptability.
+
+
 % Full paper:
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}

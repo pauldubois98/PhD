@@ -1,5 +1,11 @@
 \section{Meta Optimization Approach}
 
+After the FMO step is developed and encapsulated, one may simply modify the weights used for the FMO iteratively, until a condition is met, or for a given number of steps.
+We will therefore have one inner optimization (the FMO), and one outer optimization.
+
+The outer optimization step is not differentiable (or at least, not in a reasonable computation time).
+Hence, we will be looking at gradient-free optimization methods.
+
 % Full paper:
 % https://github.com/pauldubois98/AIME2024/blob/main/llncs_formatting.pdf
 \section{Radiotherapy Dose Optimization via Clinical Knowledge Based Reinforcement Learning (AIME 2024)}

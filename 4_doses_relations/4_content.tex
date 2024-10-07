@@ -445,9 +445,18 @@ The communities are attributed using Louvain method and are identified by colors
 Since the graph is clearly not planar, we choose to plot it in a circular layout (fig. \ref{fig:graph-circular}) and in a spring layout (fig. \ref{fig:graph-spring}).
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{dose_clustering_figures/graph.pdf}
-	\subfloat[\label{fig:graph-circular} Circular Layout]{\hspace{.5\linewidth}}
-	\subfloat[\label{fig:graph-spring} Spring Layout]{\hspace{.5\linewidth}}
+	\begin{subfigure}[c]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.75\linewidth]{dose_clustering_figures/graph_circular.pdf}
+		\caption{Circular Layout.}
+		\label{fig:graph-circular}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.49\textwidth}
+		\centering
+		\includegraphics[width=0.75\linewidth]{dose_clustering_figures/graph_spring.pdf}
+		\caption{Spring Layout.}
+		\label{fig:graph-spring}
+	\end{subfigure}
 	\caption{
 		Plot of the Network\\
 		Edges width $\propto$ edge weight $\propto$ $\nicefrac{\text{1}}{\text{distance}}$\\

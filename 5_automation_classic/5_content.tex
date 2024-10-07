@@ -39,6 +39,7 @@ This stationary state arises particularly in complex scenarios with multiple com
 \paragraph{Inverse Proportional Weight Increase}
 Another approach involves increasing the weight of each constraint inversely proportional to how close it is to being met, thereby quantifying the degree of constraint satisfaction.
 For instance, the degree of satisfaction can be quantified by calculating the area between the dose-volume histogram (DVH) constraint and the actual DVH curve; when this area is zero, the constraint is considered fully satisfied.
+% add plot of the area between constraint lines and DVH curve
 While this method remains relatively straightforward to implement and provides a more refined adjustment of weights based on how close each constraint is to being met, it can lead to oscillation issues.
 Constraints may fluctuate between being satisfied and violated across iterations, hindering stable convergence.
 Although adding momentum to the optimization process could mitigate these oscillations, expert systems of this nature typically require continuous tuning and refinement.

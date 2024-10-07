@@ -509,27 +509,16 @@ The strong alignment between the dose clusters and the DVH patterns reinforces t
 Our proposed clustering approach performs well in qualitative and quantitative evaluations, underscoring its potential utility in optimizing radiation therapy plans.
 
 \subsection{Discussion}
-%The ability to regroup doses into communities provides a valuable insights to understand clinical practices.
-%An additional potential application of this technique is the utilization of dose clusters as a similarity measure for early stopping optimization purposes.
-%Specifically, if the dose distribution exhibits similarities to the previous $n$ doses, it may serve as an indicator to halt the ongoing optimization process.
-%
-%However, the clustering of doses is a challenging task, as the dose space is high dimensional and the dose distribution is not smooth.
-%The results presented here can not yet be used in clinical practice, they are promising and should be further investigated.
+This study presents a novel approach to clustering doses based on their distributions, providing both quantitative and qualitative evidence of the significance of such clustering.
+However, clustering doses remains a complex task due to the high dimensionality of dose space and the irregularities in dose distributions.
+While the results presented in this study are promising, they are not yet ready for clinical implementation.
+The results suggest that doses within the same cluster likely have indistinguishable clinical effects, which opens up several practical applications.
 
-\subsection{Conclusion}
-%In conclusion, this study has introduced a novel approach for clustering doses into communities based on their dose distributions, demonstrating the meaningfulness of such clustering both quantitatively and qualitatively.
-%This suggests that doses belonging to the same cluster are likely to have indistinguishable clinical effects.
-%
-%The proposed clustering technique holds several potential applications.
-%Firstly, it can be integrated into Fluence Map Optimization (FMO) to facilitate early stopping of the optimization process when the last few updates remain within the same cluster, providing efficiency gains.
-%Secondly, if extended to clustering doses from different patients, it could enable the analysis of clinical center practices, offering insights into variations in treatment outcomes among centers for specific anatomies.
-%
-%Furthermore, this clustering approach has the potential to streamline the validation process between dosimetrists and physicists.
-%Currently, multiple treatment plans are submitted for validation, leading to a cumbersome selection process for the physicist.
-%However, by clustering the optimized doses with different weight parameters for constraints, the number of options can be reduced, resulting in a more efficient decision-making process and potentially reducing the personnel required in the dosimetry department.
-%
-%As further research and validation efforts are undertaken, this innovative approach holds considerable promise for enhancing treatment planning processes and, ultimately, improving patient outcomes.
+Regrouping doses into clusters offers valuable insights into clinical practices and introduces new possibilities for optimizing radiotherapy treatment plans.
+One potential application of dose clustering is to use the identified clusters as a similarity measure for early stopping in optimization processes, leading to potential time savings and computational efficiency.
+Specifically, if the dose distribution shows convergence with the previous $n$ dose distributions, this could serve as an indication to halt further optimization, thereby improving efficiency.
 
+Moreover, expanding this clustering approach to include doses from multiple patients could provide insight into the treatment practices of different clinical centers, facilitating comparisons of outcomes for similar anatomies.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

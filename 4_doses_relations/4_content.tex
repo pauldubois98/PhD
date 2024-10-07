@@ -472,37 +472,14 @@ Notably, our observations align with expectations, as doses assigned to nodes wi
 	\label{fig:dvh}
 \end{figure}
 
-%The visualization of DVHs provides valuable insights into the distribution of doses received by different structures.
-%The close correspondence between dose patterns and community assignment underscores the potential of network analysis in uncovering meaningful patterns within radiation therapy data.
-%By associating the colors of the DVH plots with the communities identified in the network, we gain a deeper understanding of the relationship between dose assignments and structural characteristics.
-%This analysis further supports the notion that nodes (doses) within the same community share similar profiles, suggesting they could be merged, as they will likely have the same clinical effect.
+The visualization of dose-volume histograms (DVHs) offers critical insights into the distribution of radiation doses across different anatomical structures.
+The strong alignment between observed dose patterns and community assignments highlights the potential of network analysis to reveal significant patterns within radiation therapy data.
+By mapping the colors of the DVH plots to the communities identified in the network, we gain a deeper understanding of the relationship between dose assignments and structural characteristics.
 
-\subsubsection{Dose Clustering Evaluation}
-%As explained in \ref{clustering_evaluation}, we use the mean standard deviation of doses at 101 equispaced values of volume to obtain a scalar value of how far apart are a set of doses; see table \ref{table:cluster_std} for results.
-%
-%\begin{table}
-%	\centering
-%	\begin{tabular}{|l|c|c|}
-%		\hline
-%		Set & Set Size & Mean Standard Deviation \\
-%		\hline
-%		Cluster 1 \textcolor{plt-blue}  {\textbf{(blue)}}   & 4 & 2.0542 \\
-%		Cluster 2 \textcolor{plt-orange}{\textbf{(orange)}} & 5 & 0.4049 \\
-%		Cluster 3 \textcolor{plt-green} {\textbf{(green)}}  & 2 & 0.3618 \\
-%		Cluster 4 \textcolor{plt-red}   {\textbf{(red)}}    & 2 & 0.4218 \\
-%		Cluster 5 \textcolor{plt-purple}{\textbf{(purple)}} & 3 & 0.9702 \\
-%		Cluster 6 \textcolor{plt-brown} {\textbf{(brown)}}  & 3 & 1.2418 \\
-%		\textit{All} & \textit{19} & \textit{3.5122} \\
-%		\hline
-%	\end{tabular}
-%	\caption{Clustering Quality}
-%	\label{table:cluster_std}
-%\end{table}
-%
-%The mean standard deviation of the clusters, with values of 2.0542, 0.4049, 0.3618, 0.4218, 0.9702, and 1.2418, averaging at 0.9091, is significantly lower (nearly 4 times lower) compared to the mean standard deviation of the full network, which is 3.5122 (see table \ref{table:cluster_std}).
-%This notable reduction in standard deviation yells quantitatively that our clustering approach has favorable results.
-%This quantitative assessment is further supported by qualitative results, as illustrated in Figure \ref{fig:dvh}, which demonstrates the meaningfulness and relevance of the dose clusters in characterizing radiation dose distributions.
-%Our proposed clustering approach demonstrates strong performance in both qualitative and quantitative evaluations.
+This analysis supports the hypothesis that nodes (representing doses) within the same community exhibit similar dose profiles.
+As a result, these doses could be consolidated, given that they are likely to have comparable clinical outcomes.
+This method provides an efficient approach to identifying groups of treatment plans that share equivalent therapeutic effects, enabling a more streamlined decision-making process.
+
 
 \subsection{Discussion}
 %The ability to regroup doses into communities provides a valuable insights to understand clinical practices.

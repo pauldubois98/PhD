@@ -168,39 +168,12 @@ The justification is that our set of actions is limited, no action will suddenly
 It is the combination of several sequential actions that allows good plan optimization.
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
-\subsubsection{Quantitative Results}
-%The network converged on the training data, and validation showed minor overfitting.
-%For testing, we generated 30 brand new cases that we again manually optimized.
-%We then used the RL model to perform the optimization of these 30 unseen cases.
-%On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $~3$ (from $~1.8$ at iteration $0$ to $~0.6$ at iteration $4$), as shown in Table \ref{table:results}.
-%
-%We remark from the Table \ref{table:results} that the homogeneity score and conformity score give similar results.
-%Classical meta-optimization performs well, but needs a metric to elect the best dose (during the test, the clinical dose is unknown, so the DVHs distance metric is not available).
-%We also observe that clinical doses are not always scoring high (in this test set, a high conformity, but low homogeneity compared to automatic techniques).
-%This show the difficulty to create a metric that capture all the complexity of a clinically acceptable dose.
-%
-%\begin{table}
-%	\begin{center}
-%		\begin{tabular}{| c || c | c | c |} 
-%			\hline
-%			Agent $\backslash$ Metric & Mean Final Distance$^*$ & Homogeneity Score$^\dagger$ & Conformity Score$^\dagger$ \\ 
-%			\hline
-%			RL Distance Score & \textbf{0.612} & 1.871 & 0.406 \\ 
-%			RL Homogeneity Score & 2.012 & \textbf{4.387} & 0.567 \\
-%			RL Conformity Score &  1.770  & 4.017 & 0.507 \\
-%			Meta-optimization & N/A & 4.117 & \textbf{0.610} \\
-%			\textit{Clinical doses} & \textit{0} & \textit{1.541} & \textit{0.580} \\	
-%			\hline
-%		\end{tabular}
-%		\label{table:results}
-%	\end{center}
-%	\caption{
-%		Average performances of four algorithms tested on DVHs distance to clinical dose, dose homogeneity-based score, and conformity-based score.\\
-%		\textit{$^*$: distance is imporved performance through a lower score.} \\
-%		\textit{$^\dagger$: score is imporved performance through a higher score.}
-%	}
-%\end{table}
-%\vspace{-1.4cm}
+\paragraph{Data}
+We generated synthetic phantom patients and associated trustable clinical doses.
+Clinics may not always all contour the same organs, and their contouring tool (manual, or automatic) may differ, introducing variability.
+As this is very new and ongoing research, we choose to limit the variability by generating synthetic patients.
+This allows us to normalize all patients to have the same number organs, with similar shape, and with the exact same prescription.
+In future work, we suggest to try to apply this technique to real cases.
 
 \subsubsection{Qualitative Results}
 %Figure \ref{fig:steps} shows the DVHs at each of the first four optimization steps on one of the test patients, unseen by the agent during the training.

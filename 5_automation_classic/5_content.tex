@@ -261,6 +261,19 @@ Figure \ref{fig:steps} shows the DVHs at each of the first four optimization ste
 Our model drastically reduced the dose distance with manually optimized doses.
 Visual inspection of the DVHs plot shows that the dose optimized by the RL agent is very close to the clinical (manually fine-tuned) one.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\textwidth]{AIME/distance-test-w1.pdf}
+	\includegraphics[width=0.49\textwidth]{AIME/distance-test-w2.pdf}
+	\includegraphics[width=0.49\textwidth]{AIME/distance-test-w3.pdf}
+	\includegraphics[width=0.49\textwidth]{AIME/distance-test-w4.pdf}
+	\caption{
+		RL Agent DVHs after each action taken on a test (unseen) patient.
+		Solid lines are the agent's dose DVHs; dotted ones are the reference dose DVHs (manually fine-tuned).
+	}
+	\label{fig:steps}
+\end{figure}
+
 \subsection{Discussion and Conclusion}
 Our study demonstrates the potential of deep RL for automating radiotherapy treatment plan optimization.
 A key strength of our approach is its ability to learn from past treatment plans, capturing the complex decision-making processes of human dosimetrists.

@@ -181,7 +181,33 @@ We set the body density to water density.
 We then added an ellipsoid PTV within the body, with a slightly different density (following $\mathcal{N}(1,0.05)$).
 Likewise, we generate five organs gravitating around the PTV, aligned on the axial section.
 
-\subparagraph{Clinical dose}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+%		\includegraphics[height=5cm]{AIME/main_slice-ct.pdf}
+		\includegraphics[width=\linewidth]{AIME/main_slice-ct.pdf}
+		\label{fig:main_slice-ct}
+		\caption{CT}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+%		\includegraphics[height=5cm]{AIME/main_slice-dose.pdf}
+		\includegraphics[width=\linewidth]{AIME/main_slice-dose.pdf}
+		\label{fig:main_slice-dose}
+		\caption{Clinical dose}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{AIME/dvh_example.pdf}
+		\caption{Associated clinical dose \textbf{DVH}}
+		\label{fig:clinical_dvh}
+	\end{subfigure}
+	\caption{Example of a (generated) patient's main axial slice (center of the PTV) and DVHs.}
+\end{figure}
+
+\subparagraph{Synthetic clinical dose}
 After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
 We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, the same across all patients.

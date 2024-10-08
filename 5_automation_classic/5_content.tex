@@ -256,6 +256,11 @@ This show the difficulty to create a metric that capture all the complexity of a
 	}
 \end{table}
 
+\paragraph{Qualitative Results}
+Figure \ref{fig:steps} shows the DVHs at each of the first four optimization steps on one of the test patients, unseen by the agent during the training.
+Our model drastically reduced the dose distance with manually optimized doses.
+Visual inspection of the DVHs plot shows that the dose optimized by the RL agent is very close to the clinical (manually fine-tuned) one.
+
 \subsection{Discussion and Conclusion}
 Our study demonstrates the potential of deep RL for automating radiotherapy treatment plan optimization.
 A key strength of our approach is its ability to learn from past treatment plans, capturing the complex decision-making processes of human dosimetrists.

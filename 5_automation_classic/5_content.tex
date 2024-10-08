@@ -223,19 +223,16 @@ A lower distance is interpreted as an improved dose, since it is closer to the b
 	\label{fig:distance}
 \end{figure*}
 
-\subsection{Conclusion}
-%Our approach differs from previous RL-based methods for radiotherapy planning in two key aspects.
-%First, we avoid relying on pre-defined metrics for evaluation, which can be subjective, and limit the agent's ability to learn complex optimization strategies.
-%Second, compared to traditional meta-optimization approaches, our method leverages past treatment data, potentially leading to more informed decision-making during the optimization process.
-%
-%This study demonstrates deep RL's feasibility and potential benefits for automating radiotherapy treatment plan optimization.
-%Our approach is capable of directly predicts state evaluations, and shows promise in achieving significant improvements in efficiency and, potentially, treatment outcomes.
-%Further research is needed to address limitations, improve interpretability, and ensure safe clinical integration.
-%This approach could revolutionize radiotherapy planning, leading to more standardized, efficient, and improved patient care.
+\paragraph{Quantitative Results}
+The network converged on the training data, and validation showed minor overfitting.
+For testing, we generated 30 brand new cases that we again manually optimized.
+We then used the RL model to perform the optimization of these 30 unseen cases.
+On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $~3$ (from $~1.8$ at iteration $0$ to $~0.6$ at iteration $4$), as shown in Table \ref{table:results}.
 
-\subsection*{Appendix}
-%As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
-%In future work, we hope to apply this technique to real cases.
+We remark from the Table \ref{table:results} that the homogeneity score and conformity score give similar results.
+Classical meta-optimization performs well, but needs a metric to elect the best dose (during the test, the clinical dose is unknown, so the DVHs distance metric is not available).
+We also observe that clinical doses are not always scoring high (in this test set, a high conformity, but low homogeneity compared to automatic techniques).
+This show the difficulty to create a metric that capture all the complexity of a clinically acceptable dose.
 
 \subsection{Discussion and Conclusion}
 Our study demonstrates the potential of deep RL for automating radiotherapy treatment plan optimization.

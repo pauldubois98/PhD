@@ -9,12 +9,12 @@ We will, therefore, have one inner optimization (the FMO) and one outer optimiza
 			\begin{algorithmic}
 				\State initialize $w$
 				\Repeat
-					\State initialize $b$ \Comment{FMO starts}
+					\State initialize $\mathbf{b}$ \Comment{FMO starts}
 					\Repeat
-						\State \textcolor{Prune}{ $d = Lb$ \Comment{differentiable} }
-						\State \textcolor{Prune}{ $c = \mathcal{C}(w, d)$ \Comment{differentiable} }
+						\State \textcolor{Prune}{ $\mathbf{d} = \textbf{L}\mathbf{b}$ \Comment{differentiable} }
+						\State \textcolor{Prune}{ $c = C(w, \mathbf{d})$ \Comment{differentiable} }
 						\State \textcolor{Prune}{ back-propagate $c$ }
-						\State \textcolor{Prune}{ update $b$ }
+						\State \textcolor{Prune}{ update $\mathbf{b}$ }
 					\Until{\textit{FMO \textbf{stop condition}}} \Comment{FMO ends}
 					\State update $w$
 				\Until{\textit{Meta-optimization \textbf{stop condition}}}

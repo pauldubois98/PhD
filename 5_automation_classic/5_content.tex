@@ -216,6 +216,12 @@ We used a seven-beam IMRT irradiation technique on all the cohorts.
 \subsection{Results}
 Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
 A lower distance is interpreted as an improved dose, since it is closer to the best dose, which is the clinical one.
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.7\textwidth]{AIME/DistanceToClinicalDose.pdf}
+	\caption{Average distance between RL agent's dose and clinical dose.}
+	\label{fig:distance}
+\end{figure*}
 
 \subsection{Conclusion}
 %Our approach differs from previous RL-based methods for radiotherapy planning in two key aspects.

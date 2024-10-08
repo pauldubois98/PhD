@@ -371,14 +371,21 @@ This choice makes the objective function convex a weighted sum of convex functio
 Desirable properties, such as the existence of a unique global minimum once the values of $w_c$ are fixed, follow from the convexity of the objective function.
 
 Finally, the mathematical formulation of the objective function associated with the constraint $c = \left( S, D, V, \pm \right)$ is:
-$$f_c(\mathbf{d}) = \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2$$
-and the global minimization problem becomes
+$$f_c(\mathbf{d}) = \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2.$$
+
+The global minimization problem becomes
 $$
-\min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2
+C(w, \mathbf{d})
 \quad \text{ with }
 \mathbf{d} = \textbf{L}\mathbf{b}, \ \mathbf{b} \geq 0
 $$
-where $w_c$, the weights or importance factors of each constraint, are to be determined.
+where $w = \{ w_c \mid c \in \mathcal{C} \}$, the set weights or importance factors of each constraint, are to be determined, and 
+$$
+C(w, \mathbf{d}) =
+\min_{\mathbf{b}} \ \sum_{c \in \mathcal{C}} w_c \sum_{v \in S} \ReLU{\mathbf{d}_v - D}^2$$ is the total cost function.
+Note that the problem changes as $w$ evolves.
+It is by adjusting $w$ that dosimetrists may guide the optimizer towards a clinically acceptable plan.
+
 
 \paragraph{Bixel regularization}
 For optimal leaf sequencing, it is preferable to have smooth bixel values, meaning that adjacent bixels should have minimal variation in their values.

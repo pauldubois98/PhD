@@ -237,32 +237,20 @@ A lower distance is interpreted as an improved dose, since it is closer to the b
 %As this is very new and ongoing research, we generated synthetic phantom patients and associated trustable clinical doses.
 %In future work, we hope to apply this technique to real cases.
 
-\subsubsection*{Synthetic phantom patients}
-%We generated 130 patients with oval axial section bodies.
-%We set the body density to water density.
-%We then added an ellipsoid PTV within the body, with a slightly different density (following $\mathcal{N}(1,0.05)$).
-%Likewise, we generate five organs gravitating around the PTV, aligned on the axial section.
-%
-%\begin{figure*}
-%	\centering
-%	\label{fig:main_slice-ct}
-%	\includegraphics[height=3.5cm]{AIME/main_slice-ct.pdf}
-%	\hspace{0.5cm}
-%	\label{fig:main_slice-dose}
-%	\includegraphics[height=3.5cm]{AIME/main_slice-dose.pdf}
-%	%	\hspace{0.1cm}
-%	\\
-%	\label{fig:clinical_dvh}
-%	\includegraphics[width=7cm]{AIME/dvh_example.pdf}
-%	\caption{
-%		Example of a (generated) patient: \\
-%		\textit{Left:} Main axial slice (center of the PTV) \textbf{CT}.\\
-%		\textit{Right:} Main axial slice (center of the PTV) of the \textbf{clinical dose}. \\
-%		\textit{Bottom:} Associated clinical dose \textbf{DVH}.
-%	}
-%	
-%\end{figure*}
-%\vspace{-1cm}
+\subsection{Discussion and Conclusion}
+Our study demonstrates the potential of deep RL for automating radiotherapy treatment plan optimization.
+A key strength of our approach is its ability to learn from past treatment plans, capturing the complex decision-making processes of human dosimetrists.
+This data-driven approach avoids the limitations of pre-defined metrics, which may not fully capture the nuances of optimal treatment planning.
+
+However, our study also has limitations.
+The agent's performance relies on the quality and quantity of available training data.
+Cases with limited historical data or complex anatomical features may require additional strategies.
+Moreover, while the agent achieves promising results regarding dose distance reduction, the dose is not guaranteed to be clinically acceptable.
+Although this study demonstrates the promise of our RL approach in a controlled setting, one final limitation to mention is that extending it to real-world radiotherapy planning would necessitates addressing additional complexities and constraints.
+
+Several avenues exist for further research.
+Firstly, we plan to investigate strategies for incorporating additional information, such as patient characteristics and anatomical complexities, into the training process.
+Secondly, we aim to explore techniques for improving the interpretability of the agent's decision-making process, allowing for better understanding and potential clinical validation.
 
 \subsubsection*{Clinical dose}
 %After generating the patient's CT and structures, we needed to create a reference dose that our agent should mimic.
@@ -270,10 +258,14 @@ A lower distance is interpreted as an improved dose, since it is closer to the b
 %The dose prescription is a standard 80Gy on PTV, the same across all patients.
 %We used a seven-beam IMRT irradiation technique on all the cohorts.
 
+Our approach differs from previous RL-based methods for radiotherapy planning in two key aspects.
+First, we avoid relying on pre-defined metrics for evaluation, which can be subjective, and limit the agent's ability to learn complex optimization strategies.
+Second, compared to traditional meta-optimization approaches, our method leverages past treatment data, potentially leading to more informed decision-making during the optimization process.
 
-\subsubsection*{Optimization}
-%We optimize the plan using the LBFGS optimizer (shown to be the most appropriate in \cite{dubois_radiotherapy_2023}).
-%For each DVH constraint (e.g. for PTV, $D_{95}>80 \ Gy$), we used a linear penalization of the overdose.
+This study demonstrates deep RL's feasibility and potential benefits for automating radiotherapy treatment plan optimization.
+Our approach is capable of directly predicts state evaluations, and shows promise in achieving significant improvements in efficiency and, potentially, treatment outcomes.
+Further research is needed to address limitations, improve interpretability, and ensure safe clinical integration.
+This approach could revolutionize radiotherapy planning, leading to more standardized, efficient, and improved patient care.
 
 
 

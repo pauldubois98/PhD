@@ -143,23 +143,22 @@ In order to force the network to actually predict the following evaluation for e
 Compressing the information stops the network from overfitting.
 Networks with such architecture show very little difference between training and validation sets (see Figure \ref{fig:losses_training}).
 
-\subsubsection{Avoiding Off-Distribution}
-%We generated a training set of over 125k actions (this took five days on an NVIDIA GeForce GTX 1080).
-%Despite this relatively large dataset, we have not explored exhaustively the state-actions space, and the network still lands off-distribution.
-%This can easily be spotted when the predicted $Q$ value is greater than the current distance to the clinical dose; we choose to ignore those predictions, and in fact all outlier predictions.
-%The justification is that our set of actions is limited, no action will suddenly drastically improve the plan.
-%It is the combination of several sequential actions that allows good plan optimization.
-%Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
-%
-%\subsection{Results}
-%Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
-%A lower distance is interpreted as an improved dose, since it is closer to the best dose, which is the clinical one.
-%\begin{figure*}
-%	\centering
-%	\includegraphics[width=0.6\textwidth]{AIME/DistanceToClinicalDose.pdf}
-%	\caption{Average distance between RL agent's dose and clinical dose.}
-%	\label{fig:distance}
-%\end{figure*}
+\begin{figure*}
+	\centering
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[height=8cm]{AIME/architecture_all_actions.pdf}
+		\label{fig:architecture}
+		\caption{Architecture.}
+	\end{subfigure}
+	\begin{subfigure}{0.48\linewidth}
+		\centering
+		\includegraphics[height=7cm]{AIME/losses-distance.pdf}
+		\label{fig:losses_training}
+		\caption{Loss during training.}
+	\end{subfigure}
+	\caption{Deep neural network used for the RL agent.}
+\end{figure*}
 
 
 \subsubsection{Quantitative Results}

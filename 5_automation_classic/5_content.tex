@@ -126,7 +126,9 @@ We propose using the availability of past treatment plans to more accurately ref
 We present a novel paradigm for reward-based RL agents in dosimetry.
 This revised reward framework better reproduces human-optimized dose distributions.
 
-\subsubsection{Reinforcement Learning Reward}
+\paragraph{Reinforcement Learning Reward}
+As developed in previous work, we can derive a distance between dose plans \cite{paul_dubois_novel_2024}.
+If we consider the clinical dose of past cases (used for training) as the best achievable one, we can evaluate a dose plan by computing its distance from the clinical dose plan.
 
 Let $D_t$ be the dose associated with $S_t$, and $D_C$ the clinical dose.
 We then define $\mathcal{E}(S_t) = \mathcal{D}(D_t, D_C)$.

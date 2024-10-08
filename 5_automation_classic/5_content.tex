@@ -213,7 +213,9 @@ We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, the same across all patients.
 We used a seven-beam IMRT irradiation technique on all the cohorts.
 
-%%% add 3D dose as input, so that the algo can "see" hotspots
+\subsection{Results}
+Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
+A lower distance is interpreted as an improved dose, since it is closer to the best dose, which is the clinical one.
 
 \subsection{Conclusion}
 %Our approach differs from previous RL-based methods for radiotherapy planning in two key aspects.

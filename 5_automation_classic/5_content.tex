@@ -372,14 +372,12 @@ By training one agent per clinic, the system ensures that the RL agents adhere t
 We hypothesize that our clinic-specific RL agents can optimize radiotherapy plans while adhering to the respective institutional standards.
 
 \subsection{Materials/Methods}
-%RL agents adapt actions to situations where there are interactions with an environment.
-%RL only needs a reward after performing an action.
-%In the case of dose optimization, adjusting the weights of the constraints are the actions.
-%The key is to find a way of rewarding the agent when making good decisions (actions) versus bad ones.
-%Current RL methods in dosimetry struggle to mimic human-optimized plans.
-%We propose a new reward system based on the dose distribution of past clinical cases, via calculating the DVHs differences between the agent dose, and the database dose.
-%This would better guide the RL agent towards clinically-acceptable treatment plans.
-%Most importantly, it also allows the optimization to fit each center's internal standard practices and guidelines.
+
+\paragraph{Training Data}
+We created three clinical doses for each patient, each following a specific guideline.
+In order to reduce computation time (as this time, we had three different clinics for each patient), we generated a cohort of 50 virtual patients for training and another 20 for testing.
+Each case was manually optimized to serve as a reference for the RL agent.
+
 
 \subsection{Results}
 %We successfully trained agents to mimic the dose type of several clinics.

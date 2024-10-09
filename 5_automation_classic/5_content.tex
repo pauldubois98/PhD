@@ -176,10 +176,10 @@ This allows us to normalize all patients to have the same number organs, with si
 In future work, we suggest to try to apply this technique to real cases.
 
 \subparagraph{Synthetic patients}
-We generated 130 patients with oval axial section bodies.
-We set the body density to water density.
-We then added an ellipsoid PTV within the body, with a slightly different density (following $\mathcal{N}(1,0.05)$).
-Likewise, we generate five organs gravitating around the PTV, aligned on the axial section.
+We generated a cohort of 130 patients with bodies modeled as oval axial cross-sections, assigning a uniform density equivalent to water.
+Within each body, we placed an ellipsoidal planning target volume (PTV) with a slightly different density, sampled from $\mathcal{N}(1,0.05)$.
+Five organs at risk (OARs) were also positioned around the PTV, aligned along the axial plane.
+This setup was designed to simulate cases analogous to typical prostate cancer scenarios.
 
 \begin{figure}
 	\centering

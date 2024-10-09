@@ -99,7 +99,7 @@ The fact that dosimetrists almost solely use DVH plots supports our hypothesis.
 In order to learn the actions of dosimetrists who use a TPS to optimize doses, we leverage deep learning.
 We train an agent that takes the DVHs as the input of the current optimized dose and predicts the evaluation of possible weight changes.
 
-Typically, access to the exact actions taken by human dosimetrists on the TPS is unavailable (as clinics do not usually store this data; only the final plan is held).
+Access to the exact actions taken by human dosimetrists on the TPS is typically unavailable (as clinics do not usually store this data; only the final plan is held).
 Therefore, we only use the dose distributions of previously treated patients to train our model.
 This partial availability of data suggests the use of RL.
 

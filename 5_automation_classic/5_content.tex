@@ -378,6 +378,12 @@ We created three clinical doses for each patient, each following a specific guid
 In order to reduce computation time (as this time, we had three different clinics for each patient), we generated a cohort of 50 virtual patients for training and another 20 for testing.
 Each case was manually optimized to serve as a reference for the RL agent.
 
+\paragraph{Reinforcement Learning Framework}
+We use the same RL framework described in section \ref{reinforcement_learning_framework}, where the reward function was designed to penalize deviations from the reference dose distribution by comparing the RL-generated DVHs with those of the training cases.
+The closer the agent’s plan was to the reference, the higher the reward received.
+This approach differs from traditional RL reward systems that often struggle to provide meaningful feedback in complex medical scenarios like dosimetry, where the “goodness” of a plan is difficult to quantify with a single metric.
+Most importantly, this approach allows the optimization to fit each center’s internal standard practices and guidelines.
+We created three RL agents, each mimicking the treatment plans of a specific clinic.
 
 \subsection{Results}
 %We successfully trained agents to mimic the dose type of several clinics.

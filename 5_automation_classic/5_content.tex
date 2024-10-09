@@ -169,11 +169,10 @@ It is the combination of several sequential actions that allows good plan optimi
 Therefore, while testing, we choose the action with the best prediction, while passing the outlier test just mentioned.
 
 \paragraph{Data}
-We generated synthetic phantom patients and associated trustable clinical doses.
-Clinics may not always all contour the same organs, and their contouring tool (manual, or automatic) may differ, introducing variability.
-As this is very new and ongoing research, we choose to limit the variability by generating synthetic patients.
-This allows us to normalize all patients to have the same number organs, with similar shape, and with the exact same prescription.
-In future work, we suggest to try to apply this technique to real cases.
+We generated synthetic phantom patients and corresponding clinically relevant dose distributions.
+Variability can arise in clinical practice due to differences in organ contouring methods (manual or automated) and the potential for clinics to delineate different organs.
+To mitigate this variability in our ongoing research, we employed synthetic patients, ensuring a standardized approach where all patients possess the same number of organs with similar shapes and identical prescription parameters.
+Future studies will explore the application of this methodology to actual clinical cases.
 
 \subparagraph{Synthetic patients}
 We generated a cohort of 130 patients with bodies modeled as oval axial cross-sections, assigning a uniform density equivalent to water.

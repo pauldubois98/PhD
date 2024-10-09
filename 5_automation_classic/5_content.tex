@@ -420,6 +420,11 @@ Throughout iterations, RL agent were able to gradually reduce the distance with 
 	\label{fig:RL_clinics}
 \end{figure}
 
+\paragraph{Quantitative Evaluation}
+The table \ref{table:performances_RL_clinics} summarizes the average DVH differences between the RL-generated plans and the reference clinical plans across the test set.
+We observe a lower average distance on the diagonal, showing that RL agents trained on specific clinical guidelines successfully mimic the dose type of specific clinics.
+However, RL agents performed poorly according to other clinics' guidelines.
+
 \subsection{Conclusion}
 %By leveraging past clinical dose data, we have demonstrated the feasibility of training RL agents to mimic human-optimized radiotherapy plans following specific clinical guidelines.
 %The results show that agents trained on specific clinic guidelines perform better in mimicking those guidelines than a single, general-purpose agent.

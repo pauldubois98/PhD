@@ -392,6 +392,33 @@ Figure \ref{fig:RL_clinics} summarizes the evolution of the average distance bet
 Each one of the three agents was trained on the dose data of one specific clinic.
 Throughout iterations, RL agent were able to gradually reduce the distance with the dose they were trained to replicate.
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{ASTRO/distanceA_semilogy.pdf}
+		\caption{RL agent trained to replicate doses from clinic A.}
+		\label{fig:RL_clinic_A}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{ASTRO/distanceB_semilogy.pdf}
+		\caption{RL agent trained to replicate doses from clinic B.}
+		\label{fig:RL_clinic_B}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{ASTRO/distanceC_semilogy.pdf}
+		\caption{RL agent trained to replicate doses from clinic C.}
+		\label{fig:RL_clinic_C}
+	\end{subfigure}
+	\caption{
+		Distance between the reinforcement learning agent’s dose and the dose from clinics A, B, and C throughout iterations.
+	}
+	\label{fig:RL_clinics}
+\end{figure}
 
 \subsection{Conclusion}
 %By leveraging past clinical dose data, we have demonstrated the feasibility of training RL agents to mimic human-optimized radiotherapy plans following specific clinical guidelines.

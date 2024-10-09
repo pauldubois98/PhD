@@ -386,12 +386,12 @@ Most importantly, this approach allows the optimization to fit each center’s i
 We created three RL agents, each mimicking the treatment plans of a specific clinic.
 
 \subsection{Results}
-%We successfully trained agents to mimic the dose type of several clinics.
-%We generated a cohort of 50 patients to train them and manually optimized the dose according to three guidelines.
-%We then generated 20 other patients for testing purposes.
-%The table shows the average difference between clinical doses and the ones optimized by our RL agents.
-%Agents specializing in one type of guideline managed to mimic it, but performed poorly on others.
-%Thus, for a clinically helpful, fully-automated TPS, one RL agent should be trained for each clinical guideline.
+
+\paragraph{Qualitative Evaluation}
+Figure \ref{fig:RL_clinics} summarizes the evolution of the average distance between the reinforcement learning agent’s dose and the dose from clinics A, B, and C throughout iterations of importance wights changes.
+Each one of the three agents was trained on the dose data of one specific clinic.
+Throughout iterations, RL agent were able to gradually reduce the distance with the dose they were trained to replicate.
+
 
 \subsection{Conclusion}
 %By leveraging past clinical dose data, we have demonstrated the feasibility of training RL agents to mimic human-optimized radiotherapy plans following specific clinical guidelines.

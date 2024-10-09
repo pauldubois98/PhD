@@ -357,10 +357,19 @@ The RL agent adapts to various clinical practices without requiring additional i
 % The system is designed to mimic human dosimetrists' optimization strategies, thus providing plans that are aligned with the clinical practices of individual institutions.
 
 \subsection{Purpose / Objective}
-%Although fully automated treatment planning system (TPS) has several advantages, such as the ability to treat more patients and optimize treatments, clinics have not adopted it because there is a wide variation of practices between them.
-%Additionally, dosimetrists make complex compromises while manually optimizing with a TPS, which is too complex to be captured by a metric, or not computable in a reasonable time.
-%Here, we propose a solution adaptable to each clinic's practices: a reinforcement learning (RL) agent trained to mimic human dosimetrists' optimization on a cohort of previously treated patients.
-%We hypothesize that by training one agent for each clinic, we ensure that guidelines specific to each of them are followed.
+One area that remains challenging is the complete automation of treatment planning.
+Current TPS technologies offer either manual treatment planning or a single automatic planning.
+They fail to consider the wide variation in practices across clinics, which often leads to sub-optimal treatment plans according to one clinic-specific guideline.
+Manual planning by dosimetrists remains how most treatment plans are calculated.
+
+There is significant interest in developing a fully automatic TPS that can mimic human decision-making processes while remaining adaptable to different clinics' specific practices.
+Reinforcement learning (RL) has emerged as a promising approach in automated planning because of its ability to adapt to complex environments and learn from interactions with them.
+In radiotherapy, RL can theoretically adjust the weight of constraints in optimization to achieve clinically acceptable plans.
+However, current RL systems have struggled to replicate the clinical guideline adaptability of human dosimetrists.
+
+In this section, we propose a solution that leverages the clinic's past treatment data to train RL agents that can optimize treatment plans according to local clinical guidelines.
+By training one agent per clinic, the system ensures that the RL agents adhere to each clinic's specific standards, potentially making automated TPS more clinically viable.
+We hypothesize that our clinic-specific RL agents can optimize radiotherapy plans while adhering to the respective institutional standards.
 
 \subsection{Materials/Methods}
 %RL agents adapt actions to situations where there are interactions with an environment.

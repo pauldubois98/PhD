@@ -213,6 +213,28 @@ We manually set weights and performed a standard optimization.
 The dose prescription is a standard 80Gy on PTV, the same across all patients.
 We used a seven-beam IMRT irradiation technique on all the cohorts.
 
+\begin{table}
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |} 
+			\hline
+			Constraint type & Structure & Volume & Dose \\ 
+			\hline
+			Minimum & PTV & $95\,\%$ & $78.0\,\textit{Gy}$ \\
+			Maximum & PTV & $5\,\%$ & $82.0\,\textit{Gy}$ \\
+			Maximum & Organ 1 & $28.4\,\%$ & $21.8\,\textit{Gy}$ \\
+			Maximum & Organ 2 & $33.7\,\%$ & $23.7\,\textit{Gy}$ \\
+			Maximum & Organ 3 & $24.1\,\%$ & $26.9\,\textit{Gy}$ \\
+			Maximum & Organ 4 & $37.6\,\%$ & $27.9\,\textit{Gy}$ \\
+			Maximum & Organ 5 & $20.5\,\%$ & $30.8\,\textit{Gy}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{
+		DVH constraints used to create the cost function used in the FMO.
+	}
+	\label{table:DVH_constraints}
+\end{table}
+
 \subsection{Results}
 Figure \ref{fig:distance} shows how the distance between our RL agents performs over five steps on 30 test patients (unseen during the training).
 A lower distance is interpreted as an improved dose, since it is closer to the best dose, which is the clinical one.

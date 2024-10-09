@@ -425,6 +425,24 @@ The table \ref{table:performances_RL_clinics} summarizes the average DVH differe
 We observe a lower average distance on the diagonal, showing that RL agents trained on specific clinical guidelines successfully mimic the dose type of specific clinics.
 However, RL agents performed poorly according to other clinics' guidelines.
 
+\begin{table}
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |} 
+			\hline
+			RL Agent & Distance to clinic A & Distance to clinic B & Distance to clinic C \\ 
+			\hline
+			Trained on doses from clinic A & $\textbf{1.6}$ & $2.2$ & $5.1$ \\
+			\hline
+			Trained on doses from clinic B & $2.3$ & $\textbf{1.3}$ & $2.3$ \\
+			\hline
+			Trained on doses from clinic C & $2.7$ & $2.5$ & $\textbf{1.6}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Average distance of each RL agent on each clinical dose on the test set.}
+	\label{table:performances_RL_clinics}
+\end{table}
+
 \subsection{Conclusion}
 %By leveraging past clinical dose data, we have demonstrated the feasibility of training RL agents to mimic human-optimized radiotherapy plans following specific clinical guidelines.
 %The results show that agents trained on specific clinic guidelines perform better in mimicking those guidelines than a single, general-purpose agent.

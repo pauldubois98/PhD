@@ -1,14 +1,15 @@
 % https://github.com/pauldubois98/SFPM-JS2024
 \section[DVH Guided Deep Dose]{Dose-Volume Histograms Guided Deep Dose Prediction for Radiotherapy Treatment Planning (SFPM 2024)}
 \subsection{Introduction}
-%Traditionally, the creation of radiotherapy treatment plans has been a semi-manual process, where dosimetrists finetune importance factors assigned to structures and constraints.
-%A cost function is then used through a classical optimization algorithm to calculate the optimal plan.
+Traditionally, the creation of radiotherapy treatment plans has been a semi-manual process, where dosimetrists finetune importance factors assigned to structures and constraints.
+A cost function is then used through a classical optimization algorithm to calculate the optimal plan.
 
-%The predicted dose might not be deliverable nor constitute a treatment plan.
-%However, it allows the determination of a treatment plan via dose mimicking.
-%Dose mimicking is an optimization technique that does not require human dosimetrists to finetune importance factors.
-%Hence, predicting a clinically acceptable and nearly deliverable 3D dose spread on any patient holds excellent promise in fully automating the planning process.
-%Note that to apply dose mimicking, one needs a target dose spread on the patient that is nearly deliverable (so naively setting the target dose to $0$ on OARs will not work).
+In recent years, deep learning in treatment planning has gained attention.
+Deep learning models can predict the three-dimensional dose distribution based on patient-specific anatomical data derived from medical imaging (CT scans).
+While the predicted dose distribution may not directly represent a deliverable treatment plan, it serves as the basis for determining a clinically viable plan through dose mimicking.
+Dose mimicking is an optimization technique that eliminates the need for manual adjustment of importance factors by dosimetrists.
+Therefore, the ability to predict a clinically acceptable and near-deliverable 3D dose distribution for any patient presents significant potential for fully automating the radiotherapy planning process.
+It is important to note that the successful application of dose mimicking requires a target dose distribution that is nearly deliverable; thus, arbitrarily setting the target dose to zero for OARs is not feasible.
 
 %This approach still needs more adaptability to specific clinic guidelines.
 %One solution consists of training one model for each center, therefore learning the specifics of each clinic.

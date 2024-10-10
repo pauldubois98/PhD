@@ -20,11 +20,10 @@ Additionally, a separate model may be required for each prescription type due to
 Finally, clinicians and dosimetrists may prefer manually adjusting treatment plans in some cases.
 Such adjustments are not feasible within the current model framework.
 
-%We propose a novel approach incorporating target Dose-Volume Histograms (DVHs) directly as an input to the deep learning-based dose prediction model.
-%By integrating the DVHs, we add interactivity to the model (changing the target DVH will produce a different dose prediction).
-%This method enables a workflow where dosimetrists can finetune the predicted dose based on their clinical preferences.
-%The TPS computes the most deliverable treatment plan that matches the dosimetrist's prescribed DVH.
-%Moreover, creating a template target DVH per clinic can use the same model across many centers while producing 3D dose prediction adapted to the center's internal practices.
+We propose a novel approach that incorporates target Dose-Volume Histograms (DVHs) directly into the input of the deep learning-based dose prediction model.
+Incorporating DVHs introduces interactivity into the model, allowing adjustments to the target DVH to yield corresponding changes in dose predictions.
+This methodology enables a workflow where dosimetrists can refine the predicted dose distribution according to specific clinical objectives.
+Furthermore, by establishing a template target DVH tailored to each clinic, the same model can be deployed across multiple centers while generating 3D dose predictions that align with the specific practices of each institution.
 
 \subsection{Material and Methods}
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).

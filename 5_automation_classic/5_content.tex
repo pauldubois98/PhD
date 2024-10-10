@@ -455,6 +455,11 @@ The findings of this study suggest that fully automated TPS systems tailored to 
 We could replicate the human dosimetrists' decision-making process by training RL agents on a cohort of patients treated under a specific set of guidelines.
 The main advantage of this approach is that it allows each clinic to maintain its internal standards and practices rather than adopting a generic automated planning system that may not suit its unique requirements.
 
+However, there are still limitations to the approach.
+One fundamental limitation is that RL agents trained on one clinical guideline cannot generalize across different practices.
+This limitation suggests that each clinic must invest resources into training its own RL models.
+Additionally, our work so far has focused on phantom cases, and future research is needed to assess the applicability of this method to non-phantom patients.
+
 %Table of average DVHs distances on test cases:
 %To Clinic A	To Clinic B	To Clinic C
 %RL on clinic A	1.6	2.2	5.1

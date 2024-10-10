@@ -11,14 +11,14 @@ Dose mimicking is an optimization technique that eliminates the need for manual 
 Therefore, the ability to predict a clinically acceptable and near-deliverable 3D dose distribution for any patient presents significant potential for fully automating the radiotherapy planning process.
 It is important to note that the successful application of dose mimicking requires a target dose distribution that is nearly deliverable; thus, arbitrarily setting the target dose to zero for OARs is not feasible.
 
-%This approach still needs more adaptability to specific clinic guidelines.
-%One solution consists of training one model for each center, therefore learning the specifics of each clinic.
-%However, deep dose models are usually large, so having one model for each center would be costly.
-%Moreover, these models need a sufficient amount of data for training.
-%Hence, small centers might not have enough data to train a complete model.
-%Moreover, one might need a model for each prescription due to various prescriptions, and any non-standard prescription will be doomed to manual treatment planning.
-%Finally, doctors and dosimetrists might want to manually adjust the treatment in a minor proportion of the cases.
-%This adjustment cannot be made using the setting described above.
+However, this approach requires further adaptation to accommodate specific clinical guidelines.
+A potential solution involves training individualized models for each treatment center, allowing institution-specific practices and guidelines to be incorporated.
+However, deep learning dose prediction models are computationally large, and implementing separate models for each center is resource-intensive.
+Furthermore, such models require substantial datasets for effective training.
+Consequently, smaller treatment centers may lack the necessary data volume to train a comprehensive model adequately.
+Additionally, a separate model may be required for each prescription type due to the variability in prescription doses, making manual treatment planning necessary for non-standard cases.
+Finally, clinicians and dosimetrists may prefer manually adjusting treatment plans in some cases.
+Such adjustments are not feasible within the current model framework.
 
 %We propose a novel approach incorporating target Dose-Volume Histograms (DVHs) directly as an input to the deep learning-based dose prediction model.
 %By integrating the DVHs, we add interactivity to the model (changing the target DVH will produce a different dose prediction).

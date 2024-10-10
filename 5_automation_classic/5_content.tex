@@ -460,6 +460,14 @@ One fundamental limitation is that RL agents trained on one clinical guideline c
 This limitation suggests that each clinic must invest resources into training its own RL models.
 Additionally, our work so far has focused on phantom cases, and future research is needed to assess the applicability of this method to non-phantom patients.
 
+This study and the one in the previous section have demonstrated the potential for a clinically dependent, fully automatic TPS using RL.
+We trained RL agents to mimic human optimization by leveraging historical clinical data.
+This system can adhere to clinic-specific guidelines without requiring physicians to explicitly define them, a task that is often challenging and imprecise.
+Instead, the system leverages historical treatment data to learn and implicitly replicate the clinical preferences and decision-making processes.
+This implicit learning reduces the burden on clinicians to formalize their optimization strategies.
+This idea makes automated treatment planning more likely to be adopted.
+Future work will involve expanding the cohort to non-phantom patients and conducting testing with human oversight to ensure the safety and efficacy of the system.
+
 %Table of average DVHs distances on test cases:
 %To Clinic A	To Clinic B	To Clinic C
 %RL on clinic A	1.6	2.2	5.1

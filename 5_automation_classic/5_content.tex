@@ -40,6 +40,7 @@ This stationary state arises particularly in complex scenarios with multiple com
 Another approach involves increasing the weight of each constraint inversely proportional to how close it is to being met, thereby quantifying the degree of constraint satisfaction.
 For instance, the degree of satisfaction can be quantified by calculating the area between the dose-volume histogram (DVH) constraint and the actual DVH curve; when this area is zero, the constraint is considered fully satisfied.
 % add plot of the area between constraint lines and DVH curve
+
 While this method remains relatively straightforward to implement and provides a more refined adjustment of weights based on how close each constraint is to being met, it can lead to oscillation issues.
 Constraints may fluctuate between being satisfied and violated across iterations, hindering stable convergence.
 Although adding momentum to the optimization process could mitigate these oscillations, expert systems of this nature typically require continuous tuning and refinement.
@@ -126,6 +127,7 @@ We propose using the availability of past treatment plans to more accurately ref
 We present a novel paradigm for reward-based RL agents in dosimetry.
 This revised reward framework better reproduces human-optimized dose distributions.
 
+\label{reinforcement_learning_framework}
 \paragraph{Reinforcement Learning Reward}
 As developed in previous work, we can derive a distance between dose plans \cite{paul_dubois_novel_2024}.
 If we consider the clinical dose of past cases (used for training) as the best achievable one, we can evaluate a dose plan by computing its distance from the clinical dose plan.
@@ -250,9 +252,9 @@ A lower distance is interpreted as an improved dose, since it is closer to the b
 The network converged on the training data, and validation showed minor overfitting.
 For testing, we generated 30 brand new cases that we again manually optimized.
 We then used the RL model to perform the optimization of these 30 unseen cases.
-On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $~3$ (from $~1.8$ at iteration $0$ to $~0.6$ at iteration $4$), as shown in Table \ref{table:results}.
+On average, our model was able to reduce the dose distance with manually optimized dose by a factor of $~3$ (from $~1.8$ at iteration $0$ to $~0.6$ at iteration $4$), as shown in Table \ref{table:performances_RL_algorithms}.
 
-We remark from the Table \ref{table:results} that the homogeneity score and conformity score give similar results.
+We remark from the Table \ref{table:performances_RL_algorithms} that the homogeneity score and conformity score give similar results.
 Classical meta-optimization performs well, but needs a metric to elect the best dose (during the test, the clinical dose is unknown, so the DVHs distance metric is not available).
 We also observe that clinical doses are not always scoring high (in this test set, a high conformity, but low homogeneity compared to automatic techniques).
 This show the difficulty to create a metric that capture all the complexity of a clinically acceptable dose.
@@ -277,7 +279,7 @@ This show the difficulty to create a metric that capture all the complexity of a
 	\caption{
 		Average performances of four algorithms tested on DVHs distance to clinical dose, dose homogeneity-based score, and conformity-based score.
 	}
-	\label{table:results}
+	\label{table:performances_RL_algorithms}
 \end{table}
 
 \paragraph{Qualitative Results}
@@ -353,7 +355,7 @@ By tailoring the RL agent's training to the specific dose patterns previously de
 This approach enables the deployment of a standardized training algorithm across multiple institutions while providing each institution with a personalized model. 
 This system could pave the way for broader adoption of fully automatic TPS in routine clinical settings.
 
-\subsection{Purpose / Objective}
+\subsection{Introduction}
 One area that remains challenging is the complete automation of treatment planning.
 Current TPS technologies offer either manual treatment planning or a single automatic planning.
 They fail to consider the wide variation in practices across clinics, which often leads to sub-optimal treatment plans according to one clinic-specific guideline.
@@ -368,8 +370,7 @@ In this section, we propose a solution that leverages the clinic's past treatmen
 By training one agent per clinic, the system ensures that the RL agents adhere to each clinic's specific standards, potentially making automated TPS more clinically viable.
 We hypothesize that our clinic-specific RL agents can optimize radiotherapy plans while adhering to the respective institutional standards.
 
-\subsection{Materials/Methods}
-
+\subsection{Methods}
 \paragraph{Training Data}
 We created three clinical doses for each patient, each following a specific guideline.
 In order to reduce computation time (as this time, we had three different clinics for each patient), we generated a cohort of 50 virtual patients for training and another 20 for testing.
@@ -383,12 +384,10 @@ Most importantly, this approach allows the optimization to fit each center’s i
 We created three RL agents, each mimicking the treatment plans of a specific clinic.
 
 \subsection{Results}
-
 \paragraph{Qualitative Evaluation}
 Figure \ref{fig:RL_clinics} summarizes the evolution of the average distance between the reinforcement learning agent’s dose and the dose from clinics A, B, and C throughout iterations of importance wights changes.
 Each one of the three agents was trained on the dose data of one specific clinic.
 Throughout iterations, RL agent were able to gradually reduce the distance with the dose they were trained to replicate.
-
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.32\linewidth}
@@ -421,7 +420,6 @@ Throughout iterations, RL agent were able to gradually reduce the distance with 
 The table \ref{table:performances_RL_clinics} summarizes the average DVH differences between the RL-generated plans and the reference clinical plans across the test set.
 We observe a lower average distance on the diagonal, showing that RL agents trained on specific clinical guidelines successfully mimic the dose type of specific clinics.
 However, RL agents performed poorly according to other clinics' guidelines.
-
 \begin{table}
 	\begin{center}
 		\begin{tabular}{| c | c | c | c |} 

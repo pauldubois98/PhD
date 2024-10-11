@@ -9,7 +9,7 @@ Deep learning models can predict the three-dimensional dose distribution based o
 While the predicted dose distribution may not directly represent a deliverable treatment plan, it serves as the basis for determining a clinically viable plan through dose mimicking.
 Dose mimicking is an optimization technique that eliminates the need for manual adjustment of importance factors by dosimetrists.
 Therefore, the ability to predict a clinically acceptable and near-deliverable 3D dose distribution for any patient presents significant potential for fully automating the radiotherapy planning process.
-It is important to note that the successful application of dose mimicking requires a target dose distribution that is nearly deliverable; thus, arbitrarily setting the target dose to zero for OARs is not feasible.
+It is important to note that the successful application of dose mimicking \cite{McIntosh2017,Sun2022} requires a target dose distribution that is nearly deliverable; thus, arbitrarily setting the target dose to zero for OARs is not feasible.
 
 However, this approach requires further adaptation to accommodate specific clinical guidelines.
 A potential solution involves training individualized models for each treatment center, allowing institution-specific practices and guidelines to be incorporated.
@@ -44,10 +44,9 @@ The model output was the predicted three-dimensional dose distribution.
 The encoder part of the U-net consisted of four convolutional layers with residual connections to improve gradient flow during training, while the decoder section included five convolutional layers.
 Skip connections were implemented between the corresponding encoder and decoder layers to preserve spatial information across the model.
 
-\paragraph{Incorporation of Dose-Volume Histograms}
+\paragraph{Incorporation of DVHs}
 Dose-volume histograms represent one-dimensional curves, whereas the CT images, anatomical contours, and predicted dose distributions are inherently three-dimensional data.
-We employed the Direct Affine Feature Transforms (DAFT) technique to integrate these disparate data types within the neural network.
-%add citation [3]
+We employed the Direct Affine Feature Transforms (DAFT) technique to integrate these disparate data types within the neural network \cite{Polsterl2021}.
 DAFT dynamically scales latent feature maps within the network, enabling the combination of imaging data with DVH information.
 
 For this study, we incorporated the DVHs for the primary structures of interest: the PTV, rectum, and bladder.

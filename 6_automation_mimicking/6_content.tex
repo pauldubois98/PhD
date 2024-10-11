@@ -37,6 +37,13 @@ These patients were selected based on their anatomical conformity to the $120 \t
 These patients received either $62\,\text{Gy}$ or $78\,\textit{Gy}$ prescribed doses to the PTV, with OARs including the bladder and rectum.
 The dataset was split into training, validation, and test subsets, with 80\% used for training, 10\% for validation, and 10\% for testing.
 
+\paragraph{Base Architecture}
+The model architecture is based on a 3D U-net, a well-established neural network architecture for volumetric data.
+The input to the network consisted of four elements: the patient's CT scan, the contour of the PTV, the rectum contour, and the bladder contour.
+The model output was the predicted three-dimensional dose distribution.
+The encoder part of the U-net consisted of four convolutional layers with residual connections to improve gradient flow during training, while the decoder section included five convolutional layers.
+Skip connections were implemented between the corresponding encoder and decoder layers to preserve spatial information across the model.
+
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
 %We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
 %We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.

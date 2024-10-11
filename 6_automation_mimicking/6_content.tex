@@ -98,6 +98,24 @@ The incorporation of dose-volume histogram data into the networks resulted in im
 The MAE measured on the test dataset was $2.42\,\text{Gy}$ for model A, $2.58\,\text{Gy}$ for model B, and $3.18\,\text{Gy}$ for model C.
 
 \paragraph{Prescription Adaptation}
+\begin{figure}
+	\centering
+	\textit{(Solid line is predicted dose DVH, dotted line is target dose DVH.)}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{SFPM/test_patient_0.pdf}
+		\caption{Patient 1, prescribed $62\,\text{Gy}$.}
+		\label{fig:results_patient_1}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{SFPM/test_patient_2.pdf}
+		\caption{Patient 2, prescribed $78\,\text{Gy}$}
+		\label{fig:results_patient_2}
+	\end{subfigure}
+	\caption{DVHs of the dose predicted by each model on two test set patients.}
+	\label{fig:results_patients_12}
+\end{figure}
 In addition to the quantitative improvements, a qualitative analysis of the DVHs associated with the predicted dose distributions confirmed the benefit of including DVH information.
 A key finding from our study was that models A and B could adapt their deep dose predictions based on the prescribed dose, with model A showing a slight advantage over model B regarding accuracy.
 The dataset comprised patients with two distinct prescription doses: $62\,\text{Gy}$ and $78\,\text{Gy}$ to the PTV.

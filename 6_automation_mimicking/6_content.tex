@@ -92,6 +92,11 @@ During the model training process, the clinical DVHs corresponding to the real d
 \subsection{Results}
 Our results indicate that incorporating DVH data improves dose prediction's quantitative and qualitative aspects.
 
+\paragraph{Quantitative Performance}
+We used the Mean Absolute Error (MAE) between the predicted and ground-truth dose distributions to evaluate model performance.
+The incorporation of dose-volume histogram data into the networks resulted in improved quantitative performance.
+The MAE measured on the test dataset was $2.42\,\text{Gy}$ for model A, $2.58\,\text{Gy}$ for model B, and $3.18\,\text{Gy}$ for model C.
+
 %Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).
 %The dataset comprises patients prescribed 62 Gy on the PTV and others 78 Gy on the PTV.
 %We observe that model C could not adapt to the different prescriptions and consistently predicted a dose that looks like a 65 Gy prescription.

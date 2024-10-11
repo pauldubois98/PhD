@@ -105,6 +105,11 @@ Model C consistently predicted dose distributions resembling a $65\,\text{Gy}$ p
 In contrast, models A and B displayed greater flexibility, successfully adjusting their dose predictions in accordance with the prescribed doses for each patient.
 This adaptive behavior highlights the effectiveness of incorporating DVH information, allowing the models to tailor dose predictions to specific prescription requirements.
 
+\paragraph{Clinical Relevance}
+The ability to adjust dose predictions based on DVH data demonstrates a significant advantage of our approach.
+The prescription dose can vary in clinical practice depending on the tumor type, stage, and patient characteristics.
+By incorporating DVH data, our models provide a more flexible and personalized approach to dose prediction, allowing the TPS to generate a plan that aligns with clinical objectives and dosimetrist input.
+
 %Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).
 %The dataset comprises patients prescribed 62 Gy on the PTV and others 78 Gy on the PTV.
 %We observe that model C could not adapt to the different prescriptions and consistently predicted a dose that looks like a 65 Gy prescription.

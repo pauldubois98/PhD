@@ -26,6 +26,11 @@ This methodology enables a workflow where dosimetrists can refine the predicted 
 Furthermore, by establishing a template target DVH tailored to each clinic, the same model can be deployed across multiple centers while generating 3D dose predictions that align with the specific practices of each institution.
 
 \subsection{Material and Methods}
+\paragraph{Data size}
+We defined a bounding box of dimensions $120 \times 180 \times 180\ \text{mm}^3$ centered on the PTV, with isotropic voxels of $5 \times 5 \times 5\ \text{mm}^3$.
+This box size was chosen to accommodate the PTV and the relevant OARs, namely the rectum and bladder, while maintaining a balance between computational feasibility and model accuracy.
+A larger bounding box would have increased model complexity and computational time without substantial benefit.
+
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
 %We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
 %We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.

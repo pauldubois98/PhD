@@ -110,12 +110,6 @@ The ability to adjust dose predictions based on DVH data demonstrates a signific
 The prescription dose can vary in clinical practice depending on the tumor type, stage, and patient characteristics.
 By incorporating DVH data, our models provide a more flexible and personalized approach to dose prediction, allowing the TPS to generate a plan that aligns with clinical objectives and dosimetrist input.
 
-%Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).
-%The dataset comprises patients prescribed 62 Gy on the PTV and others 78 Gy on the PTV.
-%We observe that model C could not adapt to the different prescriptions and consistently predicted a dose that looks like a 65 Gy prescription.
-%Conversely, models A and B adjusted their deep dose predictions to the prescription.
-%These modifications in the predicted 3D dose indicate that the models adapted their predictions to fit the DVHs.
-
 \subsection{Conclusions}
 %Our study demonstrates the possibility of incorporating DVH data into deep dose generation models.
 %Dose prediction is more accurate with DVHs, and our model adapts better to varying prescriptions.

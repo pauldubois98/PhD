@@ -97,6 +97,14 @@ We used the Mean Absolute Error (MAE) between the predicted and ground-truth dos
 The incorporation of dose-volume histogram data into the networks resulted in improved quantitative performance.
 The MAE measured on the test dataset was $2.42\,\text{Gy}$ for model A, $2.58\,\text{Gy}$ for model B, and $3.18\,\text{Gy}$ for model C.
 
+\paragraph{Prescription Adaptation}
+In addition to the quantitative improvements, a qualitative analysis of the DVHs associated with the predicted dose distributions confirmed the benefit of including DVH information.
+A key finding from our study was that models A and B could adapt their deep dose predictions based on the prescribed dose, with model A showing a slight advantage over model B regarding accuracy.
+The dataset comprised patients with two distinct prescription doses: $62\,\text{Gy}$ and $78\,\text{Gy}$ to the PTV.
+Model C consistently predicted dose distributions resembling a $65\,\text{Gy}$ prescription, demonstrating a lack of adaptability to the varying prescription levels.
+In contrast, models A and B displayed greater flexibility, successfully adjusting their dose predictions in accordance with the prescribed doses for each patient.
+This adaptive behavior highlights the effectiveness of incorporating DVH information, allowing the models to tailor dose predictions to specific prescription requirements.
+
 %Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).
 %The dataset comprises patients prescribed 62 Gy on the PTV and others 78 Gy on the PTV.
 %We observe that model C could not adapt to the different prescriptions and consistently predicted a dose that looks like a 65 Gy prescription.

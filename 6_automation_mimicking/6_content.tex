@@ -63,11 +63,6 @@ The first model referred to as "C" or the \textit{classic} model, consists of a 
 The second model denoted as "B" or the \textit{bottleneck} model, integrates target DVH data using the DAFT technique, as described previously, at the bottleneck layer of the U-net.
 In the third model, termed "A" or the \textit{all connections} model, DVH information is incorporated via the DAFT technique both at the bottleneck layer and across all skip connections between the encoder and decoder of the U-net.
 During the model training process, the clinical DVHs corresponding to the real delivered doses were used as target DVHs for the optimization.
-%We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
-%We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
-%We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.
-%To incorporate DVH information, the model uses a technique called Direct Affine Feature Transforms (DAFT)2.
-%Three models were compared: one without DVH data (model C, classical U-net), one with DVH data incorporated at the bottleneck layer (model B), and one with DVH data incorporated throughout all encoder-decoder connections (model A).
 
 \subsection{Results}
 %Quantitatively, the networks incorporating the DVH data performed better, with Mean Absolute Error (MAE) on a test set of 2.42 Gy (model A), 2.58 Gy (model B), and 3.18 Gy (model C).

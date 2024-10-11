@@ -44,6 +44,12 @@ The model output was the predicted three-dimensional dose distribution.
 The encoder part of the U-net consisted of four convolutional layers with residual connections to improve gradient flow during training, while the decoder section included five convolutional layers.
 Skip connections were implemented between the corresponding encoder and decoder layers to preserve spatial information across the model.
 
+\paragraph{Incorporation of Dose-Volume Histograms}
+Dose-volume histograms represent one-dimensional curves, whereas the CT images, anatomical contours, and predicted dose distributions are inherently three-dimensional data.
+We employed the Direct Affine Feature Transforms (DAFT) technique to integrate these disparate data types within the neural network.
+%add citation [3]
+DAFT dynamically scales latent feature maps within the network, enabling the combination of imaging data with DVH information.
+
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
 %We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
 %We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.

@@ -31,6 +31,12 @@ We defined a bounding box of dimensions $120 \times 180 \times 180\ \text{mm}^3$
 This box size was chosen to accommodate the PTV and the relevant OARs, namely the rectum and bladder, while maintaining a balance between computational feasibility and model accuracy.
 A larger bounding box would have increased model complexity and computational time without substantial benefit.
 
+\paragraph{Dataset and Patient Cohort}
+The dataset used for model training comprised 168 patients from the Institut régional du Cancer de Montpellier radiotherapy department.
+These patients were selected based on their anatomical conformity to the $120 \times 180 \times 180\ \text{mm}^3$ bounding box.
+These patients received either $62\,\text{Gy}$ or $78\,\textit{Gy}$ prescribed doses to the PTV, with OARs including the bladder and rectum.
+The dataset was split into training, validation, and test subsets, with 80\% used for training, 10\% for validation, and 10\% for testing.
+
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
 %We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
 %We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.

@@ -59,6 +59,31 @@ The sampled points were subsequently processed by a two-layer perceptron, respon
 
 \paragraph{Three models comparison}
 We evaluated three model configurations with varying levels of DVH incorporation, the architectures of which are described in figure .%\ref
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=11.5cm]{SFPM/modelC.pdf}
+		\caption{Model C: No DVH data, \textbf{classical} U-net.}
+		\label{fig:model_C_architecture}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=11.5cm]{SFPM/modelB.pdf}
+		\caption{Model B: DVH data using DAFT on the \textbf{bottleneck} of the U-net.}
+		\label{fig:model_B_architecture}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=11.5cm]{SFPM/modelA.pdf}
+		\caption{Model A: DVH data using DAFT on all connections between the encoder and the decoder part of the U-net.}
+		\label{fig:model_A_architecture}
+	\end{subfigure}
+	\caption{Architecture diagram of models A, B and C.}
+	\label{fig:models_ABC_architectures}
+\end{figure}
+
 The first model referred to as "C" or the \textit{classic} model, consists of a standard 3D U-net architecture without any incorporation of DVH information.
 The second model denoted as "B" or the \textit{bottleneck} model, integrates target DVH data using the DAFT technique, as described previously, at the bottleneck layer of the U-net.
 In the third model, termed "A" or the \textit{all connections} model, DVH information is incorporated via the DAFT technique both at the bottleneck layer and across all skip connections between the encoder and decoder of the U-net.

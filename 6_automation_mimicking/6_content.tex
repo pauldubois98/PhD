@@ -58,7 +58,7 @@ Given their critical importance in clinical decision-making, this sampling techn
 The sampled points were subsequently processed by a two-layer perceptron, responsible for predicting the scaling parameters, $\alpha$ and $\beta$, used by the DAFT mechanism to modulate the feature maps.
 
 \paragraph{Three models comparison}
-We evaluated three model configurations with varying levels of DVH incorporation, the architectures of which are described in figure .%\ref
+We evaluated three model configurations with varying levels of DVH incorporation, the architectures of which are described in figure \ref{fig:models_ABC_architectures}.
 
 \begin{figure}
 	\centering
@@ -84,9 +84,9 @@ We evaluated three model configurations with varying levels of DVH incorporation
 	\label{fig:models_ABC_architectures}
 \end{figure}
 
-The first model referred to as "C" or the \textit{classic} model, consists of a standard 3D U-net architecture without any incorporation of DVH information.
-The second model denoted as "B" or the \textit{bottleneck} model, integrates target DVH data using the DAFT technique, as described previously, at the bottleneck layer of the U-net.
-In the third model, termed "A" or the \textit{all connections} model, DVH information is incorporated via the DAFT technique both at the bottleneck layer and across all skip connections between the encoder and decoder of the U-net.
+The first model referred to as "C" or the \textit{classic} model (figure \ref{fig:model_C_architecture}), consists of a standard 3D U-net architecture without any incorporation of DVH information.
+The second model denoted as "B" or the \textit{bottleneck} model (figure \ref{fig:model_B_architecture}), integrates target DVH data using the DAFT technique, as described previously, at the bottleneck layer of the U-net.
+In the third model, termed "A" or the \textit{all connections} model (figure \ref{fig:model_A_architecture}), DVH information is incorporated via the DAFT technique both at the bottleneck layer and across all skip connections between the encoder and decoder of the U-net.
 During the model training process, the clinical DVHs corresponding to the real delivered doses were used as target DVHs for the optimization.
 
 \subsection{Results}

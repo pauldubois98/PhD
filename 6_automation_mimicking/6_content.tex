@@ -50,6 +50,13 @@ We employed the Direct Affine Feature Transforms (DAFT) technique to integrate t
 %add citation [3]
 DAFT dynamically scales latent feature maps within the network, enabling the combination of imaging data with DVH information.
 
+For this study, we incorporated the DVHs for the primary structures of interest: the PTV, rectum, and bladder.
+Not all points along a DVH curve hold equal clinical significance. Dosimetrists typically focus on regions at the beginning and end of the curve, where the volume approaches 0\% or 100\%.
+To better capture these critical areas, we employed a non-uniform sampling strategy based on the Chebyshev distribution, which provides a higher density of points near the curve's extremities.
+The Chebyshev points, defined in the range $\left[ -1, 1 \right]$, were remapped to the interval $\left[ 0, 1 \right]$ for this purpose.
+Given their critical importance in clinical decision-making, this sampling technique allows us to prioritize accurate sampling at the curve's extremities.
+The sampled points were subsequently processed by a two-layer perceptron, responsible for predicting the scaling parameters, $\alpha$ and $\beta$, used by the DAFT mechanism to modulate the feature maps.
+
 %We used a cohort of 168 patients from the ICM radiotherapy department (Institut régional du Cancer de Montpellier).
 %We have developed a deep-learning model to predict the 3D dose distribution for radiotherapy treatment planning.
 %We used a standard U-net with the CT scan, the Principal Target Volume (PTV) contour, the Rectum contour, and the Bladder contour as inputs.

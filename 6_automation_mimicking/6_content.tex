@@ -118,6 +118,13 @@ This system also allows interactive adjustment of the dose distribution when the
 The comparison of models A, B, and C highlights the advantages of integrating DVH data in the network.
 The comparison also shows that integrating the information once at the bottleneck is sufficient.
 
+An additional advantage of the proposed method is the capacity to generate standardized target DVH templates for treatment planning.
+While averaging 3D dose distributions across multiple patients is not feasible, it is possible to compute average DVHs.
+These average DVHs can be stratified by anatomical site, prescription dose, and clinical practice, providing a target for dose prediction with no effort.
+Dosimetrists and doctors can further modify these templates to meet specific clinical requirements in case of non-standard patients.
+Once an optimal set of DVHs is established for a given center's protocols, it can be reused for future patients with only minor adjustments.
+This framework could enhance the efficiency and consistency of the treatment planning process.
+
 %Our study demonstrates the possibility of incorporating DVH data into deep dose generation models.
 %Dose prediction is more accurate with DVHs, and our model adapts better to varying prescriptions.
 %This technique allows a new dose optimization workflow where dosimetrists only need to design the DVHs that suit them.

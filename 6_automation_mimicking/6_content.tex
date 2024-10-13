@@ -161,15 +161,27 @@ Additionally, clinical validation studies will be crucial to assess the real-wor
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 % https://github.com/pauldubois98/SFRO2024
 \section{Attention Mechanism on Dose-Volume Histograms for Deep Dose Predictions (SFRO 2024)}
 \subsection{Introduction}
-%Radiotherapy treatment planning aims to deliver a targeted radiation dose while minimizing damage to healthy tissues.
-%Traditionally, dosimetrists define constraints for dose delivery through a semi-manual process.
-%Deep learning techniques have emerged to automate parts of this planning by predicting the 3D dose distribution based on patient scans, and then use “dose mimicking” techniques to compute the plan.
-%However, these techniques lack interactive feedback for dosimetrists within the treatment planning system (TPS).
-%This study proposes using attention mechanism to incorporate target Dose-Volume Histograms (DVHs) into the dose prediction model.
-%This enables interactive modifications of the plan, by modifying the target DVHs.
+This study builds on work from the previous section
+We explore using attention mechanisms to improve the incorporation of target Dose-Volume Histogram information into deep-learning models for radiotherapy dose prediction.
+In traditional radiotherapy planning, DVHs are essential for assessing and optimizing dose distributions for the Principal Target Volume and Organs at Risk.
+However, existing deep learning models for dose prediction, while capable of generating accurate 3D dose distributions, often fail to integrate DVH constraints fully.
+This limitation reduces their utility in real-time treatment planning.
+
+In previous work, deep learning approaches primarily focused on predicting dose distributions directly from patient imaging data, such as CT scans and anatomical contours of the PTV and OARs.
+These methods typically rely on convolutional neural networks (CNNs), like the Unet, trained with voxel-wise loss functions.
+While successful in producing accurate 3D dose maps, they generally treat DVH-related information as secondary, with little attention given to adapting predictions based on these critical clinical metrics.
+
+In the last section, we proposed integrating target DVH into the deep dose model to address this gap.
+In this section, we extend prior approaches by proposing attention mechanisms to integrate target DVH information more effectively into the dose prediction process.
+Attention mechanisms, widely adopted in domains such as natural language processing and image recognition, enable models to focus on relevant features within the input data selectively.
+By leveraging attention, we aim to enhance the model's capacity to dynamically adapt its dose predictions following specified DVH constraints, providing a more precise and clinically responsive framework for radiotherapy treatment planning.
+
+This work evaluates three Unet-based architectures, including a novel model using a cross-attention mechanism to incorporate DVH information into the dose prediction process directly.
+Our goal is to enhance the accuracy and adaptability of deep learning models for dose prediction, ultimately enabling dosimetrists to have greater control over the treatment planning process through DVH-guided model interactions.
 
 \subsection{Material and Methods}
 %We used a cohort of 168 patients (with split 80-10-10 for training-validation-test).

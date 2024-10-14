@@ -1,4 +1,19 @@
 %SFPM
+@article{Chen2021,
+	author = {Chen, Xinyuan and Men, Kuo and Zhu, Ji and Yang, Bining and Li, Minghui and Liu, Zhiqiang and Yan, Xuena and Yi, Junlin and Dai, Jianrong},
+	title = {DVHnet: A deep learning-based prediction of patient-specific dose volume histograms for radiotherapy planning},
+	journal = {Medical Physics},
+	volume = {48},
+	number = {6},
+	pages = {2705-2713},
+	keywords = {automatic, deep learning, dose volume histogram, knowledge-based radiotherapy planning},
+	doi = {https://doi.org/10.1002/mp.14758},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1002/mp.14758},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1002/mp.14758},
+	abstract = {Purpose To develop a deep learning method to predict patient-specific dose volume histograms (DVHs) for radiotherapy planning. Methods Patient data included 180 cases with nasopharyngeal cancer, of which 153 cases were used for training and 27 for testing. A network (named “DVHnet”) based on a convolutional neural network (CNN) was designed for directly predicting DVHs of organs at risk (OARs). Two-channel images with contoured structures were generated as the inputs for training the model. A one-dimensional array consisting of 256 continuous volume percentages on a DVH curve for each slice was calculated as the corresponding output. The combined DVH was then calculated. Sixteen OARs were modeled in the study. Prediction accuracy was evaluated against the corresponding DVH curve of ground truth (GT) plans. A global DVH analysis and critical dosimetry metrics for each OAR were calculated for quantitative evaluation. The performance of DVHnet also was evaluated against two baselines: DosemapNet (developed by our research group) and commercial RapidPlan software. Results The predicted mean difference in average dose of all OARs using DVHnet was 0.30 ± 0.95 Gy. And the predicted differences in D2\% and D50 can be control within 2.32 and 0.69 Gy. For most OARs, there were no obvious differences between the dosimetric metrics of the predicted and GT values for both DVHnet and DosemapNet (P ≥ 0.05). Only the predicted D2\% of the optic organs for DVHnet, and of brain stem PRV for DosemapNet displayed statistically significant differences. Except for the optic organs, DVHnet performs better than or comparably with RapidPlan. The mean difference in proportion of points of interest was 3.59\% ± 7.78\%. Conclusions A deep learning network model was developed to automatically extract useful features for accurate prediction of patient-specific DVH curves directly. The performance of DVHnet was comparable to DosemapNet and RapidPlan.},
+	year = {2021}
+}
+
 @article{Sun2022,
 	title     = {A hybrid optimization strategy for deliverable
 	intensity-modulated radiotherapy plan generation using deep

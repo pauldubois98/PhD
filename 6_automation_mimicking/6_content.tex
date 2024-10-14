@@ -239,6 +239,12 @@ Using the validation loss criterion, early stopping was applied to prevent overf
 
 
 \subsection{Results}
+
+\paragraph{Evaluation Metrics}  
+The performance of the models was assessed using two primary metrics.
+The first metric was the 3D Dose Mean Absolute Error (MAE), which measures the voxel-wise MAE between the predicted dose distributions and the corresponding ground truth values.
+The second metric was the Dose-Volume Histogram (DVH) deviation, calculated as the mean L1 deviation between the predicted and target DVHs for both the Principal Target Volume (PTV) and Organs at Risk (OARs).
+These metrics provide a comprehensive evaluation of the models' accuracy in predicting dose distributions and adherence to clinical DVH constraints.
 %Models incorporating DVH data (Unet-1 and Unet-2) achieved superior performance.
 %The MAE and mean DVH deviation were improved by Unet-1 and Unet-2, with a minor advantage for the Unet-2.
 %

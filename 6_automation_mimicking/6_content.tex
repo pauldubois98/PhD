@@ -191,6 +191,14 @@ By leveraging attention, we aim to enhance the model's capacity to dynamically a
 This work evaluates three U-net-based architectures, including a novel model using a cross-attention mechanism to incorporate DVH information into the dose prediction process directly.
 Our goal is to enhance the accuracy and adaptability of deep learning models for dose prediction, ultimately enabling dosimetrists to have greater control over the treatment planning process through DVH-guided model interactions.
 
+\paragraph{Related work}
+Previous studies have explored the application of attention mechanism for dose prediction in radiotherapy planning.
+Osman et al., for example, developed an attention-gated 3D U-Net architecture model to predict full 3D dose distribution \cite{Osman2022}.
+Cros et al. investigated the combination of dense elements with attention mechanisms for 3D radiotherapy dose prediction \cite{Ahmed2017}.
+In contrast, our research uses the attention mechanism for its power in mixing different data types.
+We used cross attention between DVH features and bottle neck compressed 3D data to predict clinically acceptable dose distributions.
+To our knowledge, this innovative paradigm has not been previously explored in the literature.
+
 \subsection{Material and Methods}
 \paragraph{Patient Data and Preprocessing}
 We again used the cohort of 168 patients from the previous section who had undergone radiotherapy treatment.

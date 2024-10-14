@@ -196,17 +196,18 @@ As in the last section, we used the same box $120 \times 180 \times 180\ \text{m
 The backbone architecture for all models in this study is a 3D-convolutional Unet, a commonly used CNN for image-to-image translation tasks, such as segmentation and dose prediction.
 Our U-net is of depth two, meaning it performs two levels of down-sampling and up-sampling.
 The U-net outputs a 3D dose prediction for each voxel within the patient's anatomy.
+Details architecture diagrams can be found in figure \ref{fig:unets012}.
 
 \subparagraph{U-net 0 (Baseline)}
-The first model, U-net 0, serves as a baseline and does not incorporate target DVH information.
+The first model, U-net 0 (architecture diagram can be found on figure \ref{fig:unet0}), serves as a baseline and does not incorporate target DVH information.
 It receives the CT scan, PTV, and OAR contours as input and predicts the 3D dose distribution purely from this spatial data.
 
 \subparagraph{U-net 1 (DVH with DAFT)}
-The second model, U-net 1, incorporates DVH data using the DAFT approach, like in the previous section.
+The second model, U-net 1 (architecture diagram can be found on figure \ref{fig:unet1}), incorporates DVH data using the DAFT approach, like in the previous section.
 In this model, the target DVHs are provided as additional inputs, and the model is trained to predict 3D dose distributions that match these target DVHs.
 
 \subparagraph{U-net 2 (DVH with Cross-Attention)}
-Our novel contribution, U-net 2, integrates DVH data using a cross-attention mechanism.
+Our novel contribution, U-net 2 (architecture diagram can be found on figure \ref{fig:unet2}), integrates DVH data using a cross-attention mechanism.
 In this architecture, the model takes queries from the 3D dose prediction and keys and values from the target DVHs.
 The result of the 4-head attention mechanism is the same shape as that of the 3D input.
 The cross-attention mechanism allows the model to adjust its dose predictions dynamically based on the desired DVH information.

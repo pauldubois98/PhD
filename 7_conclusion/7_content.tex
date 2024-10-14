@@ -1,0 +1,30 @@
+\section{Main findings}
+Importance of the pb: optimization is a crutical step in RT, in fac, is the step where the treatment is created.
+
+- explored dose optim techniques (loss construction and optimizers comparison)
+- ideas to automate process:
+  - half auto (ESTRO idea)
+  - full auto with classical framework (AIME / ASTRO ideas)
+  - full auto + possible adjustments with deep dose framework (SFPM / SFRO ideas)
+we advise to privilege last one
+
+\section{Limitations}
+
+ESTRO idea would require change of habit of doctors and dosimetrists, which is unlikely to happen
+
+AIME / ASTRO ideas do not allow further adjustment of dose by dosimetrists, it's likely that they dislike, feel frustrated not to be able to do the minor adjustment needed, and have to start from the beginning al over again, and in the end, they may not like that framework
+need to acknowledge that to automate the process, we don't necessarily need to do the exact same as a human, we can dynamite the workflow, in order to make it more suitable to be done via a machine / AI model.
+
+SFPM / SFRO ideas should be pursued.
+the models developed are rather small, and research oriented, one need to turn them into production high resolution models.
+it is important to allow the dosimetrists to further adjust the dose. We suspect that they will do so a lot at the beginning, and slowly by slowly adopt the standardize dose that was proposed by the model with adjustment getting smaller ans smaller, until they nearly always use the first inference fo the model (unless for cases where the model clearly diverged).
+
+=> this long term adoption is the one that was adopted for auto contouring, and we suspect it is the one the most likely to happen for auto dosimetry as well
+
+in the long term, it is beneficial for patients as well, as this will standardize the treatments
+moreover, templates for dose generations of the most successful centers can be shared to others, ultimately making all center having access to best experts treatment quality, even in the most isolated clinics, without enough doctors to have one specialize in each rare anatomy.
+
+\section{Future Work}
+
+need to go from idea to actual product
+needs to get approval from doctors

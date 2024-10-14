@@ -137,6 +137,21 @@
 	year = {2022}
 }
 
+@article{Cros2022,
+	author = {Cros, Samuel and Bouttier, Hugo and Nguyen-Tan, Phuc Felix and Vorontsov, Eugene and Kadoury, Samuel},
+	title = {Combining dense elements with attention mechanisms for 3D radiotherapy dose prediction on head and neck cancers},
+	journal = {Journal of Applied Clinical Medical Physics},
+	volume = {23},
+	number = {8},
+	pages = {e13655},
+	keywords = {attention mechanisms, convolutional neural networks, dense architectures, knowledge-based planning, radiation dose prediction methods},
+	doi = {https://doi.org/10.1002/acm2.13655},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1002/acm2.13655},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1002/acm2.13655},
+	abstract = {Abstract Purpose External radiation therapy planning is a highly complex and tedious process as it involves treating large target volumes, prescribing several levels of doses, as well as avoiding irradiating critical structures such as organs at risk close to the tumor target. This requires highly trained dosimetrists and physicists to generate a personalized plan and adapt it as treatment evolves, thus affecting the overall tumor control and patient outcomes. Our aim is to achieve accurate dose predictions for head and neck (H\&N) cancer patients on a challenging in-house dataset that reflects realistic variability and to further compare and validate the method on a public dataset. Methods We propose a three-dimensional (3D) deep neural network that combines a hierarchically dense architecture with an attention U-net (HDA U-net). We investigate a domain knowledge objective, incorporating a weighted mean squared error (MSE) with a dose-volume histogram (DVH) loss function. The proposed HDA U-net using the MSE-DVH loss function is compared with two state-of-the-art U-net variants on two radiotherapy datasets of H\&N cases. These include reference dose plans, computed tomography (CT) information, organs at risk (OARs), and planning target volume (PTV) delineations. All models were evaluated using coverage, homogeneity, and conformity metrics as well as mean dose error and DVH curves. Results Overall, the proposed architecture outperformed the comparative state-of-the-art methods, reaching 0.95 (0.98) on D95 coverage, 1.06 (1.07) on the maximum dose value, 0.10 (0.08) on homogeneity, 0.53 (0.79) on conformity index, and attaining the lowest mean dose error on PTVs of 1.7\% (1.4\%) for the in-house (public) dataset. The improvements are statistically significant (p<0.05\$p\&lt;0.05\$) for the homogeneity and maximum dose value compared with the closest baseline. All models offer a near real-time prediction, measured between 0.43 and 0.88 s per volume. Conclusion The proposed method achieved similar performance on both realistic in-house data and public data compared to the attention U-net with a DVH loss, and outperformed other methods such as HD U-net and HDA U-net with standard MSE losses. The use of the DVH objective for training showed consistent improvements to the baselines on most metrics, supporting its added benefit in H\&N cancer cases. The quick prediction time of the proposed method allows for real-time applications, providing physicians a method to generate an objective end goal for the dosimetrist to use as reference for planning. This could considerably reduce the number of iterations between the two expert physicians thus reducing the overall treatment planning time.},
+	year = {2022}
+}
+
 @InProceedings{Ronneberger2015,
 	author = {Ronneberger, Olaf
 	and Fischer, Philipp

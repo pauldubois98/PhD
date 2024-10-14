@@ -168,7 +168,7 @@ Additionally, clinical validation studies will be crucial to assess the real-wor
 This study builds on work from the previous section
 We explore using attention mechanisms to improve the incorporation of target Dose-Volume Histogram information into deep-learning models for radiotherapy dose prediction.
 In traditional radiotherapy planning, DVHs are essential for assessing and optimizing dose distributions for the Principal Target Volume and Organs at Risk.
-However, existing deep learning models for dose prediction, while capable of generating accurate 3D dose distributions, often fail to integrate DVH constraints fully.
+However, existing deep learning models for dose prediction, while capable of generating accurate 3D dose distributions, often fail to integrate DVH constraints fully \cite{Pan2023}.
 This limitation reduces their utility in real-time treatment planning.
 
 In previous work, deep learning approaches primarily focused on predicting dose distributions directly from patient imaging data, such as CT scans and anatomical contours of the PTV and OARs.
@@ -180,7 +180,7 @@ In this section, we extend prior approaches by proposing attention mechanisms to
 Attention mechanisms, widely adopted in domains such as natural language processing and image recognition, enable models to focus on relevant features within the input data selectively \cite{Niu2021}.
 By leveraging attention, we aim to enhance the model's capacity to dynamically adapt its dose predictions following specified DVH constraints, providing a more precise and clinically responsive framework for radiotherapy treatment planning.
 
-This work evaluates three Unet-based architectures, including a novel model using a cross-attention mechanism to incorporate DVH information into the dose prediction process directly.
+This work evaluates three U-net-based architectures, including a novel model using a cross-attention mechanism to incorporate DVH information into the dose prediction process directly.
 Our goal is to enhance the accuracy and adaptability of deep learning models for dose prediction, ultimately enabling dosimetrists to have greater control over the treatment planning process through DVH-guided model interactions.
 
 \subsection{Material and Methods}

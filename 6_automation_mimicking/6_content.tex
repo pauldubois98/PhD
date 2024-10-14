@@ -263,6 +263,20 @@ In contrast, U-net 1 and U-net 2 adapted their dose predictions to the provided 
 There were only a few differences between the performances of U-net 1 and U-net 2.
 
 \subsection{Conclusions}
+This study re-demonstrates the feasibility of incorporating DVH data into deep-learning models for radiotherapy dose prediction.
+We have marginally improved model performances and adaptability by using an attention mechanism to integrate target DVHs.
+The cross-attention mechanism, in particular, offers a novel way to align predicted dose distributions with clinical goals flexibly.
+
+Our findings indicate that this approach could facilitate the development of a more efficient radiotherapy treatment planning workflow.
+In this proposed framework, dosimetrists would focus primarily on creating standardized target DVH templates rather than manually adjusting dose distributions for each patient.
+These templates would serve as a foundation, requiring minimal adjustments to accommodate individual patient-specific characteristics, thereby streamlining the treatment planning process.
+
+Designing a template for 3D dose distributions is not feasible, as 3D doses are highly patient-specific and cannot be transferred between patients.
+In contrast, DVHs are more generalizable and can be applied across different patients.
+This generalizability makes them suitable for the proposed workflow, where template DVHs can be established and used with deep learning-based dose prediction models guided by target DVH.
+This workflow could reduce planning time and improve consistency across patients.
+Future work will explore incorporating more complex DVH structures and refining the attention mechanism to enhance model interpretability and clinical usability.
+
 %This study demonstrates the feasibility of incorporating DVH data into deep learning models for dose prediction.
 %The inclusion of DVHs resulted in improved dose prediction accuracy and enhanced model adaptability to varying prescriptions.
 %This approach paves the way for a novel dose optimization workflow where dosimetrists primarily focus on designing desired DVHs.

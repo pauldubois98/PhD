@@ -14,6 +14,21 @@
 	year = {2021}
 }
 
+@article{Ahmed2017,
+	author = {Ahmed, Saeed and Nelms, Benjamin and Gintz, Dawn and Caudell, Jimmy and Zhang, Geoffrey and Moros, Eduardo G. and Feygelman, Vladimir},
+	title = {A method for a priori estimation of best feasible DVH for organs-at-risk: Validation for head and neck VMAT planning},
+	journal = {Medical Physics},
+	volume = {44},
+	number = {10},
+	pages = {5486-5497},
+	keywords = {dose-volume histograms, IMRT optimization, organ at risk dose, treatment plan quality, treatment planning},
+	doi = {https://doi.org/10.1002/mp.12500},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1002/mp.12500},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1002/mp.12500},
+	abstract = {Purpose Despite improvements in optimization and automation algorithms, the quality of radiation treatment plans still varies dramatically. A tool that allows a priori estimation of the best possible sparing (Feasibility DVH, or FDVH) of an organ at risk (OAR) in high-energy photon planning may help reduce plan quality variability by deriving patient-specific OAR goals prior to optimization. Such a tool may be useful for (a) meaningfully evaluating patient-specific plan quality and (b) supplying best theoretically achievable DVH goals, thus pushing the solution toward automatic Pareto optimality. This work introduces such a tool and validates it for clinical Head and Neck (HN) datasets. Methods To compute FDVH, first the targets are assigned uniform prescription doses, with no reference to any particular beam arrangement. A benchmark 3D dose built outside the targets is estimated using a series of energy-specific dose spread calculations reflecting observed properties of radiation distribution in media. For the patient, the calculation is performed on the heterogeneous dataset, taking into account the high- (penumbra driven) and low- (PDD and scatter-driven) gradient dose spreading. The former is driven mostly by target dose and surface shape, while the latter adds the dependence on target volume. This benchmark dose is used to produce the “best possible sparing” FDVH for an OAR, and based on it, progressively more easily achievable FDVH curves can be estimated. Validation was performed using test cylindrical geometries as well as 10 clinical HN datasets. For HN, VMAT plans were prepared with objectives of covering the primary and the secondary (bilateral elective neck) PTVs while addressing only one OAR at a time, with the goal of maximum sparing. The OARs were each parotid, the larynx, and the inferior pharyngeal constrictor. The difference in mean OAR doses was computed for the achieved vs. FDVHs, and the shapes of those DVHs were compared by means of the Dice similarity coefficient (DSC). Results For all individually optimized HN OARs (N = 38), the average DSC between the planned DVHs and the FDVHs was 0.961 ± 0.018 (95\% CI 0.955–0.967), with the corresponding average of mean OAR dose differences of 1.8 ± 5.8\% (CI −0.1–3.6\%). For realistic plans the achieved DVHs run no lower than the FDVHs, except when target coverage is compromised at the target/OAR interface. Conclusions For the validation of VMAT plans, the OAR DVHs optimized one-at-a-time were similar in shape to and bound on the low side by the FDVHs, within the confines of planner's ability to precisely cover the target(s) with the prescription dose(s). The method is best suited for the OARs close to the target. This approach is fundamentally different from “knowledge-based planning” because it is (a) independent of the treatment plan and prior experience, and (b) it approximates, from nearly first principles, the lowest possible boundary of the OAR DVH, but not necessarily its actual shape in the presence of competing OAR sparing and target dose homogeneity objectives.},
+	year = {2017}
+}
+
 @article{Sun2022,
 	title     = {A hybrid optimization strategy for deliverable
 	intensity-modulated radiotherapy plan generation using deep

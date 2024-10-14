@@ -25,6 +25,12 @@ Incorporating DVHs introduces interactivity into the model, allowing adjustments
 This methodology enables a workflow where dosimetrists can refine the predicted dose distribution according to specific clinical objectives.
 Furthermore, by establishing a template target DVH tailored to each clinic, the same model can be deployed across multiple centers while generating 3D dose predictions that align with the specific practices of each institution.
 
+\paragraph{Related work}
+Chung et al. developed a deep learning method to predict patient-specific dose volume histograms (DVHs) for radiotherapy planning \cite{Chen2021}.
+Similarly, Ahmed et al. created an estimation of best feasible DVH for organs-at-risk \cite{Ahmed2017}.
+We use the reverse approach: using target DVH to predict a clinically acceptable dose spread.
+To the best of our knowledge, this target DVH has not been done before.
+
 \subsection{Material and Methods}
 \paragraph{Data size}
 We defined a bounding box of dimensions $120 \times 180 \times 180\ \text{mm}^3$ centered on the PTV, with isotropic voxels of $5 \times 5 \times 5\ \text{mm}^3$.

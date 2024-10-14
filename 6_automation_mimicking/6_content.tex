@@ -250,6 +250,21 @@ These metrics provide a comprehensive evaluation of the models' accuracy in pred
 The performance of the three models is summarized in Table \ref{tab:model_performance}.
 Both U-net 1 and U-net 2, which incorporated DVH information, outperformed the baseline U-net 0 across all metrics.
 
+\begin{table}
+	\centering
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\textbf{Metric}         & \textbf{Unet-0} & \textbf{Unet-1} & \textbf{Unet-2} \\
+		\hline
+		3D Dose MAE (Gy)        & 3.093           & 2.254           & 2.210           \\
+		\hline
+		Mean DVH Deviation (Gy) & 1.942           & 1.051           & 0.930           \\
+		\hline
+	\end{tabular}
+	\caption{Models performances comparison.}
+	\label{tab:model_performance}
+\end{table}
+
 As shown, the inclusion of DVH data significantly reduced the MAE in the predicted dose distributions.
 Unet-2, which used a cross-attention mechanism, showed the best overall performance, with a minor error reduction compared to U-net 1.
 %Models incorporating DVH data (Unet-1 and Unet-2) achieved superior performance.

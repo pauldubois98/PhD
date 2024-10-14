@@ -205,7 +205,7 @@ It receives the CT scan, PTV, and OAR contours as input and predicts the 3D dose
 The second model, U-net 1, incorporates DVH data using the DAFT approach, like in the previous section.
 In this model, the target DVHs are provided as additional inputs, and the model is trained to predict 3D dose distributions that match these target DVHs.
 
-\subparagraph{U-net 2 (Cross-Attention with DVHs)}
+\subparagraph{U-net 2 (DVH with Cross-Attention)}
 Our novel contribution, U-net 2, integrates DVH data using a cross-attention mechanism.
 In this architecture, the model takes queries from the 3D dose prediction and keys and values from the target DVHs.
 The result of the 4-head attention mechanism is the same shape as that of the 3D input.
@@ -239,14 +239,13 @@ Using the validation loss criterion, early stopping was applied to prevent overf
 
 
 \subsection{Results}
-
 \paragraph{Evaluation Metrics}  
 The performance of the models was assessed using two primary metrics.
 The first metric was the 3D Dose Mean Absolute Error (MAE), which measures the voxel-wise MAE between the predicted dose distributions and the corresponding ground truth values.
 The second metric was the Dose-Volume Histogram (DVH) deviation, calculated as the mean L1 deviation between the predicted and target DVHs for both the Principal Target Volume (PTV) and Organs at Risk (OARs).
 These metrics provide a comprehensive evaluation of the models' accuracy in predicting dose distributions and adherence to clinical DVH constraints.
 
-\paragraph{Model Performance}
+\paragraph{Models Performances}
 The performance of the three models is summarized in Table \ref{tab:model_performance}.
 Both U-net 1 and U-net 2, which incorporated DVH information, outperformed the baseline U-net 0 across all metrics.
 
@@ -284,7 +283,7 @@ There were only a few differences between the performances of U-net 1 and U-net 
 %%Mean DVH deviation	1.942 Gy	1.051 Gy	0.930 Gy
 %
 %The dataset included patients prescribed for either 62 Gy or 78 Gy on the PTV.
-%The Unet-1 model was not able to adapt to varying prescriptions, consistently predicting a dose resembling a 65 Gy prescription.
+%The Unet-0 model was not able to adapt to varying prescriptions, consistently predicting a dose resembling a 65 Gy prescription.
 %Conversely, Unet-1 and Unet-2 adjusted their dose predictions suggesting that these models adapted their predictions to be conform with the provided DVHs.
 
 \subsection{Conclusions}

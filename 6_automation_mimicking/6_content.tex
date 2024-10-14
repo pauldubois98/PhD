@@ -212,6 +212,35 @@ The result of the 4-head attention mechanism is the same shape as that of the 3D
 The cross-attention mechanism allows the model to adjust its dose predictions dynamically based on the desired DVH information.
 The output of the attention mechanism is re-injected into the U-net during the decoding process, modifying the predicted dose map to match the target DVHs better.
 
+\begin{figure}
+	\centering
+	\vspace{-0.5cm}
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=12cm]{SFRO/model0.pdf}
+		\caption{U-net 0: no DVH information.}
+		\label{fig:unet0}
+	\end{subfigure}
+	\vspace{0.5cm}
+	
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=12cm]{SFRO/model1.pdf}
+		\caption{U-net 1: DVH with DAFT.}
+		\label{fig:unet1}
+	\end{subfigure}
+	\vspace{0.5cm}
+	
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=12cm]{SFRO/model2.pdf}
+		\caption{U-net 2: DVHs with cross-attention.}
+		\label{fig:unet2}
+	\end{subfigure}
+	\caption{Architecture diagrams of U-nets 0, 1 and 2.}
+	\label{fig:unets012}
+\end{figure}
+
 \paragraph{Loss Function and Optimization}
 The models were trained using a loss function that combines voxel-wise Mean Absolute Error (MAE) with an L1 loss on the Dose-Volume Histogram (DVH), designed to penalize deviations between the predicted and target DVHs.
 Incorporating the L1 loss on DVH significantly improved the model’s convergence.

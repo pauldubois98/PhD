@@ -211,6 +211,21 @@ In this architecture, the model takes queries from the 3D dose prediction and ke
 The result of the 4-head attention mechanism is the same shape as that of the 3D input.
 The cross-attention mechanism allows the model to adjust its dose predictions dynamically based on the desired DVH information.
 The output of the attention mechanism is re-injected into the U-net during the decoding process, modifying the predicted dose map to match the target DVHs better.
+
+\paragraph{Loss Function and Optimization}
+The models were trained using a loss function that combines voxel-wise Mean Absolute Error (MAE) with an L1 loss on the Dose-Volume Histogram (DVH), designed to penalize deviations between the predicted and target DVHs.
+Incorporating the L1 loss on DVH significantly improved the model’s convergence.
+The total loss function is expressed as:
+$$
+\text{Total Loss} = \alpha \cdot \text{MAE}_{\text{voxel}} + \beta \cdot \text{L1}_{\text{DVH}}
+$$
+where $\alpha$ and $\beta$ are hyper-parameters that control the relative contribution of the two terms.
+For this study, we set both $\alpha$ and $\beta$ to $1$, based on performance observed on the validation set.
+However, future work could further optimize these parameters to enhance model performance.
+
+The models were trained using the Adam optimizer with a $10^{-4}$ learning rate.
+Using the validation loss criterion, early stopping was applied to prevent overfitting and ensure robust generalization.
+
 %We used a cohort of 168 patients (with split 80-10-10 for training-validation-test).
 %The models input CT scans, Principal Target Volume (PTV) contour, and Organs at Risk (OARs ) contours; and output a 3D dose.
 %We trained the models with a voxel-wise Mean Absolute Error (MAE) , combined with a DVH L1 loss.

@@ -7,14 +7,14 @@
 
 \begin{document}
 	\maketitle
+	\setcounter{tocdepth}{5}
+	\tableofcontents
+	
 	\begin{abstract}
 		\input{2_abstract.tex}
 	\end{abstract}
-	\clearpage
 	
-	\tableofcontents
-	
-	\include{2_content.tex}
+	\input{2_content.tex}
 	
 	\bibliographystyle{alpha}
 	\bibliography{2_ref.bib}

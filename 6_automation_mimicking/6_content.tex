@@ -226,18 +226,6 @@ However, future work could further optimize these parameters to enhance model pe
 The models were trained using the Adam optimizer with a $10^{-4}$ learning rate.
 Using the validation loss criterion, early stopping was applied to prevent overfitting and ensure robust generalization.
 
-%We used a cohort of 168 patients (with split 80-10-10 for training-validation-test).
-%The models input CT scans, Principal Target Volume (PTV) contour, and Organs at Risk (OARs ) contours; and output a 3D dose.
-%We trained the models with a voxel-wise Mean Absolute Error (MAE) , combined with a DVH L1 loss.
-%The backbone of the models is a convolutional Unet of depth three.
-%Then, we compared three architectures.
-%First, a vanilla Unet-0 (with no DVH information).
-%Second, a Unet-1 with DVH information incorporated using the DAFT technique.
-%Third, a Unet-2, with DVH added via a cross-attention mechanism (our contribution).
-%The cross attention takes queries from the 3D data, and keys/values from the target DVHs.
-%Finally, the attention output is re-injected in the Unet-3 model via a simple addition.
-
-
 \subsection{Results}
 \paragraph{Evaluation Metrics}  
 The performance of the models was assessed using two primary metrics.

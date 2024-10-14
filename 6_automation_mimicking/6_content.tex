@@ -172,7 +172,7 @@ However, existing deep learning models for dose prediction, while capable of gen
 This limitation reduces their utility in real-time treatment planning.
 
 In previous work, deep learning approaches primarily focused on predicting dose distributions directly from patient imaging data, such as CT scans and anatomical contours of the PTV and OARs.
-These methods typically rely on convolutional neural networks (CNNs), like the Unet, trained with voxel-wise loss functions.
+These methods typically rely on convolutional neural networks (CNNs), like the Unet, trained with voxel-wise loss functions \cite{Ronneberger2015}.
 While successful in producing accurate 3D dose maps, they generally treat DVH-related information as secondary, with little attention given to adapting predictions based on these critical clinical metrics.
 
 In the last section, we proposed integrating target DVH into the deep dose model to address this gap.

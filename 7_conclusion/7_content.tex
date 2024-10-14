@@ -1,30 +1,89 @@
 \section{Main findings}
-Importance of the pb: optimization is a crutical step in RT, in fac, is the step where the treatment is created.
+This manuscript has explored critical advancements in radiotherapy, particularly in dose optimization.
+Dosimetry remains a crucial step in RT as it directly determines the treatment plan delivered to patients.
+Dosimetry optimization ensures the delivery of the prescribed radiation dose to cancerous tissues while sparing healthy structures.
+However, it is also the stage where the efficacy and safety of the treatment are defined.
+Thus, improvements in this step have profound clinical importance.
 
-- explored dose optim techniques (loss construction and optimizers comparison)
-- ideas to automate process:
-  - half auto (ESTRO idea)
-  - full auto with classical framework (AIME / ASTRO ideas)
-  - full auto + possible adjustments with deep dose framework (SFPM / SFRO ideas)
-we advise to privilege last one
+Through this dissertation, we have systematically investigated various optimization techniques.
+First, we focused on constructing loss functions and comparing optimization algorithms.
+We have further proposed multiple avenues for automating the dosimetry process to enhance treatment efficiency and reduce manual workloads.
+
+\paragraph{Partially Automated Clustering-based Framework}
+The partially automated clustering-based framework proposes a partially automated system for dosimetry, where human intervention remains integral to the process.
+The model automates the majority of the dose calculation but leaves room for manual adjustments by clinicians and dosimetrists.
+This half-automated approach allows dosimetrists to refine or modify the treatment plan based on their expertise, maintaining the traditional workflow while benefiting from automation to save time and improve efficiency.
+The clustering strategy facilitated a more profound comprehension of the interrelationships between doses.
+
+\paragraph{Fully Automated Reinforcement Learning with Classical Optimization Approach}
+The fully automated reinforcement learning combined with classical optimization approach take the automation further.
+Within this paradigm, dosimetrists are entirely superseded, obviating the need for their input.
+The system calculates and generates the optimal treatment plan based on predefined clinical constraints and objectives, without requiring post-calculation adjustments by the dosimetrist.
+Our innovative approach is distinguished by its direct learning from historical dose distributions.
+This eliminates the reliance on ill-defined metrics that often fail to accurately represent the clinical acceptability of treatment plans.
+We have empirically demonstrated the adaptability of this framework to diverse clinical settings, requiring solely retraining to work with new institutions.
+This paradigm entirely obviates the need for dosimetrist intervention, streamlining the treatment planning process.
+
+\paragraph{Fully Automated Deep Dose Based Scheme}
+It is also essential to recognize that automating the dosimetry process does not mean replicating every step a human would take.
+Instead, a more strategic approach involves re-engineering the workflow to optimize its suitability for machine learning or artificial intelligence models.
+Automation can streamline workflows by eliminating unnecessary complexity and standardizing treatment protocols, thus making them more efficient and reliable.
+
+The fully automated target-DVH guided deep dose scheme approaches offer a more balanced solution by integrating deep learning models into the fully automated dosimetry process.
+These systems not only generate dose distributions but also include the flexibility for post-calculation manual adjustments, via the modification of target DVHs.
+The deep learning models are trained on large datasets of treatment plans and dose distributions, learning the relationships between anatomical structures and dose distribution, and dose-volume histograms.
+This enables the models to make accurate dose predictions, while still allowing clinically adapted dose prediction, via modification of the target DVH.
+Moreover, a single model is needed, and DVH prompt can be adapted for each center, instead of creating a new model from scratch like in the fully automated scheme.
+
+One of the key advantages of these frameworks is that they offer both full automation and clinician control.
+Dosimetrists can make adjustments to the automated dose plan when needed, providing a level of oversight that is absent in the previous approaches.
+We anticipate that clinicians will make frequent adjustments during the early stages of adoption, but as confidence in the deep learning models grows, the need for manual intervention will gradually decrease.
+Over time, clinicians may find the model's initial dose recommendations to be sufficiently accurate, requiring manual optimization only in exceptional cases of significant divergence.
+
+This gradual adoption mirrors the process observed with auto-contouring systems in radiotherapy.
+Initially, clinicians made numerous adjustments to the auto-generated contours, but as the technology matured, they began accepting the contours with fewer and fewer modifications.
+We expect a similar trajectory with automated dosimetry systems, leading to higher acceptance in the clinical community.
 
 \section{Limitations}
+\paragraph{Partially Automated Clustering-based Framework}
+The partially automated clustering-based framework, while innovative, comes with a significant hurdle:
+It would require a change in the current clinical workflow.
+Clinicians and dosimetrists have well-established practices, and altering these routines may face resistance.
+Shifting habits, even with partial automation, could be difficult, as it demands additional time and training.
+Given that radiotherapy professionals often rely on established methods that they trust, adopting this hybrid model on a broad scale might be unlikely.
 
-ESTRO idea would require change of habit of doctors and dosimetrists, which is unlikely to happen
+\paragraph{Fully Automated Reinforcement Learning with Classical Optimization Approach}
+While this full automation represents a major leap in efficiency, it also presents challenges.
+The rigidity of the system can become a source of frustration for clinicians, as it does not allow for minor manual adjustments to the dose distribution, which are often necessary in practice.
+When clinicians encounter situations where the automated plan requires slight modifications, they would have to start the entire process from scratch.
+This lack of flexibility could lead to dissatisfaction and reluctance to adopt the framework, as dosimetrists may value the ability to fine-tune treatment plans.
+Therefore, despite its theoretical appeal, this approach may face significant resistance in clinical practice.
 
-AIME / ASTRO ideas do not allow further adjustment of dose by dosimetrists, it's likely that they dislike, feel frustrated not to be able to do the minor adjustment needed, and have to start from the beginning al over again, and in the end, they may not like that framework
-need to acknowledge that to automate the process, we don't necessarily need to do the exact same as a human, we can dynamite the workflow, in order to make it more suitable to be done via a machine / AI model.
+\paragraph{Fully Automated Deep Dose Based Scheme}
+The fully automated deep dose-based scheme represents a more ambitious approach, aiming at enabling full automation and human fine-tuned plan creation.
+The clinical implementation and acceptance of the target DVH framework by healthcare professionals remain to be established.
+Further evaluation and validation in real-world settings are necessary to ensure its effectiveness and integration into routine clinical practice.
 
-SFPM / SFRO ideas should be pursued.
-the models developed are rather small, and research oriented, one need to turn them into production high resolution models.
-it is important to allow the dosimetrists to further adjust the dose. We suspect that they will do so a lot at the beginning, and slowly by slowly adopt the standardize dose that was proposed by the model with adjustment getting smaller ans smaller, until they nearly always use the first inference fo the model (unless for cases where the model clearly diverged).
+\paragraph{From Research to Product}
+While our research has introduced several promising methodologies, there are inherent limitations.
+One key challenge is transitioning from prof of concept models to real-world clinical applications.
+Models developed in this research, particularly those based on deep learning, are designed with a research-oriented focus and are relatively small in scale.
+To realize the full potential of the target DVH deep dose frameworks, there is a clear need to transition from the current research-oriented models to high-resolution, clinically viable products.
+This transformation will require collaboration between researchers, software developers, and clinical practitioners to ensure the models are scalable, robust, and compatible with existing clinical infrastructures.
 
-=> this long term adoption is the one that was adopted for auto contouring, and we suspect it is the one the most likely to happen for auto dosimetry as well
+\paragraph{Future work}
+We posit that the target dose-volume histogram represents the most promising avenue for future research in this field.
+Prioritizing the development and refinement of target DVH-based approaches is strongly recommended for subsequent investigations by other researchers.
 
-in the long term, it is beneficial for patients as well, as this will standardize the treatments
-moreover, templates for dose generations of the most successful centers can be shared to others, ultimately making all center having access to best experts treatment quality, even in the most isolated clinics, without enough doctors to have one specialize in each rare anatomy.
+\section{Long-Term Impact on Radiotherapy}
+\paragraph{Treatments Standardization}
+The widespread adoption of automated dosimetry will benefit patients and clinicians in the long term.
+By standardizing treatment planning across centers, these systems will ensure that all patients, regardless of location, have access to high-quality treatments based on the best clinical practices.
+This standardization is particularly important for isolated clinics or those with limited specialist availability, where clinicians may lack experience dealing with rare or complex cases.
+Ultimately, this standardization will lead to more equitable access to advanced radiotherapy treatments, improving patient outcomes on a global scale.
 
-\section{Future Work}
-
-need to go from idea to actual product
-needs to get approval from doctors
+\paragraph{Conclusion}
+The research presented in this thesis has demonstrated the importance and feasibility of automating the dosimetry process in radiotherapy.
+While there are challenges in clinical adoption and model scalability, the future of radiotherapy will undoubtedly move toward more automated systems.
+Among the various frameworks explored, the deep dose approach provide the most promising pathway for effective automation, offering a blend of full automation with the flexibility for manual adjustment.
+This balance will likely encourage gradual adoption, leading to a new era in radiotherapy where treatment planning is faster, more precise, and universally accessible.

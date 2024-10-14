@@ -267,6 +267,14 @@ Both U-net 1 and U-net 2, which incorporated DVH information, outperformed the b
 
 As shown, the inclusion of DVH data significantly reduced the MAE in the predicted dose distributions.
 Unet-2, which used a cross-attention mechanism, showed the best overall performance, with a minor error reduction compared to U-net 1.
+
+\paragraph{Prescription Adaptability}
+The ability of the models to adapt to varying prescriptions was also evaluated.
+Similarly to the last section, U-net 0 struggled to predict the correct dose when the prescription varied from its training distribution.
+Regardless of the actual prescription, the model consistently predicted doses around $65\,\textit{Gy}$.
+In contrast, U-net 1 and U-net 2 adapted their dose predictions to the provided DVHs, making them more versatile in clinical scenarios where the prescription may differ across patients.
+There were only a few differences between the performances of U-net 1 and U-net 2.
+
 %Models incorporating DVH data (Unet-1 and Unet-2) achieved superior performance.
 %The MAE and mean DVH deviation were improved by Unet-1 and Unet-2, with a minor advantage for the Unet-2.
 %

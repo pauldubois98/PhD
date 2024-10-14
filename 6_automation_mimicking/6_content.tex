@@ -196,6 +196,10 @@ As in the last section, we used the same box $120 \times 180 \times 180\ \text{m
 The backbone architecture for all models in this study is a 3D-convolutional Unet, a commonly used CNN for image-to-image translation tasks, such as segmentation and dose prediction.
 Our U-net is of depth two, meaning it performs two levels of down-sampling and up-sampling.
 The U-net outputs a 3D dose prediction for each voxel within the patient's anatomy.
+
+\subparagraph{U-net 0 (Baseline)}
+The first model, U-net 0, serves as a baseline and does not incorporate target DVH information.
+It receives the CT scan, PTV, and OAR contours as input and predicts the 3D dose distribution purely from this spatial data.
 %We used a cohort of 168 patients (with split 80-10-10 for training-validation-test).
 %The models input CT scans, Principal Target Volume (PTV) contour, and Organs at Risk (OARs ) contours; and output a 3D dose.
 %We trained the models with a voxel-wise Mean Absolute Error (MAE) , combined with a DVH L1 loss.

@@ -200,6 +200,10 @@ The U-net outputs a 3D dose prediction for each voxel within the patient's anato
 \subparagraph{U-net 0 (Baseline)}
 The first model, U-net 0, serves as a baseline and does not incorporate target DVH information.
 It receives the CT scan, PTV, and OAR contours as input and predicts the 3D dose distribution purely from this spatial data.
+
+\subparagraph{U-net 1 (DVH with DAFT)}
+The second model, U-net 1, incorporates DVH data using the DAFT approach, like in the previous section.
+In this model, the target DVHs are provided as additional inputs, and the model is trained to predict 3D dose distributions that match these target DVHs.
 %We used a cohort of 168 patients (with split 80-10-10 for training-validation-test).
 %The models input CT scans, Principal Target Volume (PTV) contour, and Organs at Risk (OARs ) contours; and output a 3D dose.
 %We trained the models with a voxel-wise Mean Absolute Error (MAE) , combined with a DVH L1 loss.

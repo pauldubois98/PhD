@@ -274,18 +274,6 @@ Regardless of the actual prescription, the model consistently predicted doses ar
 In contrast, U-net 1 and U-net 2 adapted their dose predictions to the provided DVHs, making them more versatile in clinical scenarios where the prescription may differ across patients.
 There were only a few differences between the performances of U-net 1 and U-net 2.
 
-%Models incorporating DVH data (Unet-1 and Unet-2) achieved superior performance.
-%The MAE and mean DVH deviation were improved by Unet-1 and Unet-2, with a minor advantage for the Unet-2.
-%
-%%Performances of the three models
-%%Metric	Unet-0	Unet-1	Unet-2
-%%3D dose MAE	3.093 Gy	2.254 Gy	2.210 Gy
-%%Mean DVH deviation	1.942 Gy	1.051 Gy	0.930 Gy
-%
-%The dataset included patients prescribed for either 62 Gy or 78 Gy on the PTV.
-%The Unet-0 model was not able to adapt to varying prescriptions, consistently predicting a dose resembling a 65 Gy prescription.
-%Conversely, Unet-1 and Unet-2 adjusted their dose predictions suggesting that these models adapted their predictions to be conform with the provided DVHs.
-
 \subsection{Conclusions}
 %This study demonstrates the feasibility of incorporating DVH data into deep learning models for dose prediction.
 %The inclusion of DVHs resulted in improved dose prediction accuracy and enhanced model adaptability to varying prescriptions.

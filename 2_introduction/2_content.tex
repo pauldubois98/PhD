@@ -52,7 +52,7 @@ This function combines data from all volumes of interest as a weighted sum of pe
 The weighting coefficients reflect trade-offs between the target(s) and different OARs.
 However, this approach requires reoptimization if dosimetric preferences change during plan evaluation, making it time-consuming to find the optimal balance.
 To address this, multi-criteria optimization (MCO) was introduced, enabling the simultaneous generation of multiple "anchor" plans.
-Each anchor plan optimizes one OAR’s DVH criterion for maximal sparing without compromising tumor target dosimetry.
+Each anchor plan optimizes one OAR’s DVH criterion for maximal sparing without compromising tumor target dosimetry \cite{lahanas2003,thieke2007}.
 These plans form a hypersurface in the $N$-dimension space, where $N$ is the number of independent OAR dosimetric constraints.
 Referred to as the Pareto surface, this hypersurface contains the optimal plans following different dosimetric criteria.
 

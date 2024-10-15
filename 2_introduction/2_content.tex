@@ -60,36 +60,35 @@ The challenges associated with automating radiotherapy treatment planning remain
 This thesis addresses this critical issue by proposing advancements in key areas that may contribute to developing a fully automated treatment planning system.
 
 \section{Thesis overview}
-In this section, we provide a summary of the upcoming chapters, outlining the key areas of research and contributions made in this thesis.
+This section provides a comprehensive summary of the forthcoming chapters of this thesis.
 
-\subsection{FMO}
-Chapter 3 focuses on the optimization of computational methods in Fluence Map Optimization (FMO).
-Starting with strategies on how to discretize the problem.
-We then explore naive optimization methods, eventually building up to a version of the classic optimization FMO problem.
-We highlight the importance of medical constraint and their associated importance factors.
-Finally, we compare the efficiency of optimization algorithms for this task.
+\subsection{Fluence Map Optimization}
+Chapter 3 is dedicated to developing computational methods for Fluence Map Optimization (FMO).
+The chapter begins by assessing the discretization strategies.
+Naive approaches for optimization are explored, stepping up to a formalization of the classical FMO problem.
+A significant focus is placed on incorporating medical constraints and the corresponding importance factors associated with each constraint, which are critical in ensuring clinically viable treatment plans.
+The performance of various optimization algorithms is evaluated and compared, providing insights into their relative efficiencies in solving the FMO problem.
+This primary work was published in the form of an ArXiV article.
 
-\subsection{Semi-automation (via graph analysis)}
-In chapter 4, we study the relationship between treatment plans.
-We define a distance, and use it to cluster plans
-This plan clustering allows us to define a new semi-automatic treatment plan optimization framework.
-We demonstrate how graph-based methods can be leveraged to streamline the planning process, reducing manual intervention while maintaining high-quality treatment plans.
-This research was presented at the European Society for Radiotherapy and Oncology (ESTRO) conference in 2024.
+\subsection{Semi-automation}
+\subsubsection*{Using graph-based analysis}
+Chapter 4 explores the interrelationships between radiotherapy treatment plans by defining a distance metric.
+This distance is then used to cluster plans into meaningful groups.
+The clustering forms a basis for developing a semi-automated framework for treatment plan optimization.
+Leveraging graph-based methodologies, this approach reduces the need for manual intervention in the planning process while ensuring the generation of high-quality plans.
+The potential of this semi-automated framework to streamline clinical workflows was presented at the 2024 European Society for Radiotherapy and Oncology (ESTRO) conference.
 
-\subsection{Full-automation (RL + conventional)}
-Chapter 5: After explaining the failure of classical optimization approaches to fully automate the treatment planning process, this chapter explores full automation in treatment planning, combining Reinforcement Learning (RL) techniques with clinical knowledge and conventional optimization methods.
-Our work in this area has been disseminated through a journal article, as well as presentation at the Artificial Intelligence in Medicine (AIME) conference and a poster presentation at the American Society for Radiation Oncology (ASTRO) 2024 meeting.
+\subsection{Full-automation}
+\subsubsection*{With reinforcement learning and conventional treatment optimization techniques}
+Chapter 5 addresses the limitations of classical optimization techniques in fully automating the treatment planning process.
+This chapter introduces a novel framework that integrates reinforcement learning with conventional optimization.
+The reinforcement learning agent is driven by clinical expertise and can be specialized to center-specific guidelines.
+The findings from this work have been disseminated through a peer-reviewed journal article, a presentation at the Artificial Intelligence in Medicine (AIME) 2024 conference, and a poster presentation at the American Society for Radiation Oncology (ASTRO) 2024 meeting.
 
-\subsection{Hybrid-automation (target DVH deep dose + mimicking)}
-In our final research chapter (chapter 6), we introduce a hybrid approach to treatment plan automation.
-This work, presented at both the French Society of Medical Physics (SFPM) and the French Society for Radiation Oncology (SFRO), combines deep learning techniques for dose prediction based on target Dose-Volume Histograms (DVHs) and plan mimicking strategies.
-We demonstrate how this hybrid method leverages the strengths of both AI-driven and conventional planning approaches, potentially offering a balanced solution that can be more readily integrated into clinical practice.
-
-\subsection{Contributions}
-% articles
-% orals
-% posters
-% arxiv
-
-% lectures
-% tutorials
+\subsection{Hybrid-automation}
+\subsubsection*{Via target DVHs deep dose and dose mimicking technique}
+The final research chapter, Chapter 6, presents a hybrid approach to automating treatment planning.
+This approach combines deep learning for dose prediction with target Dose-Volume Histograms (DVHs) and plan-mimicking strategies.
+This methodology bridges the gap between fully automated AI-driven techniques and traditional planning methods, offering a more adaptable and clinically feasible solution.
+The hybrid model provides a mechanism for mimicking high-quality plans from experienced planners.
+This research has been presented at the French Society of Medical Physics (SFPM) and the French Society for Radiation Oncology (SFRO) 2024 meetings.

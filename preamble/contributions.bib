@@ -11,7 +11,7 @@
 	isbn = {978-3-031-66538-7}
 }
 
-@inproceedings{SFPM,
+@InProceedings{SFPM,
 	author = {Paul Dubois, Carlos Santos Garcia, Paul-Henry Cournède, Nikos Paragios, and
 	Pascal Fenoglietto},
 	title = {Dose-volume histograms guided deep dose predictions},
@@ -24,7 +24,7 @@
 	location = {France},
 }
 
-@inproceedings{SFRO,
+@InProceedings{SFRO,
 	author = {Paul Dubois, Nikos Paragios, Paul-Henry Cournède, Pascal Fenoglietto},
 	title = {Attention mechanism on dose-volume histograms for deep dose predictions},
 	year = {2024},
@@ -34,4 +34,26 @@
 	pages = {88–90},
 	numpages = {2},
 	location = {France},
+}
+
+@Article{ASTRO,
+	title = {Clinically-Dependent Fully Automatic Treatment Planning System via Reinforcement Learning},
+	journal = {International Journal of Radiation Oncology*Biology*Physics},
+	volume = {120},
+	number = {2, Supplement },
+	pages = {e122},
+	year = {2024},
+	note = {ASTRO 2024: 66th Annual Meeting},
+	issn = {0360-3016},
+	doi = {https://doi.org/10.1016/j.ijrobp.2024.07.2051},
+	url = {https://www.sciencedirect.com/science/article/pii/S0360301624028608},
+	author = {P.R.F. Dubois and P. Fenoglietto and P.H. Cournède and N. Paragyos},
+	abstract = {Purpose/Objective(s)
+	Although fully automated treatment planning system (TPS) has several advantages, such as the ability to treat more patients and optimize treatments, clinics have not adopted it because there is a wide variation of practices between them. Additionally, dosimetrists make complex compromises while manually optimizing with a TPS, which is too complex to be captured by a metric, or not computable in a reasonable time. Here, we propose a solution adaptable to each clinic’s practices: a reinforcement learning (RL) agent trained to mimic human dosimetrists’ optimization on a cohort of previously treated patients. We hypothesize that by training one agent for each clinic, we ensure that guidelines specific to each of them are followed.
+	Materials/Methods
+	RL agents adapt actions to situations where there are interactions with an environment. RL only needs a reward after performing an action. In the case of dose optimization, adjusting the weights of the constraints are the actions. The key is to find a way of rewarding the agent when making good decisions (actions) versus bad ones. Current RL methods in dosimetry struggle to mimic human-optimized plans. We propose a new reward system based on the dose distribution of past clinical cases, via calculating the DVHs differences between the agent dose, and the database dose. This would better guide the RL agent towards clinically-acceptable treatment plans. Most importantly, it also allows the optimization to fit each center’s internal standard practices and guidelines.
+	Results
+	We successfully trained agents to mimic the dose type of several clinics. We generated a cohort of 50 patients to train them and manually optimized the dose according to three guidelines. We then generated 20 other patients for testing purposes. The table shows the average difference between clinical doses and the ones optimized by our RL agents. Agents specializing in one type of guideline managed to mimic it, but performed poorly on others. Thus, for a clinically helpful, fully-automated TPS, one RL agent should be trained for each clinical guideline.
+	Conclusion
+	By leveraging past clinical dose data, we have demonstrated the feasibility of training RL agents to mimic human-optimized radiotherapy plans following specific clinical guidelines. The results show that agents trained on specific clinic guidelines perform better in mimicking those guidelines than a single, general-purpose agent. This finding supports our hypothesis that a fully automatic TPS tailored to each clinic’s practices is achievable. Future work could involve expanding the patient cohort to non-phantom cases, including modalities other than prostate cases, and real-world testing with human oversight to ensure the safety and efficacy of the RL-based TPS. Our research could pave the way for developing clinically-dependent automated TPS.}
 }

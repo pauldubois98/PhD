@@ -60,19 +60,30 @@ The challenges associated with automating radiotherapy treatment planning remain
 This thesis addresses this critical issue by proposing advancements in key areas that may contribute to developing a fully automated treatment planning system.
 
 \section{Thesis overview}
-% we provide a summary of the next chapters
+In this section, we provide a summary of the upcoming chapters, outlining the key areas of research and contributions made in this thesis.
 
 \subsection{FMO}
-% contrib: optim comp
+Chapter 3 focuses on the optimization of computational methods in Fluence Map Optimization (FMO).
+Starting with strategies on how to discretize the problem.
+We then explore naive optimization methods, eventually building up to a version of the classic optimization FMO problem.
+We highlight the importance of medical constraint and their associated importance factors.
+Finally, we compare the efficiency of optimization algorithms for this task.
 
 \subsection{Semi-automation (via graph analysis)}
-% ESTRO
+In chapter 4, we study the relationship between treatment plans.
+We define a distance, and use it to cluster plans
+This plan clustering allows us to define a new semi-automatic treatment plan optimization framework.
+We demonstrate how graph-based methods can be leveraged to streamline the planning process, reducing manual intervention while maintaining high-quality treatment plans.
+This research was presented at the European Society for Radiotherapy and Oncology (ESTRO) conference in 2024.
 
-\subsection{Full-automation (RT conventional)}
-% Article + AIME + ASTRO
+\subsection{Full-automation (RL + conventional)}
+Chapter 5: After explaining the failure of classical optimization approaches to fully automate the treatment planning process, this chapter explores full automation in treatment planning, combining Reinforcement Learning (RL) techniques with clinical knowledge and conventional optimization methods.
+Our work in this area has been disseminated through a journal article, as well as presentation at the Artificial Intelligence in Medicine (AIME) conference and a poster presentation at the American Society for Radiation Oncology (ASTRO) 2024 meeting.
 
-\subsection{Hybrid-automation (target DVH)}
-% SFPM + SFRO
+\subsection{Hybrid-automation (target DVH deep dose + mimicking)}
+In our final research chapter (chapter 6), we introduce a hybrid approach to treatment plan automation.
+This work, presented at both the French Society of Medical Physics (SFPM) and the French Society for Radiation Oncology (SFRO), combines deep learning techniques for dose prediction based on target Dose-Volume Histograms (DVHs) and plan mimicking strategies.
+We demonstrate how this hybrid method leverages the strengths of both AI-driven and conventional planning approaches, potentially offering a balanced solution that can be more readily integrated into clinical practice.
 
 \subsection{Contributions}
 % articles

@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{book}
+
+\usepackage{../packages}
+\input{../setup.tex}
+
+\title{Preamble}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\input{preamble.tex}
+	\input{_front_page.tex}
+	\input{_abstract.tex}
+	
+	\include{acknowledgments.tex}
+	\include{contributions.tex}
+	\include{listofacronyms.tex}
+	
+	\bibliographystyle{alpha}
+	\bibliography{contributions.bib}
+	
+\end{document}

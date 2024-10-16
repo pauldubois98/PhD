@@ -38,9 +38,9 @@ These challenges include the creation of robust optimization algorithms, integra
 
 \section{State of the Art}
 \paragraph{Automated rule implementation and reasoning}
-An automated computer program with predefined rules and "if-then"\footnote{Also known as "expert" systems.} structures is a solution for implementing simple clinical guidelines.
+An automated computer program with predefined rules and "if-then" \footnote{Also known as "expert" systems.} structures is a solution for implementing simple clinical guidelines.
 In this context, the treatment planning system directly interprets patient anatomy and dosimetric requirements, simulating the decision-making process traditionally employed in manual treatment planning \cite{Rossille2005}.
-By adhering to a structured logical framework derived from human-defined protocols, automated reasoning in radiotherapy (ARIR) can significantly reduce the need for manual intervention, particularly for repetitive tasks.
+By adhering to a structured, logical framework derived from human-defined protocols, automated reasoning in radiotherapy (ARIR) can significantly reduce the need for manual intervention, particularly for repetitive tasks.
 
 Some modern TPS vendors have incorporated ARIR solutions, offering scripting capabilities that enable users to customize the planning process.
 For instance, the Varian Eclipse \cite{eclipse} system includes an application programming interface (API) that facilitates user-defined scripting functions.
@@ -54,15 +54,15 @@ Previous studies have reported notable dosimetric improvements in treatment plan
 
 \paragraph{Conventional techniques}
 Memorial Sloan Kettering Cancer Center developed advanced optimization tools, including hierarchical constrained optimization, convex approximations, and Lagrangian methods.
-These tools were applied to address the complexity and enhance the speed, quality, and accessibility of a standardized, yet personalized care \cite{Zarepisheh2022}.
+These tools addressed the complexity and enhanced the speed, quality, and accessibility of standardized yet personalized care \cite{Zarepisheh2022}.
 
 \paragraph{Multi Criteria Optimization}
 In DVH-based inverse optimization used by most commercial TPS, a cost function must be defined to solve the minimization problem.
 This function combines data from all volumes of interest as a weighted sum of penalties from each DVH constraint.
-The weighting coefficients reflect trade-offs between the target(s) and different OARs.
-However, this approach requires reoptimization if dosimetric preferences change during plan evaluation, making it time-consuming to find the optimal balance.
-To address this, multi-criteria optimization (MCO) was introduced, enabling the simultaneous generation of multiple "anchor" plans.
-Each anchor plan optimizes one OAR’s DVH criterion for maximal sparing without compromising tumor target dosimetry \cite{lahanas2003,thieke2007}.
+The weighting coefficients reflect tradeoffs between the target(s) and different OARs.
+However, this approach requires re-optimization if dosimetric preferences change during plan evaluation, making it time-consuming to find the optimal balance.
+Multi-criteria optimization (MCO) was introduced to address this, enabling the simultaneous generation of multiple "anchor" plans.
+Each anchor plan optimizes one OAR's DVH criterion for maximal sparing without compromising tumor target dosimetry \cite{lahanas2003,thieke2007}.
 These plans form a hypersurface in the $N$-dimension space, where $N$ is the number of independent OAR dosimetric constraints.
 Referred to as the Pareto surface, this hypersurface contains the optimal plans following different dosimetric criteria.
 
@@ -73,8 +73,8 @@ Breedveld et al. introduced this approach in their work on IMRT Cycle (iCycle) \
 
 \subparagraph{Pareto surface narrowing}
 In theory, MCO requires generating numerous plans to construct the Pareto surface, which can be time-intensive, even with automation.
-However, Craft and Bortfeld analyzed head and neck IMRT plans and demonstrated that only a small number of plans are needed to form a Pareto database \cite{craft2008}.
-Using objective correlation matrices and principal component analysis (PCA) of beamlet solutions, they showed that if $N$ independent dosimetric criteria are defined, $N + 1$ plans are sufficient to construct a feasible Pareto surface.
+However, Craft and Bortfeld analyzed head and neck IMRT plans and demonstrated that only a few plans are needed to form a Pareto database \cite{craft2008}.
+Using objective correlation matrices and principal component analysis (PCA) of beamlet solutions, Craft and Bortfeld showed that if $N$ independent dosimetric criteria are defined, $N + 1$ plans are sufficient to construct a feasible Pareto surface.
 This insight facilitated the practical clinical use of MCO, first implemented in the RayStation TPS \cite{RayStationTPS}.
 
 \subparagraph{Pareto surface exploration}

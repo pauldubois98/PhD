@@ -702,6 +702,22 @@
 	publisher={Elsevier}
 }
 
+% iCycle
+@article{iCycle,
+	author = {Breedveld, Sebastiaan and Storchi, Pascal R. M. and Voet, Peter W. J. and Heijmen, Ben J. M.},
+	title = {iCycle: Integrated, multicriterial beam angle, and profile optimization for generation of coplanar and noncoplanar IMRT plans},
+	journal = {Medical Physics},
+	volume = {39},
+	number = {2},
+	pages = {951-963},
+	keywords = {Optimization, Probability theory, Numerical approximation and analysis, Therapeutic applications, including brachytherapy, cancer, iterative methods, liver, optimisation, probability, radiation therapy, optimization, intensity modulation, treatment planning, Radiation therapy, Intensity modulated radiation therapy, Liver, Cancer, Optimization, Dosimetry, Radiation therapy, Tissues, Anatomy, Lagrangian mechanics, Computer simulation},
+	doi = {https://doi.org/10.1118/1.3676689},
+	url = {https://aapm.onlinelibrary.wiley.com/doi/abs/10.1118/1.3676689},
+	eprint = {https://aapm.onlinelibrary.wiley.com/doi/pdf/10.1118/1.3676689},
+	abstract = {Purpose: To introduce iCycle, a novel algorithm for integrated, multicriterial optimization of beam angles, and intensity modulated radiotherapy (IMRT) profiles. Methods: A multicriterial plan optimization with iCycle is based on a prescription calledwish-list, containing hard constraints and objectives with ascribed priorities. Priorities are ordinal parameters used for relative importance ranking of the objectives. The higher an objective priority is, the higher the probability that the corresponding objective will be met. Beam directions are selected from an input set of candidate directions. Input sets can be restricted, e.g., to allow only generation of coplanar plans, or to avoid collisions between patient/couch and the gantry in a noncoplanar setup. Obtaining clinically feasible calculation times was an important design criterium for development of iCycle. This could be realized by sequentially adding beams to the treatment plan in an iterative procedure. Each iteration loop starts with selection of the optimal direction to be added. Then, a Pareto-optimal IMRT plan is generated for the (fixed) beam setup that includes all so far selected directions, using a previously published algorithm for multicriterial optimization of fluence profiles for a fixed beam arrangement Breedveld et al. [Phys. Med. Biol. 54, 7199–7209 (2009)]. To select the next direction, each not yet selected candidate direction is temporarily added to the plan and an optimization problem, derived from the Lagrangian obtained from the just performed optimization for establishing the Pareto-optimal plan, is solved. For each patient, a single one-beam, two-beam, three-beam, etc. Pareto-optimal plan is generated until addition of beams does no longer result in significant plan quality improvement. Plan generation with iCycle is fully automated. Results: Performance and characteristics of iCycle are demonstrated by generating plans for a maxillary sinus case, a cervical cancer patient, and a liver patient treated with SBRT. Plans generated with beam angle optimization did better meet the clinical goals than equiangular or manually selected configurations. For the maxillary sinus and liver cases, significant improvements for noncoplanar setups were seen. The cervix case showed that also in IMRT with coplanar setups, beam angle optimization with iCycle may improve plan quality. Computation times for coplanar plans were around 1–2 h and for noncoplanar plans 4–7 h, depending on the number of beams and the complexity of the site. Conclusions: Integrated beam angle and profile optimization with iCycle may result in significant improvements in treatment plan quality. Due to automation, the plan generation workload is minimal. Clinical application has started.},
+	year = {2012}
+}
+
 % Pareto
 @article{Cilla2018,
 	title = {Optimal beam margins in linac-based VMAT stereotactic ablative body radiotherapy: a Pareto front analysis for liver metastases},

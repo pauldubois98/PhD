@@ -259,7 +259,7 @@ The output of the attention mechanism is re-injected into the U-net during the d
 \end{figure}
 
 \paragraph{Loss Function and Optimization}
-The models were trained using a loss function that combines voxel-wise Mean Absolute Error (MAE) with an L1 loss on the Dose-Volume Histogram (DVH), designed to penalize deviations between the predicted and target DVHs.
+The models were trained using a loss function that combines voxel-wise MAE with an L1 loss on the DVH, designed to penalize deviations between the predicted and target DVHs.
 Incorporating the L1 loss on DVH significantly improved the model’s convergence.
 The total loss function is expressed as:
 $$
@@ -275,8 +275,8 @@ Using the validation loss criterion, early stopping was applied to prevent overf
 \subsection{Results}
 \paragraph{Evaluation Metrics}  
 The performance of the models was assessed using two primary metrics.
-The first metric was the 3D Dose Mean Absolute Error (MAE), which measures the voxel-wise MAE between the predicted dose distributions and the corresponding ground truth values.
-The second metric was the Dose-Volume Histogram (DVH) deviation, calculated as the mean L1 deviation between the predicted and target DVHs for both the Principal Target Volume (PTV) and Organs at Risk (OARs).
+The first metric was the 3D Dose MAE, which measures the voxel-wise MAE between the predicted dose distributions and the corresponding ground truth values.
+The second metric was the DVH deviation, calculated as the mean L1 deviation between the predicted and target DVHs for both the Principal Target Volume (PTV) and Organs at Risk (OARs).
 These metrics provide a comprehensive evaluation of the models' accuracy in predicting dose distributions and adherence to clinical DVH constraints.
 
 \paragraph{Models Performances}

@@ -116,7 +116,7 @@ Here, $\mathds{1}_{\text{PTV}}$ is the indicator vector for PTV that is equal to
 
 To solve this problem, we perform a least squares minimization to find the optimal fluence map $\mathbf{b}$, where the matrix-vector multiplication $\textbf{L}\mathbf{b}$ yields the dose distribution $\mathbf{d}$ across the entire patient volume.
 
-However, this method is often inadequate in practice, as it attempts to solve the system based solely on the prescribed dose within the PTV, while neglecting any constraints on doses to the organs at risk (OARs).
+However, this method is often inadequate in practice, as it attempts to solve the system based solely on the prescribed dose within the PTV, while neglecting any constraints on doses to the organs at risk.
 Since no constraints are imposed on the OAR doses, this naive optimization can result in high doses to critical structures, leading to unacceptable treatment plans.
 As a result, more sophisticated optimization methods that incorporate dose constraints on OARs and account for dose-volume constraints are necessary to achieve clinically viable treatment plans.
 % add 3D dose & DVHs of dose obtained using this technique

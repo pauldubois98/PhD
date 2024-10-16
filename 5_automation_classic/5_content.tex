@@ -55,7 +55,7 @@ In the context of radiotherapy treatment planning, several metrics have been pro
 This approach offers a systematic way to improve treatment plans by optimizing the chosen metric.
 
 However, defining the correct metric of interest is challenging, as no single metric, nor a combination of metrics, has consistently proven to satisfy radio-oncologists' requirements.
-In practice, the most reliable method for assessing the quality of a treatment plan remains the manual evaluation of dose-volume histograms (DVHs), which provide a detailed representation of the dose distribution across both the target and the surrounding organs at risk.
+In practice, the most reliable method for assessing the quality of a treatment plan remains the manual evaluation of DVHs, which provide a detailed representation of the dose distribution across both the target and the surrounding organs at risk.
 
 \paragraph{Pareto Exploration}
 Researchers have developed algorithms to explore the Pareto surface of dose distributions, yet no consensus has been reached on selecting an optimal dose from this surface.
@@ -95,7 +95,7 @@ Moreover, dosimetrists can guide the TPS towards an acceptable plan but usually 
 The difficulty in explaining why certain decisions are taken suggests using deep RL over expert-based methods.
 This setup is similar to image recognition, where one can say a picture represents a car or a boat but struggles to explain why.
 
-The study’s primary hypothesis is that all the information needed to decide how to change the weights in the objective function relies on the Dose Volume Histograms (DVHs).
+The study’s primary hypothesis is that all the information needed to decide how to change the weights in the objective function relies on the DVHs.
 The fact that dosimetrists almost solely use DVH plots supports our hypothesis.
 In order to learn the actions of dosimetrists who use a TPS to optimize doses, we leverage deep learning.
 We train an agent that takes the DVHs as the input of the current optimized dose and predicts the evaluation of possible weight changes.
@@ -365,7 +365,7 @@ They fail to consider the wide variation in practices across clinics \cite{Kraye
 Manual planning by dosimetrists remains how most treatment plans are calculated.
 
 There is significant interest in developing a fully automatic TPS that can mimic human decision-making processes while remaining adaptable to different clinics' specific practices.
-Reinforcement learning (RL) has emerged as a promising approach in automated planning because of its ability to adapt to complex environments and learn from interactions with them.
+Reinforcement learning has emerged as a promising approach in automated planning because of its ability to adapt to complex environments and learn from interactions with them.
 In radiotherapy, RL can theoretically adjust the weight of constraints in optimization to achieve clinically acceptable plans.
 However, current RL systems have struggled to replicate the clinical guideline adaptability of human dosimetrists.
 

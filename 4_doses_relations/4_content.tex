@@ -147,7 +147,7 @@ This metric has the distinct advantage of capturing both local and global variat
 However, it can be computationally demanding, particularly when dealing with DVHs of large anatomical structures.
 
 \subparagraph{Kolmogorov-Smirnov Distance}
-Another distance metric commonly used to compare dose-volume histogram (DVH) curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.
+Another distance metric commonly used to compare DVH curves is the Kolmogorov-Smirnov (KS) distance \cite{Stephens1974}.
 The KS distance measures the maximum vertical separation between two curves and is particularly well-suited for comparing non-parametric distributions, such as DVH curves.
 
 Mathematically, let the two DVH curves be represented by functions $f$ and $g$, mapping dose levels to volume ratios. The KS distance, $d_{KS}$, is then defined as:
@@ -257,7 +257,7 @@ Thus, the only expected differences between these two distance metrics in our an
 
 \subsubsection{Bounding of Total Variation and Voxel Distance}
 The Voxel Distance can bound the Total Variation distance.
-However, the reverse is impossible, as illustrated by the example in the introduction, where two doses exhibit nearly identical dose-volume histograms (DVHs) but significantly different voxel-wise distances.
+However, the reverse is impossible, as illustrated by the example in the introduction, where two doses exhibit nearly identical dose-volume histograms but significantly different voxel-wise distances.
 
 In the following, we provide a bound for the Total Variation distance of a single DVH, which can be generalized to the sum of the Total Variation distances across all DVHs.
 
@@ -433,8 +433,8 @@ Modularity is a metric used to assess the quality of a graph partition by quanti
 For our analysis, we utilized the implementation of Louvain's method available in the Python library NetworkX \cite{NetworkX}, which facilitated partitioning the dose similarity graph into meaningful clusters.
 
 \paragraph{Evaluating Communities Split}
-The clustering quality was evaluated using dose-volume histograms (DVHs) derived from the different doses.
-We computed the mean and standard deviation of the DVH curves for each cluster and the entire dataset.
+The clustering quality was evaluated using DVHs derived from the different doses.
+We computed the mean and standard deviation of the DVHs curves for each cluster and the entire dataset.
 
 We analyzed the relative volume doses across four distinct anatomical structures.
 One hundred one dose values were sampled for each structure, corresponding to volume percentages ranging from $0\,\%$ to $100\,\%$ in equal $1\,\%$ intervals.
@@ -481,7 +481,7 @@ In order to obtain a more precise understanding of the edge weights in the netwo
 \end{figure}
 
 \subparagraph{DVH Plot}
-Figure \ref{fig:dvh} illustrates the Dose-Volume Histograms (DVHs), with the colors of the plots corresponding to the communities identified in the network analysis.
+Figure \ref{fig:dvh} illustrates the DVHs, with the colors of the plots corresponding to the communities identified in the network analysis.
 To ensure clarity and prevent confusion, each structure is presented on a separate plot.
 Notably, our observations align with expectations, as doses assigned to nodes within the same community (indicated by the same color) exhibit nearly overlapping DVHs.
 \begin{figure}
@@ -491,7 +491,7 @@ Notably, our observations align with expectations, as doses assigned to nodes wi
 	\label{fig:dvh}
 \end{figure}
 
-The visualization of dose-volume histograms (DVHs) offers critical insights into the distribution of radiation doses across different anatomical structures.
+The visualization of DVHs offers critical insights into the distribution of radiation doses across different anatomical structures.
 The strong alignment between observed dose patterns and community assignments highlights the potential of network analysis to reveal significant patterns within radiation therapy data.
 By mapping the colors of the DVH plots to the communities identified in the network, we gain a deeper understanding of the relationship between dose assignments and structural characteristics.
 

@@ -426,7 +426,7 @@ Typically, three molds were required for the three irradiation angles.
 Modern technology avoids single-use molds using motorized blockers to stop the rays and dynamically modulate the radiation beam.
 
 \subsection[MLC-LINAC]{Multi-Leaf Collimator - Linear Accelerators}
-Multi-Leaf Collimator (MLC) technology combined with Linear Accelerators (LINAC) was a revolution in the radiotherapy world \cite{Bakiu2013} \cite{Xu2017}.
+\textbf{M}ulti-\textbf{l}eaf \textbf{c}ollimator (MLC) technology combined with \textbf{Lin}ear \textbf{Ac}celerators (LINAC) was a revolution in the radiotherapy world \cite{Bakiu2013} \cite{Xu2017}.
 They are capable of turning around the patient to deliver irradiation from multiple angles (figure \ref{fig:MLC_sketch}).
 Moreover, an array of motorized leaf pairs can shape the radiation beam with high precision (figure \ref{fig:MLC_sketch_bis}).
 \begin{figure}
@@ -533,9 +533,9 @@ While demonstrated with IMRT Sliding Window, the techniques developed in this ma
 Dosimetry aims to design a treatment plan (i.e., machine instructions) that delivers the best possible dose for the patient.
 The "best" dose is difficult to define, so doctors formulate high-level clinical dose requirements.
 These requirements are abstract, so transitioning to machine instructions requires a series of sub-steps.
-For Intensity-Modulated Radiation Therapy (IMRT), three main steps are typically followed: Beam Orientation Optimization (BOO), Fluence Map Optimization (FMO), and Leaf Sequencing (LS).
+For IMRT, three main steps are typically followed: Beam Orientation Optimization (BOO), Fluence Map Optimization (FMO), and Leaf Sequencing (LS).
 \subsection[BOO]{Beams Orientation Optimization}
-Beam Orientation Optimization (BOO) is the initial dosimetry step.
+Beam orientation optimization (BOO) is the initial dosimetry step.
 This step determines the optimal number of radiation beams and their respective angles.
 The beams' orientation significantly impacts the dose distribution within the patient: beams close to each other tend to have similar effects on the body.
 In contrast, far-apart beams tend to create doses impacting different tissues in the body.
@@ -549,7 +549,7 @@ This approach avoids beams positioned at precisely 180° from each other, with s
 Therefore, this manuscript will assume the use of an odd number of equispaced beams and no further BOO.
 
 \subsection[FMO]{Fluence Map Optimization}
-Fluence Map Optimization (FMO) is the critical step in the IMRT planning process.
+Fluence map optimization (FMO) is the critical step in the IMRT planning process.
 FMO aims to create fluence maps, i.e., a two-dimensional radiation intensity distribution on each beam's cross-sectional area.
 The fluence maps should be optimized to shape the dose distribution according to the treatment plan's objectives.
 At this stage, the physical constraints of the MLC still need to be considered; the primary focus is on achieving the desired dose distribution within the patient.
@@ -557,7 +557,7 @@ The output of FMO is a set of idealized fluence maps for each beam.
 
 \subsection[LS]{Leaf Sequencing}
 Leaf Sequencing (LS) determines the specific positions and movements of the MLC leaves.
-The objective is to ensure that the delivered fluence map closely approximates the ideal fluence map generated during the Fluence Map Optimization (FMO) step.
+The objective is to ensure that the delivered fluence map closely approximates the ideal fluence map generated during the FMO step.
 This approximation must be attained while considering the physical limitations of the treatment machine, such as irradiation power, leaf speed, or collimator speed, along with a soft constraint on the total treatment duration.
 
 \paragraph[S\&S]{Step and Shoot}
@@ -654,7 +654,7 @@ A playground to calculate the leaf's motion for an arbitrary fluence is availabl
 The sliding window technique is used most of the time, as delivery time is much (about twice) faster \cite{Ning2003}.
 This manuscript assumes the use of this technique, focusing on optimizing the fluence distribution.
 
-\subsection[DAO]{(Optional) Direct Aperture Optimization}
+\subsection[DAO]{\textit{(Optional)} Direct Aperture Optimization}
 Direct Aperture Optimization is mainly used in VMAT and occasionally employed to enhance IMRT plans.
 Unlike traditional approaches, which separate fluence map optimization from leaf sequencing, DAO directly optimizes the motion of the MLC leaves.
 
@@ -678,7 +678,7 @@ However, as this manuscript is not focused on leaf sequencing, it assumes that n
 Throughout the dosimetry process, several approximations are employed.
 First, the assumption is that each bixel (beam pixel) operates independently.
 This approximation fails to account for interactions between adjacent bixels.
-Additionally, during FMO, ideal fluence maps are generated without considering the physical limitations of the treatment machine, such as the width of the multi-leaf collimator (MLC) leaves (often 5mm).
+Additionally, during FMO, ideal fluence maps are generated without considering the physical limitations of the treatment machine, such as the width of the multi-leaf collimator leaves (often 5mm).
 Furthermore, the effects of beam penumbra and the scattering of radiation within the patient's body are often simplified or neglected in the FMO.
 Given these approximations, re-simulation of the treatment plan is critical to verify that the machine instructions deliver a dose distribution closely aligned with the expected outcomes.
 % https://oncologymedicalphysics.com/dose-calculation-algorithms/

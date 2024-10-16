@@ -57,7 +57,7 @@ Previous studies have reported notable dosimetric improvements in treatment plan
 Memorial Sloan Kettering Cancer Center developed advanced optimization tools, including hierarchical constrained optimization, convex approximations, and Lagrangian methods.
 These tools addressed the complexity and enhanced the speed, quality, and accessibility of standardized yet personalized care \cite{Zarepisheh2022}.
 
-\paragraph{Multi Criteria Optimization}
+\paragraph[MCO]{Multi Criteria Optimization}
 In DVH-based inverse optimization used by most commercial TPS, a cost function must be defined to solve the minimization problem.
 This function combines data from all volumes of interest as a weighted sum of penalties from each DVH constraint.
 The weighting coefficients reflect tradeoffs between the target(s) and different OARs.
@@ -94,7 +94,7 @@ Most patients are treated using VMAT techniques, with most treatment plans being
 However, the dose calculation engine is recognized as an area with potential for improvement.
 
 \paragraph{Eclipse Rapidplan}
-RapidPlan (Varian) is a knowledge-based planning (KBP) tool that predicts dose-volume histograms (DVH) based on patient anatomy and treatment parameters, using principal component analysis to model correlations between dosimetric and geometric features.
+RapidPlan (Varian) is a knowledge-based planning (KBP) tool that predicts dose-volume histograms (DVHs) based on patient anatomy and treatment parameters, using principal component analysis to model correlations between dosimetric and geometric features.
 RapidPlan has been used at Institut du Cancer Avignon-Provence, with 83\% of plans meeting clinical criteria in a single optimization \cite{Meyer2021}.
 However, fine-tuning objectives for optimal trade-offs can be time-consuming, and the model's performance is limited by the variability of the training database.
 
@@ -119,7 +119,7 @@ This thesis addresses this critical issue by proposing advancements in key areas
 This section provides a comprehensive summary of the forthcoming chapters of this thesis.
 
 \subsection{Fluence Map Optimization}
-Chapter 3 is dedicated to developing computational methods for Fluence Map Optimization (FMO).
+Chapter 3 is dedicated to developing computational methods for FMO.
 The chapter begins by assessing the discretization strategies.
 Naive approaches for optimization are explored, stepping up to a formalization of the classical FMO problem.
 A significant focus is placed on incorporating medical constraints and the corresponding importance factors associated with each constraint, which are critical in ensuring clinically viable treatment plans.
@@ -144,7 +144,7 @@ The findings from this work have been disseminated through a peer-reviewed journ
 \subsection{Hybrid-automation}
 \subsubsection*{Via target DVHs deep dose and dose mimicking technique}
 The final research chapter, Chapter 6, presents a hybrid approach to automating treatment planning.
-This approach combines deep learning for dose prediction with target Dose-Volume Histograms (DVHs) and plan-mimicking strategies.
+This approach combines deep learning for dose prediction with target DVHs and plan-mimicking strategies.
 This methodology bridges the gap between fully automated AI-driven techniques and traditional planning methods, offering a more adaptable and clinically feasible solution.
 The hybrid model provides a mechanism for mimicking high-quality plans from experienced planners.
 This research has been presented at the French Society of Medical Physics (SFPM) and the French Society for Radiation Oncology (SFRO) 2024 meetings.

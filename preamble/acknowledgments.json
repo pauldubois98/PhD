@@ -58,7 +58,10 @@
   },
   "4 - MICS": {},
   "5 - Other PhD candidates": {},
-  "6 - Other science friends": {},
+  "6 - Other science friends": {
+    "*": "I've been fortunate to have friends outside academia whose insights, support, and contributions have enriched both this manuscript and my understanding of its broader impact.",
+
+  },
   "7 - Family": {
     "*": "Despite already having several doctors in our family tree, I somehow found myself trying to add another branch to this academic legacy.\nThis journey would not have been possible without the unwavering support of my family, who have been my foundation throughout this adventure.",
     "1 - grand parents": "To my grandparents (Jean-Bernard, Marie-Paule, Maxime, Maguy), whose pride in their grandchildren's achievements has always been a source of motivation.",

@@ -1,5 +1,7 @@
 {
-  "1 - Intro": {},
+  "1 - Intro": {
+    "*": "\\chapter*{Acknowledgments}\nDuring those three years, I often felt alone, but I eventually realized that I could not name people who supported me, not because there were too few, but because there were so many.\nThis section is dedicated to all those who directly or indirectly contributed to this manuscript."
+  },
   "2 - PhD directors": {},
   "3 - TheraPanacea": {},
   "4 - MICS": {},

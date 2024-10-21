@@ -57,7 +57,10 @@
     "Vincent Luc": "To Vincent Luc, for making SFPM conference a valuable experience."
   },
   "4 - MICS": {},
-  "5 - Other PhD candidates": {},
+  "5 - Other PhD candidates": {
+    "*": "Beyond the walls of MICS and Therapanacea, I've been fortunate to share this doctoral journey with fellow PhD candidates and friends.\nI would like to express my gratitude to the following individuals for their friendship, support, and challenges:",
+
+  },
   "6 - Other science friends": {
     "*": "I've been fortunate to have friends outside academia whose insights, support, and contributions have enriched both this manuscript and my understanding of its broader impact.",
 

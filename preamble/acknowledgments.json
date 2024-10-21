@@ -8,7 +8,10 @@
     "Pascal Fenoglietto": "To Pascal Fenoglietto, your guidance has been indispensable.\nYour thoughtful advice and attention to detail have steered me through the complexities of this work, and I sincerely appreciate your dedication to my progress.",
     "Paul-Henry Cournède": "To Paul-Henry Cournède, you have been more than a supervisor; you are a model of excellence in research and leadership.\nI am immensely grateful for inspiring me to reach new heights."
   },
-  "3 - TheraPanacea": {},
+  "3 - TheraPanacea": {
+    "*": "I would like to thank the TheraPanacea team, these numerous individuals who have contributed to my PhD journey in various ways:",
+    
+  },
   "4 - MICS": {},
   "5 - Other PhD candidates": {},
   "6 - Other science friends": {},

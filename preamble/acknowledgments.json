@@ -56,7 +56,10 @@
     "Thaís Roque": "To Thaís Roque, for bringing a bit of Oxford experience to TheraPanacea.",
     "Vincent Luc": "To Vincent Luc, for making SFPM conference a valuable experience."
   },
-  "4 - MICS": {},
+  "4 - MICS": {
+    "*": "I would like to extend my heartfelt gratitude to my colleagues and friends from the MICS laboratory, whose presence and support have enriched my PhD journey in countless ways:",
+
+  },
   "5 - Other PhD candidates": {
     "*": "Beyond the walls of MICS and Therapanacea, I've been fortunate to share this doctoral journey with fellow PhD candidates and friends.\nI would like to express my gratitude to the following individuals for their friendship, support, and challenges:",
     "Aiden Manley": "To Aiden Manley, for being not just a flatmate but a true friend, making our shared living space a home during this academic journey.",

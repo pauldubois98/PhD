@@ -94,7 +94,8 @@ To measure how different two DVH curves, we can imagine several techniques:
 We evaluated all the aforementioned distance metrics and propose to retain only the one that yields the most clinically meaningful results.
 
 \subparagraph{Fréchet Distance}
-DVH (Dose-Volume Histogram) curves can be interpreted as lines in R2R2 \footnote{In the case of voxel-wise dose approximations, they are represented as poly-lines in R2R2.}.
+DVH (Dose-Volume Histogram) curves can be interpreted as lines in $\R^2$
+\footnote{In the case of voxel-wise dose approximations, they are represented as poly-lines in R2R2.}.
 In this context, the Fréchet distance is a well-known metric for assessing the similarity between two curves, particularly useful for comparing poly-lines \cite{Efrat2002}.
 It measures the minimum distance a particle would travel when simultaneously traversing both curves.
 In this study, we apply the Fréchet distance to compare the DVH curves of two radiation dose distributions.

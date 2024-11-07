@@ -3,7 +3,7 @@
 
 \section{Discretization}
 The optimization process starts with transforming the continuous nature of both the radiation field and the human body into discrete elements.
-This transformation enables computation with modern computers.
+This transformation enables calculations with modern computers.
 
 \subsection[Bixels]{Fluence Map Discretization: Bixels}
 
@@ -84,7 +84,7 @@ This selective approach reduces unnecessary computation.
 The Dose-Influence Matrix (or DI-Matrix) links the discretized fluence map (the bixels values) and the discretized dose distribution within the patient (the dose on each voxel).
 This matrix defines how the radiation from each individual bixel influences the dose delivered to every voxel in the patient's body.
 
-We start by converting the 2D fluence map, composed of individual bixel values, into a column vector $b$.
+We start by converting the 2D fluence map, composed of individual bixel values, into a column vector $\textbf{b}$.
 Similarly, we represent dose distribution in the patient's 3D space as a vector $\mathbf{d}$, where each entry corresponds to the dose in a specific voxel.
 The DI-Matrix $\textbf{L}$ governs the relationship between these vectors $\mathbf{b}$ and $\mathbf{d}$ via the matrix-vector multiplication $\mathbf{d} = \textbf{L}\mathbf{b}$ \footnote{In practice, we compute $\textbf{d} = \textbf{L}\abs{\textbf{b}}$, where $\abs{\textbf{b}}$ is absolute value of $\textbf{b}$ element-wise to ensure positive bixel values.}.
 This mathematical operation computes the total dose at each voxel by summing the contributions from all active bixels (here, we assume that the effect of bixels is linear).
@@ -154,27 +154,27 @@ In contrast, parallel organs (figure \ref{fig:parallel_organ}), such as the lung
 	\label{fig:serial_parallel_organ}	
 \end{figure}
 
-We define two DVH value measures, $V_X$ and $D_{X\%}$, for a structure $S$.
-For a given dose $d: \R^3 \to \R^+$, $V_X$ is defined as the volume of the three dimensional structure $S \subseteq \R^3$ that receives a dose equal to or higher than $X$, that is:
-$$ V_X = \frac{\vol{\left\lbrace p \in S \subset \R^3 \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
+We define two DVH value measures, $V_{X\,\text{Gy}}$ and $D_{X\%}$, for a structure $S$.
+For a given dose $d: \R^3 \to \R^+$, $V_{X\,\text{Gy}}$ is defined as the volume of the three dimensional structure $S \subseteq \R^3$ that receives a dose equal to or higher than $X\,\text{Gy}$, that is:
+$$ V_{X\,\text{Gy}} = \frac{\vol{\left\lbrace p \in S \subset \R^3 \mid d(p) \geq X \right\rbrace}}{\vol{S}}.$$
 This formula can be approximated using the discretized dose on voxels $\mathbf{d}$:
-$$ V_X \approx \frac{ \#{\left\lbrace v \in S \mid \mathbf{d}_v \geq X \right\rbrace}}{\#\left\{ v \in S \right\}}$$
+$$ V_{X\,\text{Gy}} \approx \frac{ \#{\left\lbrace v \in S \mid \mathbf{d}_v \geq X \right\rbrace}}{\#\left\{ v \in S \right\}}$$
 with $v \in S$ voxels of the structure $S$, $\mathbf{d}_v$ the dose of $\mathbf{d}$ associated with voxel $v$, and $\#$ refers to voxel count.
 
-Similarly, we define $D_{X\%}$ as the minimal dose (in Gy) delivered to the $X\%$ most irradiated region of the structure, that is:
-$$D_{X\%} = \min \left\lbrace d(p) \mid p \in S_{X\%} \right\rbrace$$
-where $S_{X\%} \subseteq S$ is the $X\%$ most irradiated region of $S$.
+Similarly, we define $D_{X\,\%}$ as the minimal dose (in Gy) delivered to the $X\,\%$ most irradiated region of the structure, that is:
+$$D_{X\,\%} = \min \left\lbrace d(p) \mid p \in S_{X\,\%} \right\rbrace$$
+where $S_{X\,\%} \subseteq S$ is the $X\,\%$ most irradiated region of $S$.
 Again, it can be approximated using the discretized dose on voxels $\mathbf{d}$:
-$$D_{X\%} \approx \min \left\lbrace \mathbf{d}_v \mid v \in S_{X\%} \right\rbrace$$
-where $v \in S_{X\%}$ are the $X\%$ most irradiated voxels of $S$.
+$$D_{X\,\%} \approx \min \left\lbrace \mathbf{d}_v \mid v \in S_{X\,\%} \right\rbrace$$
+where $v \in S_{X\,\%}$ are the $X\,\%$ most irradiated voxels of $S$.
 
-For parallel-like structures, dose–volume reporting specifying $V_D$ is commonly used, with $D$ adapted to the specific organ.
-For instance, \cite{Graham1995} demonstrated a correlation between the incidence and severity of lung pneumonitis and $V_{20 \text{ Gy}}$, the volume of the lung receiving more than 20 Gy.
-In parallel-like structures, the median absorbed dose ($D_{50\%}$) provides a valuable measure of the total dose delivered to the organ at risk.
+For parallel-like structures, dose–volume reporting specifying $V_{D\,\text{Gy}}$ is commonly used, with $D\,\text{Gy}$ adapted to the specific organ.
+For instance, \cite{Graham1995} demonstrated a correlation between the incidence and severity of lung pneumonitis and $V_{20\,\text{Gy}}$, the volume of the lung receiving more than $20\,\text{Gy}$.
+In parallel-like structures, the median absorbed dose ($D_{50\,\%}$) provides a valuable measure of the total dose delivered to the organ at risk.
 
-For serial-like organs, it is recommended to report $D_{2\%}$ as the maximum absorbed dose, as $D_{0\%}$ is subject to noise.
+For serial-like organs, it is recommended to report $D_{2\,\%}$ as the maximum absorbed dose, as $D_{0\,\%}$ is subject to noise.
 
-Finally, for organs with a mixed parallel-serial structure, it is advised to report $D_{50\%}$, $D_{2\%}$, and $V_D$, with $D$ selected based on the threshold beyond which there is a significant risk of serious complications.
+Finally, for organs with a mixed parallel-serial structure, it is advised to report $D_{50\,\%}$, $D_{2\,\%}$, and $V_{D\,\text{Gy}}$, with $D\,\text{Gy}$ selected based on the threshold beyond which there is a significant risk of serious complications.
 
 \begin{figure}
 	\begin{subfigure}[b]{0.48\textwidth}
@@ -254,10 +254,11 @@ After the doctors have formulated maximal dose constraints for each OARs, and PT
 
 Constraints $c \in \mathcal{C}$ are formulated as $c = \left( S, D, V, \pm \right)$ where $D$ is in Grey, $V$ is a \%, and $\pm$ means the constraint is maximal/minimal.
 \\
-\textit{\textbf{E.g.:}} $c_{PTV+} = \left( \text{PTV}, \ 76\,Gy, \ 95\,\%, \ + \right)$ means that for the PTV structure, we need $D_{95\%} \geq 76\,\textit{Gy}$ (or, equivalently, $V_{76\textit{Gy}} \geq 95 \%$); this is a very typical constraint \cite{Zhao2016}.
+\textit{\textbf{E.g.:}} $c_{PTV+} = \left( \text{PTV}, \ 76\,Gy, \ 95\,\%, \ + \right)$ means that for the PTV structure, we need $D_{95\%} \geq 76\,\text{Gy}$ (or, equivalently, $V_{76\text{Gy}} \geq 95 \%$); this is a very typical constraint \cite{Zhao2016}.
+This constraint example is illustrated in figure \ref{fig:constraint_plot_min}.
 \\
-\textit{\textbf{E.g. (bis):}} $c_{\text{organ}} = \left( \text{organ}, \ 25\, Gy, \ 20\,\%, \ - \right)$ means that for the 'organ' structure, we need $D_{20\%} \leq 25\,\textit{Gy}$ (or, equivalently, $V_{25\textit{Gy}} \leq 25 \%$).
-This constraint example is illustrated in figure \ref{fig:constraint_plot_unmet}, \ref{fig:constraint_plot_met}, \ref{fig:constraint_plot_min}.
+\textit{\textbf{E.g. (bis):}} $c_{\text{organ}} = \left( \text{organ}, \ 25\, Gy, \ 20\,\%, \ - \right)$ means that for the 'organ' structure, we need $D_{20\%} \leq 25\,\text{Gy}$ (or, equivalently, $V_{25\text{Gy}} \leq 25 \%$).
+This constraint example is illustrated in figure \ref{fig:constraint_plot_unmet} and \ref{fig:constraint_plot_met}.
 
 \begin{figure}
 	\centering
@@ -322,9 +323,9 @@ Here, we explore three commonly used methods (also visually explained in figure 
 \begin{enumerate}
 	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels}:
 	This method penalizes a fixed number of voxels but tends to be noisy since the lower $V\%$ voxels can fluctuate with each optimization iteration.
-	\item \textbf{Penalizing voxels with dose $>D$ Gy}:
+	\item \textbf{Penalizing voxels with dose $>D\, Gy$}:
 	This approach yields a convex objective function.
-	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels with dose $>D\,\text{Gy}$}:
+	\item \textbf{Penalizing the lower $100-V\,\%$ dose voxels with dose $>D\, Gy$}:
 	This method is the most advanced method; 
 	Note that once the constraint is satisfied, no voxel is penalized.
 	However, for the same reason as the first approach, this penalization remains prone to noise.
@@ -358,7 +359,7 @@ Here, we explore three commonly used methods (also visually explained in figure 
 		\caption{Penalizing the lower $20\,\%$ dose voxels with dose greater than $25\,\text{Gy}$.}
 		\label{fig:constraint_penalization_plot_3}
 	\end{subfigure}
-	\caption{Typical penalization of a dose on an OAR according to the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$.}
+	\caption{Typical penalization of a dose on an OAR according to the maximal dose constraint $D_{20\,\%} \leq 25\,\text{Gy}$.}
 	\label{fig:constraint_penalization}
 \end{figure}
 
@@ -366,7 +367,7 @@ Turning off penalization is possible once a constraint is met (this is useful fo
 In our implementation, we chose not to do so, so when a constraint is on the edge of being met, the penalization does not turn on and off every other optimization iteration.
 
 Once the set of penalized voxels is selected, the penalization power $p$ must be determined, with typical choices being $p=1$ or $p=2$.
-We opt for penalizing voxels with a dose greater than $D$ Gy and set $p=2$.
+We opt for penalizing voxels with a dose greater than $D\,\text{Gy}$ and set $p=2$.
 This choice makes the objective function convex a weighted sum of convex functions.
 Desirable properties, such as the existence of a unique global minimum once the values of $w_c$ are fixed, follow from the convexity of the objective function.
 
@@ -411,12 +412,15 @@ After the emergence of AI for contouring, this manuscript tackles the problem of
 
 \section{Dose Mimicking}
 Dose mimicking is a technique used to reproduce a dose distribution as closely as possible.
-It involves the optimization of a new treatment plan to match the dose profile of an existing plan, which is typically derived from either a prior treatment or a reference plan considered clinically acceptable.
-This differ from the naive approach in \ref{naive_optimization}: the dose distribution that we try to replicate is not manually set.
+This task is typically needed when a patient changes machine: the leaves might not have the exact same shape, and their movements (the treatment plan) must be recalculated.
+However, the optimal 3D dose spread remains the same, and one only needs to replicate it (or mimic it) with another machine.
+
+Hence, dose mimicking involves the optimization of a new treatment plan to match the dose profile of an existing plan, which is typically derived from either a prior treatment or a reference plan considered clinically acceptable.
+This differ from the naive approach in section \ref{naive_optimization}: the dose distribution that we try to replicate is not manually set.
 The target dose was achieved before either on the same machine, or on a similar MLC.
 Hence, the task of mimicking it should be "easier".
 
-Formally, the optimization problem can be stated the same way as in \ref{naive_optimization}:
+Formally, the optimization problem can be stated the same way as in section \ref{naive_optimization}:
 $$ \min_\mathbf{b} \ \| \mathbf{d}_{\text{target}} - \textbf{L}\mathbf{b} \|^2 $$
 with $\mathbf{d}_{\text{target}}$ the previously target dose, instead of the manually defined one.
 
@@ -432,7 +436,7 @@ These findings are intended to provide valuable insights for the development of 
 We focused on evaluating the various open-source optimizers.
 We used the widely recognized TG-119 \cite{AAPM-TG119} cases as a benchmark for evaluating radiation therapy plan optimization.
 The TG-119 dataset provides specific dose goals, which we incorporated into our proposed cost function.
-The TGG 119 multiple PTVs is a theoretical case unlikely to happen in real life.
+The TG-119 multiple PTVs is a theoretical case unlikely to happen in real life.
 However, the other cases represent a comprehensive set of what dosimetrists could encounter daily.
 
 We also used one typical case of prostate cancer from ICM.
@@ -551,8 +555,8 @@ Notably, an observable trend indicates that as the problem size increases, LBFGS
 Therefore, we will use the LBFGS algorithm in the rest of this manuscript.
 
 \subsection{Discussion}
-In the future, if new techniques are developed one day, making computing the Hessian much faster, we recommend using Newton's optimization algorithm.
-However, to our knowledge, computing the Hessian remains long, not only in our implementation.
+In the future, if new techniques are developed making computing the Hessian much faster, we recommend using Newton's optimization algorithm.
+However, to our knowledge, computing the Hessian remains intrinsically long, not only in our implementation.
 
 Hence, we recommend using the LBFGS algorithm for the problem of dose optimization in radiotherapy;
 it is the fastest to converge and converges steadily on the tested cases.

@@ -28,7 +28,7 @@ Moreover, the time-intensive nature of manual optimization \cite{Zhang2020} and 
 Automation enables the treatment of more patients and facilitates exploring a broader range of treatment options.
 
 By applying computational algorithms and artificial intelligence, automated planning systems offer the potential to enhance radiotherapy treatment delivery significantly.
-These systems can improve patient throughput and resource allocation by reducing planning time and increasing departmental efficiency.
+These systems can improve patient throughput and resource allocation by reducing planning time and increasing the efficiency of radiotherapy departments.
 Automated planning can improve plan quality and consistency, reducing variability and ensuring optimal treatment outcomes.
 Furthermore, the ability to enable rapid re-planning facilitates adaptive radiotherapy, allowing for adjustments to treatment plans in response to changes in tumor volume or patient anatomy.
 Finally, automated systems can explore a more expansive solution space, potentially discovering novel and innovative planning strategies that may improve treatment outcomes.
@@ -39,7 +39,7 @@ These challenges include the creation of robust optimization algorithms, integra
 \section{State of the Art}
 \subsection{Research}
 \paragraph{Automated rule implementation and reasoning}
-An automated computer program with predefined rules and "if-then" \footnote{Also known as "expert" systems.} structures is a solution for implementing simple clinical guidelines.
+An automated computer program with predefined rules and so called "if-then" \footnote{Also known as "expert" systems.} structures is a solution for implementing simple clinical guidelines.
 In this context, the treatment planning system directly interprets patient anatomy and dosimetric requirements, simulating the decision-making process traditionally employed in manual treatment planning \cite{Rossille2005}.
 By adhering to a structured, logical framework derived from human-defined protocols, automated reasoning in radiotherapy (ARIR) can significantly reduce the need for manual intervention, particularly for repetitive tasks.
 
@@ -61,7 +61,7 @@ These tools addressed the complexity and enhanced the speed, quality, and access
 In DVH-based inverse optimization used by most commercial TPS, a cost function must be defined to solve the minimization problem.
 This function combines data from all volumes of interest as a weighted sum of penalties from each DVH constraint.
 The weighting coefficients reflect tradeoffs between the target(s) and different OARs.
-However, this approach requires re-optimization if dosimetric preferences change during plan evaluation, making it time-consuming to find the optimal balance.
+However, this approach requires online re-optimization if dosimetric preferences change during plan evaluation, making it time-consuming to find the optimal balance.
 Multi-criteria optimization (MCO) was introduced to address this, enabling the simultaneous generation of multiple "anchor" plans.
 Each anchor plan optimizes one OAR's DVH criterion for maximal sparing without compromising tumor target dosimetry \cite{lahanas2003,thieke2007}.
 These plans form a hypersurface in the $N$-dimension space, where $N$ is the number of independent OAR dosimetric constraints.
@@ -137,9 +137,9 @@ The potential of this semi-automated framework to streamline clinical workflows 
 \subsection{Full-automation}
 \subsubsection*{With reinforcement learning and conventional treatment optimization techniques}
 Chapter 5 addresses the limitations of classical optimization techniques in fully automating the treatment planning process.
-This chapter introduces a novel framework that integrates reinforcement learning with conventional optimization.
+This chapter introduces a framework that integrates reinforcement learning with conventional optimization.
 The reinforcement learning agent is driven by clinical expertise and can be specialized to center-specific guidelines.
-The findings from this work have been disseminated through a peer-reviewed journal article, a presentation at the Artificial Intelligence in Medicine (AIME) 2024 conference, and a poster presentation at the American Society for Radiation Oncology (ASTRO) 2024 meeting.
+The techniques found have been published through a peer-reviewed journal article, a presentation at the Artificial Intelligence in Medicine (AIME) 2024 conference, and a poster presentation at the American Society for Radiation Oncology (ASTRO) 2024 meeting.
 
 \subsection{Hybrid-automation}
 \subsubsection*{Via target DVHs deep dose and dose mimicking technique}

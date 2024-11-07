@@ -13,7 +13,7 @@ Moreover, the potential for dose compensation (underdosing in one region counter
 This compensatory effect is only sometimes applicable, making establishing a standardized method for assessing dose distribution clinical differences challenging.
 
 \paragraph{Dose Evaluation}
-To assess the quality of a dose distribution, dosimetrists primarily focus on DVHs as the key metric.
+To assess the quality of a dose distribution, dosimetrists primarily focus on DVHs as the key information.
 While they also consider aspects of the three-dimensional (3D) dose distribution, such as inter-structure dose gradients and the presence, number, and location of hot spots, their primary attention is directed towards the analysis of DVHs, which provide a comprehensive overview of dose coverage and sparing of organs at risk.
 
 \subsection{Method}
@@ -95,7 +95,7 @@ We evaluated all the aforementioned distance metrics and propose to retain only 
 
 \subparagraph{Fréchet Distance}
 DVH (Dose-Volume Histogram) curves can be interpreted as lines in $\R^2$
-\footnote{In the case of voxel-wise dose approximations, they are represented as poly-lines in R2R2.}.
+\footnote{In the case of voxel-wise dose approximations, they are represented as poly-lines in $\R^2$.}.
 In this context, the Fréchet distance is a well-known metric for assessing the similarity between two curves, particularly useful for comparing poly-lines \cite{Efrat2002}.
 It measures the minimum distance a particle would travel when simultaneously traversing both curves.
 In this study, we apply the Fréchet distance to compare the DVH curves of two radiation dose distributions.
@@ -340,7 +340,9 @@ This property makes the metric particularly useful in various applications, incl
 Despite the advantages, this distance metric has certain limitations.
 A notable drawback is its inability to capture spatial dose distribution, which may pose challenges in specific cases.
 Pathological examples exist where two DVHs appear similar, but the clinical interpretation differs significantly.
-Other factors, such as the spatial distribution of the dose within the target volume or surrounding tissues, can play a pivotal role in the treatment’s effectiveness. 
+Other factors, such as the spatial distribution of the dose within the target volume or surrounding tissues, can play a pivotal role in the treatment’s effectiveness.
+To cover this, incorporating hot points in the metric could help.
+However, it remains to be seen how to do it in a clinically meaningful way.
 
 For instance, two dose distributions might deliver the same high dose, with one distributed across several small regions and the other concentrated in a single large region.
 While the DVHs may appear identical, clinicians would interpret these two dose distributions differently.
@@ -351,7 +353,8 @@ When comparing two distinct doses, a considerable distance between them may indi
 However, this does not necessarily imply that one dose is superior.
 The effectiveness of a dose depends on several other factors, such as the individual patient’s characteristics, medical history, and treatment response. 
 
-Therefore, relying solely on the distance between doses may not accurately assess which dose is more effective or clinically appropriate in a specific case.
+The distance between two doses does not assess which is more effective or clinically appropriate in a specific case.
+It only acknowledges that they are clinically equivalent or not, and in the latter case, a dosimetrist needs to make a choice.
 It is essential to account for all relevant factors when evaluating the efficacy of a treatment dose to ensure a comprehensive understanding.
 
 Overall, the proposed dose comparison technique presents a promising tool for radiation dose evaluation.
@@ -501,7 +504,7 @@ As a result, these doses could be consolidated, given that they are likely to ha
 This method provides an efficient approach to identifying groups of treatment plans that share equivalent therapeutic effects, enabling a more streamlined decision-making process.
 
 \paragraph{Numerical Clustering Evaluation}
-As explained in \ref{clustering_evaluation}, we use the mean standard deviation of doses at 101 equispaced values of volume to obtain a scalar value of how far apart are a set of doses; see table \ref{table:cluster_std} for results.
+As explained in subsection \ref{clustering_evaluation}, we use the mean standard deviation of doses at 101 equispaced values of volume to obtain a scalar value of how far apart are a set of doses; see table \ref{table:cluster_std} for results.
 
 \begin{table}
 	\centering

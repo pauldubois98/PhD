@@ -6,10 +6,11 @@ A cost function is then used through a classical optimization algorithm to calcu
 
 In recent years, deep learning in treatment planning has gained attention.
 Deep learning models can predict the three-dimensional dose distribution based on patient-specific anatomical data derived from medical imaging (CT scans).
-While the predicted dose distribution may not directly represent a deliverable treatment plan, it serves as the basis for determining a clinically viable plan through dose mimicking.
+While the predicted dose distribution may not directly be used as a deliverable treatment plan, it serves as the basis for determining a clinically viable plan through dose mimicking.
 Dose mimicking is an optimization technique that eliminates the need for manual adjustment of importance factors by dosimetrists.
 Therefore, the ability to predict a clinically acceptable and near-deliverable 3D dose distribution for any patient presents significant potential for fully automating the radiotherapy planning process.
 It is important to note that the successful application of dose mimicking \cite{McIntosh2017,Sun2022} requires a target dose distribution that is nearly deliverable; thus, arbitrarily setting the target dose to zero for OARs is not feasible.
+% \footnote{As demonstrated before.}
 
 However, this approach requires further adaptation to accommodate specific clinical guidelines.
 A potential solution involves training individualized models for each treatment center, allowing institution-specific practices and guidelines to be incorporated.

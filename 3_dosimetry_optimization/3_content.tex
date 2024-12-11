@@ -255,35 +255,42 @@ After the doctors have formulated maximal dose constraints for each OARs, and PT
 Constraints $c \in \mathcal{C}$ are formulated as $c = \left( S, D, V, \pm \right)$ where $D$ is in Grey, $V$ is a \%, and $\pm$ means the constraint is maximal/minimal.
 \\
 \textit{\textbf{E.g.:}} $c_{PTV+} = \left( \text{PTV}, \ 76\,Gy, \ 95\,\%, \ + \right)$ means that for the PTV structure, we need $D_{95\%} \geq 76\,\text{Gy}$ (or, equivalently, $V_{76\text{Gy}} \geq 95 \%$); this is a very typical constraint \cite{Zhao2016}.
-This constraint example is illustrated in figure \ref{fig:constraint_plot_min}.
+This constraint example is illustrated in figure \ref{fig:constraint_plot_min} and \ref{fig:constraint_plot_min_met}.
 \\
 \textit{\textbf{E.g. (bis):}} $c_{\text{organ}} = \left( \text{organ}, \ 25\, Gy, \ 20\,\%, \ - \right)$ means that for the 'organ' structure, we need $D_{20\%} \leq 25\,\text{Gy}$ (or, equivalently, $V_{25\text{Gy}} \leq 25 \%$).
-This constraint example is illustrated in figure \ref{fig:constraint_plot_unmet} and \ref{fig:constraint_plot_met}.
+This constraint example is illustrated in figure \ref{fig:constraint_plot_max} and \ref{fig:constraint_plot_max_met}.
 
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.32\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{constraint_plot.pdf}
+		\includegraphics[width=0.9\textwidth]{constraint_plot_max.pdf}
 		\caption{Maximal dose constraint not met.}
-		\label{fig:constraint_plot_unmet}
+		\label{fig:constraint_plot_max}
 	\end{subfigure}
-	\begin{subfigure}{0.32\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.9\textwidth]{constraint_plot_met.pdf}
+		\includegraphics[width=0.9\textwidth]{constraint_plot_max_met.pdf}
 		\caption{Maximal dose constraint met.}
-		\label{fig:constraint_plot_met}
+		\label{fig:constraint_plot_max_met}
 	\end{subfigure}
-	\begin{subfigure}{0.32\textwidth}
+	\\
+	\begin{subfigure}{0.45\textwidth}
 		\centering
 		\includegraphics[width=0.9\textwidth]{constraint_plot_min.pdf}
 		\caption{Minimal dose constraint unmet.}
 		\label{fig:constraint_plot_min}
 	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{constraint_plot_min_met.pdf}
+		\caption{Minimal dose constraint met.}
+		\label{fig:constraint_plot_min_met}
+	\end{subfigure}
 	\caption*{
-		Figures \ref{fig:constraint_plot_unmet}, \ref{fig:constraint_plot_met}:
+		Figures \ref{fig:constraint_plot_max}, \ref{fig:constraint_plot_max_met}:
 		Typical DVH of an OAR, with visualization of the maximal dose constraint $D_{20\%} \leq 25\,\text{Gy}$ (or $V_{25\text{Gy}} \leq 20\,\%$).\\
-		Figure \ref{fig:constraint_plot_min}:
+		Figure \ref{fig:constraint_plot_min}, \ref{fig:constraint_plot_min_met}:
 		Typical DVH of a PTV, with visualization of the minimal dose constraint $D_{95\%} \geq 76\,\text{Gy}$ (or $V_{76\text{Gy}} \geq 95\,\%$).\\
 		Note that dose-volume objectives then turn to points on dose-volume histograms.
 		The relevant DVH curve must stay above (in the case of a minimal dose constraint), or under (in the case of a maximal dose constraint) this point to pass the constraint.

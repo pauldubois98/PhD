@@ -31,17 +31,17 @@ It emphasizes the need for more sophisticated techniques to capture clinically r
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.44\linewidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/example\_3d\_doses.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/example3dDoses.png}
 		\caption{3D visualization of the two doses on the phantom body.}
 		\label{fig:pathological_example-3d_doses}
 	\end{subfigure}
 	\begin{subfigure}{0.55\linewidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/example\_bixels.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/exampleBixels.pdf}
 		\caption{2D view of the bixels activation of the two doses.}
 		\label{fig:pathological_example-bixels}
 	\end{subfigure}
 	\begin{subfigure}{0.75\linewidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/example\_dvh.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/exampleDVH.pdf}
 		\caption{Dose-Volume Histograms of the two doses on the phantom body.}
 		\label{fig:pathological_example-dvh}
 	\end{subfigure}
@@ -187,12 +187,12 @@ The two compared doses were optimized on the TG-119 phantom prostate case, using
 \begin{figure}
 	\centering
 	\begin{subfigure}[c]{0.95\textwidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/dose\_volume\_difference.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/doseVolumeDifference.pdf}
 		\caption{Classical DVH (dose on the $x$-axis).}
 		\label{fig:dose_volume_difference-normal}
 	\end{subfigure}
 	\begin{subfigure}[c]{0.95\textwidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/dose\_volume\_difference-flipped.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/doseVolumeDifference-flipped.pdf}
 		\caption{Flipped axes DVH (volume on the $x$-axis).}
 		\label{fig:dose_volume_difference-flipped}
 	\end{subfigure}
@@ -214,7 +214,7 @@ We calculated the pairwise distances for each pair of doses, effectively constru
 See Figure \ref{fig:pairwise_distances} for comparing the adjacency matrices.
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{dose_distances_figures/pairwise\_distances.pdf}
+	\includegraphics[width=\textwidth]{doseDistancesFigures/pairwiseDistances.pdf}
 	\caption{Pairwise distances between doses\\(with different distances calculation method)}
 	\label{fig:pairwise_distances}
 \end{figure}
@@ -310,12 +310,12 @@ Thus, voxel-wise very close doses distributions will also have close DVHs distan
 \begin{figure}
 	\centering
 	\begin{subfigure}[c]{0.49\textwidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/TotalVariation-Voxelwise.pdf}	
+		\includegraphics[width=\linewidth]{doseDistancesFigures/TotalVariation-Voxelwise.pdf}	
 		\caption{DVHs Total Variation vs Voxel-wise.}
 		\label{fig:TotalVariation-Voxelwise}
 	\end{subfigure}
 	\begin{subfigure}[c]{0.49\textwidth}
-		\includegraphics[width=\linewidth]{dose_distances_figures/TotalVariation-Wasserstein.pdf}
+		\includegraphics[width=\linewidth]{doseDistancesFigures/TotalVariation-Wasserstein.pdf}
 		\caption{Total Variation vs Wasserstein.}
 		\label{fig:TotalVariation-Wasserstein}
 	\end{subfigure}
@@ -458,13 +458,13 @@ Since the graph is clearly not planar, we choose to plot it in a circular layout
 	\centering
 	\begin{subfigure}[c]{0.49\textwidth}
 		\centering
-		\includegraphics[width=0.75\linewidth]{dose_clustering_figures/graph_circular.pdf}
+		\includegraphics[width=0.75\linewidth]{doseClusteringFigures/graphCircular.pdf}
 		\caption{Circular Layout.}
 		\label{fig:graph-circular}
 	\end{subfigure}
 	\begin{subfigure}[c]{0.49\textwidth}
 		\centering
-		\includegraphics[width=0.75\linewidth]{dose_clustering_figures/graph_spring.pdf}
+		\includegraphics[width=0.75\linewidth]{doseClusteringFigures/graphSpring.pdf}
 		\caption{Spring Layout.}
 		\label{fig:graph-spring}
 	\end{subfigure}
@@ -479,7 +479,7 @@ Since the graph is clearly not planar, we choose to plot it in a circular layout
 In order to obtain a more precise understanding of the edge weights in the network, one can refer to the adjacency matrix of the edge weights, as depicted in Figure \ref{fig:adjacency}.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{dose_clustering_figures/adjacency.pdf}
+	\includegraphics[width=0.9\textwidth]{doseClusteringFigures/adjacency.pdf}
 	\caption{Weight Adjacency Matrix of the Network}
 	\label{fig:adjacency}
 \end{figure}
@@ -490,7 +490,7 @@ To ensure clarity and prevent confusion, each structure is presented on a separa
 Notably, our observations align with expectations, as doses assigned to nodes within the same community (indicated by the same color) exhibit nearly overlapping DVHs.
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{dose_clustering_figures/dvh.pdf}
+	\includegraphics[width=\textwidth]{doseClusteringFigures/dvh.pdf}
 	\caption{Dose-Volume Histogram}
 	\label{fig:dvh}
 \end{figure}
@@ -583,7 +583,7 @@ This automation not only saves time but also reduces the risk of human error, le
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{dose_clustering_figures/graphical_abstract.pdf}
+	\includegraphics[width=\textwidth]{doseClusteringFigures/graphicalAbstract.pdf}
 	\caption{Graphical Abstract of the Proposed Process.}
 	\label{fig:graphical_abstract}
 \end{figure}
